@@ -3,6 +3,7 @@
 This repository is a workbench for NAU to develop
 themed sites based on [Richie](https://github.com/openfun/richie), the CMS
 for Open Education.
+This repository is based on France Université Numérique openfun [richie-site-factory](https://github.com/openfun/richie-site-factory) repo.
 
 ## Prerequisite
 
