@@ -1,8 +1,8 @@
-node {
+node("dev") {
     checkout scm
 
     if (env.BRANCH_NAME == 'master' || env.TAG_NAME != null) {
-        withEnv(["DOCKER_HOST=127.0.0.1"]) {
+        //withEnv(["DOCKER_HOST=tcp://127.0.0.1:2376"]) {
 
             /* prepare environment */
             def tag_name = env.TAG_NAME
@@ -60,7 +60,7 @@ node {
             stage('Publish app image to docker registry') {
                 sh "docker push ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
             }
-        }
+        //}
     }
 
     stage('Cleanup') {
