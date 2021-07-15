@@ -181,9 +181,11 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "localhost", environ_name="DB_HOST", environ_prefix=None
             ),
             "PORT": values.Value(3306, environ_name="DB_PORT", environ_prefix=None),
-            "OPTIONS": {
-                "charset": values.Value("utf8mb4", environ_name="DB_OPTION_CHARSET", environ_prefix=None)
-            },
+            # "OPTIONS": {
+            #     "charset": values.Value(
+            #         "utf8mb4", environ_name="DB_OPTION_CHARSET", environ_prefix=None
+            #     )
+            # },
         }
     }
     MIGRATION_MODULES = {}
@@ -265,7 +267,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     RICHIE_COURSE_RUN_SYNC_SECRETS = values.ListValue([])
 
     # Internationalization
-    TIME_ZONE = "Europe/Paris"
+    TIME_ZONE = values.Value(
+        "Europe/Lisbon", environ_name="TIME_ZONE", environ_prefix=None
+    )
     USE_I18N = True
     USE_L10N = True
     USE_TZ = True
