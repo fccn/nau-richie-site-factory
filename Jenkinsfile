@@ -22,7 +22,7 @@ node {
     //   final foundSitesFolders = findFiles(glob: 'sites/*')
     //   makeBuildForAllSites(foundSitesFolders)
 
-        sh "export RICHIE_SITE=${site} && make build"
+        sh "export RICHIE_SITE=${site} && make env.d/aws && make build"
     }
     stage('Check built image availability') {
         sh "docker images 'nau:development'"
