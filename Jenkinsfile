@@ -1,67 +1,71 @@
 node {
-  checkout scm
-  if (env.BRANCH_NAME == 'master' || env.TAG_NAME != null) {
-    /* prepare environment */
-    def tag_name = env.TAG_NAME
+    checkout scm
 
-    if(tag_name == null){
-        tag_name = gitTagName()
-    }
+    if (env.BRANCH_NAME == 'master' || env.TAG_NAME != null) {
+        withEnv(["DOCKER_HOST=127.0.0.1"]) {
 
-    if(tag_name){}
-    else{
-      tag_name = 'latest'
-    }
+            /* prepare environment */
+            def tag_name = env.TAG_NAME
 
-    // in future execute a loop within each Jenkins pipeline stage
-    def site = 'nau'
-    def dockerRegistryOrganization = 'nauedu'
-    def dockerImageName = 'richie-site-nau'
+            if(tag_name == null){
+                tag_name = gitTagName()
+            }
 
-    stage('Build docker images') {
-    //   final foundSitesFolders = findFiles(glob: 'sites/*')
-    //   makeBuildForAllSites(foundSitesFolders)
+            if(tag_name){}
+            else{
+                tag_name = 'latest'
+            }
 
-        sh "export RICHIE_SITE=${site} && make env.d/aws && make build"
-    }
-    stage('Check built image availability') {
-        sh "docker images 'nau:development'"
-        sh "docker images 'nau:production'"
-        //sh "docker images 'nau-nginx:production'"
-    }
+            // in future execute a loop within each Jenkins pipeline stage
+            def site = 'nau'
+            def dockerRegistryOrganization = 'nauedu'
+            def dockerImageName = 'richie-site-nau'
 
-    stage('Check version.json file') {
-        sh "make ci-version"
-    }
+            stage('Build docker images') {
+                //   final foundSitesFolders = findFiles(glob: 'sites/*')
+                //   makeBuildForAllSites(foundSitesFolders)
 
-    stage('Run Django migrations') {
-        sh "make ci-migrate"
-    }
+                sh "export RICHIE_SITE=${site} && make env.d/aws && make build"
+            }
+            stage('Check built image availability') {
+                sh "docker images 'nau:development'"
+                sh "docker images 'nau:production'"
+                //sh "docker images 'nau-nginx:production'"
+            }
 
-    stage('Run Django checks with production image') {
-        sh "make ci-check"
-    }
+            stage('Check version.json file') {
+                sh "make ci-version"
+            }
 
-    stage('Check that the changelog, versions and tag are always in sync') {
-        sh "bin/ci check_tag ${site} ${tag_name}"
-    }
+            stage('Run Django migrations') {
+                sh "make ci-migrate"
+            }
 
-    stage('Tag app image') {
-        sh "docker tag ${site}:production ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
-    }
-    stage('Login to DockerHub') {
-        withCredentials([usernamePassword(credentialsId: 'docker-hub-registry-credentials', passwordVariable: 'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
-            sh "echo '\$DOCKER_REGISTRY_PWD' | docker login -u '\$DOCKER_REGISTRY_USER' --password-stdin"
+            stage('Run Django checks with production image') {
+                sh "make ci-check"
+            }
+
+            stage('Check that the changelog, versions and tag are always in sync') {
+                sh "bin/ci check_tag ${site} ${tag_name}"
+            }
+
+            stage('Tag app image') {
+                sh "docker tag ${site}:production ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+            }
+            stage('Login to DockerHub') {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-registry-credentials', passwordVariable: 'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
+                    sh "echo '\$DOCKER_REGISTRY_PWD' | docker login -u '\$DOCKER_REGISTRY_USER' --password-stdin"
+                }
+            }
+            stage('Publish app image to docker registry') {
+                sh "docker push ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+            }
         }
     }
-    stage('Publish app image to docker registry') {
-        sh "docker push ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
-    }
-  }
 
-  stage('Cleanup') {
-    cleanWs notFailBuild: true
-  }
+    stage('Cleanup') {
+        cleanWs notFailBuild: true
+    }
 }
 
 String gitTagName() {
