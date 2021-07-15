@@ -1,0 +1,54 @@
+# NAU base www NAU site using richie site factory.
+# Copyright (C) 2021 FCT|FCCN
+# This file is distributed under the same license as the nau-richie-site-factory project.
+# Ivo Branco <ivo.branco@fccn.pt>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-14 18:38+0200\n"
+"PO-Revision-Date: 2021-07-14 16:32+0100\n"
+"Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: nau/settings.py:222
+msgid "Dashboard"
+msgstr ""
+
+#: nau/settings.py:223
+msgid "{base_url:s}/dashboard"
+msgstr ""
+
+#: nau/settings.py:226
+msgid "Profile"
+msgstr ""
+
+#: nau/settings.py:227
+msgid "{base_url:s}/u/(username)"
+msgstr ""
+
+#: nau/settings.py:230
+msgid "Account"
+msgstr ""
+
+#: nau/settings.py:231
+msgid "{base_url:s}/account/settings"
+msgstr ""
+
+#: nau/settings.py:317
+msgid "Teaser"
+msgstr ""
+
+#: nau/settings.py:401 nau/settings.py:416
+msgid "English"
+msgstr "English"
+
+#: nau/settings.py:401 nau/settings.py:424
+msgid "Portuguese"
+msgstr "Português"
