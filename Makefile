@@ -56,10 +56,10 @@ bootstrap:  ## install development dependencies
 .PHONY: bootstrap
 
 # == Docker
-build: ## build all containers
-	$(COMPOSE) build app
-	$(COMPOSE) build nginx
-	$(COMPOSE) build app-dev
+build: ## build all containers. Pass extra arguments to docker-compose using: make ARGS="--no-cache" build
+	$(COMPOSE) build $(ARGS) app
+	$(COMPOSE) build $(ARGS) nginx
+	$(COMPOSE) build $(ARGS) app-dev
 .PHONY: build
 
 reset:  ## Remove database and local files

@@ -27,14 +27,14 @@ node("dev") {
 
                 // Create a version.json à-la-mozilla
                 // https://github.com/mozilla-services/Dockerflow/blob/master/docs/version_object.md
-                sh ("printf '{\"commit\":\"%s\",\"version\":\"%s\",\"source\":\"%s\",\"build\":\"%s\"}\n' \"$gitCommit\" \"$tag_name\" \"$gitUrl\" \"$env.BUILD_URL\" > sites/$site/version.json")
+                sh ("printf '{\"commit\":\"%s\",\"version\":\"%s\",\"source\":\"%s\",\"build\":\"%s\"}\n' \"$gitCommit\" \"$tag_name\" \"$gitUrl\" \"$env.BUILD_URL\" > sites/$site/src/backend/version.json")
             }
 
             stage('Build docker images') {
                 //   final foundSitesFolders = findFiles(glob: 'sites/*')
                 //   makeBuildForAllSites(foundSitesFolders)
 
-                sh "export RICHIE_SITE=${site} && make env.d/aws && make build"
+                sh "export RICHIE_SITE=${site} && make env.d/aws && make ARGS=\"--no-cache\" build"
             }
             stage('Check built image availability') {
                 sh "docker images 'nau:development'"
