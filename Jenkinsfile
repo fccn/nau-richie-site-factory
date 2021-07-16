@@ -21,6 +21,15 @@ node("dev") {
             def dockerRegistryOrganization = 'nauedu'
             def dockerImageName = 'richie-site-nau'
 
+            stage('Generate version.json file') {
+                def gitUrl = sh(returnStdout: true, script: 'git config remote.origin.url').trim()
+                def gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+
+                // Create a version.json à-la-mozilla
+                // https://github.com/mozilla-services/Dockerflow/blob/master/docs/version_object.md
+                sh ("printf '{\"commit\":\"%s\",\"version\":\"%s\",\"source\":\"%s\",\"build\":\"%s\"}\n' \"$gitCommit\" \"$tag_name\" \"$gitUrl\" \"$env.BUILD_URL\" > sandbox/version.json")
+            }
+
             stage('Build docker images') {
                 //   final foundSitesFolders = findFiles(glob: 'sites/*')
                 //   makeBuildForAllSites(foundSitesFolders)
