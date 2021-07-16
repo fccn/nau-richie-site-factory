@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 18:38+0200\n"
+"POT-Creation-Date: 2021-07-16 11:21+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,38 +17,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: nau/settings.py:222
+#: nau/i18n_override.py:7
+msgid "Life-changing learning!"
+msgstr "&nbsp;"
+
+#: nau/settings.py:224
 msgid "Dashboard"
 msgstr ""
 
-#: nau/settings.py:223
+#: nau/settings.py:225
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: nau/settings.py:226
+#: nau/settings.py:228
 msgid "Profile"
 msgstr ""
 
-#: nau/settings.py:227
+#: nau/settings.py:229
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:230
+#: nau/settings.py:232
 msgid "Account"
 msgstr ""
 
-#: nau/settings.py:231
+#: nau/settings.py:233
 msgid "{base_url:s}/account/settings"
 msgstr ""
 
-#: nau/settings.py:317
+#: nau/settings.py:321
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:401 nau/settings.py:416
+#: nau/settings.py:405 nau/settings.py:420
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:401 nau/settings.py:424
+#: nau/settings.py:405 nau/settings.py:428
 msgid "Portuguese"
 msgstr "Português"
