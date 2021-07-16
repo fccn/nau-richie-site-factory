@@ -27,7 +27,7 @@ node("dev") {
 
                 // Create a version.json à-la-mozilla
                 // https://github.com/mozilla-services/Dockerflow/blob/master/docs/version_object.md
-                sh ("printf '{\"commit\":\"%s\",\"version\":\"%s\",\"source\":\"%s\",\"build\":\"%s\"}\n' \"$gitCommit\" \"$tag_name\" \"$gitUrl\" \"$env.BUILD_URL\" > sandbox/version.json")
+                sh ("printf '{\"commit\":\"%s\",\"version\":\"%s\",\"source\":\"%s\",\"build\":\"%s\"}\n' \"$gitCommit\" \"$tag_name\" \"$gitUrl\" \"$env.BUILD_URL\" > sites/$site/version.json")
             }
 
             stage('Build docker images') {
