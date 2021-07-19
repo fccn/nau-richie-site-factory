@@ -33,8 +33,9 @@ node("dev") {
             stage('Build docker images') {
                 //   final foundSitesFolders = findFiles(glob: 'sites/*')
                 //   makeBuildForAllSites(foundSitesFolders)
-
-                sh "export RICHIE_SITE=${site} && make env.d/aws && make ARGS=\"--no-cache\" build"
+                ansiColor('xterm') {
+                    sh "export RICHIE_SITE=${site} && make env.d/aws && make ARGS=\"--no-cache\" build"
+                }
             }
             stage('Check built image availability') {
                 sh "docker images 'nau:development'"
