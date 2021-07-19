@@ -142,13 +142,13 @@ is automated.
 For example, to upgrade a specific site, test its build after upgrade and commit all changes:
 
 ```
-bin/upgrade ademe --build --commit
+bin/upgrade nau --build --commit
 ```
 
 To upgrade a list of 3 sites but without testing the build or committing the changes:
 
 ```
-bin/upgrade ademe funcampus funcorporate
+bin/upgrade nau othersite2 othersite3
 ```
 
 To upgrade all the sites handled in the site factory:
@@ -166,7 +166,7 @@ if only fixes are present in the changelog, otherwise a minor release is made.
 For example, to release a specific site and commit all changes:
 
 ```
-bin/release ademe --commit
+bin/release nau --commit
 ```
 
 If you consider that the changelog contains breaking changes, you can force a major release
@@ -176,7 +176,7 @@ by passing the parameter `--major`.
 To release a list of 3 sites but without committing the changes:
 
 ```
-bin/release ademe funcampus funcorporate --major
+bin/release nau --major
 ```
 
 To release all the sites handled in the site factory:
