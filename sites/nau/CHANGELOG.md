@@ -8,9 +8,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-- Install richie for NAU
+## [0.1.0] - 2021-07-19
 
-## [1.0.0-alpha1] - 2021-07-12
+### Done
+
+- Install richie for NAU
+- Changed primary action colors from red to NAU blues
+
+## [0.0.1-alpha1] - 2021-07-12
 
 ### Changed
 
