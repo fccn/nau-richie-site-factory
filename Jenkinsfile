@@ -1,4 +1,7 @@
 node("dev") {
+    // This limits build concurrency to 1 per branch
+    properties([disableConcurrentBuilds()])
+
     checkout scm
 
     if (env.BRANCH_NAME == 'master' || env.TAG_NAME != null) {
@@ -7,12 +10,16 @@ node("dev") {
             /* prepare environment */
             def tag_name = env.TAG_NAME
 
-            if(tag_name == null){
-                tag_name = gitTagName()
-            }
+            // if (tag_name == null){
+            //     tag_name = gitTagName()
+            // }
 
-            if(tag_name){}
-            else{
+            // if (tag_name){
+            // } else {
+            //     tag_name = 'latest'
+            // }
+
+            if (env.BRANCH_NAME == 'master') {
                 tag_name = 'latest'
             }
 
@@ -29,7 +36,6 @@ node("dev") {
                 // https://github.com/mozilla-services/Dockerflow/blob/master/docs/version_object.md
                 sh ("printf '{\"commit\":\"%s\",\"version\":\"%s\",\"source\":\"%s\",\"build\":\"%s\"}\n' \"$gitCommit\" \"$tag_name\" \"$gitUrl\" \"$env.BUILD_URL\" > sites/$site/src/backend/version.json")
             }
-
             stage('Build docker images') {
                 //   final foundSitesFolders = findFiles(glob: 'sites/*')
                 //   makeBuildForAllSites(foundSitesFolders)
@@ -42,33 +48,52 @@ node("dev") {
                 sh "docker images 'nau:production'"
                 //sh "docker images 'nau-nginx:production'"
             }
-
             stage('Check version.json file') {
-                sh "make ci-version"
+                ansiColor('xterm') {
+                    try {
+                        sh "make ci-version"
+                    } catch (exc) {
+                        sh "make stop"
+                    }
+                }
             }
-
             stage('Run Django migrations') {
-                sh "make ci-migrate"
+                ansiColor('xterm') {
+                    try {
+                        sh "make ci-migrate"
+                    } catch (exc) {
+                        sh "make stop"
+                    }
+                }
             }
-
             stage('Run Django checks with production image') {
-                sh "make ci-check"
+                ansiColor('xterm') {
+                    try {
+                        sh "make ci-check"
+                    } catch (exc) {
+                        sh "make stop"
+                    }
+                }
             }
-
             stage('Check that the changelog, versions and tag are always in sync') {
-                sh "bin/ci check_tag ${site} ${tag_name}"
+                if(env.TAG_NAME) {
+                    sh "bin/ci check_tag ${site} ${tag_name}"
+                }
             }
-
             stage('Tag app image') {
-                sh "docker tag ${site}:production ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+                if(tag_name) {
+                    sh "docker tag ${site}:production ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+                }
             }
             stage('Login to DockerHub') {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-registry-credentials', passwordVariable: 'DOCKER_REGISTRY_PWD', usernameVariable: 'DOCKER_REGISTRY_USER')]) {
-                    sh "echo '\$DOCKER_REGISTRY_PWD' | docker login -u '\$DOCKER_REGISTRY_USER' --password-stdin"
+                    sh "echo $DOCKER_REGISTRY_PWD | docker login -u '$DOCKER_REGISTRY_USER' --password-stdin"
                 }
             }
             stage('Publish app image to docker registry') {
-                sh "docker push ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+                if(tag_name) {
+                    sh "docker push ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+                }
             }
         //}
     }
