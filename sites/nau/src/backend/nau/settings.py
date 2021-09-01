@@ -199,7 +199,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # For static files, we want to use a backend that includes a hash in
     # the filename, that is calculated from the file content, so that browsers always
     # get the updated version of each file.
-    STATICFILES_STORAGE = values.Value("base.storage.CDNManifestStaticFilesStorage")
+    STATICFILES_STORAGE = values.Value("django.contrib.staticfiles.storage.ManifestStaticFilesStorage")
 
     AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
@@ -659,7 +659,7 @@ class Production(Base):
     DJANGO_ALLOWED_HOSTS="foo.com,foo.fr"
     """
 
-    # Add this so it is possible 
+    # Add this so it is possible to debug other environments
     DEBUG = values.Value(False)
     
     # Security
