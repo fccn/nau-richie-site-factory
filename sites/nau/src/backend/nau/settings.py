@@ -451,7 +451,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # Logging
     LOGGING = {
         "version": 1,
-        "disable_existing_loggers": True,
+        "disable_existing_loggers": False,
         "formatters": {
             "verbose": {
                 "format": "%(levelname)s %(asctime)s %(module)s "
@@ -466,10 +466,10 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             }
         },
         "loggers": {
-            "django.db.backends": {
-                "level": "ERROR",
+            "django": {
+                "level": "INFO",
                 "handlers": ["console"],
-                "propagate": False,
+                "propagate": True,
             }
         },
     }
@@ -659,6 +659,9 @@ class Production(Base):
     DJANGO_ALLOWED_HOSTS="foo.com,foo.fr"
     """
 
+    # Add this so it is possible 
+    DEBUG = values.Value(False)
+    
     # Security
     SECRET_KEY = values.SecretValue()
     CSRF_COOKIE_SECURE = True
