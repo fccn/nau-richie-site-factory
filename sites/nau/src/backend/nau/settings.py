@@ -682,6 +682,10 @@ class Production(Base):
 
     AWS_MEDIA_BUCKET_NAME = values.Value("production-richie-media")
 
+    # So it is possible to use on premisses Ceph instead of AWS cloud
+    AWS_S3_ENDPOINT_URL = values.Value(None)
+    AWS_S3_HOST = values.Value("s3.amazonaws.com")
+
     # CDN domain for static/media urls. It is passed to the frontend to load built chunks
     CDN_DOMAIN = values.Value()
 
