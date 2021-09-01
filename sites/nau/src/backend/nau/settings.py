@@ -692,11 +692,6 @@ class Production(Base):
     # CDN domain for static/media urls. It is passed to the frontend to load built chunks
     CDN_DOMAIN = values.Value()
 
-    @property
-    def TEXT_CKEDITOR_BASE_PATH(self):
-        """Configure CKEditor with an absolute url as base path to point to CloudFront."""
-        return "//{!s}/static/djangocms_text_ckeditor/ckeditor/".format(self.CDN_DOMAIN)
-
 
 class Feature(Production):
     """
