@@ -46,7 +46,7 @@ node("dev") {
             stage('Check built image availability') {
                 sh "docker images 'nau:development'"
                 sh "docker images 'nau:production'"
-                //sh "docker images 'nau-nginx:production'"
+                sh "docker images 'nau-nginx:production'"
             }
             stage('Check version.json file') {
                 ansiColor('xterm') {
@@ -83,6 +83,7 @@ node("dev") {
             stage('Tag app image') {
                 if(tag_name) {
                     sh "docker tag ${site}:production ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+                    sh "docker tag ${site}-nginx:production ${dockerRegistryOrganization}/${dockerImageName}-nginx:${tag_name}"
                 }
             }
             stage('Login to DockerHub') {
@@ -90,9 +91,10 @@ node("dev") {
                     sh "echo $DOCKER_REGISTRY_PWD | docker login -u '$DOCKER_REGISTRY_USER' --password-stdin"
                 }
             }
-            stage('Publish app image to docker registry') {
+            stage('Publish app and nginx images to docker registry') {
                 if(tag_name) {
                     sh "docker push ${dockerRegistryOrganization}/${dockerImageName}:${tag_name}"
+                    sh "docker push ${dockerRegistryOrganization}/${dockerImageName}-nginx:${tag_name}"
                 }
             }
         //}
