@@ -191,8 +191,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     MIGRATION_MODULES = {}
 
     # Static files (CSS, JavaScript, Images)
-    STATIC_URL = "/static/"
-    MEDIA_URL = "/media/"
+    STATIC_URL = values.Value("/static/")
+    MEDIA_URL = values.Value("/media/")
     MEDIA_ROOT = os.path.join(DATA_DIR, "media")
     STATIC_ROOT = os.path.join(DATA_DIR, "static")
 
@@ -687,7 +687,7 @@ class Production(Base):
 
     # So it is possible to use on premisses Ceph instead of AWS cloud
     AWS_S3_ENDPOINT_URL = values.Value(None)
-    AWS_S3_HOST = values.Value("s3.amazonaws.com")
+    #AWS_S3_HOST = values.Value("s3.amazonaws.com")
 
     # CDN domain for static/media urls. It is passed to the frontend to load built chunks
     CDN_DOMAIN = values.Value()
