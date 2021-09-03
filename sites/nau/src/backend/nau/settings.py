@@ -669,10 +669,13 @@ class Production(Base):
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
 
-    DEFAULT_FILE_STORAGE = "base.storage.MediaStorage"
-    AWS_DEFAULT_ACL = None
-    AWS_LOCATION = "media"
+    # Use AWS S3 for media storage
+    DEFAULT_FILE_STORAGE = values.Value("storages.backends.s3boto3.S3Boto3Storage")
 
+    # Preprend all all media file paths on S3 bucket with 'media/'
+    AWS_LOCATION = values.Value("media")
+
+    # The normal access and secret key to access an AWS S3
     AWS_ACCESS_KEY_ID = values.SecretValue()
     AWS_SECRET_ACCESS_KEY = values.SecretValue()
 
@@ -683,41 +686,19 @@ class Production(Base):
 
     AWS_S3_REGION_NAME = values.Value("eu-west-1")
 
-    AWS_MEDIA_BUCKET_NAME = values.Value("production-richie-media")
+    AWS_STORAGE_BUCKET_NAME = values.Value("production-richie-media")
 
-    # So it is possible to use on premisses Ceph instead of AWS cloud
+    # So it is possible to use on-premise Ceph instead of AWS cloud
     AWS_S3_ENDPOINT_URL = values.Value(None)
-    #AWS_S3_HOST = values.Value("s3.amazonaws.com")
+
+    # Change AWS S3 domain so we can serve the media from a different domain using a CDN
+    AWS_S3_CUSTOM_DOMAIN = values.Value(None)
+
+    # Serve media from the CDN using https
+    AWS_S3_URL_PROTOCOL = values.Value("https:")
+
+    # Do not overwrite the files on the media S3 Bucket
+    AWS_S3_FILE_OVERWRITE = values.Value(False)
 
     # CDN domain for static/media urls. It is passed to the frontend to load built chunks
     CDN_DOMAIN = values.Value()
-
-
-class Feature(Production):
-    """
-    Feature environment settings
-
-    nota bene: it should inherit from the Production environment.
-    """
-
-    AWS_MEDIA_BUCKET_NAME = values.Value("feature-richie-media")
-
-
-class Staging(Production):
-    """
-    Staging environment settings
-
-    nota bene: it should inherit from the Production environment.
-    """
-
-    AWS_MEDIA_BUCKET_NAME = values.Value("staging-richie-media")
-
-
-class PreProduction(Production):
-    """
-    Pre-production environment settings
-
-    nota bene: it should inherit from the Production environment.
-    """
-
-    AWS_MEDIA_BUCKET_NAME = values.Value("preprod-richie-media")
