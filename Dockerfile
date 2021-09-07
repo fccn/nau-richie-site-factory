@@ -131,6 +131,12 @@ ARG STATIC_ROOT
 
 ENV SITE=${SITE}
 
+# Install rdfind
+RUN apt-get update && \
+    apt-get install -y \
+    wait-for-it && \
+    rm -rf /var/lib/apt/lists/*
+
 # Copy collected symlinks to static files
 COPY --from=collector ${STATIC_ROOT}/staticfiles.json ${STATIC_ROOT}/
 
