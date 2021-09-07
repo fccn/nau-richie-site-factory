@@ -10,9 +10,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.1.0] - 2021-07-19
 
-### Done
+### Added
 
-- Install richie for NAU
+- Install richie for NAU site
+- Configure media storage to use Ceph S3 Bucket
+- Add a Gunicort worker abort handler that prints the current stack trace when the worker timeout's 
+or blocks on waiting for an external dependency.
 - Changed primary action colors from red to NAU blues
 
 ## [0.0.1-alpha1] - 2021-07-12
