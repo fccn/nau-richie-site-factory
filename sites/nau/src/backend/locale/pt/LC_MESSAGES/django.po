@@ -23,7 +23,7 @@ msgstr "&nbsp;"
 
 #: nau/settings.py:224
 msgid "Dashboard"
-msgstr ""
+msgstr "Meus cursos"
 
 #: nau/settings.py:225
 msgid "{base_url:s}/dashboard"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: nau/settings.py:228
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: nau/settings.py:229
 msgid "{base_url:s}/u/(username)"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: nau/settings.py:232
 msgid "Account"
-msgstr ""
+msgstr "Conta"
 
 #: nau/settings.py:233
 msgid "{base_url:s}/account/settings"
