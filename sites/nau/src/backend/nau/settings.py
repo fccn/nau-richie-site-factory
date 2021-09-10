@@ -622,6 +622,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # in the page tree admin view
     CMS_PAGETREE_DESCENDANTS_LIMIT = 80
 
+    # Add richie search query analyzer elasticsearch the Portuguese language
+    RICHIE_QUERY_ANALYZERS = {"en": "english", "pt": "portuguese"}
+
     # pylint: disable=invalid-name
     @property
     def ENVIRONMENT(self):
