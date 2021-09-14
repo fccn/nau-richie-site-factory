@@ -354,6 +354,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "django.template.context_processors.static",
                     "cms.context_processors.cms_settings",
                     "richie.apps.core.context_processors.site_metas",
+                    "social_django.context_processors.backends",
+                    "social_django.context_processors.login_redirect",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -392,6 +394,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "cms.middleware.toolbar.ToolbarMiddleware",
         "cms.middleware.language.LanguageCookieMiddleware",
         "dj_pagination.middleware.PaginationMiddleware",
+        "richie.apps.social.middleware.SocialAuthExceptionMiddleware",
     )
 
     INSTALLED_APPS = (
