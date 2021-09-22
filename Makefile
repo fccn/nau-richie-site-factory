@@ -8,7 +8,7 @@ COLOR_RESET   = \033[0m
 DOCKER_UID           = $(shell id -u)
 DOCKER_GID           = $(shell id -g)
 NGINX_IMAGE_NAME     = fundocker/openshift-nginx
-NGINX_IMAGE_TAG      = 1.13
+NGINX_IMAGE_TAG      = 1.20.1
 
 COMPOSE              = \
   NGINX_IMAGE_NAME="$(NGINX_IMAGE_NAME)" \
