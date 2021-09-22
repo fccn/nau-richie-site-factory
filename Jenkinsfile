@@ -40,7 +40,11 @@ node("dev") {
                 //   final foundSitesFolders = findFiles(glob: 'sites/*')
                 //   makeBuildForAllSites(foundSitesFolders)
                 ansiColor('xterm') {
-                    sh "export RICHIE_SITE=${site} && make env.d/aws && make ARGS=\"--no-cache\" build"
+                    try {
+                        sh "export RICHIE_SITE=${site} && make env.d/aws && make ARGS=\"--no-cache\" build"
+                    } finally {
+                        sh "make stop"
+                    }
                 }
             }
             stage('Check built image availability') {
@@ -52,7 +56,7 @@ node("dev") {
                 ansiColor('xterm') {
                     try {
                         sh "make ci-version"
-                    } catch (exc) {
+                    } finally {
                         sh "make stop"
                     }
                 }
@@ -61,7 +65,7 @@ node("dev") {
                 ansiColor('xterm') {
                     try {
                         sh "make ci-migrate"
-                    } catch (exc) {
+                    } finally {
                         sh "make stop"
                     }
                 }
@@ -70,7 +74,7 @@ node("dev") {
                 ansiColor('xterm') {
                     try {
                         sh "make ci-check"
-                    } catch (exc) {
+                    } finally {
                         sh "make stop"
                     }
                 }
