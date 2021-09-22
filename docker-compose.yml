@@ -83,7 +83,7 @@ services:
       target: nginx
       args:
         DOCKER_USER: ${DOCKER_USER:-1000}
-        NGINX_IMAGE_NAME: ${NGINX_IMAGE_NAME:-fundocker/openshift-nginx}
+        NGINX_IMAGE_NAME: ${NGINX_IMAGE_NAME:-nginx}
         NGINX_IMAGE_TAG: ${NGINX_IMAGE_TAG:-1.13}
         SITE: ${RICHIE_SITE:-nau}
     image: "${RICHIE_SITE:-nau}-nginx:production"
