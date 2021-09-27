@@ -289,6 +289,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # LMS
     RICHIE_LMS_BACKENDS = [
         {
+            "BASE_URL": values.Value(environ_name="EDX_BASE_URL", environ_prefix=None),
             "BACKEND": values.Value(
                 "richie.apps.courses.lms.edx.EdXLMSBackend",
                 environ_name="EDX_BACKEND",
@@ -309,7 +310,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 environ_name="EDX_JS_COURSE_REGEX",
                 environ_prefix=None,
             ),
-            "BASE_URL": values.Value(environ_name="EDX_BASE_URL", environ_prefix=None),
+            # Course runs synchronization
+            "COURSE_RUN_SYNC_NO_UPDATE_FIELDS": [],
+            "DEFAULT_COURSE_RUN_SYNC_MODE": "sync_to_public",
         }
     ]
     RICHIE_COURSE_RUN_SYNC_SECRETS = values.ListValue([])
