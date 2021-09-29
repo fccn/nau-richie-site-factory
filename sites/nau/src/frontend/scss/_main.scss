@@ -85,8 +85,8 @@
 @import 'richie-education/scss/components/templates/richie/nesteditem/nesteditem';
 @import 'richie-education/scss/components/templates/richie/glimpse/glimpse';
 
-// Page component styles
-@import 'richie-education/scss/components/header';
+// Page component styles and overrides for the NAU theme
+@import './components/header';
 @import 'richie-education/scss/components/subheader';
 @import 'richie-education/scss/components/footer';
 @import 'richie-education/scss/components/styleguide';
