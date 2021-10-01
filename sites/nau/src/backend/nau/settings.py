@@ -530,6 +530,17 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         },
     }
 
+    # Web Analytics configuration
+    WEB_ANALYTICS_ID = values.Value(
+        None, environ_name="WEB_ANALYTICS_ID", environ_prefix=None
+    )
+    WEB_ANALYTICS_LOCATION = values.Value(
+        "head", environ_name="WEB_ANALYTICS_LOCATION", environ_prefix=None
+    )
+    WEB_ANALYTICS_PROVIDER = values.Value(
+        "google_analytics", environ_name="WEB_ANALYTICS_PROVIDER", environ_prefix=None
+    )
+
     # Demo
     RICHIE_DEMO_SITE_DOMAIN = "localhost:8080"
     RICHIE_DEMO_FIXTURES_DIR = os.path.join(BASE_DIR, "base", "fixtures")

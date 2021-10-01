@@ -37,3 +37,8 @@ EDX_BASE_URL=http://localhost:8073
 # Authentication Backend
 AUTHENTICATION_BASE_URL=http://localhost:8073
 AUTHENTICATION_BACKEND=base
+
+# Richie Web Analytics using Google Analytics
+WEB_ANALYTICS_PROVIDER=google_analytics
+WEB_ANALYTICS_LOCATION=head
+WEB_ANALYTICS_ID=UA-123456789-1
