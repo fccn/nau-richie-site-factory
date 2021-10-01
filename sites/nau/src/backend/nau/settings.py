@@ -614,9 +614,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # For more details about CMS_CACHE_DURATION, see :
     # http://docs.django-cms.org/en/latest/reference/configuration.html#cms-cache-durations
     CMS_CACHE_DURATIONS = values.DictValue(
-        {"menus": 3600, "content": 86400, "permissions": 86400}
+        {"menus": 3600, "content": 60, "permissions": 3600}
     )
-    MAX_BROWSER_CACHE_TTL = 600
 
     # Sessions
     SESSION_ENGINE = values.Value("django.contrib.sessions.backends.cache")
@@ -694,6 +693,12 @@ class Development(Base):
 
     CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
 
+    # Django CMS has cache active by default.
+    # On development mode we disable the cache
+    CMS_PAGE_CACHE = False
+    CMS_PLACEHOLDER_CACHE = False
+    CMS_PLUGIN_CACHE = False
+
 
 class Test(Base):
     """Test environment settings"""
@@ -727,6 +732,24 @@ class Production(Base):
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
+
+    # For more details about CMS_CACHE_DURATION, see :
+    # http://docs.django-cms.org/en/latest/reference/configuration.html#cms-cache-durations
+    CMS_CACHE_DURATIONS = values.DictValue(
+        {"menus": 3600, "content": 86400, "permissions": 86400}
+    )
+
+    # By default, Django CMS sends cached responses with a
+    # Cache-control: max-age value that reflects the server cache TTL
+    # (CMS_CACHE_DURATIONS["content"])
+    #
+    # The thing is : we can invalidate a server side cache entry, but we cannot
+    # invalidate our client browser cache entries. That's why we want to set a
+    # long TTL on the server side, but a much lower TTL on the browser cache.
+    #
+    # This setting allows to define a maximum value for the max-age header
+    # returned by Django CMS views.
+    MAX_BROWSER_CACHE_TTL = 600
 
     # Use AWS S3 for media storage
     DEFAULT_FILE_STORAGE = values.Value("storages.backends.s3boto3.S3Boto3Storage")
