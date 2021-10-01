@@ -10,7 +10,6 @@
     height: $r-topbar-height;
 
     &--over {
-      position: absolute;
       top: 0;
       left: 0;
       right: 0;
@@ -213,7 +212,6 @@
           @if r-theme-val(topbar, item-hover-color) {
             &::after {
               content: '';
-              position: absolute;
               bottom: 0;
               left: 0;
               right: 0;
@@ -241,7 +239,6 @@
         @if r-theme-val(topbar, item-active-color) {
           &::before {
             content: '';
-            position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
@@ -257,7 +254,6 @@
             }
             &::after {
               content: '';
-              position: absolute;
               bottom: 0;
               left: 0;
               right: 0;

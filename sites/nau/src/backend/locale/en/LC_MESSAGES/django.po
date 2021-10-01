@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 14:45+0100\n"
+"POT-Creation-Date: 2021-10-01 16:37+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,6 @@ msgstr ""
 #: nau/force_translations.py:3
 msgid "{!s} settings"
 msgstr ""
-
-#: nau/i18n_override.py:8
-msgid "Life-changing learning!"
-msgstr "&nbsp;"
 
 #: nau/settings.py:272
 msgid "Dashboard"
@@ -60,3 +56,31 @@ msgstr "English"
 #: nau/settings.py:461 nau/settings.py:484
 msgid "Portuguese"
 msgstr "Português"
+
+#: templates/courses/cms/fragment_course_glimpse.html:9
+msgid "Cover"
+msgstr ""
+
+#: templates/nau/cookies.html:24
+msgid ""
+"This website uses cookies to ensure you get the best experience on our "
+"website. If you continue browsing this site, we understand that you accept "
+"the use of cookies."
+msgstr ""
+"NAU uses cookies to provide a better browsing experience. For more "
+"information see our cookie policy."
+
+#: templates/nau/cookies.html:25
+msgid "Got it!"
+msgstr ""
+
+#: templates/nau/cookies.html:26
+msgid "Learn more"
+msgstr ""
+
+#: templates/nau/cookies.html:27
+msgid "privacy-policy-url"
+msgstr "/en/legal-en/privacy-policy"
+
+msgid "Life-changing learning!"
+msgstr "&nbsp;"

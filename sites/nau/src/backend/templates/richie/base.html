@@ -14,6 +14,11 @@
 <!-- bullshit -->
 {% endblock meta_favicons %}
 
+{% block body_header %}
+    <div id="cookie-information"></div>
+    {{ block.super }}
+{% endblock body_header %}
+
 {% block topbar_contact %}
 {% endblock topbar_contact %}
 
@@ -21,5 +26,6 @@
 {% endblock body_footer_title %}
 
 {% block body_js %}
-   <!-- google analytics js code -->
+    {{ block.super }}
+    {% include "nau/cookies.html" %}
 {% endblock body_js %}
