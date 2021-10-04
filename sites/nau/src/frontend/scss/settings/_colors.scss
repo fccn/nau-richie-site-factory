@@ -245,9 +245,9 @@ $r-theme: (
     badge-button: $firebrick6-scheme,
   ),
   body-mentions: (
-    base-color: r-color('white'),
-    base-background: r-color('black'),
-    poweredby-hover: r-color('white'),
+    base-color: r-color('black'),
+    base-background: r-color('white'),
+    poweredby-hover: r-color('black'),
   ),
   subheader: (
     base: $purplish-grey-scheme,

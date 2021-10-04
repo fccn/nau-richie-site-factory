@@ -1,0 +1,14 @@
+//
+// https://fonts.google.com/?query=Montserrat&selection.family=Hind:wght@400;600|Montserrat:wght@300;700;800&sidebar.open
+//
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Montserrat:wght@300;500;700;800&display=swap');
+
+// Font family class helpers by name
+$r-font-family-hind: 'Roboto', sans-serif;
+$r-font-family-montserrat: 'Montserrat', sans-serif;
+
+$r-fonts: (
+  hind: $r-font-family-hind,
+  montserrat: $r-font-family-montserrat,
+);
