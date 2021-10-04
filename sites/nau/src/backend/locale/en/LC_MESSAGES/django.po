@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-01 16:37+0100\n"
+"POT-Creation-Date: 2021-10-04 16:01+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,15 +45,15 @@ msgstr ""
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:374
+#: nau/settings.py:375
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:461 nau/settings.py:476
+#: nau/settings.py:462 nau/settings.py:477
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:461 nau/settings.py:484
+#: nau/settings.py:462 nau/settings.py:485
 msgid "Portuguese"
 msgstr "Português"
 
@@ -81,6 +81,10 @@ msgstr ""
 #: templates/nau/cookies.html:27
 msgid "privacy-policy-url"
 msgstr "/en/legal-en/privacy-policy"
+
+#: templates/nau/jira_service_desk.html:8
+msgid "Need Help"
+msgstr ""
 
 msgid "Life-changing learning!"
 msgstr "&nbsp;"

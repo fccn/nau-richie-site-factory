@@ -359,6 +359,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "richie.apps.core.context_processors.site_metas",
                     "social_django.context_processors.backends",
                     "social_django.context_processors.login_redirect",
+                    "nau.jira_service_desk.context_processors.jira_widget_key_setting",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -642,6 +643,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
 
     # Add richie search query analyzer elasticsearch the Portuguese language
     RICHIE_QUERY_ANALYZERS = {"en": "english", "pt": "portuguese"}
+
+    # Add JIRA Service Desk Widget Key
+    JIRA_WIDGET_KEY = values.Value(None, environ_name="JIRA_WIDGET_KEY", environ_prefix=None)
 
     # pylint: disable=invalid-name
     @property

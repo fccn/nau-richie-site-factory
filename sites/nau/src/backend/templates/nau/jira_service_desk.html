@@ -1,0 +1,12 @@
+{% load i18n static %}
+{% if JIRA_WIDGET_KEY %} 
+    <script data-jsd-embedded data-key="{{ JIRA_WIDGET_KEY | safe }}" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded",function(){
+        var widgetElement = document.getElementById('jsd-widget');
+        if (widgetElement) {
+        widgetElement.setAttribute('title', '{% trans "Need Help" %}');
+        }
+    });
+    </script>
+{% endif %}
