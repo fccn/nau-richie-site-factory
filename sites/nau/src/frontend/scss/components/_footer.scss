@@ -28,6 +28,7 @@
 
     & > a {
       @include sv-flex(0, 0, auto);
+      width: 100%;
     }
 
     img,
@@ -40,6 +41,10 @@
         width: $r-footer-logo-width-lg;
       }
     }
+  }
+
+  &__copyright {
+    @include font-size($h6-font-size);
   }
 
   &__insert {
@@ -101,15 +106,32 @@
   }
 
   &__badge {
-    @include sv-flex(1, 0, 2.75rem);
-    @include spot($padding: 0.8rem);
-    @include r-button-colors(
-      r-theme-val(body-footer, badge-button),
-      $apply-border: true,
-      $include-hover: true
-    );
+    @include sv-flex(1, 0, 2rem);
     margin: 0 1rem 1rem 0;
-    height: 2.75rem;
+    height: 1.15rem;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    font-size: 0.8rem;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    color: #fff;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: r-color('white');
+      transition: fill .4s ease;
+    }
+
+    &:hover {
+      svg {
+        fill: r-color('firebrick6');
+      }
+    }
   }
 
   &__items {
@@ -132,10 +154,10 @@
     //
     & > .nested-item--list,
     & > a {
-      $nesteditem-base-selector: '.nested-item';
+      $nesteditem-base-selector: ".nested-item";
       @include sv-flex(0, 0, auto);
       padding-right: 3vw;
-      @include media-breakpoint-up('xl') {
+      @include media-breakpoint-up("xl") {
         padding-right: 4vw;
       }
 
@@ -159,7 +181,7 @@
         li {
           @include sv-flex(1, 0, calc(100% - 0.2rem));
           margin: 0.1rem;
-          padding: 0.25rem 0.25rem 0.25rem 0rem;
+          padding: 0.1rem 0.1rem 0.1rem 0rem;
 
           @include media-breakpoint-up($r-footer-breakpoint) {
             @include sv-flex(0, 0, auto);
@@ -177,7 +199,7 @@
     align-content: flex-start;
     order: 2;
     margin-right: -3vw;
-    @include media-breakpoint-up('xl') {
+    @include media-breakpoint-up("xl") {
       padding-right: -4vw;
     }
 
@@ -248,7 +270,7 @@
 
         &:before {
           border-bottom-color: rgba(255, 255, 255, 0);
-          border-top-color: r-color('light-grey');
+          border-top-color: r-color("light-grey");
         }
       }
     }
@@ -269,7 +291,12 @@
   &__entities {
     display: flex;
     align-content: space-between;
-    align-items: center
+    align-items: center;
+    justify-content: center;
+
+    img {
+      padding: 0 0.5rem;
+    }
   }
 
   &__poweredby {
@@ -293,4 +320,3 @@
     }
   }
 }
-

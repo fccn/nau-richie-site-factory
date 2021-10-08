@@ -22,17 +22,9 @@
 {% block topbar_contact %}
 {% endblock topbar_contact %}
 
-{% block body_footer_title %}
-{% endblock body_footer_title %}
-
-{% block body_mentions %}
-    <div class="body-mentions__entities">
-        {% static_placeholder "footer-support-entities" %}
-    </div>
-    <div class="body-mentions__copyright">
-        <p>&copy; {% now "Y" %} FCT|FCCN<br>{% trans "All rights reserved" %}</p>
-    </div>
-{% endblock body_mentions %}
+{% block body_footer %}
+    {% include "nau/_footer.html" %}
+{% endblock body_footer %}
 
 {% block body_js %}
     {{ block.super }}
