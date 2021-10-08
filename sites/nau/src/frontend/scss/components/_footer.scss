@@ -129,7 +129,7 @@
 
     &:hover {
       svg {
-        fill: r-color('firebrick6');
+        fill: r-color('greenteal');
       }
     }
   }
@@ -216,6 +216,10 @@
     a {
       color: inherit;
       display: block;
+
+      &:hover {
+        text-decoration-color: r-color('greenteal');
+      }
     }
   }
 
@@ -296,6 +300,7 @@
 
     img {
       padding: 0 0.5rem;
+      max-height: 4.6rem;
     }
   }
 
