@@ -29,7 +29,8 @@
     flex-wrap: wrap;
     flex-direction: column;
 
-    @include media-breakpoint-up($r-topbar-breakpoint) { // sass mixins from bootstrap4.5 https://getbootstrap.com/docs/4.5/migration/#responsive-utilities
+    @include media-breakpoint-up($r-topbar-breakpoint) {
+      // sass mixins from bootstrap4.5 https://getbootstrap.com/docs/4.5/migration/#responsive-utilities
       flex-direction: row;
     }
   }
@@ -211,7 +212,7 @@
 
           @if r-theme-val(topbar, item-hover-color) {
             &::after {
-              content: '';
+              content: "";
               bottom: 0;
               left: 0;
               right: 0;
@@ -238,7 +239,7 @@
 
         @if r-theme-val(topbar, item-active-color) {
           &::before {
-            content: '';
+            content: "";
             top: 0;
             bottom: 0;
             left: 0;
@@ -253,7 +254,7 @@
               display: none;
             }
             &::after {
-              content: '';
+              content: "";
               bottom: 0;
               left: 0;
               right: 0;

@@ -326,7 +326,7 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
   }
 
   .breadcrumbs {
-    background-color: r-color('silver');
+    background-color: r-color("silver");
   }
 
   // Component variants
@@ -341,7 +341,7 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
 
       // Insert bottom curves
       &::after {
-        content: '';
+        content: "";
         display: block;
         width: 100%;
         height: 5vw;

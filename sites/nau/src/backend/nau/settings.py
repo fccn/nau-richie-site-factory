@@ -205,7 +205,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # For static files, we want to use a backend that includes a hash in
     # the filename, that is calculated from the file content, so that browsers always
     # get the updated version of each file.
-    STATICFILES_STORAGE = values.Value("django.contrib.staticfiles.storage.ManifestStaticFilesStorage")
+    STATICFILES_STORAGE = values.Value(
+        "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+    )
 
     AUTHENTICATION_BACKENDS = (
         "richie.apps.social.backends.EdXOAuth2",
@@ -645,7 +647,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     RICHIE_QUERY_ANALYZERS = {"en": "english", "pt": "portuguese"}
 
     # Add JIRA Service Desk Widget Key
-    JIRA_WIDGET_KEY = values.Value(None, environ_name="JIRA_WIDGET_KEY", environ_prefix=None)
+    JIRA_WIDGET_KEY = values.Value(
+        None, environ_name="JIRA_WIDGET_KEY", environ_prefix=None
+    )
 
     # pylint: disable=invalid-name
     @property
@@ -740,7 +744,7 @@ class Production(Base):
 
     # Add this so it is possible to debug other environments
     DEBUG = values.Value(False)
-    
+
     # Security
     SECRET_KEY = values.SecretValue()
     CSRF_COOKIE_SECURE = True
