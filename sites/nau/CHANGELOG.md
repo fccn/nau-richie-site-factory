@@ -8,6 +8,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.3.0] - 2021-10-11
+
+### Fixed
+
+- ⬆️(upgrade) upgrade richie frontend
+
+### Changed
+
+- 💄(pages) change page header colors
+
 ## [0.2.0] - 2021-10-11
 
 ### Changed
