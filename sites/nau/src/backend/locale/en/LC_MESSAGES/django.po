@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-04 16:01+0100\n"
+"POT-Creation-Date: 2021-10-11 23:15+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,44 +21,48 @@ msgstr ""
 msgid "{!s} settings"
 msgstr ""
 
-#: nau/settings.py:272
+#: nau/settings.py:274
 msgid "Dashboard"
 msgstr ""
 
-#: nau/settings.py:273
+#: nau/settings.py:275
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: nau/settings.py:276
+#: nau/settings.py:278
 msgid "Account"
 msgstr ""
 
-#: nau/settings.py:277
+#: nau/settings.py:279
 msgid "{base_url:s}/account/settings"
 msgstr ""
 
-#: nau/settings.py:280
+#: nau/settings.py:282
 msgid "Profile"
 msgstr ""
 
-#: nau/settings.py:281
+#: nau/settings.py:283
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:375
+#: nau/settings.py:377
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:462 nau/settings.py:477
+#: nau/settings.py:464 nau/settings.py:479
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:462 nau/settings.py:485
+#: nau/settings.py:464 nau/settings.py:487
 msgid "Portuguese"
 msgstr "Português"
 
 #: templates/courses/cms/fragment_course_glimpse.html:9
 msgid "Cover"
+msgstr ""
+
+#: templates/nau/_footer.html:110
+msgid "All right reserved."
 msgstr ""
 
 #: templates/nau/cookies.html:24
@@ -84,6 +88,22 @@ msgstr "/en/legal-en/privacy-policy"
 
 #: templates/nau/jira_service_desk.html:8
 msgid "Need Help"
+msgstr ""
+
+#: templates/social-networks/footer-badges.html:8
+msgid "Subscribe newsletter"
+msgstr ""
+
+#: templates/social-networks/footer-badges.html:18
+msgid "Follow our Facebook"
+msgstr ""
+
+#: templates/social-networks/footer-badges.html:28
+msgid "Follow our Twitter"
+msgstr ""
+
+#: templates/social-networks/footer-badges.html:38
+msgid "Follow our Linkedin"
 msgstr ""
 
 msgid "Life-changing learning!"
