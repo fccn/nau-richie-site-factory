@@ -1,0 +1,44 @@
+{% load i18n static %}{% spaceless %}
+    <a
+        href="https://www.nau.edu.pt/sobre/lista-de-email/"
+        class="body-footer__badge"
+        target="_blank" rel="noopener noreferrer"
+    >
+        <svg role="img">
+            <title>{% trans "Subscribe newsletter" %}</title>
+            <use href="#icon-envelope" />
+        </svg>
+    </a>
+    <a
+        href="https://www.facebook.com/plataformanau/"
+        class="body-footer__badge"
+        target="_blank" rel="noopener noreferrer"
+    >
+        <svg role="img">
+            <title>{% trans "Follow us Facebook" %}</title>
+            <use href="#icon-facebook" />
+        </svg>
+    </a>
+    <a
+        href="https://twitter.com/PlataformaNau"
+        class="body-footer__badge"
+        target="_blank" rel="noopener noreferrer"
+        title="{% trans "Twitter page" %}"
+    >
+        <svg role="img">
+            <title>{% trans "Twitter" %}</title>
+            <use href="#icon-twitter" />
+        </svg>
+    </a>
+    <a
+        href="https://www.linkedin.com/company/plataformanau/"
+        class="body-footer__badge"
+        target="_blank" rel="noopener noreferrer"
+        title="{% trans "Linkedin" %}"
+    >
+        <svg role="img">
+            <title>{% trans "Linkedin" %}</title>
+            <use href="#icon-linkedin" />
+        </svg>
+    </a>
+{% endspaceless %}
