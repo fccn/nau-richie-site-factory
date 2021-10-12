@@ -1,4 +1,4 @@
-node("dev") {
+node("build") {
     // This limits build concurrency to 1 per branch
     properties([disableConcurrentBuilds()])
 
