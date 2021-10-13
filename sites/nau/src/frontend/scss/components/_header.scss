@@ -211,15 +211,15 @@
           position: relative;
 
           @if r-theme-val(topbar, item-hover-color) {
+
             &::after {
+              position: absolute;
               content: "";
               bottom: 0;
               left: 0;
               right: 0;
-              height: 8px;
+              height: 4px;
               background-color: r-theme-val(topbar, item-hover-color);
-              border-top-left-radius: 0.2rem;
-              border-top-right-radius: 0.2rem;
             }
           }
         }
@@ -260,8 +260,6 @@
               right: 0;
               height: 0.5rem;
               background-color: r-theme-val(topbar, item-active-color);
-              border-top-left-radius: 0.4rem;
-              border-top-right-radius: 0.4rem;
             }
           }
         }
