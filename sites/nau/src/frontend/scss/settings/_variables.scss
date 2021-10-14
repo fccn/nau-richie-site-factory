@@ -57,12 +57,13 @@ $enable-responsive-font-sizes: true;
 
 // Define available font weights and add some extra ones
 $font-weight-lighter: lighter; // No usage
-$font-weight-light: 300; // Montserrat only
+$font-weight-light: 300; // Rubik only
 $font-weight-normal: 400; // Hind only
+$font-weight-regular: 500; //Rubik only
 $font-weight-bold: 600; // Hind only
 $font-weight-bolder: 600; // Hind only
-$font-weight-boldest: 700; // Montserrat only
-$font-weight-extrabold: 800; // Montserrat only
+$font-weight-boldest: 700; // Rubik only
+$font-weight-extrabold: 800; // Rubik only
 
 // Adjust heading sizes
 $extra-font-size: 4.5rem;

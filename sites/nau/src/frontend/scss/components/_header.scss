@@ -137,17 +137,19 @@
   &__menu {
     @include sv-flex(1, 0, 100%);
     display: none;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     padding: 0;
     flex-direction: row;
     flex-wrap: wrap;
     order: 3;
     font-family: $r-font-family-montserrat;
-    font-weight: $font-weight-boldest;
+    font-weight: $font-weight-regular;
+    font-size: .85rem;
 
     @include media-breakpoint-up($r-topbar-breakpoint) {
       display: flex;
       flex-wrap: nowrap;
+      min-height: 3.24rem; // force the menu to have a default height so it doesn't jump around
     }
 
     // Aside menu variation
@@ -244,7 +246,7 @@
             bottom: 0;
             left: 0;
             width: 0.5rem;
-            background-color: r-theme-val(topbar, item-active-color);
+            background-color: r-theme-val(topbar, item-hover-color);
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
           }
@@ -259,7 +261,7 @@
               left: 0;
               right: 0;
               height: 0.5rem;
-              background-color: r-theme-val(topbar, item-active-color);
+              background-color: r-theme-val(topbar, item-hover-color);
             }
           }
         }
