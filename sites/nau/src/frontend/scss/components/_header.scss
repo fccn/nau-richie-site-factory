@@ -15,9 +15,6 @@
       right: 0;
       padding: 1rem 0 0;
       background: r-theme-val(topbar, over-background);
-      @if r-theme-val(topbar, over-border) {
-        border-bottom: $onepixel solid r-theme-val(topbar, over-border);
-      }
     }
   }
 
