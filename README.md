@@ -139,22 +139,23 @@ recommandations from our
 Upgrading one or many projects to a newer version of [richie](https://github.com/openfun/richie)
 is automated.
 
-For example, to upgrade a specific site, test its build after upgrade and commit all changes:
+For example, to upgrade a specific site (NAU), test its build after upgrade to 2.9.0 richie version
+and commit all changes:
 
 ```
-bin/upgrade nau --build --commit
+bin/upgrade 2.9.0 nau --build --commit
 ```
 
 To upgrade a list of 3 sites but without testing the build or committing the changes:
 
 ```
-bin/upgrade nau othersite2 othersite3
+bin/upgrade 2.9.0 nau othersite2 othersite3
 ```
 
 To upgrade all the sites handled in the site factory:
 
 ```
-bin/upgrade --build --commit
+bin/upgrade 2.9.0 --build --commit
 ```
 
 ### Making a release
