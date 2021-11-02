@@ -8,6 +8,28 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.0] - 2021-11-02
+
+### Added
+
+- 🍱(icon) add nau icons
+- 💄(hero) new styles for nau hero
+- 💚(jenkins) jenkins build jobs to build node
+- 🌐(footer) localize footer
+- 🚨(linter) run linters
+
+### Fixed
+- 💄(header) fix header menu render issues
+- 💄(header) fix blue underline on main menu
+- ➖(jquery) remove jquery JS
+- 💄(courses) remove contact us button
+
+### Changed
+- ⬆️(richie) upgrade richie to 2.9.0
+- 🌐(language) change default language to pt
+- 🎨(footer) change newsletter link to be relative
+- 🩹(footer) change footer social network links
+
 ## [0.3.1] - 2021-10-11
 
 ### Fixed
