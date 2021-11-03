@@ -25,7 +25,7 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
     @include make-container();
     @include make-container-max-widths();
     @include sv-flex(1, 0, 100%);
-    padding-left: 0;
+    padding-left: 1rem;
     padding-right: 0;
 
     @include media-breakpoint-down(lg) {
@@ -125,6 +125,11 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
       align-content: flex-start;
       align-items: flex-start;
       flex-wrap: wrap;
+      padding-left: 1rem;
+    }
+
+    & > .subheader__title {
+      padding: 0;
     }
   }
 
@@ -283,7 +288,7 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
       @include sv-flex(1, 0, 100%);
       @include font-size($h2-font-size);
       margin-bottom: 1rem;
-      padding: 0;
+      padding: 0 1rem;
 
       @include media-breakpoint-up(lg) {
         @include sv-flex(1, 1, $r-subheader-search-title-width);

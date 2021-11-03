@@ -1,13 +1,12 @@
 // Main body header
 .topbar {
   $topbar-selector: &;
-  padding: 1rem 0;
+  padding: 1rem 0 0;
   position: relative;
   z-index: 200;
   background: r-theme-val(topbar, base-background);
 
   @include media-breakpoint-up($r-topbar-breakpoint) {
-    height: $r-topbar-height;
 
     &--over {
       top: 0;
@@ -77,6 +76,7 @@
       @include sv-flex(1, 0, auto);
       padding: 0;
       order: 1;
+      align-self: center;
 
       @include media-breakpoint-up($r-topbar-breakpoint) {
         @include sv-flex(0, 0, auto);
@@ -134,7 +134,7 @@
   &__menu {
     @include sv-flex(1, 0, 100%);
     display: none;
-    margin-top: 1.5rem;
+    margin-top: .5rem;
     padding: 0;
     flex-direction: row;
     flex-wrap: wrap;
@@ -205,6 +205,7 @@
 
       &:hover {
         text-decoration: none;
+        color: r-theme-val(topbar, item-active-color);
 
         @include media-breakpoint-up($r-topbar-breakpoint) {
           position: relative;
@@ -217,7 +218,7 @@
               bottom: 0;
               left: 0;
               right: 0;
-              height: 4px;
+              height: 6px;
               background-color: r-theme-val(topbar, item-hover-color);
             }
           }
