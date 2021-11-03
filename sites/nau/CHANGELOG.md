@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.2] - 2021-11-03
+
 ### Fixed
 
 - 🌐(language) revert change default language to pt
