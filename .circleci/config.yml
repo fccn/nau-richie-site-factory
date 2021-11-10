@@ -289,10 +289,12 @@ jobs:
     test-back:
         docker:
             - environment:
+                DB_ENGINE: django.db.backends.mysql
+                DB_OPTION_CHARSET: utf8mb4
                 DB_HOST: localhost
                 DB_NAME: richie
                 DB_PASSWORD: pass
-                DB_PORT: 5432
+                DB_PORT: 3306
                 DB_USER: richie_user
                 DJANGO_CONFIGURATION: Test
                 DJANGO_SECRET_KEY: ThisIsAnExampleKeyForTestPurposeOnly
@@ -300,10 +302,12 @@ jobs:
                 PYTHONPATH: /home/circleci/nau/src/backend
               image: circleci/python:3.7-stretch
             - environment:
-                POSTGRES_DB: richie
-                POSTGRES_PASSWORD: pass
-                POSTGRES_USER: richie_user
-              image: circleci/postgres:9.6-alpine-ram
+                MYSQL_DATABASE: richie
+                MYSQL_PASSWORD: pass
+                MYSQL_USER: richie_user
+                MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+              image: docker.io/mysql:8.0.25
+              command: --default-authentication-plugin=mysql_native_password
             - environment:
                 ALLOW_EMPTY_PASSWORD: "yes"
                 REDIS_REPLICATION_MODE: master
@@ -331,7 +335,7 @@ jobs:
             - run:
                 command: |
                     dockerize \
-                      -wait tcp://localhost:5432 \
+                      -wait tcp://localhost:3306 \
                       -timeout 60s \
                         ~/.local/bin/pytest
                 name: Run tests

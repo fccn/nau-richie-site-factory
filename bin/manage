@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# Run Django management command using docker-compose configuration (for
-# development only)
+# Recreate the redis sentinel service to avoid inconsistent state
+docker-compose up -d -V redis-sentinel
+
 docker-compose run --rm dockerize -wait tcp://db:3306 -timeout 60s
 docker-compose run --rm dockerize -wait tcp://elasticsearch:9200 -timeout 60s
 DOCKER_USER="$(id -u):$(id -g)" \
