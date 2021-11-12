@@ -3,9 +3,14 @@
 @import "richie-education/scss/tools/rem";
 @import "richie-education/scss/tools/colors";
 
-// Our variables must be imported before Bootstrap code so they can override it
+// Custom fonts for the NAU theme
 @import "./settings/fonts";
-@import "./settings/variables";
+
+// Default Richie variables
+@import "richie-education/scss/settings/variables";
+
+// NAU theme variable overrides
+@import './settings/variables';
 
 // TWITTER BOOTSTRAP V4
 // Required
@@ -81,16 +86,16 @@
 @import "richie-education/scss/components/templates/courses/plugins/category_plugin";
 @import "richie-education/scss/components/templates/courses/plugins/licence_plugin";
 @import "richie-education/scss/components/templates/richie/section/section";
-@import "./components/templates/richie/large_banner/large_banner";
+@import "richie-education/scss/components/templates/richie/large_banner/large_banner";
 @import "richie-education/scss/components/templates/richie/nesteditem/nesteditem";
 @import "richie-education/scss/components/templates/richie/glimpse/glimpse";
 
 // Page component styles and overrides for the NAU theme
-@import "./components/header";
-@import "./components/subheader";
+@import "richie-education/scss/components/header";
+@import "richie-education/scss/components/subheader";
 @import "richie-education/scss/components/styleguide";
-@import "./components/footer";
-@import "./components/content";
+@import "richie-education/scss/components/footer";
+@import "richie-education/scss/components/content";
 @import "richie-education/scss/components/error";
 @import "richie-education/scss/components/templates/search/search";
 @import "richie-education/scss/components/templates/richie/single-column";
@@ -111,3 +116,6 @@
 @import "richie-education/scss/trumps/cms";
 // IE11 patchs
 @import "richie-education/scss/trumps/ie11-fixes";
+
+// Richie CSS Overrides
+@import "extras";

@@ -1,0 +1,12 @@
+/* This file was created to provide overrides
+ * You can include all files in the extras dir
+ * or do includes in a file by file basis
+ */
+
+@import "./extras/components/content";
+@import "./extras/components/header";
+@import "./extras/components/footer";
+@import "./extras/components/subheader";
+
+// Shared object overrides
+@import "./extras/components/templates/richie/large_banner/large_banner";

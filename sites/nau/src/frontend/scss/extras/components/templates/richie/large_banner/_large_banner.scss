@@ -78,6 +78,10 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% auto;
+
+    &::after  {
+      background-image: none;
+    }
   
     &__inner {
       background-image: r-theme-val(hero-intro, insert-background-image);
