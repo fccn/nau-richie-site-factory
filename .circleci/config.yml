@@ -291,7 +291,7 @@ jobs:
             - environment:
                 DB_ENGINE: django.db.backends.mysql
                 DB_OPTION_CHARSET: utf8mb4
-                DB_HOST: localhost
+                DB_HOST: 127.0.0.1
                 DB_NAME: richie
                 DB_PASSWORD: pass
                 DB_PORT: 3306
@@ -302,11 +302,11 @@ jobs:
                 PYTHONPATH: /home/circleci/nau/src/backend
               image: circleci/python:3.7-stretch
             - environment:
-                MYSQL_DATABASE: richie
+                MYSQL_DATABASE: test_richie
                 MYSQL_PASSWORD: pass
                 MYSQL_USER: richie_user
-                MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-              image: docker.io/mysql:8.0.25
+                MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+              image: circleci/mysql:8.0-ram
               command: --default-authentication-plugin=mysql_native_password
             - environment:
                 ALLOW_EMPTY_PASSWORD: "yes"
