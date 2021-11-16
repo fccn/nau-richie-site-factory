@@ -238,7 +238,7 @@ jobs:
             - run:
                 command: |
                     # Get the longuest line width (ignoring release links)
-                    test $(cat sites/<< parameters.site >>/CHANGELOG.md | grep -Ev "^\[.*\]: https://github.com/fccn" | wc -L) -le 80
+                    test $(cat sites/<< parameters.site >>/CHANGELOG.md | grep -Ev "^\[.*\]: https://github.com/openfun" | wc -L) -le 80
                 name: Check CHANGELOG max line length
         working_directory: ~/nau
     lint-front:
@@ -290,9 +290,9 @@ jobs:
         docker:
             - environment:
                 DB_ENGINE: django.db.backends.mysql
-                DB_OPTION_CHARSET: utf8mb4
                 DB_HOST: 127.0.0.1
                 DB_NAME: richie
+                DB_OPTION_CHARSET: utf8mb4
                 DB_PASSWORD: pass
                 DB_PORT: 3306
                 DB_USER: richie_user
@@ -301,13 +301,13 @@ jobs:
                 DJANGO_SETTINGS_MODULE: << parameters.site >>.settings
                 PYTHONPATH: /home/circleci/nau/src/backend
               image: circleci/python:3.7-stretch
-            - environment:
+            - command: --default-authentication-plugin=mysql_native_password
+              environment:
+                MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
                 MYSQL_DATABASE: test_richie
                 MYSQL_PASSWORD: pass
                 MYSQL_USER: richie_user
-                MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
               image: circleci/mysql:8.0-ram
-              command: --default-authentication-plugin=mysql_native_password
             - environment:
                 ALLOW_EMPTY_PASSWORD: "yes"
                 REDIS_REPLICATION_MODE: master
