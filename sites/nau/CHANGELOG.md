@@ -12,6 +12,15 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ⬆️(upgrade) upgrade frontend js libraries
 
+### Added
+
+- ♻️(styles) add extras to styles
+
+### Fixed
+
+- 💚(ci) fix circleci builds
+- 💄(blogpost glimpse) correct the cover colo
+
 ## [1.1.0] - 2021-11-05
 
 ### Changed
