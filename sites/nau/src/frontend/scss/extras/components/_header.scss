@@ -77,6 +77,8 @@
       & > a {
 
         @if r-theme-val(topbar, item-active-color) {
+          color: r-color('firebrick6');
+
           &::before {
             position: relative;
             background-color: r-theme-val(topbar, item-hover-color);
@@ -89,9 +91,10 @@
               display: none;
             }
             &::after {
-              position: relative;
+              position: absolute;
               background-color: r-theme-val(topbar, item-hover-color);
               border-radius: 0;
+              height: 6px;
             }
           }
         }

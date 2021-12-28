@@ -3,6 +3,10 @@
  * or do includes in a file by file basis
  */
 
+// Reboot
+@import "./extras/reboot";
+
+// Components
 @import "./extras/components/content";
 @import "./extras/components/header";
 @import "./extras/components/footer";
