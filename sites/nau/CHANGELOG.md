@@ -9,9 +9,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Changed
+
+- ⬆️(richie) upgrade richie to 2.11.0
 - 💄(search-input) header search bar theme improvements
 - 💄(category-glimpse) category glimpse rendering and background fix
 - 💄(reboot) default link color and menu selected fix
+
 ## [1.2.0] - 2021-12-07
 
 ### Changed
