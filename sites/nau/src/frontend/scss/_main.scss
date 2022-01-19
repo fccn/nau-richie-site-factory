@@ -4,13 +4,13 @@
 @import "richie-education/scss/tools/colors";
 
 // Custom fonts for the NAU theme
-@import "./settings/fonts";
+@import "./extras/settings/fonts";
 
 // Default Richie variables
 @import "richie-education/scss/settings/variables";
 
 // NAU theme variable overrides
-@import './settings/variables';
+@import './extras/settings/variables';
 
 // TWITTER BOOTSTRAP V4
 // Required
