@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+- ♻️(styles) refactor style to reflect merge maps
+
 ### Changed
 
 - ⬆️(richie) upgrade richie to 2.11.0
