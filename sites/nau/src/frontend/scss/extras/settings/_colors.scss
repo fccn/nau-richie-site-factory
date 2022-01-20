@@ -1,9 +1,0 @@
-@import "colors/palette";
-
-// Rewrites for the palette:
-$palette: recursive-map-merge($palette, $palette_nau);
-
-@import "colors/theme";
-
-// Rewrites for the theme
-$r-theme: recursive-map-merge($r-theme, $r-theme-nau);
