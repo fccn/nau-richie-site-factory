@@ -8,6 +8,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+- ♻️(styles) clean unused values in theme.scss
 - 💄(footer) fix link hover color
 - ♻️(styles) refactor style to reflect merge maps
 
