@@ -8,6 +8,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+- ✨(tracking) add facebook pixel tracking code
 - ✅(jira) add jira service desk test
 - ♻️(styles) clean unused values in theme.scss
 - 💄(footer) fix link hover color

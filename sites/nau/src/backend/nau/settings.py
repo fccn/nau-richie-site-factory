@@ -362,6 +362,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "social_django.context_processors.backends",
                     "social_django.context_processors.login_redirect",
                     "nau.jira_service_desk.context_processors.jira_widget_key_setting",
+                    "nau.facebook_pixel.context_processors.facebook_pixel_setting",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -451,7 +452,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "django.contrib.sitemaps",
         "django.contrib.staticfiles",
         "django.contrib.messages",
-        'django.contrib.humanize',
+        "django.contrib.humanize",
     )
 
     # Languages
