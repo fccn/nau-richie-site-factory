@@ -8,14 +8,17 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(404) add arquivo404 js to 404 page on Richie
 - ✨(tracking) add facebook pixel tracking code
+
+### Changed
+
 - ✅(jira) add jira service desk test
 - ♻️(styles) clean unused values in theme.scss
 - 💄(footer) fix link hover color
 - ♻️(styles) refactor style to reflect merge maps
-
-### Changed
-
 - ⬆️(richie) upgrade richie to 2.11.0
 - 💄(search-input) header search bar theme improvements
 - 💄(category-glimpse) category glimpse rendering and background fix
