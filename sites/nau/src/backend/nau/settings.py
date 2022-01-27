@@ -660,6 +660,10 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         None, environ_name="JIRA_WIDGET_KEY", environ_prefix=None
     )
 
+    FACEBOOK_PIXEL_ID = values.Value(
+        None, environ_name="FACEBOOK_PIXEL_ID", environ_prefix=None
+    )
+
     # pylint: disable=invalid-name
     @property
     def ENVIRONMENT(self):
