@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-11 23:15+0100\n"
+"POT-Creation-Date: 2022-01-28 22:17+0000\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,15 +45,15 @@ msgstr "Perfil"
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:377
+#: nau/settings.py:378
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:464 nau/settings.py:479
+#: nau/settings.py:466 nau/settings.py:481
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:464 nau/settings.py:487
+#: nau/settings.py:466 nau/settings.py:489
 msgid "Portuguese"
 msgstr "Português"
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "All right reserved."
 msgstr "Todos os direitos reservados."
 
-#: templates/nau/cookies.html:24
+#: templates/nau/cookies.html:23
 msgid ""
 "This website uses cookies to ensure you get the best experience on our "
 "website. If you continue browsing this site, we understand that you accept "
@@ -74,21 +74,29 @@ msgstr ""
 "A NAU utiliza cookies para lhe providenciar uma melhor experiência de "
 "navegação. Para mais informações consulte a nossa política de cookies."
 
-#: templates/nau/cookies.html:25
+#: templates/nau/cookies.html:24
 msgid "Got it!"
 msgstr "Compreendido!"
 
-#: templates/nau/cookies.html:26
+#: templates/nau/cookies.html:25
 msgid "Learn more"
-msgstr ""
+msgstr "Saber mais"
 
-#: templates/nau/cookies.html:27
+#: templates/nau/cookies.html:26
 msgid "privacy-policy-url"
 msgstr "/pt/legal/politica-de-privacidade/"
 
 #: templates/nau/jira_service_desk.html:8
 msgid "Need Help"
 msgstr "Preciso de Ajuda"
+
+#: templates/richie/error.html:20
+msgid "Back to home"
+msgstr "Voltar à página principal"
+
+#: templates/richie/large_banner/hero-intro.html:21
+msgid "Explore our courses"
+msgstr "Explore os nossos cursos"
 
 #: templates/social-networks/footer-badges.html:8
 msgid "Subscribe newsletter"
