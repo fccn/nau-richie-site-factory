@@ -13,6 +13,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ✨(404) add arquivo404 js to 404 page on Richie
 - ✨(tracking) add facebook pixel tracking code
 
+### Fixed
+
+- 🌐(i18n) translate missing string
+
 ### Changed
 
 - ✅(jira) add jira service desk test
