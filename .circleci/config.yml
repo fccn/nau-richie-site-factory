@@ -19,7 +19,7 @@ commands:
 jobs:
     build-back:
         docker:
-            - image: circleci/python:3.7-stretch
+            - image: cimg/python:3.10.2
         parameters:
             site:
                 type: string
@@ -189,7 +189,7 @@ jobs:
         working_directory: ~/nau
     lint-back:
         docker:
-            - image: circleci/python:3.7-stretch
+            - image: cimg/python:3.10.2
         parameters:
             site:
                 type: string
@@ -260,7 +260,7 @@ jobs:
         working_directory: ~/nau/sites/<< parameters.site >>/src/frontend/
     lint-git:
         docker:
-            - image: circleci/python:3.7-stretch
+            - image: cimg/python:3.10.2
         steps:
             - checkout
             - run:
@@ -273,7 +273,7 @@ jobs:
                 name: Check absence of fixup commits
             - run:
                 command: |
-                    pip install --user gitlint
+                    pip install --user requests gitlint
                 name: Install gitlint
             - run:
                 command: |
@@ -300,7 +300,7 @@ jobs:
                 DJANGO_SECRET_KEY: ThisIsAnExampleKeyForTestPurposeOnly
                 DJANGO_SETTINGS_MODULE: << parameters.site >>.settings
                 PYTHONPATH: /home/circleci/nau/src/backend
-              image: circleci/python:3.7-stretch
+              image: cimg/python:3.10.2
             - command: --default-authentication-plugin=mysql_native_password
               environment:
                 MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -327,7 +327,9 @@ jobs:
                 keys:
                     - v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
             - run:
-                command: sudo apt-get install -y gettext
+                command: |
+                    sudo apt-get update
+                    sudo apt-get install -y gettext
                 name: Install gettext (required to compile messages)
             - run:
                 command: python manage.py compilemessages || true
