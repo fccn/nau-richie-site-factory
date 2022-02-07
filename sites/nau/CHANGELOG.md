@@ -19,6 +19,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- ⬆️(dependencies) upgrade python dependencies
 - ⬆️(richie) upgrade richie to 2.12.0
 - ✅(jira) add jira service desk test
 - ♻️(styles) clean unused values in theme.scss
