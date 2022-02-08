@@ -23,6 +23,11 @@
     {{ block.super }}
 {% endblock body_header %}
 
+{% block topbar_searchbar %}
+<div class="topbar__search richie-react richie-react--root-search-suggest-field"
+    data-props='{"courseSearchPageUrl": "{% page_url 'courses-search' %}"}'></div>
+{% endblock topbar_searchbar %}
+
 {% block topbar_contact %}
 {% endblock topbar_contact %}
 
