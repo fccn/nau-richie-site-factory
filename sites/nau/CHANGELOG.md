@@ -15,6 +15,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+- 🐛(search) fix header and home search component
 - 🌐(i18n) translate missing string
 
 ### Changed
