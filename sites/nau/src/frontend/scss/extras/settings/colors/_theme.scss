@@ -26,5 +26,9 @@ $r-theme: recursive-map-merge(
       base-color: r-color('firebrick6'),
       base-color-light: r-color('white'),
     ),
+    course-glimpse: (
+      organization-color: r-color('slate-grey'),
+      organization-color-hover: r-color('firebrick6'),
+    ),
   )
 );
