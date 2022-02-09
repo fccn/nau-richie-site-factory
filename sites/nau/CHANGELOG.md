@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+- 💄(course_glimpse) rework course glimpse cards
+
 ### Added
 
 - ✨(404) add arquivo404 js to 404 page on Richie
