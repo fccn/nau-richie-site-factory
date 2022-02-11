@@ -22,6 +22,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 🌐(i18n) change translations of 'Persons' and 'First session' for PT and EN.
 - ⬆️(dependencies) upgrade frontend dependencies
 - ⬆️(python) upgrade python to 3.10
 - ⬆️(dependencies) upgrade python dependencies

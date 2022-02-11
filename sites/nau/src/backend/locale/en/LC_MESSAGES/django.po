@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-28 22:17+0000\n"
+"POT-Creation-Date: 2022-02-11 10:00+0000\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: nau/force_translations.py:3
+#: nau/force_translations.py:5
 msgid "{!s} settings"
 msgstr ""
+
+#: nau/force_translations.py:6
+msgid "First session"
+msgstr "First edition"
+
+#: nau/force_translations.py:7
+msgid "Persons"
+msgstr "Instructors"
 
 #: nau/settings.py:274
 msgid "Dashboard"
