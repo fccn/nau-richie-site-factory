@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.3.0] - 2022-02-11
+
 ### Added
 
 - ✨(404) add arquivo404 js to 404 page on Richie
