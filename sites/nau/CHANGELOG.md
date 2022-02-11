@@ -8,8 +8,6 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-- 💄(course_glimpse) rework course glimpse cards
-
 ### Added
 
 - ✨(404) add arquivo404 js to 404 page on Richie
@@ -22,6 +20,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 💄(course_glimpse) rework course glimpse cards
 - 🌐(i18n) change translations of 'Persons' and 'First session' for PT and EN.
 - ⬆️(dependencies) upgrade frontend dependencies
 - ⬆️(python) upgrade python to 3.10
