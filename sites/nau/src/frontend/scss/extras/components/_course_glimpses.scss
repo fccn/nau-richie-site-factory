@@ -46,18 +46,21 @@ $glimpse-selector: '.course-glimpse';
     color: r-theme-val(course-glimpse, title-color);
     flex: 1 0 1.3em * 3; // 3 lines;
     line-height: 1.3em;
-    margin-bottom: 1rem;
     overflow: hidden;
   }
 
-  &__organization {
+  &__metadata {
+    &--organization {
       position: relative;
       padding: 0;
       bottom: 0;
-
       svg {
         display: none;
       }
+    }
+    &--code {
+      display: none;
+    }
   }
 
   &__code {
