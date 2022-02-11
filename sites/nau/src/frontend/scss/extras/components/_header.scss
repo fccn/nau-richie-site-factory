@@ -102,4 +102,44 @@
     }
   }
 
+  // Change order of Login and Register.
+  &__item {
+    &--login {
+      .user-login {
+        &__btn {
+          &--log-in {
+            order: 1;
+            color: r-color('firebrick6');
+            background: transparent;
+            border-color: transparent;
+            text-transform: uppercase;
+            &:hover {
+              color: r-color('firebrick6') !important;
+            }
+            .icon {
+              display: none;
+            }
+          }
+          &--sign-up {
+            order: 2;
+            background: #074ce1;
+            color: r-color('white');
+            &:hover {
+              color: r-color('white') !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  // Change order of Language changer and the Login/Register block.
+  &__list {
+    &--controls {
+      order: 3;
+    }
+    .richie-react--language-selector {
+      order: 2;
+    }
+  }
+
 }

@@ -8,6 +8,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- 💄(header) preserve the order of the components language change combo box, 
+  login and register buttons, so they have the same presentation as the LMS.
+
 ## [1.3.0] - 2022-02-11
 
 ### Added
