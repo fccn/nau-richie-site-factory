@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.0] - 2022-02-14
+
 ### Changed
 
 - 💄(header) preserve the order of the components language change combo box, 
