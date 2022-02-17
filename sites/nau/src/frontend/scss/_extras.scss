@@ -16,7 +16,9 @@
 
 // Objects
 @import "./extras/objects/category_glimpses";
+@import "./extras/objects/blogpost_glimpses";
 
 // Shared object overrides
 @import "./extras/components/templates/richie/large_banner/large_banner";
+@import "./extras/components/templates/courses/cms/blogpost_details";
 @import "./extras/components/blogpost_glimpses";
