@@ -192,6 +192,8 @@
       font-size: $font-size-base;
       color: r-theme-val(hero-intro, cta-color);
       border-radius: 2rem;
+      border: none;
+      box-shadow: 4px 2px 12px rgba(10, 31, 80, 0.45);
       
   
       @include media-breakpoint-up(lg) {

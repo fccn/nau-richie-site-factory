@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+- 🐛(css) fix blog category tags text color
+
 ## [1.4.0] - 2022-02-14
 
 ### Changed

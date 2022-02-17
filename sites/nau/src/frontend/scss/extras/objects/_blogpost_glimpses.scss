@@ -1,0 +1,17 @@
+.blogpost-glimpse__categories {
+    .category-tag {
+        .category-tag__title {
+            color: r-color("white");
+        }
+    }
+}
+
+.blogpost-mini__categories {
+    .category-tag {
+        background: none;
+
+        .category-tag__title {
+            color: r-color("firebrick6");
+        }
+    }
+}
