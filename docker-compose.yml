@@ -18,9 +18,10 @@ services:
       - "3306:3306"
 
   elasticsearch:
-    image: fundocker/openshift-elasticsearch:6.6.2
-    env_file:
-      - "env.d/development"
+    image: "${ELASTICSEARCH_IMAGE:-elasticsearch:7.17.0}"
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
       - "9200:9200"
 

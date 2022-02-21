@@ -7,7 +7,6 @@ DJANGO_ALLOWED_HOSTS=*
 
 # Elastic search
 RICHIE_ES_HOST=elasticsearch
-discovery.type=single-node
 
 # MySQL db container configuration
 MYSQL_ROOT_PASSWORD=pass

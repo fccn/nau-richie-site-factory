@@ -8,7 +8,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
 - 🐛(css) fix blog category tags text color
+
+### Changed
+
+- Upgrade elastic search to 7.17.0
 
 ## [1.4.0] - 2022-02-14
 
