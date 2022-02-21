@@ -14,7 +14,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Upgrade elastic search to 7.17.0
+- ⬆️(richie) upgrade richie to v2.13.0
+- ⬆️(search) upgrade elastic search to 7.17.0
 
 ## [1.4.0] - 2022-02-14
 
