@@ -14,6 +14,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 💄(course_detail) higher enroll button.
+  Move enroll button for open to enroll course runs to be higher on the
+  screen. For a single open course run the enroll button is visible on
+  the right using a desktop viewport. If using mobile at 
+  least it will be visible for simple swipe instead of scrolling
+  to the button of the screen.
 - ⬆️(richie) upgrade richie to v2.13.0
 - ⬆️(search) upgrade elastic search to 7.17.0
 
