@@ -1,5 +1,5 @@
 {% extends "courses/cms/course_detail.html" %}
-{% load cms_tags i18n %}
+{% load cms_tags i18n extra_tags %}
 
 {% block contact %}
 {% with runs_dict=course.course_runs_dict %}
@@ -32,3 +32,12 @@
     {% endwith %}
 </div>
 {% endblock runs_open %}
+
+{% block skills %}
+    {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"course_skills" %}
+    <div class="course-detail__row course-detail__skills">
+        <h2 class="course-detail__title">{% blocktrans context "course_detail__title" %}What you will learn{% endblocktrans %}</h2>
+        {% placeholder "course_skills" %}
+    </div>
+    {% endif %}
+{% endblock skills %}

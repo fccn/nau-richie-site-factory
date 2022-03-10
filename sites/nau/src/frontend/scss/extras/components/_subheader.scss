@@ -38,6 +38,15 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
 
   }
 
+  &__media {
+
+    img {
+      width: initial;
+      max-height: 6.5rem;
+    }
+
+  }
+
   .breadcrumbs {
     background: r-color("light-blue");
   }

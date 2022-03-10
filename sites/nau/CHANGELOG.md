@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+- 💄(course_detail) remove excessive text in "What you'll learn"
 - 🐛(css) fix blog category tags text color
 
 ### Changed
