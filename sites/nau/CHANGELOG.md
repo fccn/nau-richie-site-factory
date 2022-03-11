@@ -12,6 +12,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 💄(course_detail) remove excessive text in "What you'll learn"
 - 🐛(css) fix blog category tags text color
+- 💄(css) fix check mark color when course skills contains a list of items
 
 ### Changed
 
