@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.5.0] - 2022-03-14
+
 ### Fixed
 
 - 💄(course_detail) remove excessive text in "What you'll learn"
