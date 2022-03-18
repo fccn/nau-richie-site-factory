@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 💚(circleci) fix circleci check configuration step
+- 🌐(i18n) fix missing translations
 
 ## [1.5.0] - 2022-03-14
 

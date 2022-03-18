@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-11 10:00+0000\n"
+"POT-Creation-Date: 2022-03-18 17:53+0000\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,16 +57,30 @@ msgstr ""
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:466 nau/settings.py:481
+#: nau/settings.py:469 nau/settings.py:484
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:466 nau/settings.py:489
+#: nau/settings.py:469 nau/settings.py:492
 msgid "Portuguese"
 msgstr "Português"
 
-#: templates/courses/cms/fragment_course_glimpse.html:9
-msgid "Cover"
+#: templates/courses/cms/course_detail.html:17
+msgctxt "course_detail__title"
+msgid "Other course runs"
+msgstr "Outras edições"
+
+#: templates/courses/cms/course_detail.html:26
+msgid "No other open course runs"
+msgstr "Não existem outras edições abertas"
+
+#: templates/courses/cms/course_detail.html:30
+msgid "No open course runs"
+msgstr "Não existem edições abertas"
+
+#: templates/courses/cms/course_detail.html:39
+msgctxt "course_detail__title"
+msgid "What you will learn"
 msgstr ""
 
 #: templates/nau/_footer.html:110
