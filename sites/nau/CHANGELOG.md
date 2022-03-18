@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 💚(circleci) fix circleci check configuration step
+
 ## [1.5.0] - 2022-03-14
 
 ### Fixed
