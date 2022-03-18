@@ -35,6 +35,7 @@ check-configuration:
   # Use machine because the check_configuration script runs some docker images with
   # volume mounts which is not possible with dind
   machine:
+    image: ubuntu-2004:current
     # Cache docker layers so that we strongly speed up this job execution
     # This cache will be available to future jobs (although because jobs run
     # in parallel, CircleCI does not guarantee that a given job will see a
