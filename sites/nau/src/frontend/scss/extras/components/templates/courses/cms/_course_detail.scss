@@ -26,5 +26,14 @@
       }
     }
   }
+
+  &__plan &__title {
+    color: inherit;
+  }
+
+  &__organizations &__title {
+    color: inherit !important;
+    @include font-size($h2-font-size);
+  }
 }
   
