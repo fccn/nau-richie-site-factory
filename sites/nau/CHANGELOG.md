@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+- 💄(course_detail) fix title size and color of plan and organization
 - 💚(circleci) fix circleci check configuration step
 - 🌐(i18n) fix missing translations
 
