@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.6.0] - 2022-03-29
+
 ### Fixed
 
 - 💄(course_detail) fix title size and color of plan and organization
