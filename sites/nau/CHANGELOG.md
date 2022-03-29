@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.7.0] - 2022-03-29
+
 ### Changed
 
 - ⬆️(dependencies) upgrade dependencies
