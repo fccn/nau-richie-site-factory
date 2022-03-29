@@ -14,6 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 💚(circleci) fix circleci check configuration step
 - 🌐(i18n) fix missing translations
 
+### Changed
+
+- 🐛(cache) lower page content cache from 1 day to 30 minutes
+
 ## [1.5.0] - 2022-03-14
 
 ### Fixed

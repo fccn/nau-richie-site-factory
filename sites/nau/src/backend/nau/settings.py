@@ -771,7 +771,7 @@ class Production(Base):
     # For more details about CMS_CACHE_DURATION, see :
     # http://docs.django-cms.org/en/latest/reference/configuration.html#cms-cache-durations
     CMS_CACHE_DURATIONS = values.DictValue(
-        {"menus": 3600, "content": 86400, "permissions": 86400}
+        {"menus": 3600, "content": 1800, "permissions": 86400}
     )
 
     # By default, Django CMS sends cached responses with a
