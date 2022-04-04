@@ -56,7 +56,7 @@
 @import "richie-education/scss/generic/icons";
 
 // Shared object styles
-@import "richie-education/scss/objects/banner.scss";
+@import "richie-education/scss/objects/banner";
 @import "richie-education/scss/objects/breadcrumbs";
 @import "richie-education/scss/objects/course_glimpses";
 @import "richie-education/scss/objects/blogpost_glimpses";
@@ -71,13 +71,26 @@
 @import "richie-education/scss/objects/react-autosuggest";
 @import "richie-education/scss/objects/search-filter-value";
 @import "richie-education/scss/objects/selector";
+@import "richie-education/scss/objects/form";
+@import "richie-education/js/components/AddressesManagement/styles";
+@import "richie-education/js/components/CourseProductCertificateItem/styles";
+@import "richie-education/js/components/CourseProductCourseRuns/styles";
+@import "richie-education/js/components/CourseProductItem/styles";
 @import "richie-education/js/components/CourseRunEnrollment/styles";
 @import "richie-education/js/components/LtiConsumer/styles";
+@import "richie-education/js/components/Modal/styles";
+@import "richie-education/js/components/PaymentButton/styles";
+@import "richie-education/js/components/RegisteredCreditCard/styles";
+@import "richie-education/js/components/SaleTunnel/styles";
+@import "richie-education/js/components/SaleTunnelStepPayment/styles";
+@import "richie-education/js/components/SaleTunnelStepResume/styles";
+@import "richie-education/js/components/SaleTunnelStepValidation/styles";
 @import "richie-education/js/components/SearchFilterGroup/styles";
 @import "richie-education/js/components/SearchFilterGroupModal/styles";
 @import "richie-education/js/components/SearchFiltersPane/styles";
 @import "richie-education/js/components/SearchInput/styles";
 @import "richie-education/js/components/Spinner/styles";
+@import "richie-education/js/components/StepBreadcrumb/styles";
 @import "richie-education/js/components/UserLogin/styles";
 @import "richie-education/js/components/UserMenu/styles";
 @import "richie-education/scss/components/templates/courses/plugins/category_plugin";
@@ -96,6 +109,7 @@
 @import "richie-education/scss/components/error";
 @import "richie-education/scss/components/templates/search/search";
 @import "richie-education/scss/components/templates/richie/single-column";
+@import "richie-education/scss/components/templates/richie/multiple-columns";
 @import "richie-education/scss/components/templates/courses/cms/homepage";
 @import "richie-education/scss/components/templates/courses/cms/organization_list";
 @import "richie-education/scss/components/templates/courses/cms/organization_detail";
