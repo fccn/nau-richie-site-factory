@@ -13,6 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ⬆️(richie) upgrade richie to v2.14.0
 - ⚰️(course_detail) remove overridden blocks on course detail template.
   The specific code have been moved, improved and superseded by uptream.
+- 🔧(jira) configure Jira Service Desk widget on local development
 
 ### Fixed
 
