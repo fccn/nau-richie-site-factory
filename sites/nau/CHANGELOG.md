@@ -12,6 +12,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ⬆️(richie) upgrade richie to v2.14.0
 
+### Fixed
+
+- ⬆️(richie) fix frontend upgrade
+
 ## [1.7.0] - 2022-03-29
 
 ### Changed
