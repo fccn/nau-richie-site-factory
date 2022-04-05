@@ -1,0 +1,40 @@
+
+version: 2
+updates:
+
+  # NAU site backend dependabot configuration
+  - package-ecosystem: "pip"
+    directory: "/sites/nau/requirements"
+    schedule:
+      interval: "daily"
+    # Include a list of updated dependencies
+    # with a prefix determined by the dependency group
+    commit-message:
+      prefix: "⬆️(dependencies) update python dependencies\n\n"
+      prefix-development: "⬆️(dependencies) update python dev dependencies\n\n"
+      include: "scope"
+    # Add reviewers
+    reviewers:
+      - "igobranco"
+      #- "fccn/nau"
+    # Allow up to 3 open pull requests for pip dependencies
+    open-pull-requests-limit: 3
+
+  # NAU site frontend dependabot configuration
+  - package-ecosystem: "npm"
+    directory: "/sites/nau/src/frontend"
+    schedule:
+      interval: "daily"
+    # Include a list of updated dependencies
+    # with a prefix determined by the dependency group
+    commit-message:
+      prefix: "⬆️(dependencies) update js dependencies\n\n"
+      prefix-development: "⬆️(dependencies) update js dev dependencies\n\n"
+      include: "scope"
+    # Add reviewers
+    reviewers:
+      - "igobranco"
+      #- "fccn/nau"
+    # Allow up to 3 open pull requests for pip dependencies
+    open-pull-requests-limit: 3
+
