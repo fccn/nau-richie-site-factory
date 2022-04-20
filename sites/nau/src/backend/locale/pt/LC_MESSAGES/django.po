@@ -106,7 +106,7 @@ msgstr "Saber mais"
 
 #: templates/nau/cookies.html:26
 msgid "privacy-policy-url"
-msgstr "/pt/legal/politica-de-privacidade/"
+msgstr "/pt/legal/cookies/"
 
 #: templates/nau/jira_service_desk.html:8
 msgid "Need Help"

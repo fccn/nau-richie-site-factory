@@ -106,7 +106,7 @@ msgstr ""
 
 #: templates/nau/cookies.html:26
 msgid "privacy-policy-url"
-msgstr "/en/legal-en/privacy-policy"
+msgstr "/en/legal/cookies/"
 
 #: templates/nau/jira_service_desk.html:8
 msgid "Need Help"

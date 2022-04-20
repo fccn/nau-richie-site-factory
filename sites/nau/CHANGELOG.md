@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- 🐛(cookies) fix cookie policy link
+
 ## [1.9.0] - 2022-04-20
 
 ### Changed
