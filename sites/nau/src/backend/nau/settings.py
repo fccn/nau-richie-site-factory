@@ -362,6 +362,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "social_django.context_processors.backends",
                     "social_django.context_processors.login_redirect",
                     "nau.jira_service_desk.context_processors.jira_widget_key_setting",
+                    "nau.chatbot.context_processors.chatbot_widget_js_url_setting",
                     "nau.facebook_pixel.context_processors.facebook_pixel_setting",
                 ],
                 "loaders": [
@@ -663,8 +664,14 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         None, environ_name="JIRA_WIDGET_KEY", environ_prefix=None
     )
 
+    # Add Facebook Pixel
     FACEBOOK_PIXEL_ID = values.Value(
         None, environ_name="FACEBOOK_PIXEL_ID", environ_prefix=None
+    )
+
+    # Add NAU Chatbot Widget
+    CHATBOT_WIDGET_JS_URL = values.Value(
+        None, environ_name="CHATBOT_WIDGET_JS_URL", environ_prefix=None
     )
 
     # pylint: disable=invalid-name
