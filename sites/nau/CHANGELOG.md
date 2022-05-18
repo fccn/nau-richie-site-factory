@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.11.0] - 2022-05-18
+
 ### Added
 
 - ✨(chatbot) add chatbot widget if the setting `CHATBOT_WIDGET_JS_URL`
