@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(chatbot) add course parameter to chatbot widget
+
 ## [1.11.0] - 2022-05-18
 
 ### Added
