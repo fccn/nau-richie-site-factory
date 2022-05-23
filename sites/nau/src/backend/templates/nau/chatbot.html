@@ -8,6 +8,11 @@
             s = document.createElement('script');
             s.type = 'text/javascript';
             s.src = src;
+            s.id = 'botscriptpass';
+            s.setAttribute("param_curso", "{{ CHATBOT_PARAM_COURSE }}");
+{% comment "In future the user email could be retrieved from React JS code using the LMS API /api/user/v1/accounts/{username}/." %}
+            //s.setAttribute("param_email", userEmail);
+{% endcomment %}
             s.onload = s.onreadystatechange = function () {
                 if (!r && (!this.readyState || this.readyState == 'complete')) {
                     r = true;
