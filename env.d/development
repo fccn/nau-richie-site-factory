@@ -23,10 +23,6 @@ DB_PASSWORD=pass
 DB_PORT=3306
 DB_OPTION_CHARSET=utf8mb4
 
-# Social auth
-DJANGO_SOCIAL_AUTH_EDX_OAUTH2_KEY=social-id
-DJANGO_SOCIAL_AUTH_EDX_OAUTH2_SECRET=fakesecret
-
 # LMS Backend
 EDX_BACKEND=richie.apps.courses.lms.base.BaseLMSBackend
 EDX_JS_BACKEND=base
