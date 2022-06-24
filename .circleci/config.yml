@@ -43,7 +43,7 @@ jobs:
         working_directory: ~/nau/sites/<< parameters.site >>
     build-front-production:
         docker:
-            - image: circleci/node:14
+            - image: cimg/node:16.15
         parameters:
             site:
                 type: string
@@ -244,7 +244,7 @@ jobs:
         working_directory: ~/nau
     lint-front:
         docker:
-            - image: circleci/node:14
+            - image: cimg/node:16.15
         parameters:
             site:
                 type: string

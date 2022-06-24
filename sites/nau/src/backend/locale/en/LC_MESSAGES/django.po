@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-18 17:53+0000\n"
+"POT-Creation-Date: 2022-06-24 10:07+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,56 +29,43 @@ msgstr "First edition"
 msgid "Persons"
 msgstr "Instructors"
 
-#: nau/settings.py:274
+#: nau/settings.py:232
 msgid "Dashboard"
 msgstr ""
 
-#: nau/settings.py:275
+#: nau/settings.py:233
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: nau/settings.py:278
+#: nau/settings.py:236
 msgid "Account"
 msgstr ""
 
-#: nau/settings.py:279
+#: nau/settings.py:237
 msgid "{base_url:s}/account/settings"
 msgstr ""
 
-#: nau/settings.py:282
+#: nau/settings.py:240
 msgid "Profile"
 msgstr ""
 
-#: nau/settings.py:283
+#: nau/settings.py:241
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:378
+#: nau/settings.py:335
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:469 nau/settings.py:484
+#: nau/settings.py:423 nau/settings.py:438
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:469 nau/settings.py:492
+#: nau/settings.py:423 nau/settings.py:446
 msgid "Portuguese"
 msgstr "Português"
 
-#: templates/courses/cms/course_detail.html:17
-msgctxt "course_detail__title"
-msgid "Other course runs"
-msgstr ""
-
-#: templates/courses/cms/course_detail.html:26
-msgid "No other open course runs"
-msgstr ""
-
-#: templates/courses/cms/course_detail.html:30
-msgid "No open course runs"
-msgstr ""
-
-#: templates/courses/cms/course_detail.html:39
+#: templates/courses/cms/course_detail.html:7
 msgctxt "course_detail__title"
 msgid "What you will learn"
 msgstr ""
