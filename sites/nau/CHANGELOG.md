@@ -13,6 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 💄(logo) add by fccn on nau logo
 - ⬆️(nau) upgrade richie to v2.15.0
 - upgrade node to v16
+- ♻️(scss) refactor scss code
 
 ## [1.12.0] - 2022-05-24
 
