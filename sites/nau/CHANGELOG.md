@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- 💄(logo) add by fccn on nau logo
+
 ## [1.12.0] - 2022-05-24
 
 ### Added
