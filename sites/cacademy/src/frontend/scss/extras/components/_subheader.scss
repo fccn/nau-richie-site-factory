@@ -1,0 +1,69 @@
+//
+// Common sub-header for breadcrumbs, document title, introduction, etc..
+//
+$r-subheader-search-title-width: 19rem !default; // aligned on computed search result width
+
+.subheader {
+  $subheader-selector: &;
+  color: inherit;
+  background: none;
+
+  // Top level base container to include possible main background and basic
+  // spacing
+  &__container {
+    background: none;
+  }
+
+  // Main document title
+  &__title {
+    padding-left: 1rem;
+  }
+
+  // Main subheader container alongside 'aside' container
+  &__main {
+    @include media-breakpoint-up(lg) {
+      padding-left: 1rem;
+    }
+
+    & > .subheader__title {
+      padding: 0;
+    }
+  }
+
+  &__search {
+
+    #{$subheader-selector}__title {
+      padding: 0 1rem;
+    }
+
+  }
+
+  &__media {
+
+    img {
+      width: initial;
+      max-height: 6.5rem;
+    }
+
+  }
+
+  .breadcrumbs {
+    background: r-color("light-blue");
+  }
+
+  // Component variants
+  &--alternative {
+    #{$subheader-selector}__container {
+      background: none;
+
+      @if r-theme-val(subheader-alt, container-border) {
+        border-top: none;
+      }
+
+      // Insert bottom curves
+      &::after {
+        background-image: none;
+      }
+    }
+  }
+}

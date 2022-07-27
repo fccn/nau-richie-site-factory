@@ -1,0 +1,10 @@
+// Main body content container
+.body-content {
+
+  // Insert footer decoration
+  @if r-theme-val(body-content, insert-background-image) {
+    &::after {
+      background-image: none;
+    }
+  }
+}
