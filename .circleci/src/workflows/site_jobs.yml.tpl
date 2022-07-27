@@ -9,7 +9,7 @@ ${SITE}:
           branches:
             ignore: ${CHANGELOG_IGNORED_BRANCH}
     - lint-changelog:
-        name: lint-changelog--${SITE}
+        name: lint-changelog-${SITE}
         site: ${SITE}
         filters:
           branches:
