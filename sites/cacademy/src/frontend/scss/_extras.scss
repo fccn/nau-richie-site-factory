@@ -1,0 +1,25 @@
+/* This file was created to provide overrides
+ * You can include all files in the extras dir
+ * or do includes in a file by file basis
+ */
+
+// Reboot
+@import "./extras/reboot";
+
+// Components
+@import "./extras/components/content";
+@import "./extras/components/header";
+@import "./extras/components/footer";
+@import "./extras/components/subheader";
+@import "./extras/components/search_input";
+@import "./extras/components/course_glimpses";
+
+// Objects
+@import "./extras/objects/category_glimpses";
+@import "./extras/objects/blogpost_glimpses";
+
+// Shared object overrides
+@import "./extras/components/templates/richie/large_banner/large_banner";
+@import "./extras/components/templates/courses/cms/blogpost_details";
+@import "./extras/components/templates/courses/cms/course_detail";
+@import "./extras/components/blogpost_glimpses";

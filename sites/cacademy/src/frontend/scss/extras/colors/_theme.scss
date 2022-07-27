@@ -1,0 +1,34 @@
+// Theme schemes
+// Used from styleguide to build available scheme to demonstrate, used to create button variant
+$r-theme: recursive-map-merge(
+  $r-theme,
+  (
+    topbar: (
+      item-hover-color: r-color('firebrick6'),
+    ),
+    body-mentions: (
+      base-color: r-color('black'),
+      base-background: r-color('white'),
+      poweredby-hover: r-color('black'),
+    ),
+    hero-intro: (
+      insert-background-image: url('../../richie/images/components/hero_background.svg'),
+      content-color: r-color('white'),
+      search-input-background: r-color('white'),
+      search-btn-background: r-color('white'),
+      search-icon-fill: r-color('firebrick6'),
+      cta-variant-from: r-color('banana'),
+      cta-variant-to: rgba(r-color('white'), 0.8),
+      cta-color: r-color('black'),
+      cta-border: r-color('white'),
+    ),
+    spinner: (
+      base-color: r-color('firebrick6'),
+      base-color-light: r-color('white'),
+    ),
+    course-glimpse: (
+      organization-color: r-color('slate-grey'),
+      organization-color-hover: r-color('firebrick6'),
+    ),
+  )
+);

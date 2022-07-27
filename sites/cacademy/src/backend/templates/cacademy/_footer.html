@@ -1,0 +1,38 @@
+{% load i18n cms_tags menu_tags static full_static_tags %}
+
+<footer id="site-footer">
+    <div class="body-footer">
+        <div class="body-footer__container">
+            <div class="body-footer__menu">
+                <div class="body-footer__items">
+                    {% static_placeholder "footer" %}
+                </div>
+            </div>
+            <div class="body-footer__brand">
+                <a href="/">
+                {% block body_footer_logo %}
+                    <img src="{% static "richie/images/logo.png" %}" alt="{{ SITE.name }}">
+                    {% endblock body_footer_logo %}
+                </a>
+                <p class="body-footer__copyright">&copy; {% now "Y" %} CNCS. {% trans "All right reserved." %}</p>
+            </div>
+            <div class="body-footer__insert">
+                {% block body_footer_title %}
+                {% endblock body_footer_title %}
+                {% language_chooser "menu/language_menu.html" %}
+                <div class="body-footer__badges">
+                    {% include "social-networks/footer-badges.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-mentions">
+        <div class="body-mentions__container">
+            {% block body_mentions %}
+            <div class="body-mentions__entities">
+                {% static_placeholder "footer-support-entities" %}
+            </div>
+            {% endblock body_mentions %}
+        </div>
+    </div>
+</footer>
