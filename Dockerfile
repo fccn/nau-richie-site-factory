@@ -132,7 +132,7 @@ ARG STATIC_ROOT
 
 ENV SITE=${SITE}
 
-# Install rdfind
+# Install wait-for-it
 RUN apt-get update && \
     apt-get install -y \
     wait-for-it && \
