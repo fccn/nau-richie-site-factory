@@ -12,6 +12,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ♻️(scss) refactor scss code
 
+### Added
+
+- ✨(googletagmanager) add Google Tag Manager to nau site without using
+  Richie upstream Web Analytics.
+
 ## [1.13.0] - 2022-06-28
 
 ### Changed
