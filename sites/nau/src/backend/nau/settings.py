@@ -320,6 +320,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "nau.jira_service_desk.context_processors.jira_widget_key_setting",
                     "nau.chatbot.context_processors.chatbot_widget_js_url_setting",
                     "nau.facebook_pixel.context_processors.facebook_pixel_setting",
+                    "nau.google_tag_manager.context_processors.google_tag_manager_setting",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -620,6 +621,11 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # Add Facebook Pixel
     FACEBOOK_PIXEL_ID = values.Value(
         None, environ_name="FACEBOOK_PIXEL_ID", environ_prefix=None
+    )
+
+    # Add Google Tag Manager
+    GOOGLE_TAG_MANAGER_ID = values.Value(
+        None, environ_name="GOOGLE_TAG_MANAGER_ID", environ_prefix=None
     )
 
     # Add NAU Chatbot Widget

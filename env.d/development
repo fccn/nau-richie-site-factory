@@ -43,3 +43,6 @@ WEB_ANALYTICS_ID=UA-123456789-1
 
 # Chatbot widget
 # CHATBOT_WIDGET_JS_URL=https://naustorage.blob.core.windows.net/bot-html-tst/fccn_chatbot.bundle.js
+
+# Google Tag Manager
+# GOOGLE_TAG_MANAGER_ID=GTM-WHZV2TB
