@@ -69,6 +69,12 @@ if settings.DEBUG:
         + urlpatterns
     )
 
+# Enable the deliver of the static asset files like css, images, fonts, etc.
+# nginx will also deliver this files, but during rolling deploy, the nginx could have one
+# version of the files and the app still running a different version.
+if getattr(settings, "STATIC_FILES_URL_ENABLE", False) and not settings.DEBUG:
+    urlpatterns = staticfiles_urlpatterns() + urlpatterns
+
 handler400 = "richie.apps.core.views.error.error_400_view_handler"
 handler403 = "richie.apps.core.views.error.error_403_view_handler"
 handler404 = "richie.apps.core.views.error.error_404_view_handler"
