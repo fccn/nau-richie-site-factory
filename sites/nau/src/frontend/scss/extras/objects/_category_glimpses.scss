@@ -11,7 +11,8 @@
 // Tag variant
 //
 .category-tag {
-  @include r-button-colors(r-theme-val(category-tags, primary-item), $apply-border: true);
+  //@include r-button-colors(r-theme-val(category-tags, primary-item), $apply-border: true);
+  background: none;
 }
 
 //
