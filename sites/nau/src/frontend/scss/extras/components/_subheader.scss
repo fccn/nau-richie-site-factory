@@ -66,6 +66,7 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
 
       @if r-theme-val(subheader-alt, container-border) {
         border-top: none;
+        padding-bottom: 0 !important;
       }
 
       // Insert bottom curves
