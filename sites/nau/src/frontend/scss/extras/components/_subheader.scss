@@ -1,6 +1,7 @@
 //
 // Common sub-header for breadcrumbs, document title, introduction, etc..
 //
+
 $r-subheader-search-title-width: 19rem !default; // aligned on computed search result width
 
 .subheader {
@@ -25,7 +26,7 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
       padding-left: 1rem;
     }
 
-    & > .subheader__title {
+    &>.subheader__title {
       padding: 0;
     }
   }
@@ -39,12 +40,19 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
   }
 
   &__media {
+    border-radius: unset;
 
-    img {
+    img,
+    svg {
       width: initial;
       max-height: 6.5rem;
+      border-radius: unset;
     }
 
+    &--locket img,
+    &--locket img {
+      border-radius: 100%;
+    }
   }
 
   .breadcrumbs {
