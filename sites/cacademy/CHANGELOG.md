@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 🔨(frontend) add package.json ts build output dir
 - Install richie for C-Academy
 
 ### Added
