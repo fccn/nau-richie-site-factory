@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.14.0] - 2022-09-01
+
 ### Changed
 
 - 💄(scss) clear person detail subheader whitespace
