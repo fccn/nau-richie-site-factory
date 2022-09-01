@@ -9,10 +9,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Changed
+
 - 💄(scss) clear person detail subheader whitespace
 - 🐛(scss) fix border-radius in cutting the corners of entity logos
 - 🐛(scss) fix issues with category tag rendering
 - 🔨(frontend) add package.json ts build output dir
+- ⬆️(nau) upgrade richie to v2.15.1
 - ♻️(scss) refactor scss code
 
 ### Added
