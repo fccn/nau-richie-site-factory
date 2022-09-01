@@ -345,6 +345,13 @@ jobs:
         working_directory: ~/nau/sites/<< parameters.site >>/src/backend
 version: 2.1
 workflows:
+    cacademy:
+        jobs:
+            - no-change:
+                filters:
+                    tags:
+                        only: /.*/
+                name: no-change-cacademy
     nau:
         jobs:
             - check-changelog:
@@ -407,68 +414,6 @@ workflows:
                     - lint-front-nau
                     - lint-back-nau
                 site: nau
-    cacademy:
-        jobs:
-            - check-changelog:
-                filters:
-                    branches:
-                        ignore: master
-                name: check-changelog-cacademy
-                site: cacademy
-            - lint-changelog:
-                filters:
-                    branches:
-                        ignore: master
-                    tags:
-                        only: /cacademy-.*/
-                name: lint-changelog-cacademy
-                site: cacademy
-            - build-front-production:
-                filters:
-                    tags:
-                        only: /cacademy-.*/
-                name: build-front-production-cacademy
-                site: cacademy
-            - lint-front:
-                filters:
-                    tags:
-                        only: /cacademy-.*/
-                name: lint-front-cacademy
-                requires:
-                    - build-front-production-cacademy
-                site: cacademy
-            - build-back:
-                filters:
-                    tags:
-                        only: /cacademy-.*/
-                name: build-back-cacademy
-                site: cacademy
-            - lint-back:
-                filters:
-                    tags:
-                        only: /cacademy-.*/
-                name: lint-back-cacademy
-                requires:
-                    - build-back-cacademy
-                site: cacademy
-            - test-back:
-                filters:
-                    tags:
-                        only: /cacademy-.*/
-                name: test-back-cacademy
-                requires:
-                    - build-back-cacademy
-                site: cacademy
-            - hub:
-                filters:
-                    tags:
-                        only: /^cacademy-.*/
-                image_name: cacademy
-                name: hub-cacademy
-                requires:
-                    - lint-front-cacademy
-                    - lint-back-cacademy
-                site: cacademy
     site-factory:
         jobs:
             - lint-git:

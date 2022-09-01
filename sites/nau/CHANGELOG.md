@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- ➕(dependencies) add pip requests package for open edx lms backend.
+
 ## [1.14.0] - 2022-09-01
 
 ### Changed
