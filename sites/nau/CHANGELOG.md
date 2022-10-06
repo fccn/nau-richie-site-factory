@@ -8,6 +8,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+- 🐛(scss) fix issues with background on icon tag
+
 ## [1.14.1] - 2022-09-01
 
 ### Fixed
