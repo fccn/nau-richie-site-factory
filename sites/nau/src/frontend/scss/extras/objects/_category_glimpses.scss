@@ -36,3 +36,14 @@
     }
   }
 }
+
+//
+// Person glimpse
+.person-glimpse {
+  &__categories {
+    .category-tag:hover {
+      color: r-color("white");
+      background-color: r-color("midnightblue");
+    }
+  }
+}

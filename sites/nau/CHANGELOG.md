@@ -9,6 +9,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Fixed
+- 🐛(scss) persons category tags have the wrong hover color
 - 🐛(scss) fix issues with background on icon tag
 
 ## [1.14.1] - 2022-09-01
