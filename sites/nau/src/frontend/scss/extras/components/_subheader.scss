@@ -72,6 +72,8 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
       // Insert bottom curves
       &::after {
         background-image: none;
+        content: none;
+        position: inherit;
       }
     }
   }
