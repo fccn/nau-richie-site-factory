@@ -1,0 +1,11 @@
+.category-detail {
+    &__intro {
+        .category-detail {
+            &__title {
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+}
