@@ -8,7 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Fixed 
+### Changed
+
+- 💄(template) remove category tag icon
+
+### Fixed
+
 - 🐛(scss) enroll button is not clickable on small width screens
 - 🐛(scss) persons category tags have the wrong hover color
 - 🐛(scss) fix issues with background on icon tag
