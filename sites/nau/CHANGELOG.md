@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 💄(template) help url on header menu
 - 💄(template) remove category tag icon
 
 ### Fixed

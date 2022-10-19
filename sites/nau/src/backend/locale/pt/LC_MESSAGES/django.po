@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-24 10:07+0100\n"
+"POT-Creation-Date: 2022-10-18 14:25+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,22 +53,87 @@ msgstr "Perfil"
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:335
+#: nau/settings.py:337
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:423 nau/settings.py:438
+#: nau/settings.py:425 nau/settings.py:440
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:423 nau/settings.py:446
+#: nau/settings.py:425 nau/settings.py:448
 msgid "Portuguese"
 msgstr "Português"
+
+#: templates/courses/cms/category_detail.html:6
+#, python-format
+msgid "%(category_title)s - Category"
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:40
+msgid "Banner"
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:60
+msgid "Logo"
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:97
+msgid "Sub categories"
+msgstr "Sub-categorias"
+
+#: templates/courses/cms/category_detail.html:113
+#, fuzzy
+#| msgctxt "course_detail__title"
+#| msgid "Other course runs"
+msgid "Related courses"
+msgstr "Outras edições"
+
+#: templates/courses/cms/category_detail.html:118
+msgid "Courses pagination"
+msgstr "Paginação de cursos"
+
+#: templates/courses/cms/category_detail.html:122
+#, python-format
+msgid ""
+"\n"
+"                                        See all courses related to "
+"%(category_title)s\n"
+"                                    Ver todos os cursos relacionados com"
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:128
+msgid "See all courses"
+msgstr "Ver todos os cursos"
+
+#: templates/courses/cms/category_detail.html:145
+msgid "Related organizations"
+msgstr "Organizações relacionadas"
+
+#: templates/courses/cms/category_detail.html:150
+msgid "Related organizations pagination"
+msgstr "Paginação de Organizações relacionadas"
+
+#: templates/courses/cms/category_detail.html:164
+msgid "Related blogposts"
+msgstr "Posts de blog relacionados"
+
+#: templates/courses/cms/category_detail.html:169
+msgid "Related blogposts pagination"
+msgstr "Paginação de posts de blog relacionados"
+
+#: templates/courses/cms/category_detail.html:183
+msgid "Related persons"
+msgstr "Pessoas relacionadas"
+
+#: templates/courses/cms/category_detail.html:188
+msgid "Related persons pagination"
+msgstr "Paginação de pessoas relacionadas"
 
 #: templates/courses/cms/course_detail.html:7
 msgctxt "course_detail__title"
 msgid "What you will learn"
-msgstr ""
+msgstr "O que vai aprender"
 
 #: templates/nau/_footer.html:110
 msgid "All right reserved."
@@ -99,6 +164,10 @@ msgstr "/pt/legal/cookies/"
 msgid "Need Help"
 msgstr "Preciso de Ajuda"
 
+#: templates/richie/base.html:40
+msgid "Help"
+msgstr "Ajuda"
+
 #: templates/richie/error.html:20
 msgid "Back to home"
 msgstr "Voltar à página principal"
@@ -122,10 +191,6 @@ msgstr "Siga-nos no Twitter"
 #: templates/social-networks/footer-badges.html:38
 msgid "Follow our Linkedin"
 msgstr "Siga-nos no Linkedin"
-
-msgctxt "course_detail__title"
-msgid "Other course runs"
-msgstr "Outras edições"
 
 msgid "No other open course runs"
 msgstr "Não existem outras edições abertas"
