@@ -639,6 +639,14 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         None, environ_name="HELP_DESK_URL", environ_prefix=None
     )
 
+    # # Allow to change django language related cookies
+    LANGUAGE_COOKIE_DOMAIN = values.Value(
+        None, environ_name="LANGUAGE_COOKIE_DOMAIN", environ_prefix=None
+    )
+    LANGUAGE_COOKIE_NAME = values.Value(
+        "django_language", environ_name="LANGUAGE_COOKIE_NAME", environ_prefix=None
+    )
+
     # pylint: disable=invalid-name
     @property
     def ENVIRONMENT(self):

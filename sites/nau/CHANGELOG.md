@@ -8,6 +8,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- 🔧(language) add django language settings that allows to configure language
+  cookies differently, so we can share it with the open edx.
+
 ### Changed
 
 - 💄(template) help url on header menu
