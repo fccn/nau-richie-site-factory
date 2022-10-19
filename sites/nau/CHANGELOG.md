@@ -8,6 +8,106 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+<<<<<<< Updated upstream
+=======
+### Added
+
+- 🔧(language) add django language settings that allows to configure language
+  cookies differently, so we can share it with the open edx.
+
+### Changed
+
+- 💄(template) help url on header menu
+- 💄(template) remove category tag icon
+
+### Fixed
+
+- 🐛(cache) limit the cache ttl for course pages based on course run dates
+- 🐛(scss) enroll button is not clickable on small width screens
+- 🐛(scss) persons category tags have the wrong hover color
+- 🐛(scss) fix issues with background on icon tag
+
+## [1.14.1] - 2022-09-01
+
+### Fixed
+
+- ➕(dependencies) add pip requests package for open edx lms backend.
+
+## [1.14.0] - 2022-09-01
+
+### Changed
+
+- 💄(scss) clear person detail subheader whitespace
+- 🐛(scss) fix border-radius in cutting the corners of entity logos
+- 🐛(scss) fix issues with category tag rendering
+- 🔨(frontend) add package.json ts build output dir
+- ⬆️(nau) upgrade richie to v2.15.1
+- ♻️(scss) refactor scss code
+
+### Added
+
+- ✨(googletagmanager) add Google Tag Manager to nau site without using
+  Richie upstream Web Analytics.
+- 🔧(rolling_deploy) Enable the deliver of the static asset files like css,
+  images, fonts, etc. Nginx will also deliver this files, but during rolling
+  deploy, the nginx could have one version of the files and the app still
+  running a different version.
+
+## [1.13.0] - 2022-06-28
+
+### Changed
+
+- 💄(logo) add by fccn on nau logo
+- ⬆️(nau) upgrade richie to v2.15.0
+- upgrade node to v16
+
+## [1.12.0] - 2022-05-24
+
+### Added
+
+- ✨(chatbot) add course parameter to chatbot widget
+
+## [1.11.0] - 2022-05-18
+
+### Added
+
+- ✨(chatbot) add chatbot widget if the setting `CHATBOT_WIDGET_JS_URL`
+  is defined.
+
+## [1.10.0] - 2022-04-20
+
+### Changed
+
+- 🐛(cookies) fix cookie policy link
+
+## [1.9.0] - 2022-04-20
+
+### Changed
+
+- ⬆️(richie) upgrade richie to v2.14.1
+
+## [1.8.0] - 2022-04-05
+
+### Changed
+
+- ⬆️(richie) upgrade richie to v2.14.0
+- ⚰️(course_detail) remove overridden blocks on course detail template.
+  The specific code have been moved, improved and superseded by uptream.
+- 🔧(jira) configure Jira Service Desk widget on local development
+
+### Fixed
+
+- ⬆️(richie) fix frontend upgrade
+
+## [1.7.0] - 2022-03-29
+
+### Changed
+
+- ⬆️(dependencies) upgrade dependencies
+
+## [1.6.0] - 2022-03-29
+
+>>>>>>> Stashed changes
 ### Fixed
 
 - 💄(course_detail) fix title size and color of plan and organization

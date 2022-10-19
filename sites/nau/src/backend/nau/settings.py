@@ -667,6 +667,34 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         None, environ_name="FACEBOOK_PIXEL_ID", environ_prefix=None
     )
 
+<<<<<<< Updated upstream
+=======
+    # Add Google Tag Manager
+    GOOGLE_TAG_MANAGER_ID = values.Value(
+        None, environ_name="GOOGLE_TAG_MANAGER_ID", environ_prefix=None
+    )
+
+    # Add NAU Chatbot Widget
+    CHATBOT_WIDGET_JS_URL = values.Value(
+        None, environ_name="CHATBOT_WIDGET_JS_URL", environ_prefix=None
+    )
+
+    # NAU helpdesk URL.
+    HELP_DESK_URL = values.Value(
+        None, environ_name="HELP_DESK_URL", environ_prefix=None
+    )
+
+    # # Allow to change django language related cookies
+    LANGUAGE_COOKIE_DOMAIN = values.Value(
+        None, environ_name="LANGUAGE_COOKIE_DOMAIN", environ_prefix=None
+    )
+    LANGUAGE_COOKIE_NAME = values.Value(
+        "django_language", environ_name="LANGUAGE_COOKIE_NAME", environ_prefix=None
+    )
+
+    CMS_LIMIT_TTL_CACHE_FUNCTION = "nau.cache.cache_ttl.limit_course_page_cache_ttl"
+
+>>>>>>> Stashed changes
     # pylint: disable=invalid-name
     @property
     def ENVIRONMENT(self):
