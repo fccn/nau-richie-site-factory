@@ -321,6 +321,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "nau.chatbot.context_processors.chatbot_widget_js_url_setting",
                     "nau.facebook_pixel.context_processors.facebook_pixel_setting",
                     "nau.google_tag_manager.context_processors.google_tag_manager_setting",
+                    "nau.help_desk.context_processors.help_desk_url_setting",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -631,6 +632,11 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # Add NAU Chatbot Widget
     CHATBOT_WIDGET_JS_URL = values.Value(
         None, environ_name="CHATBOT_WIDGET_JS_URL", environ_prefix=None
+    )
+
+    # NAU helpdesk URL.
+    HELP_DESK_URL = values.Value(
+        None, environ_name="HELP_DESK_URL", environ_prefix=None
     )
 
     # pylint: disable=invalid-name

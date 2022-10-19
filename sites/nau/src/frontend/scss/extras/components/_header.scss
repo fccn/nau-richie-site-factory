@@ -15,10 +15,10 @@
 
   // Brand part with hamburger and clickable logo
   &__brand {
-   
+
 
     // Clickable logo
-    & > a {
+    &>a {
       align-self: center;
     }
   }
@@ -37,7 +37,7 @@
   // Menu item element
   &__item {
 
-    & > a {
+    &>a {
       @include sv-flex(1, 0, 100%);
       display: flex;
       padding: 1rem 0.2rem 1rem 1rem;
@@ -74,7 +74,7 @@
     // Current page item or current ancestor
     &--selected,
     &--ancestor {
-      & > a {
+      &>a {
 
         @if r-theme-val(topbar, item-active-color) {
           color: r-color('firebrick6');
@@ -90,6 +90,7 @@
             &::before {
               display: none;
             }
+
             &::after {
               position: absolute;
               background-color: r-theme-val(topbar, item-hover-color);
@@ -113,17 +114,21 @@
             background: transparent;
             border-color: transparent;
             text-transform: uppercase;
+
             &:hover {
               color: r-color('firebrick6') !important;
             }
+
             .icon {
               display: none;
             }
           }
+
           &--sign-up {
             order: 2;
-            background: #074ce1;
+            background: r-color('firebrick6');
             color: r-color('white');
+
             &:hover {
               color: r-color('white') !important;
             }
@@ -131,12 +136,25 @@
         }
       }
     }
+
+    &--cta {
+      order: -1;
+
+      a {
+        background: none;
+        border: none;
+        text-transform: uppercase;
+        color: r-color('firebrick6');
+      }
+    }
   }
+
   // Change order of Language changer and the Login/Register block.
   &__list {
     &--controls {
       order: 3;
     }
+
     .richie-react--language-selector {
       order: 2;
     }

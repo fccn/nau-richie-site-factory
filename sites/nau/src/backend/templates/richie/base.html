@@ -35,6 +35,11 @@
 {% endblock topbar_searchbar %}
 
 {% block topbar_contact %}
+    {% if HELP_DESK_URL %}
+    <li class="topbar__item topbar__item--cta">
+        <a href="{{HELP_DESK_URL | safe}}" target="_blank">{% trans "Help" %}</a>
+    </li>
+    {% endif %}
 {% endblock topbar_contact %}
 
 {% block body_footer %}
