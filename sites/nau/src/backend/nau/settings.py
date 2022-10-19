@@ -647,6 +647,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "django_language", environ_name="LANGUAGE_COOKIE_NAME", environ_prefix=None
     )
 
+    CMS_LIMIT_TTL_CACHE_FUNCTION = "nau.cache.cache_ttl.limit_course_page_cache_ttl"
+
     # pylint: disable=invalid-name
     @property
     def ENVIRONMENT(self):

@@ -21,6 +21,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🌐(i18n) fix share course mailto references Richie instead of NAU
+- 🐛(cache) limit the cache ttl for course pages based on course run dates
 - 🐛(scss) enroll button is not clickable on small width screens
 - 🐛(scss) persons category tags have the wrong hover color
 - 🐛(scss) fix issues with background on icon tag
