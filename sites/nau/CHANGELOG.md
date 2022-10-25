@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.15.0] - 2022-10-25
+
 ### Added
 
 - 🔧(language) add django language settings that allows to configure language
