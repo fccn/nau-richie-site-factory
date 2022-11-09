@@ -8,6 +8,17 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- 👷(docker) add app `nauedu/nau` docker image with static assets.
+  The nauedu/nau docker image will start to have static assets,
+  to improve rolling deploy of the static assets.
+  We will stop use the `nauedu/nau-nginx` docker image and use the
+  newer dynamic built nginx image.
+  This newer nginx image will have the static assets from both 
+  current/older and new releases, so the user don't view a missing css
+  during the rolling deploy.
+
 ## [1.16.0] - 2022-10-25
 
 ### Changed
