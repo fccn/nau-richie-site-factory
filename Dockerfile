@@ -139,7 +139,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy collected symlinks to static files
-COPY --from=collector ${STATIC_ROOT}/staticfiles.json ${STATIC_ROOT}/
+COPY --from=collector ${STATIC_ROOT} ${STATIC_ROOT}
 
 # Un-privileged user running the application
 USER ${DOCKER_USER}
