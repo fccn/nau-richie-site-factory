@@ -322,6 +322,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "nau.facebook_pixel.context_processors.facebook_pixel_setting",
                     "nau.google_tag_manager.context_processors.google_tag_manager_setting",
                     "nau.help_desk.context_processors.help_desk_url_setting",
+                    "nau.maintenance.context_processors.maintenance_header_message_setting",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -648,6 +649,10 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     )
 
     CMS_LIMIT_TTL_CACHE_FUNCTION = "nau.cache.cache_ttl.limit_course_page_cache_ttl"
+
+    MAINTENANCE_HEADER_MSG = values.BooleanValue(
+        False, environ_name="MAINTENANCE_HEADER_MSG", environ_prefix=None
+    )
 
     # pylint: disable=invalid-name
     @property
