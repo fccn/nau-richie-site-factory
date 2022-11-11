@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.17.0] - 2022-11-11
+
 ### Added
 
 - ✨(header) add maintenance message on header if setting
