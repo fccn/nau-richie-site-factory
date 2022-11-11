@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- ⬆️(nau) upgrade richie to v2.17.0
 - 👷(docker) add app `nauedu/nau` docker image with static assets.
   The nauedu/nau docker image will start to have static assets,
   to improve rolling deploy of the static assets.
