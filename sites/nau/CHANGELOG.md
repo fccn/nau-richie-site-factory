@@ -8,6 +8,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(header) add maintenance message on header if setting
+  `MAINTENANCE_HEADER_MSG` is true
+
 ### Changed
 
 - 👷(docker) add app `nauedu/nau` docker image with static assets.
