@@ -630,6 +630,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     GOOGLE_TAG_MANAGER_ID = values.Value(
         None, environ_name="GOOGLE_TAG_MANAGER_ID", environ_prefix=None
     )
+    GOOGLE_TAG_MANAGER_ENVIRONMENT = values.Value(
+        None, environ_name="GOOGLE_TAG_MANAGER_ENVIRONMENT", environ_prefix=None
+    )
 
     # Add NAU Chatbot Widget
     CHATBOT_WIDGET_JS_URL = values.Value(
