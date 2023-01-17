@@ -29,7 +29,7 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
 
         self.assertContains(
             response,
-            "www.googletagmanager.com/gtm.js",
+            "www.googletagmanager.com/gtm.js?id='+i+dl+'';",
         )
         self.assertContains(
             response,
@@ -37,11 +37,46 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
         )
         self.assertContains(
             response,
-            "https://www.googletagmanager.com/ns.html?id=xpto-key",
+            '"https://www.googletagmanager.com/ns.html?id=xpto-key"',
         )
         self.assertContains(
             response,
             "xpto-key",
+        )
+
+    @override_settings(
+        GOOGLE_TAG_MANAGER_ID="GTM-SOME-KEY",
+        GOOGLE_TAG_MANAGER_ENVIRONMENT="&gtm_auth=cexSLlJmC6wAalbsw6AuQA&gtm_preview=env-77&gtm_cookies_win=x",
+    )
+    def test_template_base_google_tag_manager_present_with_environment_config(self):
+        course = CourseFactory()
+        page = course.extended_object
+        page.publish("en")
+
+        url = course.extended_object.get_absolute_url()
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        self.assertContains(
+            response,
+            "www.googletagmanager.com/gtm.js",
+        )
+        self.assertContains(
+            response,
+            "dataLayer','GTM-SOME-KEY'",
+        )
+        print(response.content)
+        self.assertContains(
+            response,
+            '"https://www.googletagmanager.com/ns.html?id=GTM-SOME-KEY&gtm_auth=cexSLlJmC6wAalbsw6AuQA&gtm_preview=env-77&gtm_cookies_win=x"',
+        )
+        self.assertContains(
+            response,
+            "GTM-SOME-KEY",
+        )
+        self.assertContains(
+            response,
+            "https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=cexSLlJmC6wAalbsw6AuQA&gtm_preview=env-77&gtm_cookies_win=x';",
         )
 
     def test_template_base_google_tag_manager_absent(self):
@@ -63,5 +98,5 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
         )
         self.assertNotContains(
             response,
-            "https://www.googletagmanager.com/ns.html",
+            '"https://www.googletagmanager.com/ns.html"',
         )
