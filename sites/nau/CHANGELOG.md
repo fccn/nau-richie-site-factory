@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - ✨(cookies) make cookie bar optional, to activate it use COOKIE_BAR setting.
+- 📈(web_analytics) add custom dimensions to NAU custom Google Tag Manager.
 
 ### Fixed
 
