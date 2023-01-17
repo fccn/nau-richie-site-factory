@@ -12,6 +12,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ✨(cookies) make cookie bar optional, to activate it use COOKIE_BAR setting.
 
+### Fixed
+
+- 🐛(gitmoji) fix git lint with emoji
+
 ## [1.17.0] - 2022-11-11
 
 ### Added
