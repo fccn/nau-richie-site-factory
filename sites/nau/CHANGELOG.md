@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(cookies) make cookie bar optional, to activate it use COOKIE_BAR setting.
+
 ## [1.17.0] - 2022-11-11
 
 ### Added

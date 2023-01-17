@@ -1,4 +1,5 @@
 {% load i18n static %}
+{% if COOKIE_BAR %}
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
 
@@ -40,4 +41,4 @@ window.addEventListener("load", function(){
   );
 });
 </script>
-
+{% endif %}

@@ -1,5 +1,5 @@
 """
-Jira Service desk widget context processor
+Facebook pixel context processor
 """
 from django.conf import settings
 
