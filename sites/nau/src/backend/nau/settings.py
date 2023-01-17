@@ -320,6 +320,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "nau.jira_service_desk.context_processors.jira_widget_key_setting",
                     "nau.chatbot.context_processors.chatbot_widget_js_url_setting",
                     "nau.facebook_pixel.context_processors.facebook_pixel_setting",
+                    "nau.cookie_bar.context_processors.cookie_bar_setting",
                     "nau.google_tag_manager.context_processors.google_tag_manager_setting",
                     "nau.help_desk.context_processors.help_desk_url_setting",
                     "nau.maintenance.context_processors.maintenance_header_message_setting",
