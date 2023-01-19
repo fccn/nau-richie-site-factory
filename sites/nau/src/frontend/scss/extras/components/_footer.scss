@@ -75,6 +75,8 @@
 
 // Legal mentions
 .body-mentions {
+  padding-bottom: 5rem;
+
   &__container {
     @include make-container();
     @include make-container-max-widths();

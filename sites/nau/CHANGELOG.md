@@ -18,6 +18,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 🐛(gitmoji) fix git lint with emoji
 
+## Changed
+
+- 💄(footer) Increase the size of the white part of footer where
+some logos are put.
+
 ## [1.17.0] - 2022-11-11
 
 ### Added
