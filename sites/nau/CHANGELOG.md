@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.18.0] - 2023-01-23
+
 ### Added
 
 - 📈(web_analytics) add Google Tag Manager deploy per environment configuration
@@ -18,7 +20,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 🐛(gitmoji) fix git lint with emoji
 
-## Changed
+### Changed
 
 - 💄(footer) Increase the size of the white part of footer where
 some logos are put.
