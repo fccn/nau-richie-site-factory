@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- ⬆️(search) allow to configure multiple elastic search instances
+
 ## [1.18.0] - 2023-01-23
 
 ### Added
