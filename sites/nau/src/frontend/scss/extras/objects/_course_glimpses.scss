@@ -1,10 +1,9 @@
 .course-glimpse {
-    &__icon {
-        background: r-color('firebrick6');
+  &__icon {
+    background: r-color("firebrick6");
 
     .category-badge {
-        background: none;
+      background: none;
     }
-    
-    }
+  }
 }

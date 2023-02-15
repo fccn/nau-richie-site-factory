@@ -1,9 +1,9 @@
 .person-detail {
-    &__row {
-        padding: 1rem;
-    }
+  &__row {
+    padding: 1rem;
+  }
 
-    &__block--arc::after {
-        background-image: none;
-    }
+  &__block--arc::after {
+    background-image: none;
+  }
 }

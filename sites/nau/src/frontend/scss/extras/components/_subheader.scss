@@ -26,17 +26,15 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
       padding-left: 1rem;
     }
 
-    &>.subheader__title {
+    & > .subheader__title {
       padding: 0;
     }
   }
 
   &__search {
-
     #{$subheader-selector}__title {
       padding: 0 1rem;
     }
-
   }
 
   &__media {
