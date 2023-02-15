@@ -1,3 +1,5 @@
 {
-  "overrides": {}
+  "overrides": {
+    "utils/api/lms/openedx-hawthorn.ts": "../../../../../../js/utils/api/lms/openedx-hawthorn.ts"
+  }
 }
