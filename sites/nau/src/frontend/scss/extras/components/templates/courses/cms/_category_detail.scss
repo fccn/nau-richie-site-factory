@@ -1,11 +1,11 @@
 .category-detail {
-    &__intro {
-        .category-detail {
-            &__title {
-                img {
-                    display: none;
-                }
-            }
+  &__intro {
+    .category-detail {
+      &__title {
+        img {
+          display: none;
         }
+      }
     }
+  }
 }

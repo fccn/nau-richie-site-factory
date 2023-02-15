@@ -13,10 +13,13 @@
             // clear upstream config
             background-image: none;
 
-            content: '';
+            content: "";
             display: inline-block;
             background-repeat: no-repeat;
-            background-color: r-theme-val(course-detail, run-catalog-visibility-logo-color);
+            background-color: r-theme-val(
+              course-detail,
+              run-catalog-visibility-logo-color
+            );
             -webkit-mask: r-theme-val(course-detail, checkmark-list-decoration);
             mask: r-theme-val(course-detail, checkmark-list-decoration);
             -webkit-mask-size: cover;
@@ -36,4 +39,3 @@
     @include font-size($h2-font-size);
   }
 }
-  

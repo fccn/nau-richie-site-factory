@@ -8,7 +8,7 @@ $r-course-glimpse-gutter: 0.8rem !default;
 // Course-glimpse related variables
 $course-glimpse-content-padding-sides: 0.7rem !default;
 
-$glimpse-selector: '.course-glimpse';
+$glimpse-selector: ".course-glimpse";
 
 .course-glimpse,
 .course-glimpse__large {
@@ -20,7 +20,7 @@ $glimpse-selector: '.course-glimpse';
     text-decoration: none;
     border: 0;
     box-shadow: r-theme-val(course-glimpse, base-hover-shadow);
-    transition: .5s all;
+    transition: 0.5s all;
 
     #{$glimpse-item-selector}__foot__cta .button {
       background: r-theme-val(course-glimpse, cta-background);

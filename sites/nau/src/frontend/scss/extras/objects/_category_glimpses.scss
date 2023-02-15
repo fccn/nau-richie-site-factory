@@ -19,7 +19,10 @@
 // Badge variant
 //
 .category-badge {
-  @include r-button-colors(r-theme-val(category-badges, primary-item), $apply-border: true);
+  @include r-button-colors(
+    r-theme-val(category-badges, primary-item),
+    $apply-border: true
+  );
 }
 
 //
@@ -27,7 +30,10 @@
 //
 .category-badge-list {
   .category-badge {
-    @include r-button-colors(r-theme-val(category-badges, primary-item), $apply-border: true);
+    @include r-button-colors(
+      r-theme-val(category-badges, primary-item),
+      $apply-border: true
+    );
 
     &:hover,
     &:focus {
