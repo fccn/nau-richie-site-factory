@@ -12,6 +12,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ⬆️(search) allow to configure multiple elastic search instances
 
+### Added
+- ✅(jest) add jest tests to site factory
+- ✨(api) add openedx-lilac adapter
+
 ## [1.18.0] - 2023-01-23
 
 ### Added
