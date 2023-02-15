@@ -14,7 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 - ✅(jest) add jest tests to site factory
-- ✨(api) add openedx-lilac adapter
+- ✨(api) update openedx-adapter adapter
 
 ## [1.18.0] - 2023-01-23
 
