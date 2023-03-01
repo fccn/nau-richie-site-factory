@@ -8,13 +8,18 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✅(jest) add jest tests to site factory
+- ✨(api) update openedx-adapter adapter
+
+### Changed
+
+- ⬆️(nau) upgrade richie to v2.20.1
+
 ### Fixed
 
 - ⬆️(search) allow to configure multiple elastic search instances
-
-### Added
-- ✅(jest) add jest tests to site factory
-- ✨(api) update openedx-adapter adapter
 
 ## [1.18.0] - 2023-01-23
 
