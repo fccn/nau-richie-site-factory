@@ -17,6 +17,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - ⬆️(nau) upgrade richie to v2.20.1
+- ⬆️(nau) upgrade python dev dependencies
 
 ### Fixed
 
