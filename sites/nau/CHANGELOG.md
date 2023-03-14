@@ -12,6 +12,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ✅(jest) add jest tests to site factory
 - ✨(api) update openedx-adapter adapter
+- ✨(seo) add django-check-seo
 
 ### Changed
 
