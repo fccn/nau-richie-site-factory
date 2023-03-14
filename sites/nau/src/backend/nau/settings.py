@@ -388,6 +388,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "parler",
         "rest_framework",
         "storages",
+        "django_check_seo",
         # Django-cms
         "djangocms_admin_style",
         "djangocms_googlemap",
