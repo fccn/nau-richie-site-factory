@@ -34,9 +34,7 @@ AUTHENTICATION_BASE_URL=http://localhost:8073
 AUTHENTICATION_BACKEND=base
 
 # Richie Web Analytics using Google Analytics
-WEB_ANALYTICS_PROVIDER=google_analytics
-WEB_ANALYTICS_LOCATION=head
-WEB_ANALYTICS_ID=UA-123456789-1
+WEB_ANALYTICS={'google_universal_analytics': {'tracking_id': 'UA-123456789-1', 'location': 'head' }}
 
 # Jira Service Desk key
 # JIRA_WIDGET_KEY=c19e6a24-a1f6-4a84-aa46-89e82b94b809
