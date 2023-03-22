@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-11 16:33+0000\n"
+"POT-Creation-Date: 2023-03-22 15:44+0000\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,15 +114,15 @@ msgstr ""
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:338
+#: nau/settings.py:339
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:426 nau/settings.py:441
+#: nau/settings.py:428 nau/settings.py:443
 msgid "English"
 msgstr "English"
 
-#: nau/settings.py:426 nau/settings.py:449
+#: nau/settings.py:428 nau/settings.py:451
 msgid "Portuguese"
 msgstr "Português"
 
@@ -135,7 +135,7 @@ msgstr ""
 msgid "All right reserved."
 msgstr ""
 
-#: templates/nau/cookies.html:23
+#: templates/nau/cookies.html:24
 msgid ""
 "This website uses cookies to ensure you get the best experience on our "
 "website. If you continue browsing this site, we understand that you accept "
@@ -144,15 +144,15 @@ msgstr ""
 "NAU uses cookies to provide a better browsing experience. For more "
 "information see our cookie policy."
 
-#: templates/nau/cookies.html:24
+#: templates/nau/cookies.html:25
 msgid "Got it!"
 msgstr ""
 
-#: templates/nau/cookies.html:25
+#: templates/nau/cookies.html:26
 msgid "Learn more"
 msgstr ""
 
-#: templates/nau/cookies.html:26
+#: templates/nau/cookies.html:27
 msgid "privacy-policy-url"
 msgstr "/en/legal/cookies/"
 

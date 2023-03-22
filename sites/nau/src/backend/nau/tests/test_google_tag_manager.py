@@ -13,7 +13,9 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
     upstream Web Analytics.
     """
 
-    @override_settings(GOOGLE_TAG_MANAGER_ID="xpto-key")
+    @override_settings(
+        WEB_ANALYTICS={"google_tag_manager": {"tracking_id": "xpto-key"}}
+    )
     def test_template_base_google_tag_manager_present(self):
         """
         Tests if the Google Tag Manager code is added if the GOOGLE_TAG_MANAGER_ID setting is
@@ -46,7 +48,12 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
 
     @override_settings(
         GOOGLE_TAG_MANAGER_ID="GTM-SOME-KEY",
-        GOOGLE_TAG_MANAGER_ENVIRONMENT="&gtm_auth=cexSLlJmC6wAalbsw6AuQA&gtm_preview=env-77&gtm_cookies_win=x",  # noqa pylint: disable=line-too-long
+        WEB_ANALYTICS={
+            "google_tag_manager": {
+                "tracking_id": "GTM-SOME-KEY",
+                "environment": "&gtm_auth=cexSLlJmC6wAalbsw6AuQA&gtm_preview=env-77&gtm_cookies_win=x",  # noqa pylint: disable=line-too-long
+            }
+        },
     )
     def test_template_base_google_tag_manager_present_with_environment_config(self):
         course = CourseFactory()

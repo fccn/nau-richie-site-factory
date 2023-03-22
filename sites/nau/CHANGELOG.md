@@ -16,8 +16,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- ⬆️(nau) upgrade richie to v2.20.1
+- ⬆️(nau) upgrade richie to v2.21.0
 - ⬆️(nau) upgrade python dev dependencies
+- 📈(web_analytics) upgraded web analytics django settings
+- ⏪️(web_analytics) removed web analytics custom code
+- ⏪️(openedx) removed richie frontend override of the openedx lms api integration
 
 ### Fixed
 
