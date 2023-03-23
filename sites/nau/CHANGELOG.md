@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.19.0] - 2023-03-23
+
 ### Added
 
 - ✅(jest) add jest tests to site factory
