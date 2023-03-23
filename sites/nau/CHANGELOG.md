@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- ⏪️(web_analytics) removed web analytics google tag manager custom code
+
 ## [1.19.0] - 2023-03-23
 
 ### Added
