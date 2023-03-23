@@ -321,7 +321,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "nau.chatbot.context_processors.chatbot_widget_js_url_setting",
                     "nau.facebook_pixel.context_processors.facebook_pixel_setting",
                     "nau.cookie_bar.context_processors.cookie_bar_setting",
-                    "nau.google_tag_manager.context_processors.google_tag_manager_setting",
                     "nau.help_desk.context_processors.help_desk_url_setting",
                     "nau.maintenance.context_processors.maintenance_header_message_setting",
                 ],
@@ -620,14 +619,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # Add Facebook Pixel
     FACEBOOK_PIXEL_ID = values.Value(
         None, environ_name="FACEBOOK_PIXEL_ID", environ_prefix=None
-    )
-
-    # Add Google Tag Manager
-    GOOGLE_TAG_MANAGER_ID = values.Value(
-        None, environ_name="GOOGLE_TAG_MANAGER_ID", environ_prefix=None
-    )
-    GOOGLE_TAG_MANAGER_ENVIRONMENT = values.Value(
-        None, environ_name="GOOGLE_TAG_MANAGER_ENVIRONMENT", environ_prefix=None
     )
 
     # Add NAU Chatbot Widget
