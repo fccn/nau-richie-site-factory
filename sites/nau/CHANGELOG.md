@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- ⬆️(dependencies) upgrade python dependencies
+
 ## [1.19.1] - 2023-03-23
 
 ### Fixed
