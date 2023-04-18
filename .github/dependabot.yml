@@ -10,7 +10,7 @@ updates:
     # Include a list of updated dependencies
     # with a prefix determined by the dependency group
     commit-message:
-      prefix: "⬆️(deps) pip"
+      prefix: "⬆️(dependencies)"
       include: "scope"
     # Add reviewers
     reviewers:
@@ -27,7 +27,7 @@ updates:
     # Include a list of updated dependencies
     # with a prefix determined by the dependency group
     commit-message:
-      prefix: "⬆️(deps) js"
+      prefix: "⬆️(frontend)"
       include: "scope"
     # Add reviewers
     reviewers:
