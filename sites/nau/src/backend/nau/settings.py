@@ -641,6 +641,10 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
 
     CMS_LIMIT_TTL_CACHE_FUNCTION = "nau.cache.cache_ttl.limit_course_page_cache_ttl"
 
+    # Preserve the query parameters during redirection of `/en/course`` to `/en/courses` rendered
+    # on different locations of the site.
+    CMS_REDIRECT_PRESERVE_QUERY_PARAMS = True
+
     MAINTENANCE_HEADER_MSG = values.BooleanValue(
         False, environ_name="MAINTENANCE_HEADER_MSG", environ_prefix=None
     )
