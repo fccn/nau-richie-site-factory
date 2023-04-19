@@ -7,7 +7,7 @@ from cms.test_utils.testcases import CMSTestCase
 from richie.apps.courses.factories import CourseFactory
 
 
-class JiraServiceDeskWidgetBaseTemplateRenderingCMSTestCase(CMSTestCase):
+class MaintenanceBaseTemplateRenderingCMSTestCase(CMSTestCase):
     """
     Test case that verifies if the maintenance message is being displayed and the search on header
     if not visible.

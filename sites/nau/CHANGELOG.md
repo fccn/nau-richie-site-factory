@@ -8,6 +8,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛(search) fix redirect for the search course page.
+  After the upgrade of django-cms v3.11.2 we can enable
+  `CMS_REDIRECT_PRESERVE_QUERY_PARAMS` setting that fix the redirect of
+  the parent courses page isn't the same of the course search.
+
 ### Changed
 
 - ⬆️(dependencies) upgrade python dependencies
