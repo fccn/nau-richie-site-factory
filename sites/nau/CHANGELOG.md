@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.20.0] - 2023-04-21
+
 ### Fixed
 
 - 🐛(search) fix redirect for the search course page.
