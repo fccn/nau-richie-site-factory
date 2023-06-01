@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 15:44+0000\n"
+"POT-Creation-Date: 2023-05-31 16:36+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,16 +114,16 @@ msgstr ""
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:339
+#: nau/settings.py:338
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:428 nau/settings.py:443
-msgid "English"
+#: nau/settings.py:427 nau/settings.py:442
+msgid "English Lang"
 msgstr "English"
 
-#: nau/settings.py:428 nau/settings.py:451
-msgid "Portuguese"
+#: nau/settings.py:427 nau/settings.py:450
+msgid "Portuguese Lang"
 msgstr "Português"
 
 #: templates/courses/cms/course_detail.html:7
@@ -160,15 +160,15 @@ msgstr "/en/legal/cookies/"
 msgid "Need Help"
 msgstr ""
 
-#: templates/richie/base.html:35
+#: templates/richie/base.html:29
 msgid "Go to homepage"
 msgstr ""
 
-#: templates/richie/base.html:36
+#: templates/richie/base.html:30
 msgid "In maintenance"
 msgstr ""
 
-#: templates/richie/base.html:48
+#: templates/richie/base.html:42
 msgid "Help"
 msgstr ""
 

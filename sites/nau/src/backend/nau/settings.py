@@ -424,7 +424,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # fallback/default languages throughout the app.
     # Use "en" as default as it is the language that is most likely to be spoken by any visitor
     # when their preferred language, whatever it is, is unavailable
-    LANGUAGES = (("en", _("English")), ("pt", _("Portuguese")))
+    LANGUAGES = (("en", _("English Lang")), ("pt", _("Portuguese Lang")))
 
     # - Django CMS
     CMS_LANGUAGES = {
@@ -439,7 +439,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "public": True,
                 "code": "en",
                 "hide_untranslated": False,
-                "name": _("English"),
+                "name": _("English Lang"),
                 "fallbacks": ["pt"],
                 "redirect_on_fallback": False,
             },
@@ -447,7 +447,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "public": True,
                 "code": "pt",
                 "hide_untranslated": False,
-                "name": _("Portuguese"),
+                "name": _("Portuguese Lang"),
                 "fallbacks": ["en"],
                 "redirect_on_fallback": False,
             },
