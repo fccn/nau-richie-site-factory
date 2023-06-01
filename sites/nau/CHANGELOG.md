@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛(language) fix language name on course page
+
 ## [1.20.0] - 2023-04-21
 
 ### Fixed
