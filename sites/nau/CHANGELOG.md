@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- ⬆️(nginx) upgrade nginx to latest stable release 1.24.0
+
 ## [1.20.1] - 2023-06-05
 
 ### Fixed
