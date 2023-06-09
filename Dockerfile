@@ -1,5 +1,5 @@
 ARG NGINX_IMAGE_NAME=fundocker/openshift-nginx
-ARG NGINX_IMAGE_TAG=1.22.1
+ARG NGINX_IMAGE_TAG=1.24.0
 ARG STATIC_ROOT=/data/static
 ARG SITE=nau
 
