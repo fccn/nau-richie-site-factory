@@ -1,0 +1,84 @@
+{% load i18n cms_tags extra_tags thumbnail %}
+{% comment %}
+This is a copy of original template from plugin just to clean <iframe> from
+obsolete attribute "frameborder" and invalid "allowfullscreen" attribute value.
+
+For performance reasons instead of loading the video iframe directly, 
+it changes the default template with an iframe "srcdoc" that adds the
+video poster or the course cover with a big play icon '▶'.
+Only after the user clicks on the play icon '▶', the browser loads the external
+video player iframe.
+{% endcomment %}
+
+{% if instance.embed_link %}
+    {# show iframe if embed_link is provided #}
+    <div class="aspect-ratio">
+        <iframe
+            title="{% if instance.label %}{{ instance.label }}{% else %}{% trans "Video" %}{% endif %}"
+            {% if not request.toolbar.edit_mode_active %}
+            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{text-align:center;font:48px/1.5 sans-serif;fill:white;display:flex;justify-content:center;align-items:center;}span svg{fill-opacity:0.5;transition:.5s;}img:hover, span:hover svg{fill-opacity:1;filter: drop-shadow(3px 3px 12px rgb(0 0 0 / 0.6));}</style>
+                <a href='{{ instance.embed_link_with_parameters }}{% if '?' not in instance.embed_link_with_parameters %}?{% endif %}&autoplay=1' title='{% trans 'View the presentation video' %}'>
+                    {% if instance.poster %}
+                        <img
+                            src='{{ instance.poster.url }}'
+                            {# alt forced to empty string for a11y because the image does not carry more information than the course title #}
+                            alt='' />
+                    {% else %}
+                        {% placeholder_as_plugins "course_cover" as cover_plugins %}
+                        {% blockplugin cover_plugins.0 %}
+                            <img
+                                src='{% thumbnail instance.picture 300x170 replace_alpha='#FFFFFF' crop upscale subject_location=instance.picture.subject_location %}'
+                                srcset='
+                                {% thumbnail instance.picture 300x170 replace_alpha='#FFFFFF' crop upscale subject_location=instance.picture.subject_location %} 300w
+                                {% if instance.picture.width >= 600 %},{% thumbnail instance.picture 600x340 replace_alpha='#FFFFFF' crop upscale subject_location=instance.picture.subject_location %} 600w{% endif %}
+                                {% if instance.picture.width >= 900 %},{% thumbnail instance.picture 900x510 replace_alpha='#FFFFFF' crop upscale subject_location=instance.picture.subject_location %} 900w{% endif %}
+                                '
+                                sizes='(max-width:62em) 100vw, 660px'
+                                alt='{% if instance.picture.default_alt_text %}{{ instance.picture.default_alt_text }}{% else %}{% trans 'course cover image' %}{% endif %}'
+                            />
+                        {% endblockplugin %}
+                    {% endif %}
+                    <span>
+                        <svg fill='#FFFFFF' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                        width='80px' height='80px' viewBox='0 0 408.221 408.221'
+                        xml:space='preserve'>
+                   <g>
+                       <g>
+                           <path d='M204.11,0C91.388,0,0,91.388,0,204.111c0,112.725,91.388,204.11,204.11,204.11c112.729,0,204.11-91.385,204.11-204.11
+                               C408.221,91.388,316.839,0,204.11,0z M286.547,229.971l-126.368,72.471c-17.003,9.75-30.781,1.763-30.781-17.834V140.012
+                               c0-19.602,13.777-27.575,30.781-17.827l126.368,72.466C303.551,204.403,303.551,220.217,286.547,229.971z'/>
+                       </g>
+                   </g>
+                   </svg></span>
+                </a>
+            "
+            {% endif %}
+            src="{{ instance.embed_link_with_parameters }}"
+            {{ instance.attributes_str }}
+            allowfullscreen
+        ></iframe>
+    </div>
+    {% with disabled=instance.embed_link %}
+        {% for plugin in instance.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+    {% endwith %}
+{% else %}
+    {# render <source> or <track> plugins #}
+    <video controls {{ instance.attributes_str }}
+        {% if instance.poster %} poster="{{ instance.poster.url }}"{% endif %}>
+        {% for plugin in instance.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+        {% trans "Your browser doesn't support this video format." %}
+    </video>
+{% endif %}
+
+{% comment %}
+    # Available variables:
+    {{ instance.template }}
+    {{ instance.label }}
+    {{ instance.embed_link }}
+    {{ instance.poster }}
+    {{ instance.attributes_str }}
+{% endcomment %}
