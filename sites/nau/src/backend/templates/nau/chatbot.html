@@ -1,5 +1,5 @@
 {% if CHATBOT_WIDGET_JS_URL %}
-    <script>
+    <script defer>
         function loadScript(src, callback) {
             var s,
                 r,
@@ -17,6 +17,7 @@
                     callback();
                 }
             };
+            s.defer = true;
             t = document.getElementsByTagName('script')[0];
             t.parentNode.insertBefore(s, t);
         }
