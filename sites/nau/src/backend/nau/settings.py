@@ -801,6 +801,11 @@ class Production(Base):
     # CDN domain for static/media urls. It is passed to the frontend to load built chunks
     CDN_DOMAIN = values.Value()
 
+    # Performance configuration, preconnect to the media CDN
+    MEDIA_HOSTNAME_PRECONNECT = values.BooleanValue(
+        False, environ_name="MEDIA_HOSTNAME_PRECONNECT", environ_prefix=None
+    )
+
     # Enable the deliver of the static asset files like css, images, fonts, etc.
     # nginx will also deliver this files, but during rolling deploy, the nginx could have one
     # version of the files and the app still running a different version.
