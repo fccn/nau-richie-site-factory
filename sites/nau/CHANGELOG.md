@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ⚡️(html) improve performance by hint browsers to pre-connect to CDN or S3
+
 ### Changed
 
 - ✨(seo) remove django-check-seo
