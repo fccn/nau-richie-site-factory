@@ -25,6 +25,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 💚(circleci) upgrade circleci build
 - ⬆️(frontend) upgrade frontend dev dependencies
 
+### Fixed
+
+- ♿️(footer) improve accessibility in NAU footer logo with a link to homepage.
+
 ## [1.20.1] - 2023-06-05
 
 ### Fixed

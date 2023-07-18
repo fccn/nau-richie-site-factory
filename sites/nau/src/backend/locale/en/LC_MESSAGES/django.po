@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 15:52+0100\n"
+"POT-Creation-Date: 2023-09-22 16:22+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,6 +145,10 @@ msgstr ""
 
 #: templates/djangocms_video/default/video_player.html:73
 msgid "Your browser doesn't support this video format."
+msgstr ""
+
+#: templates/nau/_footer.html:12
+msgid "Homepage"
 msgstr ""
 
 #: templates/nau/_footer.html:110
