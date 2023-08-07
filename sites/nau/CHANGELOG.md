@@ -11,6 +11,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - ⚡️(html) improve performance by hint browsers to pre-connect to CDN or S3
+- ⬆️(nau) upgrade richie to v2.23.0
+- ⬆️(nau) bump boto3, django-configurations and requests
 
 ### Changed
 
