@@ -16,7 +16,7 @@ video player iframe.
         <iframe
             title="{% if instance.label %}{{ instance.label }}{% else %}{% trans "Video" %}{% endif %}"
             {% if not request.toolbar.edit_mode_active %}
-            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{text-align:center;font:48px/1.5 sans-serif;fill:white;display:flex;justify-content:center;align-items:center;}span svg{fill-opacity:0.5;transition:.5s;}img:hover, span:hover svg{fill-opacity:1;filter: drop-shadow(3px 3px 12px rgb(0 0 0 / 0.6));}</style>
+            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{text-align:center;font:48px/1.5 sans-serif;fill:white;display:flex;justify-content:center;align-items:center;}span svg{transition:.5s;}img:hover, span:hover svg{fill-opacity:1;filter: drop-shadow(3px 3px 12px rgb(0 0 0 / 0.6));}</style>
                 <a href='{{ instance.embed_link_with_parameters }}{% if '?' not in instance.embed_link_with_parameters %}?{% endif %}&autoplay=1' title='{% trans 'View the presentation video' %}'>
                     {% if instance.poster %}
                         <img
@@ -39,7 +39,7 @@ video player iframe.
                         {% endblockplugin %}
                     {% endif %}
                     <span>
-                        <svg fill='#FFFFFF' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
+                        <svg fill='#074ce1' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
                         width='80px' height='80px' viewBox='0 0 408.221 408.221'
                         xml:space='preserve'>
                    <g>
