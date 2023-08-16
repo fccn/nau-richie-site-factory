@@ -1,5 +1,11 @@
 // Basic functions must be loaded before settings to be able to use them from
 // settings and objects
+@import '@openfun/cunningham-react/dist/icons';
+@import '@openfun/cunningham-react/dist/style';
+@import 'richie-education/scss/vendors/cunningham-tokens';
+@import 'richie-education/scss/vendors/css/cunningham-tokens';
+
+
 @import "richie-education/scss/tools/rem";
 @import "richie-education/scss/tools/colors";
 
@@ -41,6 +47,8 @@
 
 @import "richie-education/scss/components/index";
 
+// Cunningham patchs
+@import './trumps/cunningham';
 // CMS patchs
 @import "richie-education/scss/trumps/cms";
 // IE11 patchs
