@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 🍱(fonts) remove google fonts and replace them for local assets for performance
 - ⬆️(nau) upgrade richie to v2.23.0
 - ✨(seo) remove django-check-seo
 - ⬆️(nginx) upgrade nginx to latest stable release 1.24.0
