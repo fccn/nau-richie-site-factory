@@ -37,8 +37,8 @@
     "source-map-loader": "4.0.1"
   },
   "devDependencies": {
-    "babel-loader": "9.1.2",
     "@formatjs/cli": "6.1.0",
+    "babel-loader": "9.1.2",
     "eslint": "8.38.0",
     "eslint-import-resolver-webpack": "0.13.2",
     "nodemon": "2.0.22",
