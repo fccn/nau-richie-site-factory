@@ -70,7 +70,7 @@ jobs:
         working_directory: ~/nau/sites/<< parameters.site >>/src/frontend/
     check-changelog:
         docker:
-            - image: circleci/buildpack-deps:stretch-scm
+            - image: cimg/base:2022.06
         parameters:
             site:
                 type: string
@@ -84,7 +84,7 @@ jobs:
     check-configuration:
         machine:
             docker_layer_caching: true
-            image: ubuntu-2004:current
+            image: ubuntu-2004:202107-02
         parameters:
             ci_update_options:
                 type: string
@@ -99,7 +99,7 @@ jobs:
         docker:
             - environment:
                 RICHIE_SITE: << parameters.site >>
-              image: circleci/buildpack-deps:stretch
+              image: cimg/base:2022.06
         parameters:
             image_name:
                 type: string
@@ -280,7 +280,7 @@ jobs:
         working_directory: ~/nau
     no-change:
         docker:
-            - image: circleci/buildpack-deps:stretch-scm
+            - image: cimg/base:2022.06
         steps:
             - run: echo "Everything is up-to-date ✅"
         working_directory: ~/nau
