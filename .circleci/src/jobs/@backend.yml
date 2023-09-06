@@ -5,11 +5,11 @@ build-back:
     site:
       type: string
   docker:
-    - image: cimg/python:3.10.2
-  working_directory: ~/nau/sites/<< parameters.site >>
+    - image: cimg/python:3.10
+  working_directory: ~/fun/sites/<< parameters.site >>
   steps:
     - checkout:
-        path: ~/nau
+        path: ~/fun
     - restore_cache:
         keys:
           - v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
@@ -30,11 +30,11 @@ lint-back:
     site:
       type: string
   docker:
-    - image: cimg/python:3.10.2
-  working_directory: ~/nau/sites/<< parameters.site >>/src/backend/
+    - image: cimg/python:3.10
+  working_directory: ~/fun/sites/<< parameters.site >>/src/backend/
   steps:
     - checkout:
-        path: ~/nau
+        path: ~/fun
     - restore_cache:
         keys:
           - v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
@@ -53,13 +53,16 @@ lint-back:
     - run:
         name: Lint code with bandit
         command: ~/.local/bin/bandit -qr .
+    - run:
+        name: Lint code with raincoat
+        command: ~/.local/bin/raincoat
 
 test-back:
   parameters:
     site:
       type: string
   docker:
-    - image: cimg/python:3.10.2
+    - image: cimg/python:3.10
       environment:
         DB_ENGINE: django.db.backends.mysql
         DB_OPTION_CHARSET: utf8mb4
@@ -68,30 +71,27 @@ test-back:
         DB_PASSWORD: pass
         DB_PORT: 3306
         DB_USER: richie_user
-        DJANGO_CONFIGURATION: Test
-        DJANGO_SECRET_KEY: ThisIsAnExampleKeyForTestPurposeOnly
         DJANGO_SETTINGS_MODULE: << parameters.site >>.settings
-        PYTHONPATH: /home/circleci/nau/src/backend
+        PYTHONPATH: /home/circleci/fun/src/backend
     - image: circleci/mysql:8.0-ram
-      command: --default-authentication-plugin=mysql_native_password
       environment:
         MYSQL_DATABASE: test_richie
         MYSQL_PASSWORD: pass
         MYSQL_USER: richie_user
         MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     - image: docker.io/bitnami/redis:6.0-debian-10
-      environment:
-        ALLOW_EMPTY_PASSWORD: "yes"
-        REDIS_REPLICATION_MODE: master
       name: redis-primary
+      environment:
+        ALLOW_EMPTY_PASSWORD: yes
+        REDIS_REPLICATION_MODE: master
     - image: docker.io/bitnami/redis-sentinel:6.0-debian-10
+      name: redis-sentinel
       environment:
         REDIS_MASTER_HOST: redis-primary
-      name: redis-sentinel
-  working_directory: ~/nau/sites/<< parameters.site >>/src/backend
+  working_directory: ~/fun/sites/<< parameters.site >>/src/backend
   steps:
     - checkout:
-        path: ~/nau
+        path: ~/fun
     - restore_cache:
         keys:
           - v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
@@ -103,10 +103,17 @@ test-back:
     - run:
         name: Compile translations
         command: python manage.py compilemessages || true
+    # Run back-end (Django) test suite
+    #
+    # Nota bene: to run the django test suite, we need to ensure that the
+    # PostgreSQL service is up and ready. To achieve this,
+    # we wrap the command execution with dockerize, a tiny tool
+    # installed in the development image. In our case, dockerize will wait
+    # up to one minute until the database container is answering on port 5432.
     - run:
         name: Run tests
         command: |
-            dockerize \
-              -wait tcp://localhost:3306 \
-              -timeout 60s \
-                ~/.local/bin/pytest
+              dockerize \
+                -wait tcp://localhost:3306 \
+                -timeout 60s \
+                  ~/.local/bin/pytest

@@ -19,13 +19,13 @@ commands:
 jobs:
     build-back:
         docker:
-            - image: cimg/python:3.10.2
+            - image: cimg/python:3.10
         parameters:
             site:
                 type: string
         steps:
             - checkout:
-                path: ~/nau
+                path: ~/fun
             - restore_cache:
                 keys:
                     - v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
@@ -40,7 +40,7 @@ jobs:
                 key: v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
                 paths:
                     - ~/.local
-        working_directory: ~/nau/sites/<< parameters.site >>
+        working_directory: ~/fun/sites/<< parameters.site >>
     build-front-production:
         docker:
             - image: cimg/node:16.15
@@ -49,7 +49,7 @@ jobs:
                 type: string
         steps:
             - checkout:
-                path: ~/nau
+                path: ~/fun
             - restore_cache:
                 keys:
                     - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
@@ -67,10 +67,10 @@ jobs:
                 key: v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
                 paths:
                     - ./node_modules
-        working_directory: ~/nau/sites/<< parameters.site >>/src/frontend/
+        working_directory: ~/fun/sites/<< parameters.site >>/src/frontend/
     check-changelog:
         docker:
-            - image: circleci/buildpack-deps:stretch-scm
+            - image: cimg/base:2022.06
         parameters:
             site:
                 type: string
@@ -83,8 +83,7 @@ jobs:
         working_directory: ~/nau
     check-configuration:
         machine:
-            docker_layer_caching: true
-            image: ubuntu-2004:current
+            image: ubuntu-2004:202107-02
         parameters:
             ci_update_options:
                 type: string
@@ -99,7 +98,7 @@ jobs:
         docker:
             - environment:
                 RICHIE_SITE: << parameters.site >>
-              image: circleci/buildpack-deps:stretch
+              image: cimg/base:2022.06
         parameters:
             image_name:
                 type: string
@@ -110,7 +109,6 @@ jobs:
             - generate-version-file:
                 site: << parameters.site >>
             - setup_remote_docker:
-                docker_layer_caching: true
                 version: 19.03.13
             - run:
                 command: make env.d/aws && make build
@@ -139,7 +137,7 @@ jobs:
                         - << pipeline.git.tag >>
                         - equal:
                             - << pipeline.git.branch >>
-                            - master
+                            - main
                 steps:
                     - run:
                         command: echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
@@ -151,52 +149,52 @@ jobs:
                         name: Compute Docker tag
                     - run:
                         command: |
-                            docker images nauedu/<< parameters.image_name >>
+                            docker images fundocker/<< parameters.image_name >>
                             # Display either:
-                            # - DOCKER_TAG: master (Git branch)
+                            # - DOCKER_TAG: main (Git branch)
                             # or
                             # - DOCKER_TAG: 1.1.2 (Git tag v1.1.2)
                             echo "DOCKER_TAG: ${DOCKER_TAG}"
-                            docker tag << parameters.site >>:production nauedu/<< parameters.image_name >>:${DOCKER_TAG}
+                            docker tag << parameters.site >>:production fundocker/<< parameters.image_name >>:${DOCKER_TAG}
                             if [[ -n "$CIRCLE_TAG" ]]; then
-                                docker tag << parameters.site >>:production nauedu/<< parameters.image_name >>:latest
+                                docker tag << parameters.site >>:production fundocker/<< parameters.image_name >>:latest
                             fi
-                            docker images | grep -E "^nauedu/<< parameters.image_name >>\s*(${DOCKER_TAG}.*|latest|master)"
+                            docker images | grep -E "^fundocker/<< parameters.image_name >>\s*(${DOCKER_TAG}.*|latest|main)"
                         name: Tag app image
                     - run:
                         command: |
-                            docker images nauedu/<< parameters.image_name >>-nginx
+                            docker images fundocker/<< parameters.image_name >>-nginx
                             echo "DOCKER_TAG: ${DOCKER_TAG}"
-                            docker tag << parameters.site >>-nginx:production nauedu/<< parameters.image_name >>-nginx:${DOCKER_TAG}
+                            docker tag << parameters.site >>-nginx:production fundocker/<< parameters.image_name >>-nginx:${DOCKER_TAG}
                             if [[ -n "$CIRCLE_TAG" ]]; then
-                                docker tag << parameters.site >>-nginx:production nauedu/<< parameters.image_name >>-nginx:latest
+                                docker tag << parameters.site >>-nginx:production fundocker/<< parameters.image_name >>-nginx:latest
                             fi
-                            docker images | grep -E "^nauedu/<< parameters.image_name >>-nginx\s*(${DOCKER_TAG}.*|latest|master)"
+                            docker images | grep -E "^fundocker/<< parameters.image_name >>-nginx\s*(${DOCKER_TAG}.*|latest|main)"
                         name: Tag nginx image
                     - run:
                         command: |
-                            docker push nauedu/<< parameters.image_name >>:${DOCKER_TAG}
+                            docker push fundocker/<< parameters.image_name >>:${DOCKER_TAG}
                             if [[ -n "$CIRCLE_TAG" ]]; then
-                              docker push nauedu/<< parameters.image_name >>:latest
+                              docker push fundocker/<< parameters.image_name >>:latest
                             fi
                         name: Publish app image
                     - run:
                         command: |
-                            docker push nauedu/<< parameters.image_name >>-nginx:${DOCKER_TAG}
+                            docker push fundocker/<< parameters.image_name >>-nginx:${DOCKER_TAG}
                             if [[ -n "$CIRCLE_TAG" ]]; then
-                              docker push nauedu/<< parameters.image_name >>-nginx:latest
+                              docker push fundocker/<< parameters.image_name >>-nginx:latest
                             fi
                         name: Publish nginx image
-        working_directory: ~/nau
+        working_directory: ~/fun
     lint-back:
         docker:
-            - image: cimg/python:3.10.2
+            - image: cimg/python:3.10
         parameters:
             site:
                 type: string
         steps:
             - checkout:
-                path: ~/nau
+                path: ~/fun
             - restore_cache:
                 keys:
                     - v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
@@ -215,7 +213,10 @@ jobs:
             - run:
                 command: ~/.local/bin/bandit -qr .
                 name: Lint code with bandit
-        working_directory: ~/nau/sites/<< parameters.site >>/src/backend/
+            - run:
+                command: ~/.local/bin/raincoat
+                name: Lint code with raincoat
+        working_directory: ~/fun/sites/<< parameters.site >>/src/backend/
     lint-bash:
         docker:
             - image: koalaman/shellcheck-alpine:stable
@@ -247,7 +248,7 @@ jobs:
                 type: string
         steps:
             - checkout:
-                path: ~/nau
+                path: ~/fun
             - restore_cache:
                 keys:
                     - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
@@ -255,10 +256,10 @@ jobs:
             - run:
                 command: yarn lint
                 name: Lint frontend code with prettier & eslint
-        working_directory: ~/nau/sites/<< parameters.site >>/src/frontend/
+        working_directory: ~/fun/sites/<< parameters.site >>/src/frontend/
     lint-git:
         docker:
-            - image: cimg/python:3.10.2
+            - image: cimg/python:3.10
         steps:
             - checkout
             - run:
@@ -276,36 +277,32 @@ jobs:
             - run:
                 command: |
                     ~/.local/bin/gitlint --commits origin/master..HEAD
-                name: lint commit messages added to master
+                name: lint commit messages added to main
         working_directory: ~/nau
     no-change:
         docker:
-            - image: circleci/buildpack-deps:stretch-scm
+            - image: cimg/base:2022.06
         steps:
             - run: echo "Everything is up-to-date ✅"
         working_directory: ~/nau
     test-back:
         docker:
             - environment:
-                DB_ENGINE: django.db.backends.mysql
-                DB_HOST: 127.0.0.1
+                DB_HOST: localhost
                 DB_NAME: richie
-                DB_OPTION_CHARSET: utf8mb4
                 DB_PASSWORD: pass
-                DB_PORT: 3306
+                DB_PORT: 5432
                 DB_USER: richie_user
                 DJANGO_CONFIGURATION: Test
                 DJANGO_SECRET_KEY: ThisIsAnExampleKeyForTestPurposeOnly
                 DJANGO_SETTINGS_MODULE: << parameters.site >>.settings
-                PYTHONPATH: /home/circleci/nau/src/backend
-              image: cimg/python:3.10.2
-            - command: --default-authentication-plugin=mysql_native_password
-              environment:
-                MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-                MYSQL_DATABASE: test_richie
-                MYSQL_PASSWORD: pass
-                MYSQL_USER: richie_user
-              image: circleci/mysql:8.0-ram
+                PYTHONPATH: /home/circleci/fun/src/backend
+              image: cimg/python:3.10
+            - environment:
+                POSTGRES_DB: richie
+                POSTGRES_PASSWORD: pass
+                POSTGRES_USER: richie_user
+              image: cimg/postgres:9.6
             - environment:
                 ALLOW_EMPTY_PASSWORD: "yes"
                 REDIS_REPLICATION_MODE: master
@@ -320,7 +317,7 @@ jobs:
                 type: string
         steps:
             - checkout:
-                path: ~/nau
+                path: ~/fun
             - restore_cache:
                 keys:
                     - v1-back-dependencies-<< parameters.site >>-{{ .Revision }}
@@ -339,7 +336,7 @@ jobs:
                       -timeout 60s \
                         ~/.local/bin/pytest
                 name: Run tests
-        working_directory: ~/nau/sites/<< parameters.site >>/src/backend
+        working_directory: ~/fun/sites/<< parameters.site >>/src/backend
 version: 2.1
 workflows:
     nau:
