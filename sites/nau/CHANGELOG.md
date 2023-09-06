@@ -20,6 +20,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ⬆️(nginx) upgrade nginx to latest stable release 1.24.0
 - ⚡️(chatbot) lazy load chatbot js
 - ⚡️(video) lazy load embed video player
+- 💚(circleci) upgrade circleci build
+- ⬆️(frontend) upgrade frontend dev dependencies
 
 ## [1.20.1] - 2023-06-05
 
