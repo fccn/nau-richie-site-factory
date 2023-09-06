@@ -6,10 +6,10 @@ build-front-production:
       type: string
   docker:
     - image: cimg/node:16.15
-  working_directory: ~/nau/sites/<< parameters.site >>/src/frontend/
+  working_directory: ~/fun/sites/<< parameters.site >>/src/frontend/
   steps:
     - checkout:
-        path: ~/nau
+        path: ~/fun
     - restore_cache:
         keys:
           - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
@@ -34,10 +34,10 @@ lint-front:
       type: string
   docker:
     - image: cimg/node:16.15
-  working_directory: ~/nau/sites/<< parameters.site >>/src/frontend/
+  working_directory: ~/fun/sites/<< parameters.site >>/src/frontend/
   steps:
     - checkout:
-        path: ~/nau
+        path: ~/fun
     - restore_cache:
         keys:
           - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
