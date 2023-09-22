@@ -7,6 +7,7 @@ and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- ⚡️(video) improve player button visibility
 - ⬆️(nau) upgrade richie to v2.24.1
 
 ### Added
