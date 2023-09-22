@@ -16,7 +16,7 @@ video player iframe.
         <iframe
             title="{% if instance.label %}{{ instance.label }}{% else %}{% trans "Video" %}{% endif %}"
             {% if not request.toolbar.edit_mode_active %}
-            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{text-align:center;font:48px/1.5 sans-serif;fill:white;display:flex;justify-content:center;align-items:center;}span svg{transition:.5s;}img:hover, span:hover svg{fill-opacity:1;filter: drop-shadow(3px 3px 12px rgb(0 0 0 / 0.6));}</style>
+            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img{filter: brightness(.85)}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto;}span{text-align:center;font:48px/1.5 sans-serif;fill:white;display:flex;justify-content:center;align-items:center;}span svg{transition:.5s;}img:hover, span:hover svg{fill-opacity:1;filter: drop-shadow(3px 3px 30px rgb(0 0 0 / 0.65));}span svg{filter: drop-shadow(3px 3px 12px rgb(0 0 0 / 0.25));}</style>
                 <a href='{{ instance.embed_link_with_parameters }}{% if '?' not in instance.embed_link_with_parameters %}?{% endif %}&autoplay=1' title='{% trans 'View the presentation video' %}'>
                     {% if instance.poster %}
                         <img
@@ -39,17 +39,46 @@ video player iframe.
                         {% endblockplugin %}
                     {% endif %}
                     <span>
-                        <svg fill='#074ce1' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' 
-                        width='80px' height='80px' viewBox='0 0 408.221 408.221'
-                        xml:space='preserve'>
-                   <g>
-                       <g>
-                           <path d='M204.11,0C91.388,0,0,91.388,0,204.111c0,112.725,91.388,204.11,204.11,204.11c112.729,0,204.11-91.385,204.11-204.11
-                               C408.221,91.388,316.839,0,204.11,0z M286.547,229.971l-126.368,72.471c-17.003,9.75-30.781,1.763-30.781-17.834V140.012
-                               c0-19.602,13.777-27.575,30.781-17.827l126.368,72.466C303.551,204.403,303.551,220.217,286.547,229.971z'/>
-                       </g>
-                   </g>
-                   </svg></span>
+                     <svg
+                        width='85px'
+                        height='85px'
+                        version='1.1'
+                        id='svg5'
+                        xmlns='http://www.w3.org/2000/svg'
+                        xmlns:svg='http://www.w3.org/2000/svg'>
+                        <defs
+                            id='defs2' />
+                        <g
+                            id='layer1'
+                            transform='scale(3.5294116)'>
+                            <g
+                            id='g1018'
+                            transform='matrix(1.1837053,0,0,1.1837053,-74.289058,-125.78024)'>
+                            <g
+                                id='g1600'
+                                transform='translate(-1.6497001,-1.6496809)'>
+                                <path
+                                id='path860'
+                                style='fill:#074ce1;stroke-width:0.135807'
+                                d='m 83.362493,117.43582 a 9.4266709,9.4266709 0 0 1 -9.42667,9.42668 9.4266709,9.4266709 0 0 1 -9.426671,-9.42668 9.4266709,9.4266709 0 0 1 9.426671,-9.42667 9.4266709,9.4266709 0 0 1 9.42667,9.42667 z' />
+                                <g
+                                id='g828'
+                                transform='matrix(0.04654184,0,0,0.04654172,64.409458,107.90944)'
+                                style='fill:#ffffff'>
+                                <g
+                                    id='g826'
+                                    style='fill:#ffffff'>
+                                    <path
+                                    d='M 204.11,0 C 91.388,0 0,91.388 0,204.111 c 0,112.725 91.388,204.11 204.11,204.11 112.729,0 204.11,-91.385 204.11,-204.11 C 408.221,91.388 316.839,0 204.11,0 Z m 82.437,229.971 -126.368,72.471 c -17.003,9.75 -30.781,1.763 -30.781,-17.834 V 140.012 c 0,-19.602 13.777,-27.575 30.781,-17.827 l 126.368,72.466 c 17.004,9.752 17.004,25.566 0,35.32 z'
+                                    id='path824'
+                                    style='fill:#ffffff' />
+                                </g>
+                                </g>
+                            </g>
+                            </g>
+                        </g>
+                        </svg>
+                   </span>
                 </a>
             "
             {% endif %}
