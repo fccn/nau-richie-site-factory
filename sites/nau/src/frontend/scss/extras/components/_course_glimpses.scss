@@ -36,7 +36,6 @@ $glimpse-selector: ".course-glimpse";
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-bottom: 1rem;
   }
 
   &__title {
@@ -70,5 +69,14 @@ $glimpse-selector: ".course-glimpse";
 
 .course-glimpse-footer,
 .course-glimpse__large-footer {
-  display: none;
+  color: r-color('firebrick6');
+  background: linear-gradient(180deg, white, r-color('light-blue')); 
+  padding: 0.5rem 0.7rem;
+  font-weight: 700;
+  &__date {
+    font-weight: unset;
+    svg {
+      display: none;
+    }
+  }
 }
