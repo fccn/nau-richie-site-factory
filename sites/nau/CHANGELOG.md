@@ -7,8 +7,6 @@ and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-- ⚡️(video) improve player button visibility
-- ⬆️(nau) upgrade richie to v2.24.1
 
 ### Added
 
@@ -16,8 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 💄(course_glimpse) show course glimpse footer
+- ⚡️(video) improve player button visibility
 - 🍱(fonts) remove google fonts and replace them for local assets for performance
-- ⬆️(nau) upgrade richie to v2.23.0
+- ⬆️(nau) upgrade richie to v2.24.1
 - ✨(seo) remove django-check-seo
 - ⬆️(nginx) upgrade nginx to latest stable release 1.24.0
 - ⚡️(chatbot) lazy load chatbot js
