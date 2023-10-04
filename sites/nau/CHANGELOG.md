@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 💄(ui) replace twitter with instagram on the footer
 - 💄(course_glimpse) show course glimpse footer
 - ⚡️(video) improve player button visibility
 - 🍱(fonts) remove google fonts and replace them for local assets for performance

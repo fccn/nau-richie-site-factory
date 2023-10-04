@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the nau-richie-site-factory project.
 # Ivo Branco <ivo.branco@fccn.pt>, 2021.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 16:22+0100\n"
-"PO-Revision-Date: 2021-07-14 16:32+0100\n"
+"POT-Creation-Date: 2023-09-29 15:35+0100\n"
+"PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: \n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: nau/force_translations.py:5
 msgid "{!s} settings"
@@ -143,7 +143,7 @@ msgstr "Ver o vídeo de apresentação"
 msgid "course cover image"
 msgstr "imagem de capa do curso"
 
-#: templates/djangocms_video/default/video_player.html:73
+#: templates/djangocms_video/default/video_player.html:102
 msgid "Your browser doesn't support this video format."
 msgstr "O seu navegador não suporta este formato de vídeo."
 
@@ -180,17 +180,15 @@ msgstr "/pt/legal/cookies/"
 msgid "Need Help"
 msgstr "Preciso de Ajuda"
 
-#: templates/richie/base.html:29
-#, fuzzy
-#| msgid "Back to home"
+#: templates/richie/base.html:30
 msgid "Go to homepage"
 msgstr "Voltar à página principal"
 
-#: templates/richie/base.html:30
+#: templates/richie/base.html:31
 msgid "In maintenance"
 msgstr "Em manutenção"
 
-#: templates/richie/base.html:42
+#: templates/richie/base.html:43
 msgid "Help"
 msgstr "Ajuda"
 
@@ -203,17 +201,17 @@ msgid "Explore our courses"
 msgstr "Explore os nossos cursos"
 
 #: templates/social-networks/footer-badges.html:8
-msgid "Subscribe newsletter"
+msgid "Subscribe our newsletter"
 msgstr "Subscrever lista de email (newsletter)"
 
 #: templates/social-networks/footer-badges.html:18
-msgid "Follow our Facebook"
+msgid "Follow us on Facebook"
 msgstr "Siga-nos no Facebook"
 
 #: templates/social-networks/footer-badges.html:28
-msgid "Follow our Twitter"
-msgstr "Siga-nos no Twitter"
+msgid "Follow us on Instagram"
+msgstr "Siga-nos no Instagram"
 
 #: templates/social-networks/footer-badges.html:38
-msgid "Follow our Linkedin"
+msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"

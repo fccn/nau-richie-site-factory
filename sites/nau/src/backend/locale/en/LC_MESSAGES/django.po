@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 16:22+0100\n"
+"POT-Creation-Date: 2023-09-29 15:35+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,7 +143,7 @@ msgstr ""
 msgid "course cover image"
 msgstr ""
 
-#: templates/djangocms_video/default/video_player.html:73
+#: templates/djangocms_video/default/video_player.html:102
 msgid "Your browser doesn't support this video format."
 msgstr ""
 
@@ -180,15 +180,15 @@ msgstr "/en/legal/cookies/"
 msgid "Need Help"
 msgstr ""
 
-#: templates/richie/base.html:29
+#: templates/richie/base.html:30
 msgid "Go to homepage"
 msgstr ""
 
-#: templates/richie/base.html:30
+#: templates/richie/base.html:31
 msgid "In maintenance"
 msgstr ""
 
-#: templates/richie/base.html:42
+#: templates/richie/base.html:43
 msgid "Help"
 msgstr ""
 
@@ -201,17 +201,17 @@ msgid "Explore our courses"
 msgstr ""
 
 #: templates/social-networks/footer-badges.html:8
-msgid "Subscribe newsletter"
+msgid "Subscribe our newsletter"
 msgstr ""
 
 #: templates/social-networks/footer-badges.html:18
-msgid "Follow our Facebook"
+msgid "Follow us on Facebook"
 msgstr ""
 
 #: templates/social-networks/footer-badges.html:28
-msgid "Follow our Twitter"
+msgid "Follow us on Instagram"
 msgstr ""
 
 #: templates/social-networks/footer-badges.html:38
-msgid "Follow our Linkedin"
+msgid "Follow us on Linkedin"
 msgstr ""
