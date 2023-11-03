@@ -76,16 +76,21 @@
   position: relative;
   padding: 0;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% auto;
+  background-position: top right;
+  background-size: 70%;
+  background-color: rgba(7,76,255, .85);
+
+  @include media-breakpoint-down(lg) {
+    background-position: bottom right;
+  }
 
   &::after {
     background-image: none;
   }
 
   &__inner {
-    background-image: r-theme-val(hero-intro, insert-background-image);
-    background-size: cover;
+    background: none;
+
 
     @include media-breakpoint-up(lg) {
       display: flex;
@@ -98,6 +103,8 @@
         min-height: 34.75rem;
       }
     }
+    
+    
   }
 
   &__body {
@@ -131,20 +138,36 @@
   &__content {
     @include font-size($h5-font-size);
     color: r-theme-val(hero-intro, content-color);
+
+    & > h1 {
+      font-size: 3.8rem;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 3.2rem;
+        text-align: center;
+      }
+    }
   }
 
   &__search {
     display: flex;
-    padding-top: 1rem;
-    flex-wrap: wrap;
+    padding-top: 2rem;
+    //flex-wrap: wrap;
+    flex-direction: column;
     align-items: flex-start;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: unset;
+    }
+
 
     .richie-react--root-search-suggest-field {
       @include sv-flex(1, 0, 100%);
       position: relative;
 
       @include media-breakpoint-up(lg) {
-        @include sv-flex(1, 0, 50%);
+        @include sv-flex(initial, initial, 55%);
+        width: 55%;
       }
 
       input {
@@ -187,7 +210,8 @@
       r-theme-val(hero-intro, cta-variant-from),
       r-theme-val(hero-intro, cta-variant-to)
     );
-    margin: 1.2rem auto 0;
+    //margin: 1.2rem auto 0;
+    margin-left: 0 !important;
     font-size: $font-size-base;
     color: r-theme-val(hero-intro, cta-color);
     border-radius: 2rem;
@@ -196,7 +220,11 @@
 
     @include media-breakpoint-up(lg) {
       margin-top: 0;
-      @include responsive-spacer("margin-left", 0, $breakpoints: ("lg": 5));
+      //@include responsive-spacer("margin-left", 0, $breakpoints: ("lg": 5));
+    }
+    
+    @include media-breakpoint-down(sm) {
+      margin: 0 auto !important;
     }
 
     &:after {

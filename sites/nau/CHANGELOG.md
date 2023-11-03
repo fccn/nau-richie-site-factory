@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 💄(ui) refactor hero section
 - 💄(ui) comment out instagram link on the footer
 - 💄(ui) replace twitter with instagram on the footer
 - 💄(course_glimpse) show course glimpse footer
