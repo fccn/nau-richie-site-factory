@@ -2,6 +2,10 @@
 .topbar {
   $topbar-selector: &;
   padding: 1rem 0 0;
+  
+  @include media-breakpoint-down(sm) {
+    padding: 1rem 0;
+  }
 
   @include media-breakpoint-up($r-topbar-breakpoint) {
     height: initial;
@@ -11,6 +15,10 @@
       background: r-theme-val(topbar, over-background);
       border-bottom: 0;
     }
+  }
+
+  &__hamburger {
+    color: r-color("firebrick6");
   }
 
   // Brand part with hamburger and clickable logo
