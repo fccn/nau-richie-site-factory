@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.21.0] - 2023-12-06
+
 ### Added
 
 - ⚡️(html) improve performance by hint browsers to pre-connect to CDN or S3
