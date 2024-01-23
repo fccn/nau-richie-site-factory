@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 📌(backend) pin django-cms to version less than 4
+
 ## [1.21.0] - 2023-12-06
 
 ### Added
