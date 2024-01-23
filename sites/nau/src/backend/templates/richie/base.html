@@ -1,5 +1,5 @@
 {% extends "richie/base.html" %}
-{% load cms_tags static i18n %}
+{% load cms_tags static i18n full_static_tags %}
 
 {% block meta_favicons %}
 <link rel="apple-touch-icon" sizes="180x180" href="{% static 'richie/favicon/apple-touch-icon.png' %}">
@@ -11,8 +11,14 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-config" content="{% static 'richie/favicon/browserconfig.xml' %}">
 <meta name="theme-color" content="#ffffff">
-<!-- bullshit -->
 {% endblock meta_favicons %}
+
+{% block meta_rdfa_context %}
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{% static_absolute "richie/images/og_media_geral_fb_22a.png" %}"/>
+	<meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="630"/>
+{% endblock meta_rdfa_context %}
 
 {% block branding_topbar %}
     <img src="{% static "richie/images/logo_nau_by_fccn.svg" %}" class="topbar__logo" alt="{{ SITE.name }}">
