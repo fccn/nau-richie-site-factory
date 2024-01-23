@@ -138,8 +138,9 @@ lint-front: \
 	lint-front-eslint
 .PHONY: lint-front
 
-test-back: ## run back-end tests
-	bin/pytest
+test-back: ## run back-end tests, or specific test like `make test-back nau/tests/test_open_graph.py`
+	@args="$(filter-out $@,$(MAKECMDGOALS))" && \
+    DB_PORT=$(DB_PORT) bin/pytest $${args:-${1}}
 .PHONY: test-back
 
 test-front: ## run front-end tests
