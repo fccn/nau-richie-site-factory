@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 📌(backend) pin django-cms to version less than 4
+- 💚(circleci) fix docker-compose duplicate user key
 
 ## [1.21.0] - 2023-12-06
 

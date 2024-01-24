@@ -113,7 +113,6 @@ services:
     working_dir: /app
     volumes:
       - ./aws/create_state_bucket:/app
-    user: ${DOCKER_USER:-1000}
 
   terraform:
     image: hashicorp/terraform:0.12.29
@@ -126,7 +125,6 @@ services:
     volumes:
       - ./aws:/app
       - ./sites/${RICHIE_SITE:-nau}/aws:/config
-    user: ${DOCKER_USER:-1000}
 
   redis-sentinel:
     image: docker.io/bitnami/redis-sentinel:6.0-debian-10
