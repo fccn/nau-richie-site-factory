@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- ⬆️(global) upgrade node to v18.19
+
 ### Fixed
 
 - 📌(backend) pin django-cms to version less than 4
