@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - 🩹(social) add default open graph image for social share of homepage page
+- 🔧(sentry) additional Sentry settings
 
 ### Fixed
 
