@@ -12,6 +12,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 🩹(social) add default open graph image for social share of homepage page
 - 🔧(sentry) additional Sentry settings
+- 📌(plugins) add django_snippet for HTML inputs
 
 ### Fixed
 

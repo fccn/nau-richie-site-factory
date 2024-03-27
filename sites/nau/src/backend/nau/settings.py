@@ -394,6 +394,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "djangocms_picture",
         "djangocms_text_ckeditor",
         "djangocms_video",
+        "djangocms_snippet",
         "cms",
         "menus",
         "sekizai",
