@@ -128,7 +128,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     You may also want to override default configuration by setting the following environment
     variables:
 
-    * DJANGO_SENTRY_DSN
+    * SENTRY_DSN
     * RICHIE_ES_HOST
     * DB_NAME
     * DB_USER
@@ -603,8 +603,10 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     SENTRY_ENVIRONMENT = values.Value(
         __name__.lower(), environ_name="SENTRY_ENVIRONMENT", environ_prefix=None
     )
-    SENTRY_ENABLE_TRACKING = values.Value(
-        False, environ_name="SENTRY_ENABLE_TRACKING", environ_prefix=None
+    # A number between 0 and 1, controlling the percentage chance a given transaction
+    # will be sent to Sentry. (0 represents 0% while 1 represents 100%.)
+    SENTRY_TRACES_SAMPLE_RATE = values.Value(
+        None, environ_name="SENTRY_TRACES_SAMPLE_RATE", environ_prefix=None
     )
 
     # Admin
@@ -693,7 +695,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 environment=cls.SENTRY_ENVIRONMENT or cls.__name__.lower(),
                 release=get_release(),
                 integrations=[DjangoIntegration()],
-                enable_tracing=cls.SENTRY_ENABLE_TRACKING,
+                traces_sample_rate=cls.SENTRY_TRACES_SAMPLE_RATE,
             )
             with sentry_sdk.configure_scope() as scope:
                 scope.set_extra("application", "backend")
