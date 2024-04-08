@@ -54,11 +54,3 @@
 {% block body_footer %}
     {% include "nau/_footer.html" %}
 {% endblock body_footer %}
-
-{% block body_js %}
-    {{ block.super }}
-    {% include "nau/cookies.html" %}
-    {% include "nau/jira_service_desk.html" %}
-    {% include "nau/chatbot.html" %}
-    {% include "nau/facebook_pixel.html" %}
-{% endblock body_js %}

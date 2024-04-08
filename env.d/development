@@ -37,10 +37,4 @@ AUTHENTICATION_BACKEND=base
 WEB_ANALYTICS={'google_universal_analytics': {'tracking_id': 'UA-123456789-1', 'location': 'head' }}
 # WEB_ANALYTICS={'google_universal_analytics': {'tracking_id': 'UA-123456789-1', 'location': 'head' }, 'google_tag_manager': {'tracking_id': 'xpto-key'}}
 
-# Jira Service Desk key
-# JIRA_WIDGET_KEY=c19e6a24-a1f6-4a84-aa46-89e82b94b809
-
-# Chatbot widget
-# CHATBOT_WIDGET_JS_URL=https://naustorage.blob.core.windows.net/bot-html-tst/fccn_chatbot.bundle.js
-
 # MAINTENANCE_HEADER_MSG=true

@@ -14,6 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔧(sentry) additional Sentry settings
 - 📌(plugins) add django_snippet for HTML inputs
 
+### Changed
+
+- 🔥(thirdparty) remove initializer code for third party services
+
 ### Fixed
 
 - 📌(backend) pin django-cms to version less than 4
