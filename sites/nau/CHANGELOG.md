@@ -13,6 +13,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🩹(social) add default open graph image for social share of homepage page
 - 🔧(sentry) additional Sentry settings
 
+### Changed
+
+- 🔥(thirdparty) remove initializer code for third party services
+
 ### Fixed
 
 - 📌(backend) pin django-cms to version less than 4

@@ -317,10 +317,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "django.template.context_processors.static",
                     "cms.context_processors.cms_settings",
                     "richie.apps.core.context_processors.site_metas",
-                    "nau.jira_service_desk.context_processors.jira_widget_key_setting",
-                    "nau.chatbot.context_processors.chatbot_widget_js_url_setting",
-                    "nau.facebook_pixel.context_processors.facebook_pixel_setting",
-                    "nau.cookie_bar.context_processors.cookie_bar_setting",
                     "nau.help_desk.context_processors.help_desk_url_setting",
                     "nau.maintenance.context_processors.maintenance_header_message_setting",
                 ],
@@ -615,21 +611,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
 
     # Add richie search query analyzer elasticsearch the Portuguese language
     RICHIE_QUERY_ANALYZERS = {"en": "english", "pt": "portuguese"}
-
-    # Add JIRA Service Desk Widget Key
-    JIRA_WIDGET_KEY = values.Value(
-        None, environ_name="JIRA_WIDGET_KEY", environ_prefix=None
-    )
-
-    # Add Facebook Pixel
-    FACEBOOK_PIXEL_ID = values.Value(
-        None, environ_name="FACEBOOK_PIXEL_ID", environ_prefix=None
-    )
-
-    # Add NAU Chatbot Widget
-    CHATBOT_WIDGET_JS_URL = values.Value(
-        None, environ_name="CHATBOT_WIDGET_JS_URL", environ_prefix=None
-    )
 
     # NAU helpdesk URL.
     HELP_DESK_URL = values.Value(
