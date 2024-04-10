@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.22.0] - 2024-04-10
+
 ### Added
 
 - 🩹(social) add default open graph image for social share of homepage page
