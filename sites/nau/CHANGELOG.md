@@ -11,6 +11,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🔧(sentry) ignore dockerflow request.summary logger
+- 🔊(log) remove request.summary logger
+- 🗑️(jenkins) remove unnecessary jenkinsfile
 
 ## [1.22.0] - 2024-04-10
 
