@@ -482,14 +482,24 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "level": "DEBUG",
                 "class": "logging.StreamHandler",
                 "formatter": "verbose",
-            }
+            },
+            "null": {
+                "class": "logging.NullHandler",
+            },
         },
         "loggers": {
             "django": {
                 "level": "INFO",
                 "handlers": ["console"],
                 "propagate": True,
-            }
+            },
+            # Disable the dockerflow 'request.summary' ERROR logger
+            # because is too verbose for any 404 request.
+            "request.summary": {
+                'handlers': ['null'],
+                'level': 'ERROR',
+                'propagate': False,
+            },
         },
     }
 
