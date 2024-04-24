@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🔧(sentry) ignore dockerflow request.summary logger
+
 ## [1.22.0] - 2024-04-10
 
 ### Added
