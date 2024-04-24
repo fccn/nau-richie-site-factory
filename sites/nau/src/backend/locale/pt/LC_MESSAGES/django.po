@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-29 15:35+0100\n"
+"POT-Creation-Date: 2024-04-24 13:26+0100\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -90,39 +90,39 @@ msgstr "Siga um curso online com a NAU"
 msgid "I just enrolled to the course \"%(title)s\" on Richie: %(url)s"
 msgstr "Eu acabei de me inscrever no curso \"%(title)s\" na NAU: %(url)s"
 
-#: nau/settings.py:232
+#: nau/settings.py:233
 msgid "Dashboard"
 msgstr "Meus cursos"
 
-#: nau/settings.py:233
+#: nau/settings.py:234
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: nau/settings.py:236
+#: nau/settings.py:237
 msgid "Account"
 msgstr "Conta"
 
-#: nau/settings.py:237
+#: nau/settings.py:238
 msgid "{base_url:s}/account/settings"
 msgstr ""
 
-#: nau/settings.py:240
+#: nau/settings.py:241
 msgid "Profile"
 msgstr "Perfil"
 
-#: nau/settings.py:241
+#: nau/settings.py:242
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:338
+#: nau/settings.py:335
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:426 nau/settings.py:441
+#: nau/settings.py:424 nau/settings.py:439
 msgid "English Lang"
 msgstr "English"
 
-#: nau/settings.py:426 nau/settings.py:449
+#: nau/settings.py:424 nau/settings.py:447
 msgid "Portuguese Lang"
 msgstr "Português"
 
@@ -155,40 +155,15 @@ msgstr "Voltar à página principal"
 msgid "All right reserved."
 msgstr "Todos os direitos reservados."
 
-#: templates/nau/cookies.html:24
-msgid ""
-"This website uses cookies to ensure you get the best experience on our "
-"website. If you continue browsing this site, we understand that you accept "
-"the use of cookies."
-msgstr ""
-"A NAU utiliza cookies para lhe providenciar uma melhor experiência de "
-"navegação. Para mais informações consulte a nossa política de cookies."
-
-#: templates/nau/cookies.html:25
-msgid "Got it!"
-msgstr "Compreendido!"
-
-#: templates/nau/cookies.html:26
-msgid "Learn more"
-msgstr "Saber mais"
-
-#: templates/nau/cookies.html:27
-msgid "privacy-policy-url"
-msgstr "/pt/legal/cookies/"
-
-#: templates/nau/jira_service_desk.html:8
-msgid "Need Help"
-msgstr "Preciso de Ajuda"
-
-#: templates/richie/base.html:30
+#: templates/richie/base.html:36
 msgid "Go to homepage"
 msgstr "Voltar à página principal"
 
-#: templates/richie/base.html:31
+#: templates/richie/base.html:37
 msgid "In maintenance"
 msgstr "Em manutenção"
 
-#: templates/richie/base.html:43
+#: templates/richie/base.html:49
 msgid "Help"
 msgstr "Ajuda"
 
