@@ -11,6 +11,7 @@ import sentry_sdk
 from configurations import Configuration, values
 from richie.apps.courses.settings.mixins import RichieCoursesConfigurationMixin
 from sentry_sdk.integrations.django import DjangoIntegration
+from sentry_sdk.integrations.logging import ignore_logger
 
 from base.utils import merge_dict
 
@@ -605,6 +606,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     SENTRY_TRACES_SAMPLE_RATE = values.Value(
         None, environ_name="SENTRY_TRACES_SAMPLE_RATE", environ_prefix=None
     )
+    SENTRY_IGNORE_LOGGER = values.ListValue(
+        ["request.summary"], environ_name="SENTRY_IGNORE_LOGGER", environ_prefix=None
+    )
 
     # Admin
     # - Django CMS
@@ -681,6 +685,10 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             )
             with sentry_sdk.configure_scope() as scope:
                 scope.set_extra("application", "backend")
+
+        # ignore some error so they aren't sent to Sentry
+        for logger in cls.SENTRY_IGNORE_LOGGER:
+            ignore_logger(logger)
 
         # Customize DjangoCMS placeholders configuration
         cls.CMS_PLACEHOLDER_CONF = merge_dict(
