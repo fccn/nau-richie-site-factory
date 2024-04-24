@@ -652,6 +652,14 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         False, environ_name="MAINTENANCE_HEADER_MSG", environ_prefix=None
     )
 
+    # Dockerflow - Add the healthcheck views to SECURE_REDIRECT_EXEMPT,
+    # so they can be used as Kubernetes liveness checks.
+    SECURE_REDIRECT_EXEMPT = [
+        r"^__version__/?$",
+        r"^__heartbeat__/?$",
+        r"^__lbheartbeat__/?$",
+    ]
+
     # pylint: disable=invalid-name
     @property
     def ENVIRONMENT(self):
