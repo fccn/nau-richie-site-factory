@@ -14,6 +14,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔊(log) remove request.summary logger
 - 🗑️(jenkins) remove unnecessary jenkinsfile
 
+### Added
+
+- 🩺(kubernetes) liveness checks
+
 ## [1.22.0] - 2024-04-10
 
 ### Added
