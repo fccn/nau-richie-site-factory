@@ -8,6 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🔨(dev) update development environment variables from openfun.
+  Copy the development environment variables from openfun.
+  Configure to use a dummy LMS, to show LMS integration component.
+
 ## [1.23.0] - 2024-04-24
 
 ### Fixed
