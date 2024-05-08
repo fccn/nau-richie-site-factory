@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.24.0] - 2024-05-08
+
 ### Added
 
 - 👷(s3) install s3cmd to send static assets to compatible S3 compatible bucket
