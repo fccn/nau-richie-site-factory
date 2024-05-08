@@ -8,9 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Fixed
+### Added
 
 - 👷(s3) install s3cmd to send static assets to compatible S3 compatible bucket
+
+### Fixed
+
 - 🔨(dev) update development environment variables from openfun.
   Copy the development environment variables from openfun.
   Configure to use a dummy LMS, to show LMS integration component.
