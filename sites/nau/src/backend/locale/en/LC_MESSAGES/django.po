@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-24 13:26+0100\n"
+"POT-Creation-Date: 2024-05-14 16:11+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,6 +89,16 @@ msgstr "Follow a course online with NAU"
 #, python-format
 msgid "I just enrolled to the course \"%(title)s\" on Richie: %(url)s"
 msgstr "I just enrolled to the course \"%(title)s\" on NAU: %(url)s"
+
+#: nau/force_translations.py:28
+#, python-format
+msgid "Richie news: %(title)s"
+msgstr "%(title)s"
+
+#: nau/force_translations.py:29
+#, python-format
+msgid "Richie news: %(title)s %(url)s"
+msgstr "%(title)s %(url)s"
 
 #: nau/settings.py:233
 msgid "Dashboard"

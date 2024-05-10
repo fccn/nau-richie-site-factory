@@ -23,3 +23,7 @@ _("Life-changing learning!")
 # Richie apps/core/templates/social-networks/course-badges.html
 _("Follow a course online with Richie")
 _('I just enrolled to the course "%(title)s" on Richie: %(url)s')
+
+# Richie apps/core/templates/social-networks/blogpost-badges.html
+_("Richie news: %(title)s")
+_("Richie news: %(title)s %(url)s")
