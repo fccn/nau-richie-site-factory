@@ -11,6 +11,10 @@ from django.views.generic import TemplateView
 from django.views.static import serve
 
 from cms.sitemaps import CMSSitemap
+from richie.apps.core.templatetags.feature_flags import is_feature_enabled
+from richie.apps.core.templatetags.joanie import is_joanie_enabled
+from richie.apps.courses.urls import \
+    redirects_urlpatterns as courses_redirects_urlpatterns
 from richie.apps.courses.urls import urlpatterns as courses_urlpatterns
 from richie.apps.search.urls import urlpatterns as search_urlpatterns
 from richie.plugins.urls import urlpatterns as plugins_urlpatterns
@@ -38,14 +42,27 @@ urlpatterns = [
         r"api/{}/".format(API_PREFIX),
         include([*courses_urlpatterns, *search_urlpatterns, *plugins_urlpatterns]),
     ),
+    re_path(r"^redirects/", include([*courses_redirects_urlpatterns])),
     path(r"", include("filer.server.urls")),
 ]
+
+if is_joanie_enabled() and is_feature_enabled("REACT_DASHBOARD"):
+    urlpatterns += i18n_patterns(
+        re_path(
+            r"^dashboard/.*",
+            TemplateView.as_view(
+                template_name="richie/dashboard.html",
+            ),
+            name="dashboard",
+        )
+    )
 
 urlpatterns += i18n_patterns(
     path(r"admin/", admin.site.urls),
     path(r"accounts/", include("django.contrib.auth.urls")),
     path(r"", include("cms.urls")),  # NOQA
 )
+
 
 # This is only needed when using runserver.
 if settings.DEBUG:
