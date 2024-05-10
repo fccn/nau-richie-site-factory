@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.24.0] - 2024-05-10
+
 ### Added
 
 - ✨(redirect) add course redirect and joainie urls
