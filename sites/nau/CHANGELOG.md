@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- ✨(redirect) add course redirect and joainie urls
 - 👷(s3) install s3cmd to send static assets to compatible S3 compatible bucket
 
 ### Fixed

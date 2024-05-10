@@ -496,9 +496,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             # Disable the dockerflow 'request.summary' ERROR logger
             # because is too verbose for any 404 request.
             "request.summary": {
-                'handlers': ['null'],
-                'level': 'ERROR',
-                'propagate': False,
+                "handlers": ["null"],
+                "level": "ERROR",
+                "propagate": False,
             },
         },
     }
