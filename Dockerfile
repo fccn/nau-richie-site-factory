@@ -54,12 +54,20 @@ FROM base as core
 ARG SITE
 
 # Install gettext
-# Install s3cmd - to send static assets to a S3 compatible Bucket - it requires `backports` repo
-RUN echo 'deb http://archive.debian.org/debian buster-backports main contrib non-free' > /etc/apt/sources.list.d/backports.list
 RUN apt-get update && \
     apt-get install -y \
-    s3cmd gettext && \
+    gettext && \
     rm -rf /var/lib/apt/lists/*
+
+# Install awscli to send static assets to S3 Bucket
+RUN cd / && \
+    apt update && \
+    apt install unzip && \
+    rm -rf /var/lib/apt/lists/* && \
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -r aws awscliv2.zip
 
 # Copy installed python dependencies
 COPY --from=back-builder /install /usr/local

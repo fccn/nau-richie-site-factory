@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- 👷(s3) replace s3cmd with awscli, that is more speedy
+
 ## [1.24.0] - 2024-05-10
 
 ### Added
