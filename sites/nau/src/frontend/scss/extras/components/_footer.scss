@@ -3,7 +3,7 @@
   padding: 2rem 0;
 
   &__brand {
-    & > a {
+    &>a {
       width: 100%;
     }
   }
@@ -46,11 +46,12 @@
   }
 
   &__items {
+
     //
     // Default variant acts like a simple horizontal menu
     //
-    & > .nested-item--list,
-    & > a {
+    &>.nested-item--list,
+    &>a {
       $nesteditem-base-selector: ".nested-item";
 
       #{$nesteditem-base-selector}__items {
@@ -74,7 +75,6 @@
 
 // Legal mentions
 .body-mentions {
-  padding-bottom: 5rem;
 
   &__container {
     @include make-container();
@@ -82,14 +82,27 @@
   }
 
   &__entities {
+    width: 100%;
     display: flex;
-    align-content: space-between;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 
+    .section {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        justify-content: center;
+        flex-basis: 0;
+    
+        border-block-end: 1px solid #dedede;
+        padding: 1rem 0 1.6rem 0;
+    
+        &:last-of-type {
+          border-block-end: none;
+        }
+      }
     img {
       padding: 0 0.5rem;
-      max-height: 4.6rem;
+      max-height: 4rem;
     }
   }
 }
