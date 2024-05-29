@@ -8,6 +8,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ⚡️(s3) add the CDNManifestStaticFilesStorage from Richie cookiecutter
+  so we can use static assets from S3 Bucket like a CDN.
+
 ### Fixed
 
 - 🌐(i18n) override translations to remove "Richie news" from blogpost badges
