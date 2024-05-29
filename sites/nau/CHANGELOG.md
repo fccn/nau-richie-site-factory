@@ -13,6 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 💚(circleci) upgrade circleci build
 - 👷(docker) upgrade nodejs and python
 - ⬆️(nau) upgrade richie to v2.28.0
+- 💄(footer) refactor footer logos placeholder
 
 ### Fixed
 
