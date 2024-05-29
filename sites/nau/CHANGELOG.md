@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.26.0] - 2024-05-29
+
 ### Added
 
 - ⚡️(s3) add the CDNManifestStaticFilesStorage from Richie cookiecutter
