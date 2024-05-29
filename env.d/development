@@ -48,3 +48,7 @@ WEB_ANALYTICS={'google_universal_analytics': {'tracking_id': 'UA-123456789-1', '
 # WEB_ANALYTICS={'google_universal_analytics': {'tracking_id': 'UA-123456789-1', 'location': 'head' }, 'google_tag_manager': {'tracking_id': 'xpto-key'}}
 
 # MAINTENANCE_HEADER_MSG=true
+
+# Test CDN / static assets from different domain
+# DJANGO_STATIC_URL=https://nau-dev-richie-nau-static-assets.rgw.nau.fccn.pt/static/
+# DJANGO_CDN_DOMAIN=nau-dev-richie-nau-static-assets.rgw.nau.fccn.pt
