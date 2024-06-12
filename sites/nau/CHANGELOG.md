@@ -18,6 +18,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🌐(i18n) override translations to remove "Richie news" from blogpost badges
+- 🚨(pylint) fix pylint errors on the backend
 
 ## [1.25.0] - 2024-05-13
 

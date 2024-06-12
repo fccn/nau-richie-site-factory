@@ -13,6 +13,7 @@ from django.utils.http import http_date
 
 from richie.apps.courses.factories import CourseFactory, CourseRunFactory
 
+# pylint: disable=import-error
 from nau.cache.cache_ttl import CACHE_MARGIN
 
 # pylint: disable=too-many-public-methods

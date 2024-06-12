@@ -8,6 +8,7 @@ from cms.test_utils.testcases import CMSTestCase
 from richie.apps.courses.factories import CourseFactory
 
 
+# pylint: disable=duplicate-code
 class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
     """
     Test case that verifies if the Google Tag Manager is being rendered and not using the Richie
@@ -57,6 +58,11 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
         },
     )
     def test_template_base_google_tag_manager_present_with_environment_config(self):
+        """
+        Tests if the Google Tag Manager code is added if the environment configuration is
+        present.
+        """
+
         course = CourseFactory()
         page = course.extended_object
         page.publish("en")
