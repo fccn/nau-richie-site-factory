@@ -7,10 +7,10 @@ ARG SITE=nau
 ARG DOCKER_USER=10000
 
 # ---- base image to inherit from ----
-FROM python:3.10-buster as base
+FROM python:3.11-bookworm as base
 
 # ---- front-end builder image ----
-FROM node:16.15 as front-builder
+FROM node:20.13 as front-builder
 
 ARG SITE
 
@@ -38,7 +38,11 @@ COPY ./sites/${SITE}/requirements/base.txt /builder/requirements.txt
 RUN pip install --upgrade pip
 
 RUN mkdir /install && \
-    pip install --prefix=/install -r requirements.txt 
+    pip install --prefix=/install -r requirements.txt \ 
+    pip install --prefix=/install \
+    # The django-cms fork includes drillable search feature,
+    # it should be removed when this feature will be officially released.
+    git+https://github.com/jbpenrath/django-cms@fun-3.11.6#egg=django-cms
     #\
     # Use temporarily a forked version of django-cms and djangocms-admin-style
     # The django-cms fork includes drillable search feature,
