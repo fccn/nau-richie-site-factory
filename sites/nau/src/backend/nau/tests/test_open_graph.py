@@ -7,6 +7,7 @@ from cms.test_utils.testcases import CMSTestCase
 from richie.apps.core.helpers import create_i18n_page
 
 
+# pylint: disable=duplicate-code
 class OpenGraphCMSTestCase(CMSTestCase):
     """
     Test case that verifies if the custom Open Graph image is used.
