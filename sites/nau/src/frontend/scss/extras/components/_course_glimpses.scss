@@ -69,8 +69,8 @@ $glimpse-selector: ".course-glimpse";
 
 .course-glimpse-footer,
 .course-glimpse__large-footer {
-  color: r-color('firebrick6');
-  background: linear-gradient(180deg, r-color('white'), r-color('light-blue')); 
+  color: r-color("firebrick6");
+  background: linear-gradient(180deg, r-color("white"), r-color("light-blue"));
   padding: 0.5rem 0.7rem;
   font-weight: 700;
   &__date {

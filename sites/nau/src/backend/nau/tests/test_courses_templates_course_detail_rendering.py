@@ -1,6 +1,7 @@
 """
 Test the custom video player with a performance improvement.
 """
+
 import random
 
 import lxml.html  # nosec

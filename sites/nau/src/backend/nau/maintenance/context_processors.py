@@ -1,6 +1,7 @@
 """
 Jira Service desk widget context processor
 """
+
 from django.conf import settings
 
 

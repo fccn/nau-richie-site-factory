@@ -26,6 +26,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 👷(s3) replace s3cmd with awscli, that is more speedy
 - 💚(circleci) upgrade circleci build
 - 👷(docker) upgrade nodejs and python
+- ⬆️(nau) upgrade richie to v2.26.0
 
 ## [1.24.0] - 2024-05-10
 

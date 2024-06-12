@@ -1,6 +1,7 @@
 """
 End-to-end tests for the course detail view
 """
+
 from django.test.utils import override_settings
 
 from cms.test_utils.testcases import CMSTestCase
