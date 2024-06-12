@@ -1,6 +1,7 @@
 """
 Help Desk header url context processor
 """
+
 from django.conf import settings
 
 

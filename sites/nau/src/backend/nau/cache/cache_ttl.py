@@ -1,6 +1,7 @@
 """
 Cache utility for courses.
 """
+
 from datetime import datetime, timedelta
 from typing import List
 

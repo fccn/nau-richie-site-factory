@@ -78,7 +78,7 @@
   background-repeat: no-repeat;
   background-position: top right;
   background-size: 70%;
-  background-color: rgba(7,76,255, .85);
+  background-color: rgba(7, 76, 255, 0.85);
 
   @include media-breakpoint-down(lg) {
     background-position: bottom right;
@@ -91,7 +91,6 @@
   &__inner {
     background: none;
 
-
     @include media-breakpoint-up(lg) {
       display: flex;
 
@@ -103,8 +102,6 @@
         min-height: 34.75rem;
       }
     }
-    
-    
   }
 
   &__body {
@@ -159,7 +156,6 @@
     @include media-breakpoint-down(md) {
       flex-direction: unset;
     }
-
 
     .richie-react--root-search-suggest-field {
       @include sv-flex(1, 0, 100%);
@@ -222,7 +218,7 @@
       margin-top: 0;
       //@include responsive-spacer("margin-left", 0, $breakpoints: ("lg": 5));
     }
-    
+
     @include media-breakpoint-down(sm) {
       margin: 0 auto !important;
     }

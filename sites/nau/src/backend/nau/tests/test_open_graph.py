@@ -1,6 +1,7 @@
 """
 End-to-end tests for the language cookies
 """
+
 import lxml.html  # nosec
 from cms.test_utils.testcases import CMSTestCase
 from richie.apps.core.helpers import create_i18n_page

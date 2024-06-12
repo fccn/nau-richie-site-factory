@@ -1,6 +1,7 @@
 """
 End-to-end tests for the course detail view
 """
+
 from cms.test_utils.testcases import CMSTestCase
 from richie.apps.core.helpers import create_i18n_page
 

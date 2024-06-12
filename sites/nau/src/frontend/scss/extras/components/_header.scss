@@ -2,7 +2,7 @@
 .topbar {
   $topbar-selector: &;
   padding: 1rem 0 0;
-  
+
   @include media-breakpoint-down(sm) {
     padding: 1rem 0;
   }
