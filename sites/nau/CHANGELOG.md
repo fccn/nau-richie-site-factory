@@ -8,6 +8,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- 💚(circleci) upgrade circleci build
+- 👷(docker) upgrade nodejs and python
+- ⬆️(nau) upgrade richie to v2.28.0
+
+### Fixed
+
+- 🚨(pylint) fix pylint errors on the backend
+
 ## [1.26.0] - 2024-05-29
 
 ### Added
@@ -18,16 +28,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🌐(i18n) override translations to remove "Richie news" from blogpost badges
-- 🚨(pylint) fix pylint errors on the backend
 
 ## [1.25.0] - 2024-05-13
 
 ### Changed
 
 - 👷(s3) replace s3cmd with awscli, that is more speedy
-- 💚(circleci) upgrade circleci build
-- 👷(docker) upgrade nodejs and python
-- ⬆️(nau) upgrade richie to v2.28.0
 
 ## [1.24.0] - 2024-05-10
 
