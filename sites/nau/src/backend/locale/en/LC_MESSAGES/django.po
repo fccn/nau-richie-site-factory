@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-14 16:11+0100\n"
+"POT-Creation-Date: 2024-06-17 12:57+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,85 +17,85 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: nau/force_translations.py:5
+#: nau/force_translations.py:9
 msgid "{!s} settings"
 msgstr ""
 
-#: nau/force_translations.py:6
+#: nau/force_translations.py:10
 msgid "First session"
 msgstr "First edition"
 
-#: nau/force_translations.py:7
+#: nau/force_translations.py:11
 msgid "Persons"
 msgstr "Instructors"
 
-#: nau/force_translations.py:9
+#: nau/force_translations.py:13
 msgid "Sub categories"
 msgstr ""
 
-#: nau/force_translations.py:10
+#: nau/force_translations.py:14
 msgid "Related courses"
 msgstr ""
 
-#: nau/force_translations.py:11
+#: nau/force_translations.py:15
 msgid "Courses pagination"
 msgstr ""
 
-#: nau/force_translations.py:12
+#: nau/force_translations.py:16
 msgid "See all courses"
 msgstr ""
 
-#: nau/force_translations.py:13
+#: nau/force_translations.py:17
 msgid "Related organizations"
 msgstr ""
 
-#: nau/force_translations.py:14
+#: nau/force_translations.py:18
 msgid "Related organizations pagination"
 msgstr ""
 
-#: nau/force_translations.py:15
+#: nau/force_translations.py:19
 msgid "Related blogposts"
 msgstr ""
 
-#: nau/force_translations.py:16
+#: nau/force_translations.py:20
 msgid "Related blogposts pagination"
 msgstr ""
 
-#: nau/force_translations.py:17
+#: nau/force_translations.py:21
 msgid "Related persons"
 msgstr ""
 
-#: nau/force_translations.py:18
+#: nau/force_translations.py:22
 msgid "Related persons pagination"
 msgstr ""
 
-#: nau/force_translations.py:19
+#: nau/force_translations.py:23
 msgid "No other open course runs"
 msgstr ""
 
-#: nau/force_translations.py:20
+#: nau/force_translations.py:24
 msgid "No open course runs"
 msgstr ""
 
-#: nau/force_translations.py:21
+#: nau/force_translations.py:25
 msgid "Life-changing learning!"
 msgstr "&nbsp;"
 
-#: nau/force_translations.py:24
+#: nau/force_translations.py:28
 msgid "Follow a course online with Richie"
 msgstr "Follow a course online with NAU"
 
-#: nau/force_translations.py:25
+#: nau/force_translations.py:29
 #, python-format
 msgid "I just enrolled to the course \"%(title)s\" on Richie: %(url)s"
 msgstr "I just enrolled to the course \"%(title)s\" on NAU: %(url)s"
 
-#: nau/force_translations.py:28
+#: nau/force_translations.py:32
 #, python-format
 msgid "Richie news: %(title)s"
 msgstr "%(title)s"
 
-#: nau/force_translations.py:29
+#: nau/force_translations.py:33
 #, python-format
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
