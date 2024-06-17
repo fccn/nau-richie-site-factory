@@ -14,8 +14,7 @@ from django.views.static import serve
 from cms.sitemaps import CMSSitemap
 from richie.apps.core.templatetags.feature_flags import is_feature_enabled
 from richie.apps.core.templatetags.joanie import is_joanie_enabled
-from richie.apps.courses.urls import \
-    redirects_urlpatterns as courses_redirects_urlpatterns
+from richie.apps.courses.urls import redirects_urlpatterns
 from richie.apps.courses.urls import urlpatterns as courses_urlpatterns
 from richie.apps.search.urls import urlpatterns as search_urlpatterns
 from richie.plugins.urls import urlpatterns as plugins_urlpatterns
@@ -43,7 +42,8 @@ urlpatterns = [
         rf"api/{API_PREFIX}/",
         include([*courses_urlpatterns, *search_urlpatterns, *plugins_urlpatterns]),
     ),
-    re_path(r"^redirects/", include([*courses_redirects_urlpatterns])),
+    re_path(r"^redirects/", include([*redirects_urlpatterns])),
+    path(r"", include("base.urls")),
     path(r"", include("filer.server.urls")),
 ]
 

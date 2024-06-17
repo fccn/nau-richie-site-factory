@@ -20,6 +20,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 🚨(pylint) fix pylint errors on the backend
 
+### Added
+
+- ✨(redirect) add new redirects to course and org
+
 ## [1.26.0] - 2024-05-29
 
 ### Added
