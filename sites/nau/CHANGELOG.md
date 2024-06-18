@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 👷(docker) upgrade nodejs and python
 - ⬆️(nau) upgrade richie to v2.28.0
 - 💄(footer) refactor footer logos placeholder
+- 💄(header) update nau fccn logo
 
 ### Fixed
 
