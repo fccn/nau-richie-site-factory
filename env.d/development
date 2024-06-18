@@ -11,14 +11,14 @@ RICHIE_ES_HOST=elasticsearch
 # MySQL db container configuration
 MYSQL_ROOT_PASSWORD=pass
 MYSQL_DATABASE=richie_nau
-MYSQL_USER=nau
+MYSQL_USER=richie_nau
 MYSQL_PASSWORD=pass
 
 # App database configuration
 DB_ENGINE=django.db.backends.mysql
 DB_HOST=db
 DB_NAME=richie_nau
-DB_USER=nau
+DB_USER=root
 DB_PASSWORD=pass
 DB_PORT=3306
 DB_OPTION_CHARSET=utf8mb4
