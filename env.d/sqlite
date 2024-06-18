@@ -1,0 +1,10 @@
+# SQLite docker service isn't used, but we need some service to run on the docker compose,
+# so we run a fake postgreSQL
+POSTGRES_DB=richie
+POSTGRES_USER=fun
+POSTGRES_PASSWORD=pass
+
+# App database configuration
+DB_NAME=db.sqlite3
+
+DB_ENGINE=django.db.backends.sqlite3

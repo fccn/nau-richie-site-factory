@@ -1,11 +1,10 @@
 version: "3.5"
 
 services:
-  db:
-    #image: mysql:5.7.34
-    image: mysql:8.0.25
+  mysql:
+    image: mysql:8.0
     env_file:
-      - env.d/development
+      - env.d/mysql
     # use legacy authentication plugin to fix: 
       # django.db.utils.OperationalError: (2059, "Authentication plugin 'caching_sha2_password' 
       # cannot be loaded: /usr/lib/x86_64-linux-gnu/mariadb18/plugin/caching_sha2_password.so: 
@@ -16,6 +15,19 @@ services:
     # expose database to be connected from host
     ports:
       - "3306:3306"
+
+  postgresql:
+    image: postgres:12
+    ports:
+      - "5472:5432"
+    env_file:
+      - env.d/postgresql
+
+  # fake service to run tests on sqlite
+  sqlite:
+    image: postgres:12
+    env_file:
+      - env.d/sqlite
 
   elasticsearch:
     image: "${ELASTICSEARCH_IMAGE:-elasticsearch:7.17.0}"
@@ -37,7 +49,9 @@ services:
       - DJANGO_SETTINGS_MODULE=${RICHIE_SITE:-nau}.settings
       - DJANGO_CONFIGURATION=Development
       - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:-nau}
-    env_file: env.d/development
+    env_file:
+    - env.d/development
+    - env.d/${DB_HOST:-postgresql}
     networks:
       - default
       - lms_outside
@@ -47,7 +61,7 @@ services:
       - "./sites/${RICHIE_SITE:-nau}/src/backend:/app"
       - "./data/media/${RICHIE_SITE:-nau}:/data/media"
     depends_on:
-      - "db"
+      - "${DB_HOST:-postgresql}"
       - "elasticsearch"
       - "redis-sentinel"
     user: ${DOCKER_USER:-1000}
@@ -66,14 +80,16 @@ services:
       - DJANGO_SETTINGS_MODULE=${RICHIE_SITE:-nau}.settings
       - DJANGO_CONFIGURATION=ContinuousIntegration
       - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:-nau}
-    env_file: env.d/development
+    env_file:
+    - env.d/development
+    - env.d/${DB_HOST:-postgresql}
     networks:
       - default
       - lms_outside
     volumes:
       - ./data/media/${RICHIE_SITE:-nau}:/data/media
     depends_on:
-      - "db"
+      - "${DB_HOST:-postgresql}"
       - "elasticsearch"
       - "redis-sentinel"
     user: ${DOCKER_USER:-1000}

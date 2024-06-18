@@ -1,0 +1,13 @@
+# Postgresql db container configuration
+POSTGRES_DB=richie
+POSTGRES_USER=richie
+POSTGRES_PASSWORD=pass
+
+# App database configuration
+DB_HOST=postgresql
+DB_NAME=richie
+DB_USER=richie
+DB_PASSWORD=pass
+DB_PORT=5432
+
+DB_ENGINE=django.db.backends.postgresql_psycopg2

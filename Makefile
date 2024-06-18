@@ -1,5 +1,18 @@
 RICHIE_SITE ?= nau
 
+# -- Database
+# Database engine switch: if the DB_HOST=mysql environment variable is defined,
+# we'll use the mysql docker compose service as a database backend instead of
+# postgresql (default).
+ifeq ($(DB_HOST), mysql)
+  DB_PORT            = 3306
+else ifeq ($(DB_HOST), postgresql)
+  DB_PORT            = 5432
+else
+  DB_HOST            = sqlite
+  DB_PORT            = 5432
+endif
+
 # -- Terminal colors
 COLOR_INFO    = \033[0;36m
 COLOR_RESET   = \033[0m
@@ -21,7 +34,7 @@ COMPOSE_EXEC         = $(COMPOSE) exec
 COMPOSE_EXEC_APP     = $(COMPOSE_EXEC) app-dev
 COMPOSE_TEST_RUN     = $(COMPOSE) run --rm -e DJANGO_CONFIGURATION=Test
 COMPOSE_TEST_RUN_APP = $(COMPOSE_TEST_RUN) app-dev
-WAIT_DB              = $(COMPOSE_RUN) dockerize -wait tcp://db:3306 -timeout 60s
+WAIT_DB              = $(COMPOSE_RUN) dockerize -wait tcp://$(DB_HOST):$(DB_PORT) -timeout 60s
 WAIT_ES              = $(COMPOSE_RUN) dockerize -wait tcp://elasticsearch:9200 -timeout 60s
 WAIT_SENTINEL        = $(COMPOSE_RUN) dockerize -wait tcp://redis-sentinel:26379 -wait tcp://redis-primary:6379 -timeout 20s
 
@@ -138,9 +151,9 @@ lint-front: \
 	lint-front-eslint
 .PHONY: lint-front
 
-test-back: ## run back-end tests, or specific test like `make test-back nau/tests/test_open_graph.py`
+test-back: ## run back-end tests, or specific test like `make test-back nau/tests/test_open_graph.py` or `make test-back ARGS="--reuse-db nau/tests/test_open_graph.py"`
 	@args="$(filter-out $@,$(MAKECMDGOALS))" && \
-    DB_PORT=$(DB_PORT) bin/pytest $${args:-${1}}
+    DB_PORT=$(DB_PORT) DB_HOST=$(DB_HOST) bin/pytest $${args:-${1}} $(ARGS)
 .PHONY: test-back
 
 test-front: ## run front-end tests
@@ -165,7 +178,7 @@ check: ## perform django checks
 .PHONY: check
 
 demo-site: ## create a demo site
-	@$(COMPOSE) up -d db
+	@$(COMPOSE) up -d $(DB_HOST)
 	@$(WAIT_DB)
 	@$(MANAGE) flush
 	@$(MANAGE) create_demo_site
@@ -241,7 +254,7 @@ i18n-front: ## Extract and compile translation files used for react-intl
 .PHONY: i18n-front
 
 migrate: ## perform database migrations
-	@$(COMPOSE) up -d db
+	@$(COMPOSE) up -d $(DB_HOST)
 	@$(WAIT_DB)
 	@$(MANAGE) migrate
 .PHONY: migrate
@@ -253,7 +266,7 @@ search-index: ## (re)generate the Elasticsearch index
 .PHONY: search-index
 
 superuser: ## create a DjangoCMS superuser
-	@$(COMPOSE) up -d db
+	@$(COMPOSE) up -d $(DB_HOST)
 	@$(WAIT_DB)
 	@$(MANAGE) createsuperuser
 .PHONY: superuser
@@ -264,7 +277,7 @@ ci-check: ## run django check management command on productin image
 .PHONY: ci-check
 
 ci-migrate: ## run django migrate command on production image
-	@$(COMPOSE) up -d db
+	@$(COMPOSE) up -d $(DB_HOST)
 	@$(WAIT_DB)
 	$(COMPOSE_RUN) app python manage.py migrate
 .PHONY: ci-migrate
