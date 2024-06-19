@@ -35,7 +35,7 @@ check-configuration:
   # Use machine because the check_configuration script runs some docker images with
   # volume mounts which is not possible with dind
   machine:
-    image: ubuntu-2004:202107-02
+    image: default
   working_directory: ~/fun
   steps:
     - checkout
@@ -61,7 +61,7 @@ check-changelog:
     site:
       type: string
   docker:
-    - image: cimg/base:2022.06
+    - image: cimg/base:current
   working_directory: ~/fun
   steps:
     - checkout
@@ -89,7 +89,7 @@ lint-changelog:
 # Check that the CHANGELOG max line length does not exceed 80 characters
 no-change:
   docker:
-    - image: cimg/base:2022.06
+    - image: cimg/base:current
   working_directory: ~/fun
   steps:
     - run: echo "Everything is up-to-date ✅"
