@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.27.0] - 2024-06-19
+
 ### Changed
 
 - 💚(circleci) upgrade circleci build
