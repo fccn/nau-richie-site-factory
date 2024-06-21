@@ -55,15 +55,6 @@ RUN apt-get update && \
     gettext && \
     rm -rf /var/lib/apt/lists/*
 
-# Install awscli to send static assets to S3 Bucket
-RUN cd / && \
-    apt update && \
-    apt install unzip && \
-    rm -rf /var/lib/apt/lists/* && \
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    ./aws/install && \
-    rm -r aws awscliv2.zip
 
 # Copy installed python dependencies
 COPY --from=back-builder /install /usr/local
@@ -145,7 +136,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy collected symlinks to static files
-COPY --from=collector ${STATIC_ROOT} ${STATIC_ROOT}
+COPY --from=collector ${STATIC_ROOT}/staticfiles.json ${STATIC_ROOT}/
 
 # Un-privileged user running the application
 USER ${DOCKER_USER}
@@ -161,3 +152,13 @@ ARG STATIC_ROOT
 RUN mkdir -p ${STATIC_ROOT}
 
 COPY --from=collector ${STATIC_ROOT} ${STATIC_ROOT}
+
+# Install awscli to send static assets to S3 Bucket
+RUN cd / && \
+    apt update && \
+    apt install unzip && \
+    rm -rf /var/lib/apt/lists/* && \
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -r aws awscliv2.zip

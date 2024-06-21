@@ -12,6 +12,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 🐛(storage) fix missing staticfiles.json after collectstatic
 
+### Changed
+
+- ⚡️(assets) static assets only on nginx image.
+  Remove option of deliver static assets from application
+  docker image, to be more compatible with Richie upstream.
+  Consequence is lower the app docker image size.
+  The awscli was moved to nginx.
+
 ## [1.27.0] - 2024-06-19
 
 ### Changed
