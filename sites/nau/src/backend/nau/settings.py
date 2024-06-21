@@ -209,6 +209,18 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # For static files, we want to use a backend that includes a hash in
     # the filename, that is calculated from the file content, so that browsers always
     # get the updated version of each file.
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "base.storage.CDNManifestStaticFilesStorage",
+        },
+    }
+
+    # For static files, we want to use a backend that includes a hash in
+    # the filename, that is calculated from the file content, so that browsers always
+    # get the updated version of each file.
 
     AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 

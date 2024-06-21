@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛(storage) fix missing staticfiles.json after collectstatic
+
 ## [1.27.0] - 2024-06-19
 
 ### Changed
