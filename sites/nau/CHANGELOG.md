@@ -15,6 +15,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - ⬆️(nau) upgrade richie to v2.32.0
+- ⚰️(setttings) remove unused setting
 
 ## [1.28.0] - 2024-06-21
 

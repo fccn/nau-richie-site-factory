@@ -853,8 +853,3 @@ class Production(Base):
     MEDIA_HOSTNAME_PRECONNECT = values.BooleanValue(
         False, environ_name="MEDIA_HOSTNAME_PRECONNECT", environ_prefix=None
     )
-
-    # Enable the deliver of the static asset files like css, images, fonts, etc.
-    # nginx will also deliver this files, but during rolling deploy, the nginx could have one
-    # version of the files and the app still running a different version.
-    STATIC_FILES_URL_ENABLE = values.BooleanValue(False)
