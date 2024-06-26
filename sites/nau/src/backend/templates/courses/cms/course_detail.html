@@ -9,3 +9,30 @@
     </div>
     {% endif %}
 {% endblock skills %}
+
+{% block runs %}
+    <div class="course-detail__aside">
+        {% render_model_add course "" "" "get_admin_url_to_add_run" %}
+        {% with runs_dict=current_page.course.course_runs_dict %}
+            {% with runs=current_page.course.course_runs|visible_on_course_page:request.toolbar.edit_mode_active %}
+                <!--
+                    As course runs are rendered through React, we use meta tags to
+                    setup course runs RFDa properties.
+                    -->
+                {% for run in runs %}
+                <span rel="hasCourseInstance" typeof="CourseInstance">
+                    <meta property="name" content="{{ run.title }}"  />
+                    <meta property="inLanguage" content="{{ run.get_languages_display }}"  />
+                    <meta property="courseMode" content="online"  />
+                    <meta property="startDate" content="{{ run.start|date:'Y-m-d' }}"  />
+                    <meta property="endDate" content="{{ run.end|date:'Y-m-d' }}"  />
+                    <meta property="courseWorkload" content="{{ current_page.course.pt_effort }}" />
+                </span>
+                {% endfor %}
+            {% endwith %}
+        {% endwith %}
+    </div>
+    <span rel="offers" typeof="Offer">
+        <meta property="category" content="Free" />
+    </span>
+{% endblock runs %}
