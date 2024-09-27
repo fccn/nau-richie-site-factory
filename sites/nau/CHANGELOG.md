@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.28.1] - 2024-09-27
+
 ### Fixed
 
 - 🐛(rdfa) fix RDFa Course errors on Google Search Console
