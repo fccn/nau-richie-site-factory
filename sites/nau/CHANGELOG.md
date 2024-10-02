@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- ⬆️(nau) upgrade richie to v2.29.2
+
 ### Fixed
 
 - 🐛(rdfa) fix RDFa Course errors on Google Search Console
