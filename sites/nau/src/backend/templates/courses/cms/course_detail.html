@@ -1,5 +1,6 @@
 {% extends "courses/cms/course_detail.html" %}
 {% load cms_tags i18n extra_tags %}
+{% load snippet_tags %}
 
 {% block skills %}
     {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"course_skills" %}
@@ -32,7 +33,13 @@
             {% endwith %}
         {% endwith %}
     </div>
+
     <span rel="offers" typeof="Offer">
         <meta property="category" content="Free" />
     </span>
+
+    <div class="course-detail__secondary-group">
+        <h2 class="course-detail__title">Important to know</h2>
+        {% snippet_fragment 'course-detail-faq' %}
+    </div>
 {% endblock runs %}
