@@ -351,6 +351,11 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "VideoPlayerPlugin": 1,
             },
         },
+        "courses/cms/category_detail.html course_faq": {
+            "name": _("Faq"),
+            "plugins": ["NestedItemPlugin"],
+            "child_classes": {"NestedItemPlugin": ["NestedItemPlugin"]},
+        },
     }
 
     MIDDLEWARE = (
@@ -724,7 +729,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         cls.CMS_PLACEHOLDER_CONF = merge_dict(
             cls.CMS_PLACEHOLDER_CONF, cls.CMS_PLACEHOLDER_CONF_OVERRIDES
         )
-
 
 class Development(Base):
     """
