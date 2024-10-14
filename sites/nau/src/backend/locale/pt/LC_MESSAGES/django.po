@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-17 12:57+0100\n"
+"POT-Creation-Date: 2024-10-11 12:16+0100\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -29,43 +29,43 @@ msgstr "Primeira edição"
 msgid "Persons"
 msgstr "Formadores"
 
-#: nau/force_translations.py:13
+#: nau/force_translations.py:13 templates/courses/cms/category_detail.html:111
 msgid "Sub categories"
 msgstr "Sub-categorias"
 
-#: nau/force_translations.py:14
+#: nau/force_translations.py:14 templates/courses/cms/category_detail.html:128
 msgid "Related courses"
 msgstr "Outras edições"
 
-#: nau/force_translations.py:15
+#: nau/force_translations.py:15 templates/courses/cms/category_detail.html:135
 msgid "Courses pagination"
 msgstr "Paginação de cursos"
 
-#: nau/force_translations.py:16
+#: nau/force_translations.py:16 templates/courses/cms/category_detail.html:145
 msgid "See all courses"
 msgstr "Ver todos os cursos"
 
-#: nau/force_translations.py:17
+#: nau/force_translations.py:17 templates/courses/cms/category_detail.html:163
 msgid "Related organizations"
 msgstr "Organizações relacionadas"
 
-#: nau/force_translations.py:18
+#: nau/force_translations.py:18 templates/courses/cms/category_detail.html:168
 msgid "Related organizations pagination"
 msgstr "Paginação de Organizações relacionadas"
 
-#: nau/force_translations.py:19
+#: nau/force_translations.py:19 templates/courses/cms/category_detail.html:182
 msgid "Related blogposts"
 msgstr "Posts de blog relacionados"
 
-#: nau/force_translations.py:20
+#: nau/force_translations.py:20 templates/courses/cms/category_detail.html:187
 msgid "Related blogposts pagination"
 msgstr "Paginação de posts de blog relacionados"
 
-#: nau/force_translations.py:21
+#: nau/force_translations.py:21 templates/courses/cms/category_detail.html:209
 msgid "Related persons"
 msgstr "Pessoas relacionadas"
 
-#: nau/force_translations.py:22
+#: nau/force_translations.py:22 templates/courses/cms/category_detail.html:214
 msgid "Related persons pagination"
 msgstr "Paginação de pessoas relacionadas"
 
@@ -100,41 +100,71 @@ msgstr "%(title)s"
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
 
-#: nau/settings.py:233
+#: nau/settings.py:245
 msgid "Dashboard"
 msgstr "Meus cursos"
 
-#: nau/settings.py:234
+#: nau/settings.py:246
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: nau/settings.py:237
+#: nau/settings.py:249
 msgid "Account"
 msgstr "Conta"
 
-#: nau/settings.py:238
+#: nau/settings.py:250
 msgid "{base_url:s}/account/settings"
 msgstr ""
 
-#: nau/settings.py:241
+#: nau/settings.py:253
 msgid "Profile"
 msgstr "Perfil"
 
-#: nau/settings.py:242
+#: nau/settings.py:254
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: nau/settings.py:335
+#: nau/settings.py:347
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:424 nau/settings.py:439
+#: nau/settings.py:355
+msgid "Faq"
+msgstr ""
+
+#: nau/settings.py:441 nau/settings.py:456
 msgid "English Lang"
 msgstr "English"
 
-#: nau/settings.py:424 nau/settings.py:447
+#: nau/settings.py:441 nau/settings.py:464
 msgid "Portuguese Lang"
 msgstr "Português"
+
+#: templates/courses/cms/category_detail.html:6
+#, python-format
+msgid "%(category_title)s - Category"
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:40
+msgid "Banner"
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:60
+msgid "Logo"
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:139
+#, python-format
+msgid ""
+"\n"
+"                                                    See all courses related "
+"to %(category_title)s\n"
+"                                                "
+msgstr ""
+
+#: templates/courses/cms/category_detail.html:198
+msgid "Category FAQ's"
+msgstr ""
 
 #: templates/courses/cms/course_detail.html:7
 msgctxt "course_detail__title"

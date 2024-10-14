@@ -36,3 +36,36 @@
         <meta property="category" content="Free" />
     </span>
 {% endblock runs %}
+
+{% block plan %}
+    <div class="course-detail__block course-detail__secondary-group">
+        {% if current_page.publisher_is_draft or not current_page|is_empty_placeholder:"course_plan" %}
+            {% with is_syllabus_property=True %}
+                <section class="course-detail__row course-detail__plan">
+                    <h2 class="course-detail__title">{% blocktrans context "course_detail__title" %}Course plan{% endblocktrans %}</h2>
+                    {% placeholder "course_plan" or %}
+                        <p class="course-detail__empty">{% trans 'Enter here the detailed course plan.' %}</p>
+                    {% endplaceholder %}
+                </section>
+            {% endwith %}
+        {% endif %}
+    </div>
+
+    <div class="course-detail__block course-detail__secondary-group">
+        {% with is_syllabus_property=True %}
+            <h2 class="course-detail__title">{% blocktrans context "course_detail__title" %}Important to know{% endblocktrans %}</h2>
+            {% with pages=course.get_root_to_leaf_public_category_pages %}
+                {% for page in pages %}
+                    <h3>{{ page.get_menu_title }}</h3>
+                    <section class="course-detail__row course-detail__plan">
+                        {% if page.get_slug == "edxorg" %}
+                            {% show_placeholder "course_faq" page.get_slug %}
+                        {% else %}
+                            <p>No content</p>
+                        {% endif %}
+                    </section>
+                {% endfor %}
+            {% endwith %}
+        {% endwith %}
+    </div>
+{% endblock plan %}
