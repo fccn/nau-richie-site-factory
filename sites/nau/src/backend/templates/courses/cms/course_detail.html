@@ -53,19 +53,30 @@
 
     <div class="course-detail__block course-detail__secondary-group">
         {% with is_syllabus_property=True %}
-            <h2 class="course-detail__title">{% blocktrans context "course_detail__title" %}Important to know{% endblocktrans %}</h2>
-            {% with pages=course.get_root_to_leaf_public_category_pages %}
-                {% for page in pages %}
-                    <h3>{{ page.get_menu_title }}</h3>
-                    <section class="course-detail__row course-detail__plan">
-                        {% if page.get_slug == "edxorg" %}
-                            {% show_placeholder "course_faq" page.get_slug %}
-                        {% else %}
-                            <p>No content</p>
+            <h2 class="course-detail__title">{% blocktrans context "course_detail__title" %}Important to know{% endblocktrans %}</h2>            
+            {% get_placeholder_plugins "course_icons" as icons %}
+            {% if icons %}
+                {% for icon in icons %}
+                    {% with reverse_id=icon.page.reverse_id %}
+                        {% if reverse_id %}
+                            <h3 class="course-detail__faq_title">{{ icon.page.get_title }}</h3>
+                            {% show_placeholder "course_faq" reverse_id %}
                         {% endif %}
-                    </section>
-                {% endfor %}
-            {% endwith %}
+                    {% endwith %}
+                {% endfor %}         
+            {% endif %}
+            
+            {% get_placeholder_plugins "course_categories" as categories %}
+            {% if categories %}
+                {% for category in categories %}
+                    {% with reverse_id=category.page.reverse_id %}
+                        {% if reverse_id %}
+                            <h3 class="course-detail__faq_title">{{ category.page.get_title }}</h3>
+                            {% show_placeholder "course_faq" reverse_id %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}         
+            {% endif %}
         {% endwith %}
     </div>
 {% endblock plan %}
