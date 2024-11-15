@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🐛(rdfa) fix RDFa Course errors on Google Search Console
+- 🌐(i18n) review exiting force translations
 
 ### Changed
 
