@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-29 10:53+0000\n"
+"POT-Creation-Date: 2024-12-13 11:43+0000\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -29,73 +29,25 @@ msgstr "Primeira edição"
 msgid "Persons"
 msgstr "Formadores"
 
-#: nau/force_translations.py:13
-msgid "Sub categories"
-msgstr "Sub-categorias"
-
-#: nau/force_translations.py:14
-msgid "Related courses"
-msgstr "Outras edições"
-
-#: nau/force_translations.py:15
-msgid "Courses pagination"
-msgstr "Paginação de cursos"
-
-#: nau/force_translations.py:16
-msgid "See all courses"
-msgstr "Ver todos os cursos"
-
-#: nau/force_translations.py:17
-msgid "Related organizations"
-msgstr "Organizações relacionadas"
-
-#: nau/force_translations.py:18
-msgid "Related organizations pagination"
-msgstr "Paginação de Organizações relacionadas"
-
-#: nau/force_translations.py:19
-msgid "Related blogposts"
-msgstr "Posts de blog relacionados"
-
-#: nau/force_translations.py:20
-msgid "Related blogposts pagination"
-msgstr "Paginação de posts de blog relacionados"
-
-#: nau/force_translations.py:21
-msgid "Related persons"
-msgstr "Pessoas relacionadas"
-
-#: nau/force_translations.py:22
-msgid "Related persons pagination"
-msgstr "Paginação de pessoas relacionadas"
-
-#: nau/force_translations.py:23
-msgid "No other open course runs"
-msgstr "Não existem outras edições abertas"
-
-#: nau/force_translations.py:24
-msgid "No open course runs"
-msgstr "Não existem edições abertas"
-
-#: nau/force_translations.py:25
+#: nau/force_translations.py:12
 msgid "Life-changing learning!"
 msgstr "&nbsp;"
 
-#: nau/force_translations.py:28
+#: nau/force_translations.py:15
 msgid "Follow a course online with Richie"
 msgstr "Siga um curso online com a NAU"
 
-#: nau/force_translations.py:29
+#: nau/force_translations.py:16
 #, python-format
 msgid "I just enrolled to the course \"%(title)s\" on Richie: %(url)s"
 msgstr "Eu acabei de me inscrever no curso \"%(title)s\" na NAU: %(url)s"
 
-#: nau/force_translations.py:32
+#: nau/force_translations.py:19
 #, python-format
 msgid "Richie news: %(title)s"
 msgstr "%(title)s"
 
-#: nau/force_translations.py:33
+#: nau/force_translations.py:20
 #, python-format
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
@@ -200,3 +152,39 @@ msgstr "Siga-nos no Instagram"
 #: templates/social-networks/footer-badges.html:38
 msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"
+
+msgid "Sub categories"
+msgstr "Sub-categorias"
+
+msgid "Related courses"
+msgstr "Outras edições"
+
+msgid "Courses pagination"
+msgstr "Paginação de cursos"
+
+msgid "See all courses"
+msgstr "Ver todos os cursos"
+
+msgid "Related organizations"
+msgstr "Organizações relacionadas"
+
+msgid "Related organizations pagination"
+msgstr "Paginação de Organizações relacionadas"
+
+msgid "Related blogposts"
+msgstr "Posts de blog relacionados"
+
+msgid "Related blogposts pagination"
+msgstr "Paginação de posts de blog relacionados"
+
+msgid "Related persons"
+msgstr "Pessoas relacionadas"
+
+msgid "Related persons pagination"
+msgstr "Paginação de pessoas relacionadas"
+
+msgid "No other open course runs"
+msgstr "Não existem outras edições abertas"
+
+msgid "No open course runs"
+msgstr "Não existem edições abertas"
