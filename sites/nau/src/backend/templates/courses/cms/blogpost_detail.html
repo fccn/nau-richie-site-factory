@@ -1,0 +1,11 @@
+{% extends "courses/cms/blogpost_detail.html" %}
+{% load static category_tags cms_tags extra_tags i18n thumbnail %}
+
+{% block subheader_content %}
+<div class="subheader__container">
+    <h1 class="subheader__title">{% render_model current_page "title" %}</h1>
+</div>
+{% endblock subheader_content %}
+
+{% block title %}
+{% endblock title %}

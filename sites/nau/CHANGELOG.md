@@ -11,6 +11,18 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🐛(rdfa) fix RDFa Course errors on Google Search Console
+- ♿️(styles) remove extra h1 from blogpost
+- ♿️(styles) add underline to icons
+
+### Changed
+
+- ♿️(styles) set default font to 16px
+- ♿️(styles) set footer link spacing to 44px height
+- ♿️(styles) improve heading spacing in blogpost
+
+### Added
+
+- ♿️(styles) add external link styles for accessiblity
 
 ## [1.28.0] - 2024-06-21
 
