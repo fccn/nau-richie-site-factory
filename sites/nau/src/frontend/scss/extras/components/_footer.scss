@@ -63,11 +63,14 @@
   }
 
   &__menu {
+    font-size: 0.925rem;
+
     a {
+      padding: 0.69rem 0;
+
       &:hover {
         color: r-color("greenteal");
-        text-decoration: none;
-        transition: color 0.2s ease;
+        transition: all 0.2s ease;
       }
     }
   }

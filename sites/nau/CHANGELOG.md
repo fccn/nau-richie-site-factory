@@ -24,6 +24,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ⚰️(setttings) remove unused setting
 - 💄(menu) on Portuguese language changed from Meus cursos to Painel de Cursos
 - 💄(menu) changed menu items positions in accordance with lms
+- ♿️(styles) remove extra h1 from blogpost
+- ♿️(styles) add underline to icons
+- ♿️(styles) set default font to 16px
+- ♿️(styles) set footer link spacing to 44px height
+- ♿️(styles) improve heading spacing in blogpost
 
 ## [1.28.0] - 2024-06-21
 

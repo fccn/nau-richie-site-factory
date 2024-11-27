@@ -122,6 +122,7 @@
             background: transparent;
             border-color: transparent;
             text-transform: uppercase;
+            font-size: 0.85rem;
 
             &:hover {
               color: r-color("firebrick6") !important;
@@ -136,6 +137,7 @@
             order: 2;
             background: r-color("firebrick6");
             color: r-color("white");
+            font-size: 0.85rem;
 
             &:hover {
               color: r-color("white") !important;
