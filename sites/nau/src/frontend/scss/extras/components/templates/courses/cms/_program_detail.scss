@@ -1,0 +1,11 @@
+.program-detail {
+  &__row {
+    a:not(h3 a) {
+      text-decoration: underline;
+    }
+  }
+
+  &__excerpt {
+    font-size: 1.2rem;
+  }
+}

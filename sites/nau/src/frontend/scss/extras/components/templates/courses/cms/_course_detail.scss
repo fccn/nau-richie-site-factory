@@ -2,6 +2,10 @@
   &__row {
     margin-top: 2rem;
     text-align: left;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   // In future remove this block and configure the `checkmark-list-decoration-color` variable

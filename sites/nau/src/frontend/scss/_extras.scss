@@ -22,8 +22,11 @@
 
 // Shared object overrides
 @import "./extras/components/templates/richie/large_banner/large_banner";
+@import "./extras/components/templates/richie/columns";
 @import "./extras/components/templates/courses/cms/blogpost_details";
 @import "./extras/components/templates/courses/cms/course_detail";
 @import "./extras/components/templates/courses/cms/person_detail";
 @import "./extras/components/templates/courses/cms/category_detail";
+@import "./extras/components/templates/courses/cms/organization_detail";
+@import "./extras/components/templates/courses/cms/program_detail";
 @import "./extras/components/blogpost_glimpses";

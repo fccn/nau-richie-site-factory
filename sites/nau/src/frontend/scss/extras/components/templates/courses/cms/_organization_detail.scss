@@ -1,0 +1,7 @@
+.organization-detail {
+  &__row {
+    a:not(h3 a) {
+      text-decoration: underline;
+    }
+  }
+}
