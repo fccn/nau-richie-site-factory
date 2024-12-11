@@ -1,5 +1,5 @@
-.blogpost-detail {
-  &__grid-main {
+.organization-detail {
+  &__row {
     a:not(h3 a) {
       text-decoration: underline;
     }
@@ -16,33 +16,6 @@
         vertical-align: middle;
         width: 14px;
         height: 14px;
-      }
-    }
-  }
-
-  &__cover {
-    margin-block-end: 2rem;
-  }
-
-  &__excerpt {
-    margin-block-end: 2rem;
-  }
-
-  &__body {
-
-    h2,
-    h3 {
-      margin-block-start: 2.5rem;
-      margin-block-end: 1.2rem;
-    }
-  }
-
-  &__theme {
-    .category-tag {
-      background: none;
-
-      .category-tag__title {
-        color: r-color("firebrick6");
       }
     }
   }

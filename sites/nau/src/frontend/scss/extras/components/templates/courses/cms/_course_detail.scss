@@ -2,6 +2,25 @@
   &__row {
     margin-top: 2rem;
     text-align: left;
+
+    a {
+      text-decoration: underline;
+    }
+
+    a[href*="//"]:not([href*="nau.edu.pt"]),
+    a[target="_blank"] {
+      &:after {
+        content: '';
+        margin-inline: 0.1rem 0.4rem;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwNzRjZTEiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1zcXVhcmUtYXJyb3ctb3V0LXVwLXJpZ2h0Ij48cGF0aCBkPSJNMjEgMTN2NmEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMlY1YTIgMiAwIDAgMSAyLTJoNiIvPjxwYXRoIGQ9Im0yMSAzLTkgOSIvPjxwYXRoIGQ9Ik0xNSAzaDZ2NiIvPjwvc3ZnPg==");
+        background-repeat: no-repeat;
+        background-size: 14px 14px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 14px;
+        height: 14px;
+      }
+    }
   }
 
   // In future remove this block and configure the `checkmark-list-decoration-color` variable
@@ -16,10 +35,8 @@
             content: "";
             display: inline-block;
             background-repeat: no-repeat;
-            background-color: r-theme-val(
-              course-detail,
-              run-catalog-visibility-logo-color
-            );
+            background-color: r-theme-val(course-detail,
+                run-catalog-visibility-logo-color);
             -webkit-mask: r-theme-val(course-detail, checkmark-list-decoration);
             mask: r-theme-val(course-detail, checkmark-list-decoration);
             -webkit-mask-size: cover;
