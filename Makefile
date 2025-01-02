@@ -295,6 +295,10 @@ data/db/$(RICHIE_SITE):
 	@echo 'Preparing db volume...'
 	@mkdir -p data/db/$(RICHIE_SITE)
 
+extract-courses-data:
+	@$(MANAGE) extract_courses_data
+.PHONY: extract-courses-data
+
 help:
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 .PHONY: help
