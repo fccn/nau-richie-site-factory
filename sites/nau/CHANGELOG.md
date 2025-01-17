@@ -21,6 +21,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - ⬆️(nau) upgrade richie to v2.32.0
 - ⚰️(setttings) remove unused setting
+- 💄(menu) on Portuguese language changed from Meus cursos to Painel de Cursos
+- 💄(menu) changed menu items positions in accordance with lms
 
 ## [1.28.0] - 2024-06-21
 

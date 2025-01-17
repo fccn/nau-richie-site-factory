@@ -245,13 +245,17 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "label": _("Dashboard"),
                     "href": _("{base_url:s}/dashboard"),
                 },
+                "profile": {
+                    "label": _("Profile"),
+                    "href": _("{base_url:s}/u/(username)"),
+                },
                 "account": {
                     "label": _("Account"),
                     "href": _("{base_url:s}/account/settings"),
                 },
-                "profile": {
-                    "label": _("Profile"),
-                    "href": _("{base_url:s}/u/(username)"),
+                "order_history": {
+                    "label": _("Order History"),
+                    "href": _("{base_url:s}/orders/orders"),
                 },
             },
             environ_name="AUTHENTICATION_PROFILE_URLS",
