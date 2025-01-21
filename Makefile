@@ -14,7 +14,7 @@ COMPOSE              = \
   NGINX_IMAGE_NAME="$(NGINX_IMAGE_NAME)" \
   NGINX_IMAGE_TAG="$(NGINX_IMAGE_TAG)" \
   DOCKER_USER="$(DOCKER_UID):$(DOCKER_GID)" \
-  docker-compose
+  docker compose
 COMPOSE_RUN          = $(COMPOSE) run --rm
 COMPOSE_RUN_APP      = $(COMPOSE_RUN) app-dev
 COMPOSE_EXEC         = $(COMPOSE) exec
@@ -31,7 +31,6 @@ WAIT_SENTINEL        = $(COMPOSE_RUN) dockerize -wait tcp://redis-sentinel:26379
 # ID of our host user (with which we run the container) does not exist in the
 # container (e.g. 1000 exists but 1009 does not exist by default), then yarn
 # will try to write to "/.yarnrc" at the root of the system and will fail with a
-# permission error.
 COMPOSE_RUN_NODE     = $(COMPOSE_RUN) -e HOME="/tmp" node
 YARN                 = $(COMPOSE_RUN_NODE) yarn
 
@@ -56,7 +55,7 @@ bootstrap:  ## install development dependencies
 .PHONY: bootstrap
 
 # == Docker
-build: ## build all containers. Pass extra arguments to docker-compose using: make ARGS="--no-cache" build
+build: ## build all containers. Pass extra arguments to docker compose using: make ARGS="--no-cache" build
 	$(COMPOSE) build $(ARGS) app
 	$(COMPOSE) build $(ARGS) nginx
 	$(COMPOSE) build $(ARGS) app-dev
@@ -229,9 +228,9 @@ i18n: \
 
 i18n-back: ## create/update .po files and compile .mo files used for i18n
 	@$(MANAGE) makemessages --keep-pot --all
-	@echo 'Reactivating obsolete strings (allow overriding strings defined in dependencies)'
-	@$(COMPOSE_RUN_APP) find ./ -type f -name django.po -exec sed -i 's/#~ //g' {} \;
-	@$(MANAGE) compilemessages
+#	@echo 'Reactivating obsolete strings (allow overriding strings defined in dependencies)'
+#	@$(COMPOSE_RUN_APP) find ./ -type f -name django.po -exec sed -i 's/#~ //g' {} \;
+#	@$(MANAGE) compilemessages
 .PHONY: i18n-back
 
 i18n-front: ## Extract and compile translation files used for react-intl
