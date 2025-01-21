@@ -1,0 +1,12 @@
+// Custom NAU palette overwrites
+$palette: recursive-map-merge(
+  $palette,
+  (
+    "firebrick6":  #711471,
+    "indianred3": #d31245,
+    "midnightblue": #b1005d,
+    "greenteal": #00beab,
+    "banana": #eec800,
+    "light-blue": #ecf2ff,
+  )
+);
