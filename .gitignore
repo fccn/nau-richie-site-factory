@@ -1,3 +1,6 @@
+# cookiecutter
+.cookiecutter_replay
+
 # env
 .env
 env.d/aws

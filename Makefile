@@ -55,6 +55,22 @@ bootstrap: \
 bootstrap:  ## install development dependencies
 .PHONY: bootstrap
 
+generate-site: ## generate a new site using cookiecutter
+	@docker run --rm -it -e LC_ALL=C.UTF-8 \
+		-u $(DOCKER_UID):$(DOCKER_GID) \
+		-v $(PWD):/app \
+		-v $(PWD)/.cookiecutter_replay:/.cookiecutter_replay \
+		-w /app \
+		cookiecutter/cookiecutter \
+			--output-dir /app/sites \
+			--config-file /app/.cookiecutter_default.yml \
+			/app/template
+.PHONY: generate-site
+
+add-site: generate-site ## add a new site to the site factory
+	@echo "RICHIE_SITE=$(shell ls -td sites/* | head -1 | cut -f2 -d'/')" > .env
+.PHONY: add-site
+
 # == Docker
 build: ## build all containers. Pass extra arguments to docker-compose using: make ARGS="--no-cache" build
 	$(COMPOSE) build $(ARGS) app
