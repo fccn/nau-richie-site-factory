@@ -30,6 +30,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ♿️(styles) set footer link spacing to 44px height
 - ♿️(styles) improve heading spacing in blogpost
 
+### Added
+
+- ♿️(styles) add external link styles for accessiblity
+
 ## [1.28.0] - 2024-06-21
 
 ### Fixed

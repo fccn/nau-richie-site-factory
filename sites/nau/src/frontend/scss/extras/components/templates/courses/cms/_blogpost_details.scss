@@ -3,6 +3,9 @@
     a:not(h3 a) {
       text-decoration: underline;
     }
+
+    @include external-link-icon($external-icon);
+
   }
 
   &__cover {
@@ -14,7 +17,9 @@
   }
 
   &__body {
-    h2, h3 {
+
+    h2,
+    h3 {
       margin-block-start: 2.5rem;
       margin-block-end: 1.2rem;
     }
