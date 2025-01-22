@@ -1,0 +1,19 @@
+//
+// Add an external link icon and style
+//
+
+@mixin external-link-icon($icon) {
+  a[target="_blank"] {
+    &:after {
+      content: '';
+      margin-inline: 0.2rem 0.4rem;
+      background-image: $icon;
+      background-repeat: no-repeat;
+      background-size: 14px 14px;
+      display: inline-block;
+      vertical-align: middle;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

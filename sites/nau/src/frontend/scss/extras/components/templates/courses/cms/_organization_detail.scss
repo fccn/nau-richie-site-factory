@@ -3,5 +3,8 @@
     a:not(h3 a) {
       text-decoration: underline;
     }
+    
+    @include external-link-icon($external-icon);
+
   }
 }
