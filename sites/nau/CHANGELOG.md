@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(courses) script to extract courses data as csv format
+
 ### Fixed
 
 - 🐛(rdfa) fix RDFa Course errors on Google Search Console
