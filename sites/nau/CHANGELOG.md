@@ -11,6 +11,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - ✨(courses) script to extract courses data as csv format
+- 🧱(site-factory) added sites creation functionality
 
 ### Fixed
 
