@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 12:33+0000\n"
+"POT-Creation-Date: 2025-01-23 17:23+0000\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "{!s} settings"
 msgstr ""
 
-#: ap_nau/force_translations.py:10
+#: ap_nau/force_translations.py:10 ap_nau/settings.py:736
 msgid "First session"
 msgstr "First edition"
 
-#: ap_nau/force_translations.py:11
+#: ap_nau/force_translations.py:11 ap_nau/settings.py:788
 msgid "Persons"
 msgstr "Instructors"
 
@@ -87,6 +87,54 @@ msgstr "English"
 #: ap_nau/settings.py:436 ap_nau/settings.py:459
 msgid "Portuguese Lang"
 msgstr "Português"
+
+#: ap_nau/settings.py:778
+msgid "Competencies/Orientation for"
+msgstr ""
+
+#: ap_nau/settings.py:789
+msgid "Carrers"
+msgstr ""
+
+#: ap_nau/settings.py:746
+msgid "Availability"
+msgstr ""
+
+#: ap_nau/settings.py:755
+msgid "Languages"
+msgstr ""
+
+#: ap_nau/settings.py:767
+msgid "Subjects"
+msgstr ""
+
+#: ap_nau/settings.py:778
+msgid "Organizations"
+msgstr ""
+
+#: ap_nau/settings.py:798
+msgid "Licences"
+msgstr ""
+
+#: ap_nau/settings.py:813
+msgid "Weekly pace"
+msgstr ""
+
+#: ap_nau/settings.py:817
+msgid "Self-paced"
+msgstr ""
+
+#: ap_nau/settings.py:818
+msgid "Less than one hour"
+msgstr ""
+
+#: ap_nau/settings.py:819
+msgid "One to two hours"
+msgstr ""
+
+#: ap_nau/settings.py:820
+msgid "More than two hours"
+msgstr ""
 
 #: templates/ap_nau/_footer.html:12
 msgid "Homepage"
