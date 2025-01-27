@@ -53,8 +53,21 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
     }
   }
 
+  &__aside {
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
   .breadcrumbs {
-    background: r-color("light-blue");
+    background: r-color("firebrick6");
+    color: r-color("white");
+
+    &__item {
+      a:hover {
+        color: r-color("light-teal");
+      }
+    }
   }
 
   // Component variants
