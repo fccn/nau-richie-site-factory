@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## Added 
+### Added 
 
 - 🎉(ap) started the site ap_nau
+
+### Changed
+
+- 💄(ap) updated branding and colors for ap_nau

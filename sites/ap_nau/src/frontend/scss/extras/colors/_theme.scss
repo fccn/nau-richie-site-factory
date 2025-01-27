@@ -4,7 +4,7 @@ $r-theme: recursive-map-merge(
   $r-theme,
   (
     topbar: (
-      item-hover-color: r-color("firebrick6"),
+      item-hover-color: r-color("greenteal"),
     ),
     body-mentions: (
       base-color: r-color("black"),
@@ -12,15 +12,13 @@ $r-theme: recursive-map-merge(
       poweredby-hover: r-color("black"),
     ),
     hero-intro: (
-      insert-background-image:
-        url("../../richie/images/components/hero_background.svg"),
       content-color: r-color("white"),
       search-input-background: r-color("white"),
       search-btn-background: r-color("white"),
       search-icon-fill: r-color("firebrick6"),
-      cta-variant-from: r-color("banana"),
+      cta-variant-from: r-color("greenteal"),
       cta-variant-to: rgba(r-color("white"), 0.8),
-      cta-color: r-color("black"),
+      cta-color: r-color("white"),
       cta-border: r-color("white"),
     ),
     spinner: (

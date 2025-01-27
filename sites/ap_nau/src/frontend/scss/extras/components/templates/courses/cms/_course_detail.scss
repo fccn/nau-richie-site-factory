@@ -4,6 +4,10 @@
     text-align: left;
   }
 
+  &__licence, &__label {
+    color: r-color("indianred3") !important;
+  }
+
   // In future remove this block and configure the `checkmark-list-decoration-color` variable
   &__skills {
     @if r-theme-val(course-detail, checkmark-list-decoration) {
