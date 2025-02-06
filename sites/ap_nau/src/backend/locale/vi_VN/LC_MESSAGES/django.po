@@ -1,21 +1,21 @@
-# NAU base www NAU site using richie site factory.
-# Copyright (C) 2021 FCT|FCCN
-# This file is distributed under the same license as the nau-richie-site-factory project.
-# Ivo Branco <ivo.branco@fccn.pt>, 2021.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: richie\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 17:01+0000\n"
-"PO-Revision-Date: 2021-07-14 16:32+0100\n"
-"Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-02-06 12:13+0000\n"
+"PO-Revision-Date: 2024-11-20 14:09\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: richie\n"
+"X-Crowdin-Project-ID: 308578\n"
+"X-Crowdin-Language: vi\n"
+"X-Crowdin-File: backend.pot\n"
+"X-Crowdin-File-ID: 32\n"
 
 #: ap_nau/force_translations.py:9
 msgid "{!s} settings"
@@ -23,34 +23,34 @@ msgstr ""
 
 #: ap_nau/force_translations.py:10 ap_nau/settings.py:750
 msgid "First session"
-msgstr "First edition"
+msgstr ""
 
 #: ap_nau/force_translations.py:11 ap_nau/settings.py:824
 msgid "Persons"
-msgstr "Instructors"
+msgstr ""
 
 #: ap_nau/force_translations.py:12
 msgid "Life-changing learning!"
-msgstr "&nbsp;"
+msgstr ""
 
 #: ap_nau/force_translations.py:15
 msgid "Follow a course online with Richie"
-msgstr "Follow a course online with NAU"
+msgstr ""
 
 #: ap_nau/force_translations.py:16
 #, python-format
 msgid "I just enrolled to the course \"%(title)s\" on Richie: %(url)s"
-msgstr "I just enrolled to the course \"%(title)s\" on NAU: %(url)s"
+msgstr ""
 
 #: ap_nau/force_translations.py:19
 #, python-format
 msgid "Richie news: %(title)s"
-msgstr "%(title)s"
+msgstr ""
 
 #: ap_nau/force_translations.py:20
 #, python-format
 msgid "Richie news: %(title)s %(url)s"
-msgstr "%(title)s %(url)s"
+msgstr ""
 
 #: ap_nau/settings.py:246
 msgid "Dashboard"
@@ -81,10 +81,8 @@ msgid "Teaser"
 msgstr ""
 
 #: ap_nau/settings.py:450 ap_nau/settings.py:457
-#, fuzzy
-#| msgid "English Lang"
 msgid "English"
-msgstr "English"
+msgstr ""
 
 #: ap_nau/settings.py:450 ap_nau/settings.py:457
 msgid "French"
@@ -206,6 +204,3 @@ msgstr ""
 #: templates/social-networks/footer-badges.html:38
 msgid "Follow us on Linkedin"
 msgstr ""
-
-#~ msgid "Portuguese Lang"
-#~ msgstr "Português"
