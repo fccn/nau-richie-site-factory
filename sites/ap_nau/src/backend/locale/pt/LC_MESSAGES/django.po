@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-23 17:23+0000\n"
+"POT-Creation-Date: 2025-02-05 17:01+0000\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "{!s} settings"
 msgstr "Definições de {!s}"
 
-#: ap_nau/force_translations.py:10 ap_nau/settings.py:736
+#: ap_nau/force_translations.py:10 ap_nau/settings.py:750
 msgid "First session"
 msgstr "Primeira edição"
 
-#: ap_nau/force_translations.py:11 ap_nau/settings.py:788
+#: ap_nau/force_translations.py:11 ap_nau/settings.py:824
 msgid "Persons"
 msgstr "Formadores"
 
@@ -52,95 +52,97 @@ msgstr "%(title)s"
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
 
-#: ap_nau/settings.py:245
+#: ap_nau/settings.py:246
 msgid "Dashboard"
 msgstr "Meus cursos"
 
-#: ap_nau/settings.py:246
+#: ap_nau/settings.py:247
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: ap_nau/settings.py:249
+#: ap_nau/settings.py:250
 msgid "Account"
 msgstr "Conta"
 
-#: ap_nau/settings.py:250
+#: ap_nau/settings.py:251
 msgid "{base_url:s}/account/settings"
 msgstr ""
 
-#: ap_nau/settings.py:253
+#: ap_nau/settings.py:254
 msgid "Profile"
 msgstr "Perfil"
 
-#: ap_nau/settings.py:254
+#: ap_nau/settings.py:255
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: ap_nau/settings.py:347
+#: ap_nau/settings.py:348
 msgid "Teaser"
 msgstr ""
 
-#: ap_nau/settings.py:436 ap_nau/settings.py:451
-msgid "English Lang"
+#: ap_nau/settings.py:450 ap_nau/settings.py:457
+#, fuzzy
+#| msgid "English Lang"
+msgid "English"
 msgstr "English"
 
-#: ap_nau/settings.py:436 ap_nau/settings.py:459
-msgid "Portuguese Lang"
-msgstr "Português"
+#: ap_nau/settings.py:450 ap_nau/settings.py:457
+msgid "French"
+msgstr ""
 
-#: ap_nau/settings.py:778
-msgid "Competencies/Orientation for"
-msgstr "Competência/Orientação para"
-
-#: ap_nau/settings.py:789
-msgid "Carrer"
-msgstr "Carreira"
-
-#: ap_nau/settings.py:733
+#: ap_nau/settings.py:747
 #, fuzzy
 #| msgid "Related courses"
 msgid "New courses"
 msgstr "Outras edições"
 
-#: ap_nau/settings.py:746
+#: ap_nau/settings.py:760
 msgid "Availability"
 msgstr ""
 
-#: ap_nau/settings.py:755
+#: ap_nau/settings.py:769
 msgid "Languages"
 msgstr ""
 
-#: ap_nau/settings.py:767
+#: ap_nau/settings.py:781
 msgid "Subjects"
 msgstr "Área Temática"
 
-#: ap_nau/settings.py:778
+#: ap_nau/settings.py:792
+msgid "Competencies/Orientation for"
+msgstr "Competência/Orientação para"
+
+#: ap_nau/settings.py:803
+msgid "Carrer"
+msgstr "Carreira"
+
+#: ap_nau/settings.py:814
 #, fuzzy
 #| msgid "Related organizations"
 msgid "Organizations"
 msgstr "Organizações relacionadas"
 
-#: ap_nau/settings.py:798
+#: ap_nau/settings.py:834
 msgid "Licences"
 msgstr ""
 
-#: ap_nau/settings.py:813
+#: ap_nau/settings.py:849
 msgid "Weekly pace"
 msgstr ""
 
-#: ap_nau/settings.py:817
+#: ap_nau/settings.py:853
 msgid "Self-paced"
 msgstr ""
 
-#: ap_nau/settings.py:818
+#: ap_nau/settings.py:854
 msgid "Less than one hour"
 msgstr ""
 
-#: ap_nau/settings.py:819
+#: ap_nau/settings.py:855
 msgid "One to two hours"
 msgstr ""
 
-#: ap_nau/settings.py:820
+#: ap_nau/settings.py:856
 msgid "More than two hours"
 msgstr ""
 
@@ -208,6 +210,9 @@ msgstr "Siga-nos no Instagram"
 #: templates/social-networks/footer-badges.html:38
 msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"
+
+#~ msgid "Portuguese Lang"
+#~ msgstr "Português"
 
 #~ msgid "Sub categories"
 #~ msgstr "Sub-categorias"

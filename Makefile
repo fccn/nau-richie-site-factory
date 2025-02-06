@@ -1,4 +1,14 @@
-RICHIE_SITE ?= nau
+# -- Load .env file
+ifeq (,$(wildcard .env))
+.env:
+	@echo "RICHIE_SITE=nau" > .env
+	@echo "ACTIVATED_DB=mysql" >> .env
+	@echo "DB_PORT=3306" >> .env
+	@echo 'LANGUAGES=(("en", "English"), ("pt", "Portuguese"))' >> .env
+endif
+
+include .env
+export $(shell sed 's/=.*//' .env)
 
 # -- Terminal colors
 COLOR_INFO    = \033[0;36m
@@ -42,8 +52,8 @@ default: help
 
 bootstrap: \
   env.d/aws \
-  data/media/$(RICHIE_SITE)/.keep \
-  data/db/$(RICHIE_SITE) \
+  data/media/${RICHIE_SITE}/.keep \
+  data/db/${RICHIE_SITE} \
   stop \
   build-front \
   build \
@@ -104,7 +114,7 @@ stop: ## stop the development server
 .PHONY: stop
 
 info:  ## get activated site info
-	@echo "RICHIE_SITE: $(COLOR_INFO)$(RICHIE_SITE)$(COLOR_RESET)"
+	@echo "RICHIE_SITE: $(COLOR_INFO)${RICHIE_SITE}$(COLOR_RESET)"
 .PHONY: info
 
 # == Frontend
@@ -301,14 +311,14 @@ clean: ## restore repository state as it was freshly cloned
 	git clean -idx
 .PHONY: clean
 
-data/media/$(RICHIE_SITE)/.keep:
+data/media/${RICHIE_SITE}/.keep:
 	@echo 'Preparing media volume...'
-	@mkdir -p data/media/$(RICHIE_SITE)
-	@touch data/media/$(RICHIE_SITE)/.keep
+	@mkdir -p data/media/${RICHIE_SITE}
+	@touch data/media/${RICHIE_SITE}/.keep
 
-data/db/$(RICHIE_SITE):
+data/db/${RICHIE_SITE}:
 	@echo 'Preparing db volume...'
-	@mkdir -p data/db/$(RICHIE_SITE)
+	@mkdir -p data/db/${RICHIE_SITE}
 
 extract-courses-data:
 	@$(MANAGE) extract_courses_data
