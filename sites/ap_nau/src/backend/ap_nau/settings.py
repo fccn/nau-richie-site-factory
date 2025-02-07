@@ -426,18 +426,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "django.contrib.humanize",
     )
 
-    RFC_5646_LOCALES = [
-        "en-US",
-        "es-ES",
-        "pt-PT",
-        "pt-BR",
-        "fr-FR",
-        "fr-CA",
-        "ru-RU",
-        "vi-VN",
-        "ar-SA",
-        "ko-KR",
-    ]
+    RFC_5646_LOCALES = ["en-US", "pt-PT"]
 
     # Languages
     # - Django
@@ -447,36 +436,35 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # fallback/default languages throughout the app.
     # Use "en" as default as it is the language that is most likely to be spoken by any visitor
     # when their preferred language, whatever it is, is unavailable
-    LANGUAGES = os.getenv("LANGUAGES") or [("en", _("English")), ("fr", _("French"))]
-
-    if isinstance(LANGUAGES, str):
-        try:
-            LANGUAGES = ast.literal_eval(LANGUAGES)
-            LANGUAGES = [(code, _(name)) for code, name in LANGUAGES]
-        except:
-            LANGUAGES = [("en", _("English")), ("fr", _("French"))]
+    LANGUAGES = (("en", _("English Lang")), ("pt", _("Portuguese Lang")))
 
     # - Django CMS
     CMS_LANGUAGES = {
         "default": {
             "public": True,
             "hide_untranslated": False,
-            "redirect_on_fallback": False,
+            "redirect_on_fallback": True,
             "fallbacks": ["en", "pt"],
         },
         1: [
             {
                 "public": True,
-                "code": code,
+                "code": "en",
                 "hide_untranslated": False,
-                "name": _(name),
+                "name": _("English Lang"),
+                "fallbacks": ["pt"],
+                "redirect_on_fallback": False,
+            },
+            {
+                "public": True,
+                "code": "pt",
+                "hide_untranslated": False,
+                "name": _("Portuguese Lang"),
                 "fallbacks": ["en"],
                 "redirect_on_fallback": False,
-            }
-            for code, name in LANGUAGES
+            },
         ],
     }
-
     # - Django Parler
     PARLER_LANGUAGES = CMS_LANGUAGES
 
