@@ -2,9 +2,6 @@
 ifeq (,$(wildcard .env))
 .env:
 	@echo "RICHIE_SITE=nau" > .env
-	@echo "ACTIVATED_DB=mysql" >> .env
-	@echo "DB_PORT=3306" >> .env
-	@echo 'LANGUAGES=(("en", "English"), ("pt", "Portuguese"))' >> .env
 endif
 
 include .env
