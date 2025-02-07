@@ -1,0 +1,38 @@
+//Rubik, replaces Montserrat
+@font-face {
+  font-family: "Rubik";
+  font-display: swap;
+  font-weight: 300 700;
+  src:
+    url("/static/richie/fonts/rubik/rubik-variable-font.woff2")
+      format("woff2 supports variations"),
+    url("/static/richie/fonts/rubik/rubik-variable-font.woff2")
+      format("woff2-variations");
+}
+
+// Roboto, replaces Hind
+@font-face {
+  font-family: "Roboto";
+  font-display: swap;
+  font-weight: 400;
+  src:
+    url("/static/richie/fonts/roboto/roboto-regular.woff") format("woff"),
+    url("/static/richie/fonts/roboto/roboto-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-display: swap;
+  font-weight: 600;
+  src:
+    url("/static/richie/fonts/roboto/roboto-medium.woff") format("woff"),
+    url("/static/richie/fonts/roboto/roboto-medium.woff2") format("woff2");
+}
+
+// Font family class helpers by name
+$r-font-family-hind: "Roboto", sans-serif;
+$r-font-family-montserrat: "Rubik", sans-serif;
+
+$r-fonts: (
+  hind: $r-font-family-hind,
+  montserrat: $r-font-family-montserrat,
+);

@@ -1,0 +1,14 @@
+.blogpost-glimpse {
+  &__empty {
+    color: r-theme-val(blogpost-glimpse, empty-color);
+  }
+
+  &__wrapper {
+    padding: 0.6rem 0;
+  }
+
+  &__link {
+    font-family: $r-font-family-montserrat !important;
+    font-weight: $font-weight-bold;
+  }
+}

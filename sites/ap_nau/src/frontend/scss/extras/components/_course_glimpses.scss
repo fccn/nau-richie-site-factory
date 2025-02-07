@@ -1,0 +1,82 @@
+// Course glimpses
+//
+// A flex grid of course cards
+
+// Course-glimpse-list related variables
+$r-course-glimpse-gutter: 0.8rem !default;
+
+// Course-glimpse related variables
+$course-glimpse-content-padding-sides: 0.7rem !default;
+
+$glimpse-selector: ".course-glimpse";
+
+.course-glimpse,
+.course-glimpse__large {
+  $glimpse-item-selector: &;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+    border: 0;
+    box-shadow: r-theme-val(course-glimpse, base-hover-shadow);
+    transition: 0.5s all;
+
+    #{$glimpse-item-selector}__foot__cta .button {
+      background: r-theme-val(course-glimpse, cta-background);
+    }
+
+    #{$glimpse-selector}__organization {
+      color: r-theme-val(course-glimpse, organization-color-hover);
+    }
+  }
+
+  &__wrapper {
+    @include sv-flex(1, 0, auto);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  &__title {
+    @include font-size($h6-font-size);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    color: r-theme-val(course-glimpse, title-color);
+    flex: 1 0 1.3em * 3; // 3 lines;
+    line-height: 1.3em;
+    overflow: hidden;
+  }
+
+  &__metadata {
+    &--organization {
+      position: relative;
+      padding: 0;
+      bottom: 0;
+      svg {
+        display: none;
+      }
+    }
+    &--code {
+      display: none;
+    }
+  }
+
+  &__code {
+    display: none;
+  }
+}
+
+.course-glimpse-footer,
+.course-glimpse__large-footer {
+  color: r-color("firebrick6");
+  background: linear-gradient(180deg, r-color("white"), r-color("light-blue"));
+  padding: 0.5rem 0.7rem;
+  font-weight: 700;
+  &__date {
+    font-weight: unset;
+    svg {
+      display: none;
+    }
+  }
+}

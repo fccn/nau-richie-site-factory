@@ -1,4 +1,14 @@
-RICHIE_SITE ?= nau
+# -- Load .env file
+ifeq (,$(wildcard .env))
+.env:
+	@echo "RICHIE_SITE=nau" > .env
+	@echo "ACTIVATED_DB=mysql" >> .env
+	@echo "DB_PORT=3306" >> .env
+	@echo 'LANGUAGES=(("en", "English"), ("pt", "Portuguese"))' >> .env
+endif
+
+include .env
+export $(shell sed 's/=.*//' .env)
 
 # -- Terminal colors
 COLOR_INFO    = \033[0;36m
@@ -14,7 +24,7 @@ COMPOSE              = \
   NGINX_IMAGE_NAME="$(NGINX_IMAGE_NAME)" \
   NGINX_IMAGE_TAG="$(NGINX_IMAGE_TAG)" \
   DOCKER_USER="$(DOCKER_UID):$(DOCKER_GID)" \
-  docker-compose
+  docker compose
 COMPOSE_RUN          = $(COMPOSE) run --rm
 COMPOSE_RUN_APP      = $(COMPOSE_RUN) app-dev
 COMPOSE_EXEC         = $(COMPOSE) exec
@@ -31,7 +41,6 @@ WAIT_SENTINEL        = $(COMPOSE_RUN) dockerize -wait tcp://redis-sentinel:26379
 # ID of our host user (with which we run the container) does not exist in the
 # container (e.g. 1000 exists but 1009 does not exist by default), then yarn
 # will try to write to "/.yarnrc" at the root of the system and will fail with a
-# permission error.
 COMPOSE_RUN_NODE     = $(COMPOSE_RUN) -e HOME="/tmp" node
 YARN                 = $(COMPOSE_RUN_NODE) yarn
 
@@ -43,8 +52,8 @@ default: help
 
 bootstrap: \
   env.d/aws \
-  data/media/$(RICHIE_SITE)/.keep \
-  data/db/$(RICHIE_SITE) \
+  data/media/${RICHIE_SITE}/.keep \
+  data/db/${RICHIE_SITE} \
   stop \
   build-front \
   build \
@@ -72,7 +81,7 @@ add-site: generate-site ## add a new site to the site factory
 .PHONY: add-site
 
 # == Docker
-build: ## build all containers. Pass extra arguments to docker-compose using: make ARGS="--no-cache" build
+build: ## build all containers. Pass extra arguments to docker compose using: make ARGS="--no-cache" build
 	$(COMPOSE) build $(ARGS) app
 	$(COMPOSE) build $(ARGS) nginx
 	$(COMPOSE) build $(ARGS) app-dev
@@ -105,7 +114,7 @@ stop: ## stop the development server
 .PHONY: stop
 
 info:  ## get activated site info
-	@echo "RICHIE_SITE: $(COLOR_INFO)$(RICHIE_SITE)$(COLOR_RESET)"
+	@echo "RICHIE_SITE: $(COLOR_INFO)${RICHIE_SITE}$(COLOR_RESET)"
 .PHONY: info
 
 # == Frontend
@@ -245,9 +254,9 @@ i18n: \
 
 i18n-back: ## create/update .po files and compile .mo files used for i18n
 	@$(MANAGE) makemessages --keep-pot --all
-	@echo 'Reactivating obsolete strings (allow overriding strings defined in dependencies)'
-	@$(COMPOSE_RUN_APP) find ./ -type f -name django.po -exec sed -i 's/#~ //g' {} \;
-	@$(MANAGE) compilemessages
+#	@echo 'Reactivating obsolete strings (allow overriding strings defined in dependencies)'
+#	@$(COMPOSE_RUN_APP) find ./ -type f -name django.po -exec sed -i 's/#~ //g' {} \;
+#	@$(MANAGE) compilemessages
 .PHONY: i18n-back
 
 i18n-front: ## Extract and compile translation files used for react-intl
@@ -302,14 +311,14 @@ clean: ## restore repository state as it was freshly cloned
 	git clean -idx
 .PHONY: clean
 
-data/media/$(RICHIE_SITE)/.keep:
+data/media/${RICHIE_SITE}/.keep:
 	@echo 'Preparing media volume...'
-	@mkdir -p data/media/$(RICHIE_SITE)
-	@touch data/media/$(RICHIE_SITE)/.keep
+	@mkdir -p data/media/${RICHIE_SITE}
+	@touch data/media/${RICHIE_SITE}/.keep
 
-data/db/$(RICHIE_SITE):
+data/db/${RICHIE_SITE}:
 	@echo 'Preparing db volume...'
-	@mkdir -p data/db/$(RICHIE_SITE)
+	@mkdir -p data/db/${RICHIE_SITE}
 
 extract-courses-data:
 	@$(MANAGE) extract_courses_data
