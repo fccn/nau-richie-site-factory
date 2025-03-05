@@ -342,68 +342,75 @@ jobs:
         working_directory: ~/fun/sites/<< parameters.site >>/src/backend
 version: 2.1
 workflows:
-    nau:
+    ap_nau:
         jobs:
             - check-changelog:
                 filters:
                     branches:
                         ignore: master
-                name: check-changelog-nau
-                site: nau
+                name: check-changelog-ap_nau
+                site: ap_nau
             - lint-changelog:
                 filters:
                     branches:
                         ignore: master
                     tags:
-                        only: /nau-.*/
-                name: lint-changelog-nau
-                site: nau
+                        only: /ap_nau-.*/
+                name: lint-changelog-ap_nau
+                site: ap_nau
             - build-front-production:
                 filters:
                     tags:
-                        only: /nau-.*/
-                name: build-front-production-nau
-                site: nau
+                        only: /ap_nau-.*/
+                name: build-front-production-ap_nau
+                site: ap_nau
             - lint-front:
                 filters:
                     tags:
-                        only: /nau-.*/
-                name: lint-front-nau
+                        only: /ap_nau-.*/
+                name: lint-front-ap_nau
                 requires:
-                    - build-front-production-nau
-                site: nau
+                    - build-front-production-ap_nau
+                site: ap_nau
             - build-back:
                 filters:
                     tags:
-                        only: /nau-.*/
-                name: build-back-nau
-                site: nau
+                        only: /ap_nau-.*/
+                name: build-back-ap_nau
+                site: ap_nau
             - lint-back:
                 filters:
                     tags:
-                        only: /nau-.*/
-                name: lint-back-nau
+                        only: /ap_nau-.*/
+                name: lint-back-ap_nau
                 requires:
-                    - build-back-nau
-                site: nau
+                    - build-back-ap_nau
+                site: ap_nau
             - test-back:
                 filters:
                     tags:
-                        only: /nau-.*/
-                name: test-back-nau
+                        only: /ap_nau-.*/
+                name: test-back-ap_nau
                 requires:
-                    - build-back-nau
-                site: nau
+                    - build-back-ap_nau
+                site: ap_nau
             - hub:
                 filters:
                     tags:
-                        only: /^nau-.*/
-                image_name: nau
-                name: hub-nau
+                        only: /^ap_nau-.*/
+                image_name: ap_nau
+                name: hub-ap_nau
                 requires:
-                    - lint-front-nau
-                    - lint-back-nau
-                site: nau
+                    - lint-front-ap_nau
+                    - lint-back-ap_nau
+                site: ap_nau
+    nau:
+        jobs:
+            - no-change:
+                filters:
+                    tags:
+                        only: /.*/
+                name: no-change-nau
     site-factory:
         jobs:
             - lint-git:

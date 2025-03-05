@@ -2,7 +2,6 @@
 Django settings for the richie NAU project.
 """
 
-import ast
 import json
 import os
 
@@ -743,7 +742,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             "params": {
                 "filters": {
                     "availability": {
-                        "class": "richie.apps.search.filter_definitions.AvailabilityFilterDefinition",
+                        "class": "richie.apps.search.filter_definitions.AvailabilityFilterDefinition",  # noqa: E501 # pylint: disable=line-too-long
                         "params": {
                             "human_name": _("Availability"),
                             "is_drilldown": True,
@@ -752,10 +751,10 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                         },
                     },
                     "languages": {
-                        "class": "richie.apps.search.filter_definitions.LanguagesFilterDefinition",
+                        "class": "richie.apps.search.filter_definitions.LanguagesFilterDefinition",  # noqa: E501 # pylint: disable=line-too-long
                         "params": {
                             "human_name": _("Languages"),
-                            # There are too many available languages to show them all, all the time.
+                            # There are too many languages to display at once.
                             # Eg. 200 languages, 190+ of which will have 0 matching courses.
                             "min_doc_count": 1,
                         },
@@ -829,7 +828,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             "class": "richie.apps.search.filter_definitions.StaticChoicesFilterDefinition",
             "params": {
                 "fragment_map": {
-                    "self-paced": [{"bool": {"must_not": {"exists": {"field": "pace"}}}}],
+                    "self-paced": [
+                        {"bool": {"must_not": {"exists": {"field": "pace"}}}}
+                    ],
                     "lt-1h": [{"range": {"pace": {"lt": 60}}}],
                     "1h-2h": [{"range": {"pace": {"gte": 60, "lte": 120}}}],
                     "gt-2h": [{"range": {"pace": {"gt": 120}}}],
@@ -846,6 +847,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             },
         },
     }
+
 
 class Development(Base):
     """
