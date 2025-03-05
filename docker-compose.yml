@@ -38,7 +38,6 @@ services:
       - DJANGO_CONFIGURATION=Development
       - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:-nau}
     env_file:
-      - ".env"
       - "env.d/development"
     networks:
       - default
@@ -69,7 +68,6 @@ services:
       - DJANGO_CONFIGURATION=ContinuousIntegration
       - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:-nau}
     env_file:
-      - ".env"
       - "env.d/development"
     networks:
       - default
