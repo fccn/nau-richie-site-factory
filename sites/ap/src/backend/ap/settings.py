@@ -169,8 +169,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 
     # Application definition
-    ROOT_URLCONF = "ap_nau.urls"
-    WSGI_APPLICATION = "ap_nau.wsgi.application"
+    ROOT_URLCONF = "ap.urls"
+    WSGI_APPLICATION = "ap.wsgi.application"
 
     # Database
     DATABASES = {
@@ -330,8 +330,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "django.template.context_processors.static",
                     "cms.context_processors.cms_settings",
                     "richie.apps.core.context_processors.site_metas",
-                    "ap_nau.help_desk.context_processors.help_desk_url_setting",
-                    "ap_nau.maintenance.context_processors.maintenance_header_message_setting",
+                    "ap.help_desk.context_processors.help_desk_url_setting",
+                    "ap.maintenance.context_processors.maintenance_header_message_setting",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -655,7 +655,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "django_language", environ_name="LANGUAGE_COOKIE_NAME", environ_prefix=None
     )
 
-    CMS_LIMIT_TTL_CACHE_FUNCTION = "ap_nau.cache.cache_ttl.limit_course_page_cache_ttl"
+    CMS_LIMIT_TTL_CACHE_FUNCTION = "ap.cache.cache_ttl.limit_course_page_cache_ttl"
 
     # Preserve the query parameters during redirection of `/en/course`` to `/en/courses` rendered
     # on different locations of the site.
