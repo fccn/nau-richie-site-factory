@@ -21,3 +21,4 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🚧(ap) added demo-site command to support multilingual generation
 - 🔥(templates) removed custom parameter page_url in the template
 - 👷(ap) added ci build for ap site
+- 🚚(ap) renamed the site name from ap_nau to ap
