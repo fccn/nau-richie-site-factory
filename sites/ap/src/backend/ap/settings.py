@@ -762,6 +762,28 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 }
             },
         },
+        "competencies": {
+            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
+            "params": {
+                "human_name": _("Competencies ReCAP"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+                "reverse_id": "competencies",
+                "term": "categories",
+            },
+        },
+        "careers": {
+            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
+            "params": {
+                "human_name": _("Career"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+                "reverse_id": "careers",
+                "term": "categories",
+            },
+        },
         "subjects": {
             "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
             "params": {
@@ -773,28 +795,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "term": "categories",
             },
         },
-        "competencies": {
-            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
-            "params": {
-                "human_name": _("Competencies/Orientation for"),
-                "is_autocompletable": True,
-                "is_searchable": True,
-                "min_doc_count": 0,
-                "reverse_id": "competencies",
-                "term": "categories",
-            },
-        },
-        "carrers": {
-            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
-            "params": {
-                "human_name": _("Carrer"),
-                "is_autocompletable": True,
-                "is_searchable": True,
-                "min_doc_count": 0,
-                "reverse_id": "carrers",
-                "term": "categories",
-            },
-        },
         "organizations": {
             "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
             "params": {
@@ -803,25 +803,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "is_searchable": True,
                 "min_doc_count": 0,
                 "reverse_id": "organizations",
-            },
-        },
-        "persons": {
-            "class": "richie.apps.search.filter_definitions.IndexableFilterDefinition",
-            "params": {
-                "human_name": _("Persons"),
-                "is_autocompletable": True,
-                "is_searchable": True,
-                "min_doc_count": 0,
-                "reverse_id": "persons",
-            },
-        },
-        "licences": {
-            "class": "richie.apps.search.filter_definitions.IndexableFilterDefinition",
-            "params": {
-                "human_name": _("Licences"),
-                "is_autocompletable": True,
-                "is_searchable": True,
-                "min_doc_count": 0,
             },
         },
         "pace": {
