@@ -813,14 +813,31 @@ class Production(Base):
     # Use AWS S3 for media storage
     # DEFAULT_FILE_STORAGE = values.Value("storages.backends.s3boto3.S3Boto3Storage")
 
-    STORAGES = {
-        "default": {
-            "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    STORAGES = values.DictValue(
+        {
+            "default": {
+                "BACKEND": values.Value(
+                    "storages.backends.s3boto3.S3Boto3Storage",
+                    environ_name="STORAGES_DEFAULT_BACKEND",
+                ),
+                "OPTIONS": values.DictValue(
+                    {},
+                    environ_name="STORAGES_DEFAULT_OPTIONS",
+                ),
+            },
+            "staticfiles": {
+                "BACKEND": values.Value(
+                    "base.storage.CDNManifestStaticFilesStorage",
+                    environ_name="STORAGES_STATICFILES_BACKEND",
+                ),
+                "OPTIONS": values.DictValue(
+                    {},
+                    environ_name="STORAGES_STATICFILES_OPTIONS",
+                ),
+            },
         },
-        "staticfiles": {
-            "BACKEND": "base.storage.CDNManifestStaticFilesStorage",
-        },
-    }
+        environ_name="STORAGES",
+    )
 
     # Preprend all all media file paths on S3 bucket with 'media/'
     AWS_LOCATION = values.Value("media")
