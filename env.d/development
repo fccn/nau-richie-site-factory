@@ -52,3 +52,5 @@ WEB_ANALYTICS={'google_universal_analytics': {'tracking_id': 'UA-123456789-1', '
 # Test CDN / static assets from different domain
 # DJANGO_STATIC_URL=https://nau-dev-richie-nau-static-assets.rgw.nau.fccn.pt/static/
 # DJANGO_CDN_DOMAIN=nau-dev-richie-nau-static-assets.rgw.nau.fccn.pt
+
+# DJANGO_STORAGES={'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'}, 'staticfiles': {'BACKEND': 'base.storage.CDNManifestStaticFilesStorage'} }
