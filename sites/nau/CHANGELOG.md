@@ -13,6 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ✨(courses) script to extract courses data as csv format
 - 🧱(site-factory) added sites creation functionality
 - 🔧(nau) allow to configure Django Storages from environment `DJANGO_STORAGES`
+- 🔧(nau) add media S3 default ACL to `public-read`
 
 ### Fixed
 
