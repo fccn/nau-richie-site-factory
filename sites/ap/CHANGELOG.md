@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- 🔧(ap) add media S3 default ACL to `public-read`
 - 🔧(ap) allow to configure Django Storages from environment `DJANGO_STORAGES`
 
 ## [1.0.0] - 2025-03-06
