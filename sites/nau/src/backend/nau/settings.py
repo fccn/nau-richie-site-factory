@@ -867,6 +867,9 @@ class Production(Base):
     # Do not overwrite the files on the media S3 Bucket
     AWS_S3_FILE_OVERWRITE = values.Value(False)
 
+    # Write media files with public-read access
+    AWS_DEFAULT_ACL = values.Value("public-read")
+
     # CDN domain for static/media urls. It is passed to the frontend to load built chunks
     CDN_DOMAIN = values.Value()
 
