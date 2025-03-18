@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- 🔧(ap) allow to configure Django Storages from environment `DJANGO_STORAGES`
+
 ## [1.0.0] - 2025-03-06
 
 ### Added 
