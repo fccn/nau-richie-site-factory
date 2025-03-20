@@ -425,17 +425,17 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "django.contrib.humanize",
     )
 
-    RFC_5646_LOCALES = ["en-US", "pt-PT"]
+    RFC_5646_LOCALES = ["pt-PT"]
 
     # Languages
     # - Django
-    LANGUAGE_CODE = "en"
+    LANGUAGE_CODE = "pt"
 
     # Careful! Languages should be ordered by priority, as this tuple is used to get
     # fallback/default languages throughout the app.
     # Use "en" as default as it is the language that is most likely to be spoken by any visitor
     # when their preferred language, whatever it is, is unavailable
-    LANGUAGES = (("en", _("English Lang")), ("pt", _("Portuguese Lang")))
+    LANGUAGES = (("pt", _("Portuguese Lang")),)
 
     # - Django CMS
     CMS_LANGUAGES = {
@@ -443,23 +443,15 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             "public": True,
             "hide_untranslated": False,
             "redirect_on_fallback": True,
-            "fallbacks": ["en", "pt"],
+            "fallbacks": ["pt"],
         },
         1: [
-            {
-                "public": True,
-                "code": "en",
-                "hide_untranslated": False,
-                "name": _("English Lang"),
-                "fallbacks": ["pt"],
-                "redirect_on_fallback": False,
-            },
             {
                 "public": True,
                 "code": "pt",
                 "hide_untranslated": False,
                 "name": _("Portuguese Lang"),
-                "fallbacks": ["en"],
+                "fallbacks": [],
                 "redirect_on_fallback": False,
             },
         ],
@@ -750,22 +742,13 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                             "sorting": "conf",
                         },
                     },
-                    "languages": {
-                        "class": "richie.apps.search.filter_definitions.LanguagesFilterDefinition",  # noqa: E501 # pylint: disable=line-too-long
-                        "params": {
-                            "human_name": _("Languages"),
-                            # There are too many languages to display at once.
-                            # Eg. 200 languages, 190+ of which will have 0 matching courses.
-                            "min_doc_count": 1,
-                        },
-                    },
                 }
             },
         },
         "competencies": {
             "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
             "params": {
-                "human_name": _("Competencies ReCAP"),
+                "human_name": _("Competence ReCAP"),
                 "is_autocompletable": True,
                 "is_searchable": True,
                 "min_doc_count": 0,
@@ -828,6 +811,16 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             },
         },
     }
+
+    RICHIE_FILTERS_PRESENTATION = [
+        "new",
+        "availability",
+        "competencies",
+        "careers",
+        "subjects",
+        "organizations",
+        "pace",
+    ]
 
 
 class Development(Base):
