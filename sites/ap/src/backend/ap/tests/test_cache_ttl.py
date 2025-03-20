@@ -10,15 +10,15 @@ from django.test import TestCase
 from django.test.utils import override_settings
 from django.utils import timezone
 from django.utils.http import http_date
+from django.utils.translation import gettext_lazy as _
 
 from richie.apps.courses.factories import CourseFactory, CourseRunFactory
 
 # pylint: disable=import-error
 from ap.cache.cache_ttl import CACHE_MARGIN
 
+
 # pylint: disable=too-many-public-methods
-
-
 class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     """
     Test case for the LimitBrowserCacheTTLHeaders middleware.
@@ -66,6 +66,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run_open(self):
         """
@@ -95,6 +124,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run_multiple(self):
         """
@@ -130,6 +188,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run(self):
         """
@@ -150,6 +237,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run_archived(self):
         """
@@ -179,6 +295,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run_almost_open_to_enroll(self):
         """
@@ -208,6 +353,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run_going_open_to_enroll(self):
         """
@@ -238,6 +412,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run_going_close_to_enroll(self):
         """
@@ -268,6 +471,35 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     @override_settings(
         MAX_BROWSER_CACHE_TTL=8600,
         CMS_CACHE_DURATIONS={"menus": 3600, "content": 3600, "permissions": 3600},
+        RFC_5646_LOCALES=["en-US", "pt-PT"],
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", _("English Lang")), ("pt", _("Portuguese Lang"))),
+        CMS_LANGUAGES={
+            "default": {
+                "public": True,
+                "hide_untranslated": False,
+                "redirect_on_fallback": True,
+                "fallbacks": ["en", "pt"],
+            },
+            1: [
+                {
+                    "public": True,
+                    "code": "en",
+                    "hide_untranslated": False,
+                    "name": _("English Lang"),
+                    "fallbacks": ["pt"],
+                    "redirect_on_fallback": False,
+                },
+                {
+                    "public": True,
+                    "code": "pt",
+                    "hide_untranslated": False,
+                    "name": _("Portuguese Lang"),
+                    "fallbacks": ["en"],
+                    "redirect_on_fallback": False,
+                },
+            ],
+        },
     )
     def test_middleware_limit_cache_for_course_page_run_has_closed_to_enroll(self):
         """
