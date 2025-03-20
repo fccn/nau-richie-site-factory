@@ -12,6 +12,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 🔧(ap) add media S3 default ACL to `public-read`
 - 🔧(ap) allow to configure Django Storages from environment `DJANGO_STORAGES`
+- ✨(ap) added features to meet the first release requirements
+    - Changed logo image
+    - Removed english language and leave only portuguese
+    - Set the missing variable `RICHIE_FILTERS_PRESENTATION`
+    to have the filters working
 
 ## [1.0.0] - 2025-03-06
 

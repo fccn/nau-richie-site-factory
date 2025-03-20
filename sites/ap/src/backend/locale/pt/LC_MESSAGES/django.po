@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-05 17:01+0000\n"
+"POT-Creation-Date: 2025-03-20 10:42+0000\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "{!s} settings"
 msgstr "Definições de {!s}"
 
-#: ap/force_translations.py:10 ap/settings.py:750
+#: ap/force_translations.py:10 ap/settings.py:729
 msgid "First session"
 msgstr "Primeira edição"
 
-#: ap/force_translations.py:11 ap/settings.py:824
+#: ap/force_translations.py:11
 msgid "Persons"
 msgstr "Formadores"
 
@@ -52,97 +52,83 @@ msgstr "%(title)s"
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
 
-#: ap/settings.py:246
+#: ap/settings.py:245
 msgid "Dashboard"
 msgstr "Meus cursos"
 
-#: ap/settings.py:247
+#: ap/settings.py:246
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: ap/settings.py:250
+#: ap/settings.py:249
 msgid "Account"
 msgstr "Conta"
 
-#: ap/settings.py:251
+#: ap/settings.py:250
 msgid "{base_url:s}/account/settings"
 msgstr ""
 
-#: ap/settings.py:254
+#: ap/settings.py:253
 msgid "Profile"
 msgstr "Perfil"
 
-#: ap/settings.py:255
+#: ap/settings.py:254
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: ap/settings.py:348
+#: ap/settings.py:347
 msgid "Teaser"
 msgstr ""
 
-#: ap/settings.py:450 ap/settings.py:457
-#, fuzzy
-#| msgid "English Lang"
-msgid "English"
-msgstr "English"
+#: ap/settings.py:438 ap/settings.py:453
+msgid "Portuguese Lang"
+msgstr "Português"
 
-#: ap/settings.py:450 ap/settings.py:457
-msgid "French"
-msgstr ""
-
-#: ap/settings.py:747
+#: ap/settings.py:726
 #, fuzzy
 #| msgid "Related courses"
 msgid "New courses"
 msgstr "Outras edições"
 
-#: ap/settings.py:760
+#: ap/settings.py:739
 msgid "Availability"
 msgstr ""
 
-#: ap/settings.py:769
-msgid "Languages"
-msgstr ""
+#: ap/settings.py:751
+msgid "Competence ReCAP"
+msgstr "Competência ReCAP"
 
-#: ap/settings.py:781
+#: ap/settings.py:762
+msgid "Career"
+msgstr "Carreira"
+
+#: ap/settings.py:773
 msgid "Subjects"
 msgstr "Área Temática"
 
-#: ap/settings.py:792
-msgid "Competencies/Orientation for"
-msgstr "Competência/Orientação para"
-
-#: ap/settings.py:803
-msgid "Carrer"
-msgstr "Carreira"
-
-#: ap/settings.py:814
+#: ap/settings.py:784
 #, fuzzy
 #| msgid "Related organizations"
 msgid "Organizations"
 msgstr "Organizações relacionadas"
 
-#: ap/settings.py:834
-msgid "Licences"
-msgstr ""
-
-#: ap/settings.py:849
+#: ap/settings.py:802
 msgid "Weekly pace"
 msgstr ""
 
-#: ap/settings.py:853
+#: ap/settings.py:806
 msgid "Self-paced"
 msgstr ""
 
-#: ap/settings.py:854
+#: ap/settings.py:807
 msgid "Less than one hour"
 msgstr ""
 
-#: ap/settings.py:855
+#: ap/settings.py:808
 msgid "One to two hours"
 msgstr ""
 
-#: ap/settings.py:856
+#: ap/settings.py:809
 msgid "More than two hours"
 msgstr ""
 
@@ -211,8 +197,10 @@ msgstr "Siga-nos no Instagram"
 msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"
 
-#~ msgid "Portuguese Lang"
-#~ msgstr "Português"
+#, fuzzy
+#~| msgid "English Lang"
+#~ msgid "English Lang"
+#~ msgstr "English"
 
 #~ msgid "Sub categories"
 #~ msgstr "Sub-categorias"
