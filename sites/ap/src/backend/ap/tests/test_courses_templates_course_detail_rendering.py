@@ -4,6 +4,7 @@ Test the custom video player with a performance improvement.
 
 import random
 
+from django.conf import settings
 import lxml.html  # nosec
 from cms.test_utils.testcases import CMSTestCase
 from richie.apps.courses.factories import VIDEO_SAMPLE_LINKS, CourseFactory
@@ -14,15 +15,21 @@ class CoursesTemplatesCourseDetailRenderingCMSTestCase(CMSTestCase):
     Test the custom video player with a performance improvement.
     """
 
+    def setUp(self):
+        self.language = getattr(settings, "LANGUAGE_CODE", "pt")
+
+
     def test_templates_course_detail_teaser_video_cover_empty(self):
         """
         The `course_teaser` placeholder should return an `iframe` with an embedded `srcdoc`
         with a content of a link to the original external video service.
         """
         video_sample = random.choice(VIDEO_SAMPLE_LINKS)  # nosec
-        course = CourseFactory(fill_teaser=video_sample, should_publish=True)
+        course = CourseFactory(fill_teaser=video_sample)
+        page = course.extended_object
+        page.publish(self.language)
 
-        response = self.client.get(course.extended_object.get_absolute_url())
+        response = self.client.get(course.extended_object.get_absolute_url(language=self.language))
         self.assertEqual(response.status_code, 200)
         html = lxml.html.fromstring(response.content)
         iframe = html.cssselect(".subheader__teaser .aspect-ratio iframe")[0]

@@ -2,6 +2,7 @@
 End-to-end tests for the course detail view
 """
 
+from django.conf import settings
 from django.test.utils import override_settings
 
 from cms.test_utils.testcases import CMSTestCase
@@ -15,6 +16,9 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
     upstream Web Analytics.
     """
 
+    def setUp(self):
+        self.language = getattr(settings, "LANGUAGE_CODE", "pt")
+
     @override_settings(
         WEB_ANALYTICS={"google_tag_manager": {"tracking_id": "xpto-key"}}
     )
@@ -25,7 +29,7 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
         """
         course = CourseFactory()
         page = course.extended_object
-        page.publish("en")
+        page.publish(self.language)
 
         url = course.extended_object.get_absolute_url()
         response = self.client.get(url)
@@ -65,7 +69,7 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
 
         course = CourseFactory()
         page = course.extended_object
-        page.publish("en")
+        page.publish(self.language)
 
         url = course.extended_object.get_absolute_url()
         response = self.client.get(url)
@@ -99,9 +103,9 @@ class GoogleTagManagerBaseTemplateRenderingCMSTestCase(CMSTestCase):
         """
         course = CourseFactory()
         page = course.extended_object
-        page.publish("en")
+        page.publish(self.language)
 
-        url = course.extended_object.get_absolute_url()
+        url = course.extended_object.get_absolute_url(language=self.language)
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 

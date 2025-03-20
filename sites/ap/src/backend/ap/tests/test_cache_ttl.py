@@ -6,6 +6,7 @@ import math
 import time
 from datetime import datetime, timedelta
 
+from django.conf import settings
 from django.test import TestCase
 from django.test.utils import override_settings
 from django.utils import timezone
@@ -23,6 +24,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
     """
     Test case for the LimitBrowserCacheTTLHeaders middleware.
     """
+
+    def setUp(self):
+        self.language = getattr(settings, "LANGUAGE_CODE", "pt")
 
     def _verify_cache_headers(
         self, response, date_time_to_check: datetime, now: datetime
@@ -85,9 +89,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         )
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self._verify_cache_headers(response, next_minute - CACHE_MARGIN, now)
@@ -120,9 +124,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         )
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self._verify_cache_headers(response, next_date - CACHE_MARGIN, now)
@@ -139,9 +143,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         course = CourseFactory()
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self.assertEqual(http_date(time.time() + 3600), response["Expires"])
@@ -168,9 +172,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         )
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self.assertEqual(http_date(time.time() + 3600), response["Expires"])
@@ -198,9 +202,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         )
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self._verify_cache_headers(response, ref_date - CACHE_MARGIN, now)
@@ -227,9 +231,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         )
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self.assertFalse(response.has_header("Expires"))
@@ -257,9 +261,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         )
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self.assertFalse(response.has_header("Expires"))
@@ -287,9 +291,9 @@ class TestLimitBrowserCacheTTLHeadersOnCoursePage(TestCase):
         )
 
         course_page = course.extended_object
-        course_page.publish("en")
+        course_page.publish(self.language)
 
-        url = course_page.get_absolute_url(language="en")
+        url = course_page.get_absolute_url(language=self.language)
         response = self.client.get(url)
 
         self.assertFalse(response.has_header("Expires"))

@@ -30,7 +30,7 @@ services:
       context: .
       target: development
       args:
-        DOCKER_USER: ${DOCKER_USER:-1000}
+        DOCKER_USER: root
         SITE: ${RICHIE_SITE:-nau}
     image: "${RICHIE_SITE:-nau}:development"
     environment:
@@ -51,14 +51,14 @@ services:
       - "db"
       - "elasticsearch"
       - "redis-sentinel"
-    user: ${DOCKER_USER:-1000}
+    user: root
 
   app:
     build:
       context: .
       target: production
       args:
-        DOCKER_USER: ${DOCKER_USER:-1000}
+        DOCKER_USER: root
         SITE: ${RICHIE_SITE:-nau}
     # We tag our images with the current commit sha1 in the CI to make them
     # unique and avoid collisions in parallel builds.
@@ -78,14 +78,14 @@ services:
       - "db"
       - "elasticsearch"
       - "redis-sentinel"
-    user: ${DOCKER_USER:-1000}
+    user: root
 
   nginx:
     build:
       context: .
       target: nginx
       args:
-        DOCKER_USER: ${DOCKER_USER:-1000}
+        DOCKER_USER: root
         NGINX_IMAGE_NAME: ${NGINX_IMAGE_NAME:-nginx}
         NGINX_IMAGE_TAG: ${NGINX_IMAGE_TAG:-1.13}
         SITE: ${RICHIE_SITE:-nau}
@@ -104,14 +104,14 @@ services:
   node:
     image: node:20.13
     working_dir: /app/src/frontend
-    user: "${DOCKER_USER:-1000}"
+    user: "root"
     volumes:
       - ./sites/${RICHIE_SITE:-nau}:/app
 
   terraform-state:
     image: hashicorp/terraform:latest
     env_file: env.d/aws
-    user: "${DOCKER_USER:-1000}"
+    user: "root"
     working_dir: /app
     volumes:
       - ./aws/create_state_bucket:/app
@@ -122,7 +122,7 @@ services:
       - TF_VAR_SITE=${RICHIE_SITE:-nau}
       - TF_DATA_DIR=/config
     env_file: env.d/aws
-    user: "${DOCKER_USER:-1000}"
+    user: "root"
     working_dir: /app
     volumes:
       - ./aws:/app

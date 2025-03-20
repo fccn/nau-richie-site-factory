@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-29 10:53+0000\n"
+"POT-Creation-Date: 2025-03-18 10:51+0000\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,15 +84,15 @@ msgstr ""
 msgid "{base_url:s}/orders/orders"
 msgstr ""
 
-#: nau/settings.py:347
+#: nau/settings.py:351
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:436 nau/settings.py:451
+#: nau/settings.py:440 nau/settings.py:455
 msgid "English Lang"
 msgstr "English"
 
-#: nau/settings.py:436 nau/settings.py:459
+#: nau/settings.py:440 nau/settings.py:463
 msgid "Portuguese Lang"
 msgstr "Português"
 

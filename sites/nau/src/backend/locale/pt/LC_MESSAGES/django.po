@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-16 14:00+0000\n"
+"POT-Creation-Date: 2025-03-18 10:51+0000\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -84,15 +84,15 @@ msgstr "Histórico de compras"
 msgid "{base_url:s}/orders/orders"
 msgstr ""
 
-#: nau/settings.py:347
+#: nau/settings.py:351
 msgid "Teaser"
 msgstr ""
 
-#: nau/settings.py:436 nau/settings.py:451
+#: nau/settings.py:440 nau/settings.py:455
 msgid "English Lang"
 msgstr "English"
 
-#: nau/settings.py:436 nau/settings.py:459
+#: nau/settings.py:440 nau/settings.py:463
 msgid "Portuguese Lang"
 msgstr "Português"
 
@@ -161,38 +161,38 @@ msgstr "Siga-nos no Instagram"
 msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"
 
-msgid "Sub categories"
-msgstr "Sub-categorias"
+#~ msgid "Sub categories"
+#~ msgstr "Sub-categorias"
 
-msgid "Related courses"
-msgstr "Outras edições"
+#~ msgid "Related courses"
+#~ msgstr "Outras edições"
 
-msgid "Courses pagination"
-msgstr "Paginação de cursos"
+#~ msgid "Courses pagination"
+#~ msgstr "Paginação de cursos"
 
-msgid "See all courses"
-msgstr "Ver todos os cursos"
+#~ msgid "See all courses"
+#~ msgstr "Ver todos os cursos"
 
-msgid "Related organizations"
-msgstr "Organizações relacionadas"
+#~ msgid "Related organizations"
+#~ msgstr "Organizações relacionadas"
 
-msgid "Related organizations pagination"
-msgstr "Paginação de Organizações relacionadas"
+#~ msgid "Related organizations pagination"
+#~ msgstr "Paginação de Organizações relacionadas"
 
-msgid "Related blogposts"
-msgstr "Posts de blog relacionados"
+#~ msgid "Related blogposts"
+#~ msgstr "Posts de blog relacionados"
 
-msgid "Related blogposts pagination"
-msgstr "Paginação de posts de blog relacionados"
+#~ msgid "Related blogposts pagination"
+#~ msgstr "Paginação de posts de blog relacionados"
 
-msgid "Related persons"
-msgstr "Pessoas relacionadas"
+#~ msgid "Related persons"
+#~ msgstr "Pessoas relacionadas"
 
-msgid "Related persons pagination"
-msgstr "Paginação de pessoas relacionadas"
+#~ msgid "Related persons pagination"
+#~ msgstr "Paginação de pessoas relacionadas"
 
-msgid "No other open course runs"
-msgstr "Não existem outras edições abertas"
+#~ msgid "No other open course runs"
+#~ msgstr "Não existem outras edições abertas"
 
-msgid "No open course runs"
-msgstr "Não existem edições abertas"
+#~ msgid "No open course runs"
+#~ msgstr "Não existem edições abertas"
