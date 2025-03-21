@@ -18,6 +18,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
     - Set the missing variable `RICHIE_FILTERS_PRESENTATION`
     to have the filters working
 
+### Changed
+- Updated the favicon and apple touch icon variants
+
 ## [1.0.0] - 2025-03-06
 
 ### Added 
