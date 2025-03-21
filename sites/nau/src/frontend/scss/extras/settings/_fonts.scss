@@ -1,36 +1,42 @@
-//Rubik, replaces Montserrat
 @font-face {
-  font-family: "Rubik";
+  font-family: "IBM Plex Sans";
   font-display: swap;
-  font-weight: 300 700;
+  font-weight: 700;
   src:
-    url("/static/richie/fonts/rubik/rubik-variable-font.woff2")
-      format("woff2 supports variations"),
-    url("/static/richie/fonts/rubik/rubik-variable-font.woff2")
-      format("woff2-variations");
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-Bold.woff2") format("woff2"),
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-Bold.woff") format("woff");
 }
 
-// Roboto, replaces Hind
 @font-face {
-  font-family: "Roboto";
+  font-family: "IBM Plex Sans";
   font-display: swap;
   font-weight: 400;
+  font-style: italic;
   src:
-    url("/static/richie/fonts/roboto/roboto-regular.woff") format("woff"),
-    url("/static/richie/fonts/roboto/roboto-regular.woff2") format("woff2");
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-MediumItalic.woff2") format("woff2"),
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-MediumItalic.woff") format("woff");
 }
+
 @font-face {
-  font-family: "Roboto";
+  font-family: "IBM Plex Sans";
+  font-display: swap;
+  font-weight: 300, 400, 500;
+  src:
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-Regular.woff2") format("woff2"),
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
   font-display: swap;
   font-weight: 600;
   src:
-    url("/static/richie/fonts/roboto/roboto-medium.woff") format("woff"),
-    url("/static/richie/fonts/roboto/roboto-medium.woff2") format("woff2");
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-SemiBold.woff2") format("woff2"),
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-SemiBold.woff") format("woff");
 }
 
-// Font family class helpers by name
-$r-font-family-hind: "Roboto", sans-serif;
-$r-font-family-montserrat: "Rubik", sans-serif;
+$r-font-family-hind: "IBM Plex Sans", sans-serif;
+$r-font-family-montserrat: $r-font-family-hind;
 
 $r-fonts: (
   hind: $r-font-family-hind,
