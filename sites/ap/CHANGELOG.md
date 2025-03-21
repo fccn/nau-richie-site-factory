@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-03-21
+
 ### Added
 
 - 🔧(ap) add media S3 default ACL to `public-read`

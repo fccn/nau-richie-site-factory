@@ -1,7 +1,7 @@
 {
   "name": "ap",
-  "version": "1.0.0",
-  "description": "Richie NAU site on https://www.nau.edu.pt",
+  "version": "1.1.0",
+  "description": "Richie AP NAU site on https://ap.nau.edu.pt/",
   "scripts": {
     "build-sass": "sass scss/_main.scss ../backend/base/static/richie/css/main.css --load-path=node_modules",
     "build-sass-production": "sass scss/_main.scss ../backend/base/static/richie/css/main.css --style=compressed --load-path=node_modules",
