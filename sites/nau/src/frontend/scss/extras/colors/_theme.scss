@@ -4,7 +4,11 @@ $r-theme: recursive-map-merge(
   $r-theme,
   (
     topbar: (
-      item-hover-color: r-color("firebrick6"),
+      menu-border-color: r-color('light-stroke'),
+      item-color: r-color('black'),
+      item-stroke-height: 2px,
+      item-active-color: r-color('black'),
+      item-hover-color: r-color("black"),
     ),
     body-mentions: (
       base-color: r-color("black"),
