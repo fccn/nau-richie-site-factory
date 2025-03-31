@@ -4,7 +4,7 @@
   background: r-color("firebrick6");
 
   &__brand {
-    &>a {
+    & > a {
       width: 100%;
     }
   }
@@ -47,12 +47,11 @@
   }
 
   &__items {
-
     //
     // Default variant acts like a simple horizontal menu
     //
-    &>.nested-item--list,
-    &>a {
+    & > .nested-item--list,
+    & > a {
       $nesteditem-base-selector: ".nested-item";
 
       #{$nesteditem-base-selector}__items {
@@ -76,7 +75,6 @@
 
 // Legal mentions
 .body-mentions {
-
   &__container {
     @include make-container();
     @include make-container-max-widths();
@@ -88,19 +86,19 @@
     flex-direction: column;
 
     .section {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        justify-content: center;
-        flex-basis: 0;
-    
-        border-block-end: 1px solid #dedede;
-        padding: 1rem 0 1.6rem 0;
-    
-        &:last-of-type {
-          border-block-end: none;
-        }
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+      flex-basis: 0;
+
+      border-block-end: 1px solid #dedede;
+      padding: 1rem 0 1.6rem 0;
+
+      &:last-of-type {
+        border-block-end: none;
       }
+    }
     img {
       padding: 0 0.5rem;
       max-height: 4rem;
