@@ -8,6 +8,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## Fixed
+
+- 🐛(ap) adjusted login redirect
+    - Override backend authentication to adjust the 
+    login redirect 
+
 ## [1.1.0] - 2025-03-21
 
 ### Added
