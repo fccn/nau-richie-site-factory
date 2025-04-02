@@ -9,5 +9,7 @@ $palette: recursive-map-merge(
     "banana": #eec800,
     "light-blue": #B39AFD,
     "light-stroke": rgba(0, 0, 0, .1),
+    "firebrick6-light-shadow": hsla(256, 80%, 57%, 0.25),
+    "firebrick6-hover-shadow": hsla(256, 80%, 57%, 0.45),
   )
 );

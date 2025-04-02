@@ -75,10 +75,10 @@
 .hero-intro {
   position: relative;
   padding: 0;
+  background-image: url('../../richie/images/nau-background-gradient.svg');
   background-repeat: no-repeat;
   background-position: top right;
-  background-size: 70%;
-  background-color: rgba(7, 76, 255, 0.85);
+  background-color: r-color("firebrick6");
 
   @include media-breakpoint-down(lg) {
     background-position: bottom right;
@@ -86,6 +86,7 @@
 
   &::after {
     background-image: none;
+    width: 0;
   }
 
   &__inner {
@@ -95,7 +96,7 @@
       display: flex;
 
       @if $r-topbar-height {
-        padding: calc(3vw + 1rem) 0 calc(3vw + 1rem);
+        padding: calc(2vw + 1rem) 0 calc(2vw + 1rem);
         min-height: ($r-topbar-height + 16.75rem);
       } @else {
         padding: 1rem 0 calc(5vw + 1rem);
@@ -111,7 +112,6 @@
 
     @include media-breakpoint-up(lg) {
       display: flex;
-      padding: 2rem;
       flex-direction: column;
       justify-content: space-between;
     }
@@ -136,7 +136,7 @@
     @include font-size($h5-font-size);
     color: r-theme-val(hero-intro, content-color);
 
-    & > h1 {
+    & > span {
       font-size: 3.8rem;
 
       @include media-breakpoint-down(sm) {
@@ -149,7 +149,6 @@
   &__search {
     display: flex;
     padding-top: 2rem;
-    //flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-start;
 
@@ -170,6 +169,12 @@
         background: r-theme-val(hero-intro, search-input-background);
         border: none;
         width: 100%;
+        border-radius: $border-radius;
+        font-size: $font-size-base;
+
+        &::placeholder {
+          color: r-theme-val(hero-intro, search-input-placeholder-color);
+        }
       }
 
       .search-input {
@@ -206,17 +211,17 @@
       r-theme-val(hero-intro, cta-variant-from),
       r-theme-val(hero-intro, cta-variant-to)
     );
-    //margin: 1.2rem auto 0;
     margin-left: 0 !important;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
     color: r-theme-val(hero-intro, cta-color);
-    border-radius: 2rem;
+    border-radius: $border-radius;
     border: none;
     box-shadow: 4px 2px 12px rgba(10, 31, 80, 0.45);
 
     @include media-breakpoint-up(lg) {
       margin-top: 0;
-      //@include responsive-spacer("margin-left", 0, $breakpoints: ("lg": 5));
     }
 
     @include media-breakpoint-down(sm) {
