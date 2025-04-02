@@ -20,11 +20,12 @@ $r-theme: recursive-map-merge(
         url("../../richie/images/components/hero_background.svg"),
       content-color: r-color("white"),
       search-input-background: r-color("white"),
+      search-input-placeholder-color: #595959,
       search-btn-background: r-color("white"),
-      search-icon-fill: r-color("firebrick6"),
-      cta-variant-from: r-color("banana"),
+      search-icon-fill: r-color("black"),
+      cta-variant-from: r-color("black"),
       cta-variant-to: rgba(r-color("white"), 0.8),
-      cta-color: r-color("black"),
+      cta-color: r-color("white"),
       cta-border: r-color("white"),
     ),
     spinner: (
@@ -37,6 +38,8 @@ $r-theme: recursive-map-merge(
       offer-icon-visibility: hidden,
       offer-certificate-icon-visibility: hidden,
       offer-price-visibility: hidden,
+      base-shadow: 0 0 0.5rem r-color("firebrick6-light-shadow"),
+      base-hover-shadow: 0 0 1.5rem r-color("firebrick6-hover-shadow"),
     ),
   )
 );
