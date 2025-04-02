@@ -14,6 +14,12 @@ $glimpse-selector: ".course-glimpse";
 .course-glimpse__large {
   $glimpse-item-selector: &;
 
+  box-shadow: r-theme-val(course-glimpse, base-shadow);
+
+  #{$glimpse-selector}__organization-logo {
+    box-shadow: r-theme-val(course-glimpse, base-shadow);
+  }
+
   &:hover,
   &:focus {
     color: inherit;
@@ -28,6 +34,11 @@ $glimpse-selector: ".course-glimpse";
 
     #{$glimpse-selector}__organization {
       color: r-theme-val(course-glimpse, organization-color-hover);
+
+      &-logo {
+        transition: all 0.5s;
+        box-shadow: r-theme-val(course-glimpse, base-hover-shadow);
+      }
     }
   }
 
@@ -38,25 +49,41 @@ $glimpse-selector: ".course-glimpse";
     position: relative;
   }
 
+  &__content {
+    font-size: 1rem;
+  }
+
   &__title {
-    @include font-size($h6-font-size);
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     color: r-theme-val(course-glimpse, title-color);
-    flex: 1 0 1.3em * 3; // 3 lines;
-    line-height: 1.3em;
+    flex: 1 0 1.6em * 3; // 3 lines;
+    line-height: 1.25em;
     overflow: hidden;
+
+    &-text {
+      font-size: 1rem;
+    }
   }
 
   &__metadata {
+    font-size: .9rem;
+
+    .title {
+      max-height: 2.4em;
+    }
+
     &--organization {
       position: relative;
       padding: 0;
       bottom: 0;
+
       svg {
         display: none;
       }
     }
+
     &--code {
       display: none;
     }
@@ -69,12 +96,16 @@ $glimpse-selector: ".course-glimpse";
 
 .course-glimpse-footer,
 .course-glimpse__large-footer {
-  // color: r-color("firebrick6");
-  // background: linear-gradient(180deg, r-color("white"), r-color("light-blue"));
-  // padding: 0.5rem 0.7rem;
-  font-weight: 700;
+  color: r-color("firebrick6");
+  background-color: r-color("white");
+  padding: 0.5rem 0.7rem;
+  font-weight: 600;
+  font-size: .9rem;
+  text-transform: uppercase;
+
   &__date {
     font-weight: unset;
+
     svg {
       display: none;
     }
