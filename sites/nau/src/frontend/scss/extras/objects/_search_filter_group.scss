@@ -1,0 +1,26 @@
+.search-filter-group {
+  margin: 0 $r-search-filters-gutter;
+
+  &__title {
+    margin: 0;
+    padding: 0.3rem 0.5rem 0.3rem 0.1rem;
+    color: r-theme-val(search-filters-group, title-color);
+    font-size: 1.1rem;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__list {
+    @include m-o-list-group__container;
+
+    .search-filter-value-leaf {
+
+      &--disabled {
+        font-style: normal;
+      }
+    }
+  }
+
+  &+.search-filter-group {
+    margin-top: 1rem;
+  }
+}
