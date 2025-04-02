@@ -32,6 +32,10 @@ $r-theme: recursive-map-merge(
       base-color: r-color("firebrick6"),
       base-color-light: r-color("white"),
     ),
+    subheader: (
+      search-border: 1px solid rgba(0, 0, 0, .1),
+      search-border-outline: 0 0 0 0.2rem r-color("firebrick6-hover-shadow"),
+    ),
     course-glimpse: (
       organization-color: r-color("slate-grey"),
       organization-color-hover: r-color("firebrick6"),
@@ -40,6 +44,9 @@ $r-theme: recursive-map-merge(
       offer-price-visibility: hidden,
       base-shadow: 0 0 0.5rem r-color("firebrick6-light-shadow"),
       base-hover-shadow: 0 0 1.5rem r-color("firebrick6-hover-shadow"),
+    ),
+    search-filters-group: (
+      title-color: r-color("black"),
     ),
   )
 );
