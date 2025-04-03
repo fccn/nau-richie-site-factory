@@ -1,0 +1,5 @@
+.nested-item {
+  &--list.nested-item--0 > &__content {
+    font-size: 1rem;
+  }
+}
