@@ -1,0 +1,12 @@
+$characteristics-class: ".characteristics";
+
+#{$characteristics-class} {
+  &__item {
+    margin-bottom: 0.85rem;
+
+    #{$characteristics-class}__icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}

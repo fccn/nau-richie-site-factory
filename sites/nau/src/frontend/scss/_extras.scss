@@ -8,6 +8,7 @@
 
 // Tools
 @import "./extras/tools/external_links";
+@import "./extras/tools/features";
 
 // Components
 @import "./extras/components/content";
@@ -35,4 +36,5 @@
 @import "./extras/components/templates/courses/cms/category_detail";
 @import "./extras/components/templates/courses/cms/organization_detail";
 @import "./extras/components/templates/courses/cms/program_detail";
+@import "./extras/components/templates/richie/nesteditem/nesteditem";
 @import "./extras/components/blogpost_glimpses";

@@ -33,6 +33,13 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
     }
   }
 
+  &__content {
+    div[property="abstract"] {
+      font-size: 1.125rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+
   &__search {
     padding: 0;
 

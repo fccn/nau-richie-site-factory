@@ -1,4 +1,6 @@
-.course-detail {
+$course-details-class: ".course-detail";
+
+#{$course-details-class} {
   &__row {
     margin-top: 2rem;
     text-align: left;
@@ -9,6 +11,18 @@
 
     @include external-link-icon($external-icon);
 
+  }
+
+  &__primary-group &__title {
+    color: r-color("black");
+  }
+
+  &__block {
+    &:not(#{$course-details-class}__block--unpadded) {
+      @include media-breakpoint-up(lg) {
+        padding: 0 0 3rem 0;
+      }
+    }
   }
 
   // In future remove this block and configure the `checkmark-list-decoration-color` variable
@@ -35,6 +49,15 @@
     }
   }
 
+  &__title {
+    font-size: 2rem;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__plan {
+    margin-top: 0;
+  }
+
   &__plan &__title {
     color: inherit;
   }
@@ -42,5 +65,23 @@
   &__organizations &__title {
     color: inherit !important;
     @include font-size($h2-font-size);
+  }
+
+  &__aside &__title {
+    border-bottom: r-theme-val(course-detail, aside-title-border);
+  }
+
+  &__relations  > div {
+    border-top: r-theme-val(course-detail, aside-title-border);
+  }
+
+  &__license &__label {
+    color: r-color("firebrick6");
+    font-weight: $font-weight-regular;
+  }
+
+  &__empty {
+    font-weight: $font-weight-regular;
+    font-style: normal;
   }
 }
