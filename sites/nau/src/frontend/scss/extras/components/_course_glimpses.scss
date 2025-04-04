@@ -63,7 +63,8 @@ $glimpse-selector: ".course-glimpse";
     overflow: hidden;
 
     &-text {
-      font-size: 1rem;
+      font-size: 1.05rem;
+      font-weight: $font-weight-semibold;
     }
   }
 
@@ -100,7 +101,7 @@ $glimpse-selector: ".course-glimpse";
   background-color: r-color("white");
   padding: 0.5rem 0.7rem;
   font-weight: 600;
-  font-size: .9rem;
+  font-size: .815rem;
   text-transform: uppercase;
 
   &__date {

@@ -1,17 +1,75 @@
-.blogpost-glimpse__categories {
+$blogpost-glimpse-class: ".blogpost-glimpse";
+
+#{$blogpost-glimpse-class} {
+  border: r-theme-val(blogpost-glimpse, glimpse-border);
+  padding: .3rem 1rem;
+
+  &__title {
+    margin: 0.4rem 0 0.6rem;
+  }
+}
+
+#{$blogpost-glimpse-class}__categories {
+  padding-left: 0;
+  margin: 0;
+
+  &::before {
+    content: none;
+    position: inherit;
+    width: 0;
+  }
+
   .category-tag {
+    margin: 0;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &::before {
+      color: r-color("firebrick6");
+      top: -2px;
+    }
+
     .category-tag__title {
       color: r-color("firebrick6");
+      text-transform: uppercase;
+      font-weight: $font-weight-semibold;
+      font-size: 0.815rem;
     }
   }
 }
 
-.blogpost-mini__categories {
-  .category-tag {
-    background: none;
+#{$blogpost-glimpse-class}__media {
+  img {
+    border-radius: 0;
+  }
+}
 
-    .category-tag__title {
-      color: r-color("firebrick6");
+.blogpost-mini {
+  &__link {
+    font-weight: $font-weight-regular;
+  }
+
+  &__categories {
+    // override categories to avoid showing the category list on related news aside
+    display: none;
+    padding-left: 0;
+    
+    &::before {
+      content: none;
+    }
+    
+    .category-tag {
+      background: none;
+      
+      &:first-of-type {
+        padding-left: 0;
+      }
+      
+      .category-tag__title {
+        color: r-color("firebrick6");
+      }
     }
   }
 }
