@@ -1,4 +1,6 @@
 .blogpost-detail {
+  border-top: 0;
+
   &__grid-main {
     a:not(h3 a) {
       text-decoration: underline;
@@ -8,12 +10,23 @@
 
   }
 
+  &__grid-aside {
+    .blogpost-glimpse-list__title {
+      font-size: 1.2rem;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
   &__cover {
     margin-block-end: 2rem;
   }
 
   &__excerpt {
     margin-block-end: 2rem;
+    font-weight: $font-weight-semibold;
   }
 
   &__body {
@@ -25,12 +38,61 @@
     }
   }
 
+  &__row {
+    padding: 0 1rem;
+  }
+
+  &__subhead {
+    @include media-breakpoint-up(lg) {
+      justify-content: space-between;
+    }
+  }
+
+  &__pubdate {
+    &::before {
+      content: none;
+      border: none;
+      width: 0;
+    }
+  }
+
+  &__authors {
+    // remove the author list from the blogpost as it is not used
+    display: none;
+  }
+
   &__theme {
+    &::before {
+      content: none;
+      width: 0;
+      
+      @include media-breakpoint-up(lg) {
+        width: 0;
+        padding-left: 0;
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-left: 0;
+    }
+
     .category-tag {
       background: none;
 
+      &:first-of-type {
+        padding-left: 0;
+      }
+
+      &::before {
+        color: r-color("firebrick6");
+        top: -2px;
+      }
+
       .category-tag__title {
         color: r-color("firebrick6");
+        text-transform: uppercase;
+        font-size: 0.825rem;
+        font-weight: $font-weight-semibold;
       }
     }
   }

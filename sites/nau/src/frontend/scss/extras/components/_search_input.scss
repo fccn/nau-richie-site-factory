@@ -4,17 +4,23 @@
 
 .search-input {
   & > input {
-    background-color: r-color("light-blue");
-    border: none;
+    border: r-color("light-stroke") 1px solid;
+    border-radius: $border-radius;
+
+
+    &:focus, &.focus {
+      border: inherit;
+      box-shadow: r-theme-val(subheader, search-border-outline);
+    }
 
     &::placeholder {
-      color: r-color("firebrick6");
+      color: r-color("alt-black");
     }
   }
 
   &__btn__icon {
     width: 1.4rem;
     height: 1.4rem;
-    fill: r-color("firebrick6");
+    fill: r-color("alt-black");
   }
 }

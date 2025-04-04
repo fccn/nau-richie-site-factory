@@ -13,11 +13,15 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
   // spacing
   &__container {
     background: none;
+    padding: 0 0.1rem;
   }
 
   // Main document title
   &__title {
-    padding-left: 1rem;
+    padding: 0 1rem;
+    font-weight: $font-weight-semibold;
+    font-size: 2.5rem;
+    margin: 1rem auto;
   }
 
   // Main subheader container alongside 'aside' container
@@ -31,9 +35,29 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
     }
   }
 
+  &__content {
+    div[property="abstract"] {
+      font-size: 1.125rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+
   &__search {
+    padding: 0;
+
     #{$subheader-selector}__title {
       padding: 0 1rem;
+      font-size: 2.5rem;
+    }
+
+    .richie-react--search-suggest-field 
+    .react-autosuggest__container 
+    .react-autosuggest__input {
+      border: r-theme-val(subheader, search-border);
+
+      &:focus, &.focus {
+        box-shadow: r-theme-val(subheader, search-border-outline);
+      }
     }
   }
 
@@ -54,7 +78,19 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
   }
 
   .breadcrumbs {
-    background: r-color("light-blue");
+    background: transparent;
+
+    &__list {
+      font-size: 0.9;
+    }
+
+    &__item {
+      font-weight: 400;
+
+      a:hover {
+        color: r-color("indianred3");
+      }
+    }
   }
 
   // Component variants

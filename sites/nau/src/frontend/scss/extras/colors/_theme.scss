@@ -4,7 +4,11 @@ $r-theme: recursive-map-merge(
   $r-theme,
   (
     topbar: (
-      item-hover-color: r-color("firebrick6"),
+      menu-border-color: r-color('light-stroke'),
+      item-color: r-color('black'),
+      item-stroke-height: 2px,
+      item-active-color: r-color('black'),
+      item-hover-color: r-color("black"),
     ),
     body-mentions: (
       base-color: r-color("black"),
@@ -16,20 +20,36 @@ $r-theme: recursive-map-merge(
         url("../../richie/images/components/hero_background.svg"),
       content-color: r-color("white"),
       search-input-background: r-color("white"),
+      search-input-placeholder-color: #595959,
       search-btn-background: r-color("white"),
-      search-icon-fill: r-color("firebrick6"),
-      cta-variant-from: r-color("banana"),
+      search-icon-fill: r-color("black"),
+      cta-variant-from: r-color("black"),
       cta-variant-to: rgba(r-color("white"), 0.8),
-      cta-color: r-color("black"),
+      cta-color: r-color("white"),
       cta-border: r-color("white"),
     ),
     spinner: (
       base-color: r-color("firebrick6"),
       base-color-light: r-color("white"),
     ),
+    subheader: (
+      search-border: 1px solid r-color("light-stroke"),
+      search-border-outline: 0 0 0 0.2rem r-color("firebrick6-hover-shadow"),
+    ),
     course-glimpse: (
       organization-color: r-color("slate-grey"),
       organization-color-hover: r-color("firebrick6"),
+      base-shadow: 0 0 0.5rem r-color("firebrick6-light-shadow"),
+      base-hover-shadow: 0 0 1.5rem r-color("firebrick6-hover-shadow"),
+    ),
+    course-detail: (
+      aside-title-border : 1px solid r-color("light-stroke"),
+    ),
+    search-filters-group: (
+      title-color: r-color("black"),
+    ),
+    blogpost-glimpse: (
+      glimpse-border: 1px solid r-color("light-stroke"),
     ),
   )
 );

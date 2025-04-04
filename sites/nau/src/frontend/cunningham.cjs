@@ -3,16 +3,16 @@ module.exports = {
     default: {
       theme: {
         font: {
-          families: { base: 'Rubik', accent: 'Roboto' },
+          families: { base: 'IBM Plex Sans', accent: 'IBM Plex Sans' },
         },
         colors: {
-          'primary-100': '#ffcad1',
+          'primary-100': '#B39AFD',
           'primary-200': '#f19597',
           'primary-300': '#e86a6f',
-          'primary-400': '#074ce1',
-          'primary-500': '#f72c30',
+          'primary-400': '#693ae9',
+          'primary-500': '#693ae9',
           'primary-600': '#e81f2f',
-          'primary-700': '#d60f29',
+          'primary-700': '#1f1a61',
           'primary-800': '#0640bf',
           'primary-900': '#bb0014',
           'secondary-100': '#eff8ff',
@@ -48,9 +48,9 @@ module.exports = {
       },
       components: {
         button: {
-          'font-family': 'Rubik',
-          'font-weight': 'bold',
-          'background-color': '#074ce1',
+          'font-family': 'IBM Plex Sans',
+          'font-weight': '600',
+          'background-color': '#693ae9',
         },
       },
     },
