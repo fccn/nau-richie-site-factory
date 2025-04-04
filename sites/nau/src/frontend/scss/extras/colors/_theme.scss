@@ -51,5 +51,8 @@ $r-theme: recursive-map-merge(
     search-filters-group: (
       title-color: r-color("black"),
     ),
+    blogpost-glimpse: (
+      glimpse-border: 1px solid r-color("light-stroke"),
+    ),
   )
 );
