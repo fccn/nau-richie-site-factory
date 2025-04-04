@@ -13,13 +13,15 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
   // spacing
   &__container {
     background: none;
+    padding: 0 0.1rem;
   }
 
   // Main document title
   &__title {
-    padding-left: 1rem;
+    padding: 0 1rem;
     font-weight: $font-weight-semibold;
     font-size: 2.5rem;
+    margin: 1rem auto;
   }
 
   // Main subheader container alongside 'aside' container
