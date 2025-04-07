@@ -532,6 +532,13 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         environ_prefix=None,
     )
 
+    # Course run price currency value that would be shown on course detail page
+    RICHIE_DEFAULT_COURSE_RUN_PRICE_CURRENCY = values.Value(
+        "EUR",
+        environ_name="RICHIE_DEFAULT_COURSE_RUN_PRICE_CURRENCY",
+        environ_prefix=None,
+    )
+
     # Demo
     RICHIE_DEMO_SITE_DOMAIN = "localhost:8080"
     RICHIE_DEMO_FIXTURES_DIR = os.path.join(BASE_DIR, "base", "fixtures")
