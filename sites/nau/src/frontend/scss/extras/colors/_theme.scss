@@ -54,5 +54,8 @@ $r-theme: recursive-map-merge(
     blogpost-glimpse: (
       glimpse-border: 1px solid r-color("light-stroke"),
     ),
+    organization-detail: (
+      logo-box-shadow: 0 0 0.5rem r-color("firebrick6-hover-shadow"),
+    ),
   )
 );
