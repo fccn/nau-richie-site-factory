@@ -31,6 +31,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ♿️(styles) set default font to 16px
 - ♿️(styles) set footer link spacing to 44px height
 - ♿️(styles) improve heading spacing in blogpost
+- ⬆️(ap) upgrade richie to v3.0.0
 
 ### Added
 
