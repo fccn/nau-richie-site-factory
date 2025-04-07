@@ -1,0 +1,28 @@
+$program-glimpse-class: ".program-glimpse";
+
+#{$program-glimpse-class} {
+  &__title {
+    font-size: 1.2rem;
+    color: r-color("black");
+    font-weight: $font-weight-semibold;
+    min-height: 1rem * 3;
+  }
+
+  &__wrapper {
+    p {
+      display: -webkit-box;
+      line-clamp: 4;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  &__media {
+    &::after {
+      content: none;
+      height: 0;
+      background: none;
+    }
+  }
+}
