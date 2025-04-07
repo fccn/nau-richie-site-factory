@@ -1,10 +1,42 @@
-.category-detail {
+$category-detail-class: ".category-detail";
+
+#{$category-detail-class} {
+  &__logo {
+    padding: 1rem;
+    box-shadow: r-theme-val(organization-detail, logo-box-shadow);
+  }
+
   &__intro {
-    .category-detail {
-      &__title {
-        img {
-          display: none;
-        }
+    #{$category-detail-class}__title {
+      img {
+        display: none;
+      }
+    }
+  }
+
+  &__banner {
+    img {
+      border-radius: $border-radius;
+    }
+
+    &::after {
+      content: none;
+      height: 0;
+    }
+  }
+
+  &__row {
+    & #{$category-detail-class}__title {
+      color: r-color("black");
+      font-size: 2.8rem;
+      font-weight: $font-weight-semibold;
+    }
+
+    .course-glimpse-list__header {
+      & #{$category-detail-class}__title {
+        color: r-color("black");
+        font-size: 2.2rem;
+        font-weight: $font-weight-semibold;
       }
     }
   }

@@ -1,10 +1,43 @@
-.organization-detail {
+$organization-detail-class: ".organization-detail";
+
+#{$organization-detail-class} {
+  &__logo {
+    padding: 1rem;
+    box-shadow: r-theme-val(organization-detail, logo-box-shadow);
+  }
+
   &__row {
     a:not(h3 a) {
       text-decoration: underline;
     }
-    
+
     @include external-link-icon($external-icon);
 
+    & #{$organization-detail-class}__title {
+      font-size: 2.2rem;
+      font-weight: $font-weight-semibold;
+    }
+
+  }
+
+  &__banner {
+    &>img {
+      border-radius: $border-radius;
+    }
+
+    &::after {
+      content: none;
+      height: 0;
+    }
+  }
+
+  &__intro {
+    #{$organization-detail-class}__title {
+      padding: 2rem 0 1rem 0;
+      color: r-color("black");
+      font-size: 2.8rem;
+      font-weight: $font-weight-semibold;
+
+    }
   }
 }

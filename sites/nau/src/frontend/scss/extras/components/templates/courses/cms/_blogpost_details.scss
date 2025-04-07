@@ -17,11 +17,20 @@
       &::after {
         content: none;
       }
+
+      span {
+        color: r-color("black");
+      }
     }
   }
 
   &__cover {
     margin-block-end: 2rem;
+
+    img {
+      margin: 0;
+      border-radius: 0;
+    }
   }
 
   &__excerpt {
