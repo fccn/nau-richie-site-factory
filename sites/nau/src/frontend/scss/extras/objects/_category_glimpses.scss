@@ -40,14 +40,15 @@ $category-tag-class: ".category-tag";
 .category-badge-list {
   .category-badge {
     @include r-button-colors(
-      r-theme-val(category-badges, primary-item),
-      $apply-border: true
+      r-theme-val(category-badges, secondary-item),
+      $apply-border: false
     );
+    font-weight: $font-weight-regular;
 
     &:hover,
     &:focus {
-      background-color: r-color("midnightblue");
       color: r-color("white");
+      background-color: r-color("indianred3");
     }
   }
 }
@@ -56,9 +57,14 @@ $category-tag-class: ".category-tag";
 // Person glimpse
 .person-glimpse {
   &__categories {
-    .category-tag:hover {
-      color: r-color("white");
-      background-color: r-color("midnightblue");
+    .category-tag {
+      background-color: r-color("firebrick6");
+      font-weight: $font-weight-semibold;
+
+      &:hover {
+        color: r-color("white");
+        background-color: r-color("indianred3");
+      }
     }
   }
 }

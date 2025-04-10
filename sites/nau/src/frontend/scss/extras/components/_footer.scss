@@ -29,6 +29,7 @@ $footer-logo-size-lg: 18.125rem;
   &__navigation-container {
     @include make-container();
     @include make-container-max-widths();
+    display: flex;
   }
 
   &__copyright {

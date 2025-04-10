@@ -11,6 +11,11 @@ $course-details-class: ".course-detail";
 
     @include external-link-icon($external-icon);
 
+    &#{$course-details-class}__team {
+      a {
+        text-decoration: none;
+      }
+    }
   }
 
   &__primary-group &__title {
