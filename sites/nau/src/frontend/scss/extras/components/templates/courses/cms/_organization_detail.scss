@@ -11,6 +11,22 @@ $organization-detail-class: ".organization-detail";
       text-decoration: underline;
     }
 
+    .person-glimpse-list {
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .button-caesura a {
+      text-decoration: none;
+    }
+
+    .pagination {
+      &__list a {
+        text-decoration: none;
+      }
+    }
+
     @include external-link-icon($external-icon);
 
     & #{$organization-detail-class}__title {
