@@ -14,6 +14,7 @@ $r-theme: recursive-map-merge(
       base-color: r-color("black"),
       base-background: r-color("white"),
       poweredby-hover: r-color("black"),
+      top-stoke: 1px solid r-color("light-stroke"),
     ),
     hero-intro: (
       insert-background-image:
@@ -54,8 +55,15 @@ $r-theme: recursive-map-merge(
     blogpost-glimpse: (
       glimpse-border: 1px solid r-color("light-stroke"),
     ),
+    program-glimpse: (
+      glimpse-shadow: 0 0 0.5rem r-color("firebrick6-light-shadow"),
+      glimpse-shadow-over: 0 0 1.5rem r-color("firebrick6-hover-shadow"),
+    ),
     organization-detail: (
       logo-box-shadow: 0 0 0.5rem r-color("firebrick6-hover-shadow"),
     ),
-  )
+    body-footer: (
+      footer-stroke: 1px solid r-color("white-stroke"),
+    ),
+  ),
 );
