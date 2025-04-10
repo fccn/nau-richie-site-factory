@@ -1,6 +1,13 @@
 $program-glimpse-class: ".program-glimpse";
 
 #{$program-glimpse-class} {
+  box-shadow: r-theme-val(program-glimpse, glimpse-shadow);
+
+  &:hover {
+    box-shadow: r-theme-val(program-glimpse, glimpse-shadow-over);
+    transition: 0.5s all;
+  }
+
   &__title {
     font-size: 1.2rem;
     color: r-color("black");
