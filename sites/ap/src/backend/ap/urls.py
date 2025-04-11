@@ -19,6 +19,8 @@ from richie.apps.courses.urls import urlpatterns as courses_urlpatterns
 from richie.apps.search.urls import urlpatterns as search_urlpatterns
 from richie.plugins.urls import urlpatterns as plugins_urlpatterns
 
+from ..oauth.views import CustomLoginView
+
 # For now, we use URLPathVersioning to be consistent with fonzie. Fonzie uses it
 # because DRF OpenAPI only supports URLPathVersioning for now. See fonzie
 # API_PREFIX config for more information.
@@ -45,6 +47,7 @@ urlpatterns = [
     re_path(r"^redirects/", include([*redirects_urlpatterns])),
     path(r"", include("base.urls")),
     path(r"", include("filer.server.urls")),
+    path("", include("social_django.urls", namespace="social")),
 ]
 
 if is_joanie_enabled() and is_feature_enabled("REACT_DASHBOARD"):
@@ -60,6 +63,7 @@ if is_joanie_enabled() and is_feature_enabled("REACT_DASHBOARD"):
 
 urlpatterns += i18n_patterns(
     path(r"admin/", admin.site.urls),
+    path(r"accounts/login/", CustomLoginView.as_view(), name="login"),
     path(r"accounts/", include("django.contrib.auth.urls")),
     path(r"", include("cms.urls")),  # NOQA
 )
