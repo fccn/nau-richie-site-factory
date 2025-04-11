@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(ap) created sso between richie and lms
+
 ## [1.2.1] - 2025-04-16
 
 ### Fixed
