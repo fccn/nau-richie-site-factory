@@ -1,0 +1,123 @@
+#!/bin/bash
+set -eo pipefail
+
+# This script restores a MySQL database from a backup file.
+# It takes several arguments to specify the source and target environments,
+# the backup file, and MySQL connection details.
+# It also handles the replacement of the source environment domain with the target environment domain in the database.
+# The script uses the `mysql` command-line client to perform the restore operation.
+# It is assumed that the MySQL server is running and accessible with the provided credentials.
+# The script also checks for the presence of the backup file and creates the target database if it does not exist.
+# The script uses `zcat` to decompress the backup file and `sed` to extract the relevant SQL statements for the restore operation.
+# The script also checks for the presence of the `pv` command to show progress during the restore operation.
+
+# Default values for the script arguments
+FROM_ENV=""
+TO_ENV=""
+BACKUP_FILE=""
+DB_FROM=""
+DB_TO=""
+MYSQL_ROOT_PASSWORD=""
+MYSQL_HOST=""
+MYSQL_PORT=""
+
+# Function to display usage instructions
+usage() {
+    echo "Usage: $0 -f <from_env> -t <to_env> -b <backup_file> -d <db_to> -p <mysql_root_password> -h <mysql_host> -P <mysql_port>"
+    echo "       $0 --from <from_env> --to <to_env> --backup <backup_file> --db <db_to> --password <mysql_root_password> --host <mysql_host> --port <mysql_port>"
+    echo "Example: $0 -f www.example.com -t dev.example.com -b backup-2023-10-01.sql.gz -d my_database -p root_password -h localhost -P 3306"
+    exit 1
+}
+
+# Parse command-line arguments using getopts and manual parsing for long options
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        # Source environment (e.g., production domain)
+        # This is the domain where the backup was created
+        # and the one that will be replaced in the restored database
+        -f|--from)
+            FROM_ENV="$2"
+            shift 2
+            ;;
+        # Target environment (e.g., development domain)
+        # This is the domain to which the backup will be restored
+        # and the one that will be used in the restored database
+        -t|--to)
+            TO_ENV="$2"
+            shift 2
+            ;;
+        # Backup file name (e.g., backup-2023-10-01.sql.gz)
+        # This is the name of the backup file to be restored
+        -b|--backup)
+            BACKUP_FILE="$2"
+            shift 2
+            ;;
+        # MySQL database name (e.g., my_database)
+        # This is the name of the database where the backup will be restored
+        -d|--db)
+            DB_TO="$2"
+            shift 2
+            ;;
+        # MySQL root password
+        -p|--password)
+            MYSQL_ROOT_PASSWORD="$2"
+            shift 2
+            ;;
+        # MySQL host (e.g., localhost)
+        -h|--host)
+            MYSQL_HOST="$2"
+            shift 2
+            ;;
+        # MySQL port (e.g., 3306)
+        -P|--port)
+            MYSQL_PORT="$2"
+            shift 2
+            ;;
+        # Display usage if an invalid option is provided
+        *)
+            usage
+            ;;
+    esac
+done
+
+if [[ -z "$DB_FROM" ]]; then
+    DB_FROM=$DB_TO
+fi
+
+# Validate that all required arguments are provided
+if [[ -z "$FROM_ENV" || -z "$TO_ENV" || -z "$BACKUP_FILE" || -z "$DB_TO" || -z "$MYSQL_ROOT_PASSWORD" || -z "$MYSQL_HOST" || -z "$MYSQL_PORT" ]]; then
+    echo "Error: Missing required arguments."
+    usage
+fi
+
+# Define the root directory (current working directory)
+ROOT_DIR=$(pwd)
+
+# Check if the backup file exists in the root directory
+if [[ ! -f "$ROOT_DIR/$BACKUP_FILE" ]]; then
+    echo "Error: Backup file '$BACKUP_FILE' not found in '$ROOT_DIR'."
+    exit 1
+fi
+
+MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u root --host "$MYSQL_HOST" --port "$MYSQL_PORT" -e "CREATE DATABASE IF NOT EXISTS \`${DB_TO}\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
+
+# The backup file is decompressed and piped directly into the MySQL client
+echo "Loading to '${DB_TO}' MySQL database the backup file '${BACKUP_FILE}'."
+zcat "$ROOT_DIR/$BACKUP_FILE" | sed -n '/^-- Current Database: /q;p' > temp.sql || printf ""
+zcat "$ROOT_DIR/$BACKUP_FILE" | sed -n "/^-- Current Database: \`$DB_FROM\`/,/^-- Current Database: \`/p" >> temp.sql
+
+# Replace occurrences of FROM_ENV with TO_ENV in the SQL file
+sed -i "s/${FROM_ENV}/${TO_ENV}/g" temp.sql
+
+CAT_EXEC="cat"
+# if pv is installed, use it to show progress
+if command -v pv &> /dev/null; then
+    CAT_EXEC="pv"
+fi
+$CAT_EXEC temp.sql | MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u root --host "$MYSQL_HOST" --port "$MYSQL_PORT"
+
+echo "Cleaning up temporary files..."
+rm -f temp.sql
+
+# Notify the user that the restore operation is complete
+echo "Done!"
