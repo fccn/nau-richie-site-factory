@@ -344,66 +344,11 @@ version: 2.1
 workflows:
     ap:
         jobs:
-            - check-changelog:
-                filters:
-                    branches:
-                        ignore: master
-                name: check-changelog-ap
-                site: ap
-            - lint-changelog:
-                filters:
-                    branches:
-                        ignore: master
-                    tags:
-                        only: /ap-.*/
-                name: lint-changelog-ap
-                site: ap
-            - build-front-production:
+            - no-change:
                 filters:
                     tags:
-                        only: /ap-.*/
-                name: build-front-production-ap
-                site: ap
-            - lint-front:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: lint-front-ap
-                requires:
-                    - build-front-production-ap
-                site: ap
-            - build-back:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: build-back-ap
-                site: ap
-            - lint-back:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: lint-back-ap
-                requires:
-                    - build-back-ap
-                site: ap
-            - test-back:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: test-back-ap
-                requires:
-                    - build-back-ap
-                site: ap
-            - hub:
-                filters:
-                    tags:
-                        only: /^ap-.*/
-                image_name: ap
-                name: hub-ap
-                requires:
-                    - lint-front-ap
-                    - lint-back-ap
-                site: ap
+                        only: /.*/
+                name: no-change-ap
     nau:
         jobs:
             - check-changelog:
