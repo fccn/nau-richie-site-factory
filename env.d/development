@@ -11,7 +11,7 @@ RICHIE_ES_HOST=elasticsearch
 # MySQL db container configuration
 MYSQL_ROOT_PASSWORD=pass
 MYSQL_DATABASE=richie_${RICHIE_SITE}
-MYSQL_USER=richie_nau
+MYSQL_USER=richie_${RICHIE_SITE}
 MYSQL_PASSWORD=pass
 
 # App database configuration
