@@ -406,11 +406,66 @@ workflows:
                 site: ap
     nau:
         jobs:
-            - no-change:
+            - check-changelog:
+                filters:
+                    branches:
+                        ignore: master
+                name: check-changelog-nau
+                site: nau
+            - lint-changelog:
+                filters:
+                    branches:
+                        ignore: master
+                    tags:
+                        only: /nau-.*/
+                name: lint-changelog-nau
+                site: nau
+            - build-front-production:
                 filters:
                     tags:
-                        only: /.*/
-                name: no-change-nau
+                        only: /nau-.*/
+                name: build-front-production-nau
+                site: nau
+            - lint-front:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: lint-front-nau
+                requires:
+                    - build-front-production-nau
+                site: nau
+            - build-back:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: build-back-nau
+                site: nau
+            - lint-back:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: lint-back-nau
+                requires:
+                    - build-back-nau
+                site: nau
+            - test-back:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: test-back-nau
+                requires:
+                    - build-back-nau
+                site: nau
+            - hub:
+                filters:
+                    tags:
+                        only: /^nau-.*/
+                image_name: nau
+                name: hub-nau
+                requires:
+                    - lint-front-nau
+                    - lint-back-nau
+                site: nau
     site-factory:
         jobs:
             - lint-git:
