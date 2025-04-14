@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 10:42+0000\n"
+"POT-Creation-Date: 2025-04-14 14:41+0100\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -80,7 +80,36 @@ msgstr ""
 msgid "Teaser"
 msgstr ""
 
-#: ap/settings.py:438 ap/settings.py:453
+#: ap/settings.py:438 ap/settings.py:453 ap/tests/test_cache_ttl.py:71
+#: ap/tests/test_cache_ttl.py:92 ap/tests/test_cache_ttl.py:129
+#: ap/tests/test_cache_ttl.py:150 ap/tests/test_cache_ttl.py:193
+#: ap/tests/test_cache_ttl.py:214 ap/tests/test_cache_ttl.py:242
+#: ap/tests/test_cache_ttl.py:263 ap/tests/test_cache_ttl.py:300
+#: ap/tests/test_cache_ttl.py:321 ap/tests/test_cache_ttl.py:358
+#: ap/tests/test_cache_ttl.py:379 ap/tests/test_cache_ttl.py:417
+#: ap/tests/test_cache_ttl.py:438 ap/tests/test_cache_ttl.py:476
+#: ap/tests/test_cache_ttl.py:497
+#: ap/tests/test_courses_templates_course_detail_rendering.py:23
+#: ap/tests/test_courses_templates_course_detail_rendering.py:44
+#: ap/tests/test_error_view.py:20 ap/tests/test_error_view.py:41
+#: ap/tests/test_google_tag_manager.py:23
+#: ap/tests/test_google_tag_manager.py:44
+#: ap/tests/test_google_tag_manager.py:91
+#: ap/tests/test_google_tag_manager.py:112
+#: ap/tests/test_google_tag_manager.py:157
+#: ap/tests/test_google_tag_manager.py:178 ap/tests/test_help_desk.py:21
+#: ap/tests/test_help_desk.py:42 ap/tests/test_help_desk.py:69
+#: ap/tests/test_help_desk.py:90 ap/tests/test_language_cookies.py:23
+#: ap/tests/test_language_cookies.py:44 ap/tests/test_maintenance.py:23
+#: ap/tests/test_maintenance.py:44 ap/tests/test_maintenance.py:69
+#: ap/tests/test_maintenance.py:90 ap/tests/test_maintenance.py:117
+#: ap/tests/test_maintenance.py:138 ap/tests/test_open_graph.py:22
+#: ap/tests/test_open_graph.py:43 ap/tests/test_redirect_course_page.py:21
+#: ap/tests/test_redirect_course_page.py:42 base/tests/test_cache.py:38
+#: base/tests/test_cache.py:59 base/tests/test_cache.py:123
+#: base/tests/test_cache.py:144 base/tests/test_redirects.py:15
+#: base/tests/test_redirects.py:36 base/tests/test_settings.py:17
+#: base/tests/test_settings.py:38
 msgid "Portuguese Lang"
 msgstr "Português"
 
@@ -131,6 +160,40 @@ msgstr ""
 #: ap/settings.py:809
 msgid "More than two hours"
 msgstr ""
+
+#: ap/tests/test_cache_ttl.py:71 ap/tests/test_cache_ttl.py:84
+#: ap/tests/test_cache_ttl.py:129 ap/tests/test_cache_ttl.py:142
+#: ap/tests/test_cache_ttl.py:193 ap/tests/test_cache_ttl.py:206
+#: ap/tests/test_cache_ttl.py:242 ap/tests/test_cache_ttl.py:255
+#: ap/tests/test_cache_ttl.py:300 ap/tests/test_cache_ttl.py:313
+#: ap/tests/test_cache_ttl.py:358 ap/tests/test_cache_ttl.py:371
+#: ap/tests/test_cache_ttl.py:417 ap/tests/test_cache_ttl.py:430
+#: ap/tests/test_cache_ttl.py:476 ap/tests/test_cache_ttl.py:489
+#: ap/tests/test_courses_templates_course_detail_rendering.py:23
+#: ap/tests/test_courses_templates_course_detail_rendering.py:36
+#: ap/tests/test_error_view.py:20 ap/tests/test_error_view.py:33
+#: ap/tests/test_google_tag_manager.py:23
+#: ap/tests/test_google_tag_manager.py:36
+#: ap/tests/test_google_tag_manager.py:91
+#: ap/tests/test_google_tag_manager.py:104
+#: ap/tests/test_google_tag_manager.py:157
+#: ap/tests/test_google_tag_manager.py:170 ap/tests/test_help_desk.py:21
+#: ap/tests/test_help_desk.py:34 ap/tests/test_help_desk.py:69
+#: ap/tests/test_help_desk.py:82 ap/tests/test_language_cookies.py:23
+#: ap/tests/test_language_cookies.py:36 ap/tests/test_maintenance.py:23
+#: ap/tests/test_maintenance.py:36 ap/tests/test_maintenance.py:69
+#: ap/tests/test_maintenance.py:82 ap/tests/test_maintenance.py:117
+#: ap/tests/test_maintenance.py:130 ap/tests/test_open_graph.py:22
+#: ap/tests/test_open_graph.py:35 ap/tests/test_redirect_course_page.py:21
+#: ap/tests/test_redirect_course_page.py:34 base/tests/test_cache.py:38
+#: base/tests/test_cache.py:51 base/tests/test_cache.py:123
+#: base/tests/test_cache.py:136 base/tests/test_redirects.py:15
+#: base/tests/test_redirects.py:28 base/tests/test_settings.py:17
+#: base/tests/test_settings.py:30
+#, fuzzy
+#| msgid "English Lang"
+msgid "English Lang"
+msgstr "English"
 
 #: templates/ap/_footer.html:12
 msgid "Homepage"
@@ -197,37 +260,32 @@ msgstr "Siga-nos no Instagram"
 msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"
 
-#, fuzzy
-#~| msgid "English Lang"
-#~ msgid "English Lang"
-#~ msgstr "English"
+msgid "Sub categories"
+msgstr "Sub-categorias"
 
-#~ msgid "Sub categories"
-#~ msgstr "Sub-categorias"
+msgid "Courses pagination"
+msgstr "Paginação de cursos"
 
-#~ msgid "Courses pagination"
-#~ msgstr "Paginação de cursos"
+msgid "See all courses"
+msgstr "Ver todos os cursos"
 
-#~ msgid "See all courses"
-#~ msgstr "Ver todos os cursos"
+msgid "Related organizations pagination"
+msgstr "Paginação de Organizações relacionadas"
 
-#~ msgid "Related organizations pagination"
-#~ msgstr "Paginação de Organizações relacionadas"
+msgid "Related blogposts"
+msgstr "Posts de blog relacionados"
 
-#~ msgid "Related blogposts"
-#~ msgstr "Posts de blog relacionados"
+msgid "Related blogposts pagination"
+msgstr "Paginação de posts de blog relacionados"
 
-#~ msgid "Related blogposts pagination"
-#~ msgstr "Paginação de posts de blog relacionados"
+msgid "Related persons"
+msgstr "Pessoas relacionadas"
 
-#~ msgid "Related persons"
-#~ msgstr "Pessoas relacionadas"
+msgid "Related persons pagination"
+msgstr "Paginação de pessoas relacionadas"
 
-#~ msgid "Related persons pagination"
-#~ msgstr "Paginação de pessoas relacionadas"
+msgid "No other open course runs"
+msgstr "Não existem outras edições abertas"
 
-#~ msgid "No other open course runs"
-#~ msgstr "Não existem outras edições abertas"
-
-#~ msgid "No open course runs"
-#~ msgstr "Não existem edições abertas"
+msgid "No open course runs"
+msgstr "Não existem edições abertas"

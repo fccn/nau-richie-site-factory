@@ -242,9 +242,9 @@ i18n: \
 
 i18n-back: ## create/update .po files and compile .mo files used for i18n
 	@$(MANAGE) makemessages --keep-pot --all
-#	@echo 'Reactivating obsolete strings (allow overriding strings defined in dependencies)'
-#	@$(COMPOSE_RUN_APP) find ./ -type f -name django.po -exec sed -i 's/#~ //g' {} \;
-#	@$(MANAGE) compilemessages
+	@echo 'Reactivating obsolete strings (allow overriding strings defined in dependencies)'
+	@$(COMPOSE_RUN_APP) find ./ -type f -name django.po -exec sed -i 's/#~ //g' {} \;
+	@$(MANAGE) compilemessages
 .PHONY: i18n-back
 
 i18n-front: ## Extract and compile translation files used for react-intl
