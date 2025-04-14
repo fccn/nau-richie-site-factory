@@ -17,6 +17,7 @@ TO_ENV=""
 BACKUP_FILE=""
 DB_FROM=""
 DB_TO=""
+DB_USER="root"
 MYSQL_ROOT_PASSWORD=""
 MYSQL_HOST=""
 MYSQL_PORT=""
@@ -56,6 +57,11 @@ while [[ $# -gt 0 ]]; do
         # This is the name of the database where the backup will be restored
         -d|--db)
             DB_TO="$2"
+            shift 2
+            ;;
+        # MySQL user name (defaults to, root)
+        -u|--user)
+            DB_USER="$2"
             shift 2
             ;;
         # MySQL root password
@@ -99,7 +105,7 @@ if [[ ! -f "$ROOT_DIR/$BACKUP_FILE" ]]; then
     exit 1
 fi
 
-MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u root --host "$MYSQL_HOST" --port "$MYSQL_PORT" -e "CREATE DATABASE IF NOT EXISTS \`${DB_TO}\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
+MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u "$DB_USER" --host "$MYSQL_HOST" --port "$MYSQL_PORT" -e "CREATE DATABASE IF NOT EXISTS \`${DB_TO}\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
 
 # The backup file is decompressed and piped directly into the MySQL client
 echo "Loading to '${DB_TO}' MySQL database the backup file '${BACKUP_FILE}'."
@@ -114,7 +120,7 @@ CAT_EXEC="cat"
 if command -v pv &> /dev/null; then
     CAT_EXEC="pv"
 fi
-$CAT_EXEC temp.sql | MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u root --host "$MYSQL_HOST" --port "$MYSQL_PORT"
+$CAT_EXEC temp.sql | MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u "$DB_USER" --host "$MYSQL_HOST" --port "$MYSQL_PORT"
 
 echo "Cleaning up temporary files..."
 rm -f temp.sql
