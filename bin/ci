@@ -72,6 +72,7 @@ function update_sources() {
             check_changes "^Dockerfile$" || \
             check_changes "^${site_path}/requirements/" || \
             check_changes "^${site_path}/src/" ;
+            check_changes "^${site_path}/CHANGELOG.md" ;
         then
             template=".circleci/src/workflows/site_jobs.yml.tpl"
         else

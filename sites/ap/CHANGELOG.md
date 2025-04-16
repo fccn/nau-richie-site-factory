@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 💚(ap) adjust CI build
+
 ## [1.2.0] - 2025-04-16
 
 ### Changed
