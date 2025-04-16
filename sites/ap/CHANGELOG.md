@@ -8,13 +8,17 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- ⬆️(ap) upgrade richie to v3.0.0
+
 ## [1.1.1] - 2025-04-01
 
 ### Fixed
 
 - 🐛(ap) adjusted login redirect
-    - Override backend authentication to adjust the 
-    login redirect 
+  Override backend authentication to adjust the 
+  login redirect 
 
 ## [1.1.0] - 2025-03-21
 
@@ -23,10 +27,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔧(ap) add media S3 default ACL to `public-read`
 - 🔧(ap) allow to configure Django Storages from environment `DJANGO_STORAGES`
 - ✨(ap) added features to meet the first release requirements
-    - Changed logo image
-    - Removed english language and leave only portuguese
-    - Set the missing variable `RICHIE_FILTERS_PRESENTATION`
-    to have the filters working
+  Changed logo image
+  Removed english language and leave only portuguese
+  Set the missing variable `RICHIE_FILTERS_PRESENTATION`
+  to have the filters working
 
 ### Changed
 - Updated the favicon and apple touch icon variants
