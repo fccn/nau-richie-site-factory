@@ -28,6 +28,7 @@ $r-theme: recursive-map-merge(
     course-glimpse: (
       organization-color: r-color("slate-grey"),
       organization-color-hover: r-color("firebrick6"),
+      footer: $light-grey-scheme,
       offer-icon-visibility: hidden,
       offer-certificate-icon-visibility: hidden,
       offer-price-visibility: hidden,
