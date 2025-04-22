@@ -4,7 +4,7 @@
       text-decoration: underline;
     }
     
-    @include external-link-icon($external-icon);
+    @include external-link-icon(r-color("black"));
   }
 
   &__excerpt {

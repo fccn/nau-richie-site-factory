@@ -97,8 +97,6 @@ $footer-logo-size-lg: 18.125rem;
       }
 
       $nesteditem-base-selector: ".nested-item";
-      $external-icon: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkMmQyZDIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1zcXVhcmUtYXJyb3ctb3V0LXVwLXJpZ2h0Ij48cGF0aCBkPSJNMjEgMTN2NmEyIDIgMCAwIDEtMiAySDVhMiAyIDAgMCAxLTItMlY1YTIgMiAwIDAgMSAyLTJoNiIvPjxwYXRoIGQ9Im0yMSAzLTkgOSIvPjxwYXRoIGQ9Ik0xNSAzaDZ2NiIvPjwvc3ZnPg==");
-
 
       #{$nesteditem-base-selector}__content {
         font-size: 1rem;
@@ -108,7 +106,7 @@ $footer-logo-size-lg: 18.125rem;
         li {
           padding: 0.1rem 0.1rem 0.1rem 0rem;
 
-          @include external-link-icon($external-icon);
+          @include external-link-icon(r-color("white"));
         }
       }
     }

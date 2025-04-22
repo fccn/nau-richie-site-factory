@@ -9,7 +9,7 @@ $course-details-class: ".course-detail";
       text-decoration: underline;
     }
 
-    @include external-link-icon($external-icon);
+    @include external-link-icon(r-color("black"));
 
     &#{$course-details-class}__team {
       a {

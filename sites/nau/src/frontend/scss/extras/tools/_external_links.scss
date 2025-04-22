@@ -1,13 +1,24 @@
 //
 // Add an external link icon and style
 //
+@function encode-hex-color($color) {
+  $hex: inspect($color);
+  
+  @if str-slice($hex, 1, 1) == '#' {
+    @return '%23' + str-slice($hex, 2);
+  }
+  
+  @return $hex;
+}
 
-@mixin external-link-icon($icon) {
+@mixin external-link-icon($color) {
+  $hex-color: encode-hex-color($color);
+
   a[target="_blank"] {
     &:after {
       content: '';
       margin-inline: 0.2rem 0.4rem;
-      background-image: $icon;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$hex-color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>'); 
       background-repeat: no-repeat;
       background-size: 14px 14px;
       display: inline-block;
