@@ -6,6 +6,10 @@ $organization-detail-class: ".organization-detail";
     box-shadow: r-theme-val(organization-detail, logo-box-shadow);
   }
 
+  &__description {
+    color: r-color("black");
+  }
+
   &__row {
     a:not(h3 a) {
       text-decoration: underline;
@@ -27,7 +31,7 @@ $organization-detail-class: ".organization-detail";
       }
     }
 
-    @include external-link-icon($external-icon);
+    @include external-link-icon(r-color("black"));
 
     & #{$organization-detail-class}__title {
       font-size: 2.2rem;
