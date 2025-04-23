@@ -15,9 +15,21 @@ $glimpse-selector: ".course-glimpse";
   $glimpse-item-selector: &;
 
   box-shadow: r-theme-val(course-glimpse, base-shadow);
+  border-radius: $border-radius;
 
   #{$glimpse-selector}__organization-logo {
     box-shadow: r-theme-val(course-glimpse, base-shadow);
+  }
+
+  &__body {
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+  }
+
+  &:hover &__body,
+  &:focus-within &__body {
+    box-shadow: none;
   }
 
   &:hover,
@@ -47,6 +59,8 @@ $glimpse-selector: ".course-glimpse";
     display: flex;
     flex-direction: column;
     position: relative;
+    border-radius: 0;
+    min-height: 10rem;
   }
 
   &__content {
@@ -98,11 +112,22 @@ $glimpse-selector: ".course-glimpse";
 .course-glimpse-footer,
 .course-glimpse__large-footer {
   color: r-color("firebrick6");
-  background-color: r-color("white");
+  background: r-color("white");
   padding: 0.5rem 0.7rem;
   font-weight: 600;
   font-size: .815rem;
   text-transform: uppercase;
+
+  &:after {
+    content: none;
+    position: inherit;
+  }
+
+  &__column {
+    span {
+      max-width: initial;
+    }
+  }
 
   &__date {
     font-weight: unset;
@@ -111,4 +136,11 @@ $glimpse-selector: ".course-glimpse";
       display: none;
     }
   }
+}
+
+.course-glimpse:hover .course-glimpse-footer,
+.course-glimpse:hover .course-glimpse__large-footer,
+.course-glimpse:focus-within .course-glimpse-footer,
+.course-glimpse:focus-within .course-glimpse__large-footer {
+  transform: none;
 }
