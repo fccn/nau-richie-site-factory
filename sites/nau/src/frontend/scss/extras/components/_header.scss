@@ -92,7 +92,7 @@
           position: relative;
 
           @if r-theme-val(topbar, item-hover-color) {
-            &::after {
+            &:is(a)::after {
               position: absolute;
               height: r-theme-val(topbar, item-stroke-height);
               background-color: r-theme-val(topbar, item-hover-color);
