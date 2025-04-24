@@ -7,6 +7,17 @@
     @include external-link-icon(r-color("black"));
   }
 
+  &__content {
+    padding-left: 1rem;
+  }
+
+  &__main {
+
+    .subheader__teaser {
+      margin: 2rem 0 1rem 1rem;
+    }
+  }
+
   &__excerpt {
     font-size: 1.2rem;
   }

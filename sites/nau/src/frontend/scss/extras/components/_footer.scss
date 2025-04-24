@@ -30,6 +30,10 @@ $footer-logo-size-lg: 18.125rem;
     @include make-container();
     @include make-container-max-widths();
     display: flex;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+    }
   }
 
   &__copyright {
@@ -114,13 +118,28 @@ $footer-logo-size-lg: 18.125rem;
 
   &__insert {
     order: 0;
+
+    @include media-breakpoint-down(md){
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+    }
   }
 
   &__menu {
     order: 0;
     font-size: 1.1rem;
     margin-right: 0;
-    min-width: 55%;
+
+    @include media-breakpoint-up(lg) {
+      min-width: 55%;
+    }
+
+    @include media-breakpoint-down(md){
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+    }
 
     a {
       padding: 0.35rem 0;
