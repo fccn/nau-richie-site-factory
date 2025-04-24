@@ -16,6 +16,7 @@ $glimpse-selector: ".course-glimpse";
 
   box-shadow: r-theme-val(course-glimpse, base-shadow);
   border-radius: $border-radius;
+  z-index: 0;
 
   #{$glimpse-selector}__organization-logo {
     box-shadow: r-theme-val(course-glimpse, base-shadow);

@@ -23,6 +23,7 @@
 
   // Brand part with hamburger and clickable logo
   &__brand {
+    justify-content: space-between;
 
     &>h1 {
       margin: 0;

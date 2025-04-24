@@ -32,6 +32,16 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
 
     & > .subheader__title {
       padding: 0;
+
+      @include media-breakpoint-down(lg) {
+        text-align: left;
+      }
+    }
+
+    & > .subheader__code {
+      @include media-breakpoint-down(lg) {
+        text-align: left;
+      }
     }
   }
 
@@ -79,6 +89,11 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
 
   .breadcrumbs {
     background: transparent;
+
+    @include media-breakpoint-down(md) {
+      border-top: r-theme-val(subheader, search-border);
+      border-bottom: r-theme-val(subheader, search-border);
+    }
 
     &__list {
       font-size: 0.9;
