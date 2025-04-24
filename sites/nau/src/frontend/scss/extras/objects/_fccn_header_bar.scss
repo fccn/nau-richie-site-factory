@@ -1,0 +1,31 @@
+.fccn-header {
+  background-color: r-color("black");
+
+  &__container {
+    @include make-container();
+    @include make-container-max-widths();
+
+    padding: 0.625rem;
+
+    text-align: right;
+
+    a {
+      color: r-color("white");
+      display: inline-flex;
+
+      img {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url('../../richie/images/arrow_outward.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    margin-left: 0.35rem;
+  }
+}
