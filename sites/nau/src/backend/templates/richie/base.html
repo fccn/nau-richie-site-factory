@@ -20,6 +20,16 @@
 <meta property="og:image:height" content="630" />
 {% endblock meta_rdfa_context %}
 
+{% block above_header %}
+<div class="fccn-header">
+    <div class="fccn-header__container">
+        <a href="https://www.fccn.pt/" target="_blank" rel="noopener">
+            <img decoding="async" src="{% static 'richie/images/fccn-header-logo.svg' %}" alt="FCCN"> serviços digitais da FCT
+            <span class="fccn-header__icon" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>
+{% endblock above_header %}
 
 {% block body_header %}
 
