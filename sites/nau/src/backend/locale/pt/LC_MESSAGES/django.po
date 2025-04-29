@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 14:43+0100\n"
+"POT-Creation-Date: 2025-04-29 10:19+0100\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -101,39 +101,27 @@ msgctxt "course_detail__title"
 msgid "What you will learn"
 msgstr "O que vai aprender"
 
-#: templates/djangocms_video/default/video_player.html:17
-msgid "Video"
-msgstr "Vídeo"
-
-#: templates/djangocms_video/default/video_player.html:20
-msgid "View the presentation video"
-msgstr "Ver o vídeo de apresentação"
-
-#: templates/djangocms_video/default/video_player.html:37
-msgid "course cover image"
-msgstr "imagem de capa do curso"
-
-#: templates/djangocms_video/default/video_player.html:102
-msgid "Your browser doesn't support this video format."
-msgstr "O seu navegador não suporta este formato de vídeo."
-
-#: templates/nau/_footer.html:12
-msgid "Homepage"
+#: templates/nau/_footer.html:16
+#, fuzzy
+#| msgid "Homepage"
+msgid " Homepage"
 msgstr "Voltar à página principal"
 
-#: templates/nau/_footer.html:110
+#: templates/nau/_footer.html:45
 msgid "All right reserved."
 msgstr "Todos os direitos reservados."
 
-#: templates/richie/base.html:36
-msgid "Go to homepage"
+#: templates/richie/base.html:47
+#, fuzzy
+#| msgid "Go to homepage"
+msgid " Go to homepage"
 msgstr "Voltar à página principal"
 
-#: templates/richie/base.html:37
-msgid "In maintenance"
-msgstr "Em manutenção"
+#: templates/richie/base.html:60
+msgid " Menu"
+msgstr ""
 
-#: templates/richie/base.html:49
+#: templates/richie/base.html:77
 msgid "Help"
 msgstr "Ajuda"
 
@@ -160,6 +148,21 @@ msgstr "Siga-nos no Instagram"
 #: templates/social-networks/footer-badges.html:38
 msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"
+
+msgid "Video"
+msgstr "Vídeo"
+
+msgid "View the presentation video"
+msgstr "Ver o vídeo de apresentação"
+
+msgid "course cover image"
+msgstr "imagem de capa do curso"
+
+msgid "Your browser doesn't support this video format."
+msgstr "O seu navegador não suporta este formato de vídeo."
+
+msgid "In maintenance"
+msgstr "Em manutenção"
 
 msgid "Sub categories"
 msgstr "Sub-categorias"
