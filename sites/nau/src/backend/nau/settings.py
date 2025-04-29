@@ -335,7 +335,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "cms.context_processors.cms_settings",
                     "richie.apps.core.context_processors.site_metas",
                     "nau.help_desk.context_processors.help_desk_url_setting",
-                    "nau.maintenance.context_processors.maintenance_header_message_setting",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -670,10 +669,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # Preserve the query parameters during redirection of `/en/course`` to `/en/courses` rendered
     # on different locations of the site.
     CMS_REDIRECT_PRESERVE_QUERY_PARAMS = True
-
-    MAINTENANCE_HEADER_MSG = values.BooleanValue(
-        False, environ_name="MAINTENANCE_HEADER_MSG", environ_prefix=None
-    )
 
     # Dockerflow - Add the healthcheck views to SECURE_REDIRECT_EXEMPT,
     # so they can be used as Kubernetes liveness checks.

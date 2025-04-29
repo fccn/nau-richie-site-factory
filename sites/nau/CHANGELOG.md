@@ -34,6 +34,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ⬆️(nau) upgrade richie to v3.0.0
 - 🔥(video) remove lazy load video player
 - 💄(rebranding) change NAU logo and styles for a rebrand of NAU
+- ⚰️(maintenance) remove maintenance functionality
 
 ### Added
 
