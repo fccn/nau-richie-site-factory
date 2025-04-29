@@ -35,6 +35,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔥(video) remove lazy load video player
 - 💄(rebranding) change NAU logo and styles for a rebrand of NAU
 - ⚰️(maintenance) remove maintenance functionality
+- ✅(social) fix social share image test
 
 ### Added
 
