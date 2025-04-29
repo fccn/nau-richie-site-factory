@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-29 12:29+0100\n"
+"POT-Creation-Date: 2025-05-07 19:27+0100\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "{!s} settings"
 msgstr "Definições de {!s}"
 
-#: ap/force_translations.py:10 ap/settings.py:736
+#: ap/force_translations.py:10 ap/settings.py:755
 msgid "First session"
 msgstr "Primeira edição"
 
@@ -52,35 +52,43 @@ msgstr "%(title)s"
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
 
-#: ap/settings.py:245
+#: ap/settings.py:246
 msgid "Dashboard"
 msgstr "Meus cursos"
 
-#: ap/settings.py:246
+#: ap/settings.py:247
 msgid "{base_url:s}/dashboard"
 msgstr ""
 
-#: ap/settings.py:249
-msgid "Account"
-msgstr "Conta"
-
 #: ap/settings.py:250
-msgid "{base_url:s}/account/settings"
-msgstr ""
-
-#: ap/settings.py:253
 msgid "Profile"
 msgstr "Perfil"
 
-#: ap/settings.py:254
+#: ap/settings.py:251
 msgid "{base_url:s}/u/(username)"
 msgstr ""
 
-#: ap/settings.py:347
+#: ap/settings.py:254
+msgid "Account"
+msgstr "Conta"
+
+#: ap/settings.py:255
+msgid "{base_url:s}/account/settings"
+msgstr ""
+
+#: ap/settings.py:258
+msgid "Order History"
+msgstr ""
+
+#: ap/settings.py:259
+msgid "{base_url:s}/orders/orders"
+msgstr ""
+
+#: ap/settings.py:350
 msgid "Teaser"
 msgstr ""
 
-#: ap/settings.py:438 ap/settings.py:453 ap/tests/test_cache_ttl.py:71
+#: ap/settings.py:441 ap/settings.py:456 ap/tests/test_cache_ttl.py:71
 #: ap/tests/test_cache_ttl.py:92 ap/tests/test_cache_ttl.py:129
 #: ap/tests/test_cache_ttl.py:150 ap/tests/test_cache_ttl.py:193
 #: ap/tests/test_cache_ttl.py:214 ap/tests/test_cache_ttl.py:242
@@ -88,11 +96,8 @@ msgstr ""
 #: ap/tests/test_cache_ttl.py:321 ap/tests/test_cache_ttl.py:358
 #: ap/tests/test_cache_ttl.py:379 ap/tests/test_cache_ttl.py:417
 #: ap/tests/test_cache_ttl.py:438 ap/tests/test_cache_ttl.py:476
-#: ap/tests/test_cache_ttl.py:497
-#: ap/tests/test_courses_templates_course_detail_rendering.py:23
-#: ap/tests/test_courses_templates_course_detail_rendering.py:44
-#: ap/tests/test_error_view.py:20 ap/tests/test_error_view.py:41
-#: ap/tests/test_google_tag_manager.py:23
+#: ap/tests/test_cache_ttl.py:497 ap/tests/test_error_view.py:20
+#: ap/tests/test_error_view.py:41 ap/tests/test_google_tag_manager.py:23
 #: ap/tests/test_google_tag_manager.py:44
 #: ap/tests/test_google_tag_manager.py:91
 #: ap/tests/test_google_tag_manager.py:112
@@ -100,10 +105,7 @@ msgstr ""
 #: ap/tests/test_google_tag_manager.py:178 ap/tests/test_help_desk.py:21
 #: ap/tests/test_help_desk.py:42 ap/tests/test_help_desk.py:69
 #: ap/tests/test_help_desk.py:90 ap/tests/test_language_cookies.py:23
-#: ap/tests/test_language_cookies.py:44 ap/tests/test_maintenance.py:23
-#: ap/tests/test_maintenance.py:44 ap/tests/test_maintenance.py:69
-#: ap/tests/test_maintenance.py:90 ap/tests/test_maintenance.py:117
-#: ap/tests/test_maintenance.py:138 ap/tests/test_open_graph.py:22
+#: ap/tests/test_language_cookies.py:44 ap/tests/test_open_graph.py:22
 #: ap/tests/test_open_graph.py:43 ap/tests/test_redirect_course_page.py:21
 #: ap/tests/test_redirect_course_page.py:42 base/tests/test_cache.py:38
 #: base/tests/test_cache.py:59 base/tests/test_cache.py:123
@@ -113,51 +115,51 @@ msgstr ""
 msgid "Portuguese Lang"
 msgstr "Português"
 
-#: ap/settings.py:733
+#: ap/settings.py:752
 #, fuzzy
 #| msgid "Related courses"
 msgid "New courses"
 msgstr "Outras edições"
 
-#: ap/settings.py:746
+#: ap/settings.py:765
 msgid "Availability"
 msgstr ""
 
-#: ap/settings.py:758
+#: ap/settings.py:777
 msgid "Competence ReCAP"
 msgstr "Competência ReCAP"
 
-#: ap/settings.py:769
+#: ap/settings.py:788
 msgid "Career"
 msgstr "Carreira"
 
-#: ap/settings.py:780
+#: ap/settings.py:799
 msgid "Subjects"
 msgstr "Área Temática"
 
-#: ap/settings.py:791
+#: ap/settings.py:810
 #, fuzzy
 #| msgid "Related organizations"
 msgid "Organizations"
 msgstr "Organizações relacionadas"
 
-#: ap/settings.py:809
+#: ap/settings.py:828
 msgid "Weekly pace"
 msgstr ""
 
-#: ap/settings.py:813
+#: ap/settings.py:832
 msgid "Self-paced"
 msgstr ""
 
-#: ap/settings.py:814
+#: ap/settings.py:833
 msgid "Less than one hour"
 msgstr ""
 
-#: ap/settings.py:815
+#: ap/settings.py:834
 msgid "One to two hours"
 msgstr ""
 
-#: ap/settings.py:816
+#: ap/settings.py:835
 msgid "More than two hours"
 msgstr ""
 
@@ -169,8 +171,6 @@ msgstr ""
 #: ap/tests/test_cache_ttl.py:358 ap/tests/test_cache_ttl.py:371
 #: ap/tests/test_cache_ttl.py:417 ap/tests/test_cache_ttl.py:430
 #: ap/tests/test_cache_ttl.py:476 ap/tests/test_cache_ttl.py:489
-#: ap/tests/test_courses_templates_course_detail_rendering.py:23
-#: ap/tests/test_courses_templates_course_detail_rendering.py:36
 #: ap/tests/test_error_view.py:20 ap/tests/test_error_view.py:33
 #: ap/tests/test_google_tag_manager.py:23
 #: ap/tests/test_google_tag_manager.py:36
@@ -180,10 +180,7 @@ msgstr ""
 #: ap/tests/test_google_tag_manager.py:170 ap/tests/test_help_desk.py:21
 #: ap/tests/test_help_desk.py:34 ap/tests/test_help_desk.py:69
 #: ap/tests/test_help_desk.py:82 ap/tests/test_language_cookies.py:23
-#: ap/tests/test_language_cookies.py:36 ap/tests/test_maintenance.py:23
-#: ap/tests/test_maintenance.py:36 ap/tests/test_maintenance.py:69
-#: ap/tests/test_maintenance.py:82 ap/tests/test_maintenance.py:117
-#: ap/tests/test_maintenance.py:130 ap/tests/test_open_graph.py:22
+#: ap/tests/test_language_cookies.py:36 ap/tests/test_open_graph.py:22
 #: ap/tests/test_open_graph.py:35 ap/tests/test_redirect_course_page.py:21
 #: ap/tests/test_redirect_course_page.py:34 base/tests/test_cache.py:38
 #: base/tests/test_cache.py:51 base/tests/test_cache.py:123
@@ -208,31 +205,7 @@ msgctxt "course_detail__title"
 msgid "What you will learn"
 msgstr "O que vai aprender"
 
-#: templates/djangocms_video/default/video_player.html:17
-msgid "Video"
-msgstr "Vídeo"
-
-#: templates/djangocms_video/default/video_player.html:20
-msgid "View the presentation video"
-msgstr "Ver o vídeo de apresentação"
-
-#: templates/djangocms_video/default/video_player.html:37
-msgid "course cover image"
-msgstr "imagem de capa do curso"
-
-#: templates/djangocms_video/default/video_player.html:102
-msgid "Your browser doesn't support this video format."
-msgstr "O seu navegador não suporta este formato de vídeo."
-
-#: templates/richie/base.html:36
-msgid "Go to homepage"
-msgstr "Voltar à página principal"
-
-#: templates/richie/base.html:37
-msgid "In maintenance"
-msgstr "Em manutenção"
-
-#: templates/richie/base.html:49
+#: templates/richie/base.html:41
 msgid "Help"
 msgstr "Ajuda"
 
@@ -259,6 +232,24 @@ msgstr "Siga-nos no Instagram"
 #: templates/social-networks/footer-badges.html:38
 msgid "Follow us on Linkedin"
 msgstr "Siga-nos no Linkedin"
+
+msgid "Video"
+msgstr "Vídeo"
+
+msgid "View the presentation video"
+msgstr "Ver o vídeo de apresentação"
+
+msgid "course cover image"
+msgstr "imagem de capa do curso"
+
+msgid "Your browser doesn't support this video format."
+msgstr "O seu navegador não suporta este formato de vídeo."
+
+msgid "Go to homepage"
+msgstr "Voltar à página principal"
+
+msgid "In maintenance"
+msgstr "Em manutenção"
 
 msgid "Sub categories"
 msgstr "Sub-categorias"

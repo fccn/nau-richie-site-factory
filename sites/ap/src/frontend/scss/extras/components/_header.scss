@@ -168,17 +168,4 @@
     }
   }
 
-  &__maintenance {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: $font-size-base;
-    box-shadow: 4px 2px 12px rgb(10 31 80 / 45%);
-    border-radius: 2rem;
-    border: solid red;
-    padding: 0.5rem;
-    a {
-      font-size: 1.5rem;
-    }
-  }
 }
