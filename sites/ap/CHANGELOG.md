@@ -13,6 +13,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔥(video) remove lazy load video player
 - ⬆️(ap) upgrade dependencies
 - 🔧(ap) update settings w/ site cookiecutter
+- ⚰️(maintenance) remove maintenance functionality
 
 ## [1.2.1] - 2025-04-16
 

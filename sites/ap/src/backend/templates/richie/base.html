@@ -31,16 +31,8 @@
 {% endblock body_header %}
 
 {% block topbar_searchbar %}
-{% if MAINTENANCE_HEADER_MSG %}
-<div class="topbar__maintenance">
-    <a href="/" title="{% trans "Go to homepage" %}" rel="home">
-    {% trans "In maintenance" %}
-    </a>
-</div>
-{% else %}
 <div class="topbar__search richie-react richie-react--root-search-suggest-field"
     data-props='{"courseSearchPageUrl": "{% page_url 'courses' %}"}'></div>
-{% endif %}
 {% endblock topbar_searchbar %}
 
 {% block topbar_contact %}
