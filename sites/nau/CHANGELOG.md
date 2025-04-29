@@ -32,6 +32,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ♿️(styles) set footer link spacing to 44px height
 - ♿️(styles) improve heading spacing in blogpost
 - ⬆️(nau) upgrade richie to v3.0.0
+- 🔥(video) remove lazy load video player
+- 💄(rebranding) change NAU logo and styles for a rebrand of NAU
 
 ### Added
 
