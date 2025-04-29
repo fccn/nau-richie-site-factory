@@ -299,7 +299,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "Europe/Lisbon", environ_name="TIME_ZONE", environ_prefix=None
     )
     USE_I18N = True
-    USE_L10N = True
     USE_TZ = True
     LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
@@ -648,6 +647,26 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # in the page tree admin view
     CMS_PAGETREE_DESCENDANTS_LIMIT = 80
 
+    # - Django CMS Check SEO
+    # Excludes all elements that are not related to the page content
+    DJANGO_CHECK_SEO_EXCLUDE_CONTENT = (
+        "body > svg, #main-menu, .body-footer, .body-mentions"
+    )
+
+    # Wheither you can create PageIndex extension on page through toolbar if true or
+    # just editing existing extension if false
+    RICHIE_MAINMENUENTRY_ALLOW_CREATION = False
+
+    # Define which node level can be processed to search for pageindex extension
+    RICHIE_MAINMENUENTRY_MENU_ALLOWED_LEVEL = 0
+
+    # Whether you want to show the video iframe directly or prefer to lazy load it
+    RICHIE_VIDEO_PLUGIN_LAZY_LOADING = values.Value(
+        False,
+        environ_name="RICHIE_VIDEO_PLUGIN_LAZY_LOADING",
+        environ_prefix=None,
+    )
+
     # Add richie search query analyzer elasticsearch the Portuguese language
     RICHIE_QUERY_ANALYZERS = {"en": "english", "pt": "portuguese"}
 
@@ -719,8 +738,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 integrations=[DjangoIntegration()],
                 traces_sample_rate=cls.SENTRY_TRACES_SAMPLE_RATE,
             )
-            with sentry_sdk.configure_scope() as scope:
-                scope.set_extra("application", "backend")
+            sentry_sdk.set_tag("application", "backend")
 
         # ignore some error so they aren't sent to Sentry
         for logger in cls.SENTRY_IGNORE_LOGGER:

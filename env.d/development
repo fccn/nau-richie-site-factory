@@ -54,3 +54,6 @@ WEB_ANALYTICS={'google_universal_analytics': {'tracking_id': 'UA-123456789-1', '
 # DJANGO_CDN_DOMAIN=nau-dev-richie-nau-static-assets.rgw.nau.fccn.pt
 
 # DJANGO_STORAGES={'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'}, 'staticfiles': {'BACKEND': 'base.storage.CDNManifestStaticFilesStorage'} }
+
+# Activate lazy load video player
+RICHIE_VIDEO_PLUGIN_LAZY_LOADING=True

@@ -36,7 +36,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 💄(rebranding) change NAU logo and styles for a rebrand of NAU
 - ⚰️(maintenance) remove maintenance functionality
 - ✅(social) fix social share image test
-
+- ⬆️(nau) upgrade dependencies
+- 
 ### Added
 
 - ♿️(styles) add external link styles for accessiblity
