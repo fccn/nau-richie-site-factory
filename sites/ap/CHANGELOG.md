@@ -10,6 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- 🔥(video) remove lazy load video player
 - ⬆️(ap) upgrade dependencies
 
 ## [1.2.1] - 2025-04-16
