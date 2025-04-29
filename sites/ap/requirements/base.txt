@@ -7,10 +7,12 @@ dockerflow==2024.4.2
 factory-boy==3.3.0
 gunicorn==22.0.0
 psycopg2-binary==2.9.9
-#git+https://github.com/Tiago-Salles/richie@Tiago-Salles/issues/274-upstream-cookiecutter#egg=richie
-richie==3.0.0
+git+https://github.com/Tiago-Salles/richie@Tiago-Salles/issues/274-upstream-cookiecutter#egg=richie
+#richie==3.0.0
+reated sso between richie and lms)
 sentry-sdk==2.2.1
 mysqlclient==2.1.1
+social-auth-app-django==5.4.3
 # Remove django-cms dep when upgrading to richie 2.25.0
 # django-cms>=3.11.0,<4.0.0
 # Plugins
