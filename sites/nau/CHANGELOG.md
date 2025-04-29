@@ -8,12 +8,15 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.0.0] - 2025-04-29
+
 ### Added
 
 - ✨(courses) script to extract courses data as csv format
 - 🧱(site-factory) added sites creation functionality
 - 🔧(nau) allow to configure Django Storages from environment `DJANGO_STORAGES`
 - 🔧(nau) add media S3 default ACL to `public-read`
+- ♿️(styles) add external link styles for accessibility
 
 ### Fixed
 
@@ -37,10 +40,6 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ⚰️(maintenance) remove maintenance functionality
 - ✅(social) fix social share image test
 - ⬆️(nau) upgrade dependencies
-- 
-### Added
-
-- ♿️(styles) add external link styles for accessiblity
 
 ## [1.28.0] - 2024-06-21
 
