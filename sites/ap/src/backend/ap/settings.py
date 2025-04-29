@@ -2,6 +2,7 @@
 Django settings for the richie NAU project.
 """
 
+# pylint: disable=too-many-lines
 import json
 import os
 
@@ -245,13 +246,17 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "label": _("Dashboard"),
                     "href": _("{base_url:s}/dashboard"),
                 },
+                "profile": {
+                    "label": _("Profile"),
+                    "href": _("{base_url:s}/u/(username)"),
+                },
                 "account": {
                     "label": _("Account"),
                     "href": _("{base_url:s}/account/settings"),
                 },
-                "profile": {
-                    "label": _("Profile"),
-                    "href": _("{base_url:s}/u/(username)"),
+                "order_history": {
+                    "label": _("Order History"),
+                    "href": _("{base_url:s}/orders/orders"),
                 },
             },
             environ_name="AUTHENTICATION_PROFILE_URLS",
@@ -295,7 +300,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "Europe/Lisbon", environ_name="TIME_ZONE", environ_prefix=None
     )
     USE_I18N = True
-    USE_L10N = True
     USE_TZ = True
     LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
@@ -637,6 +641,26 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # Maximum children nodes to allow a parent to be unfoldable
     # in the page tree admin view
     CMS_PAGETREE_DESCENDANTS_LIMIT = 80
+
+    # - Django CMS Check SEO
+    # Excludes all elements that are not related to the page content
+    DJANGO_CHECK_SEO_EXCLUDE_CONTENT = (
+        "body > svg, #main-menu, .body-footer, .body-mentions"
+    )
+
+    # Wheither you can create PageIndex extension on page through toolbar if true or
+    # just editing existing extension if false
+    RICHIE_MAINMENUENTRY_ALLOW_CREATION = False
+
+    # Define which node level can be processed to search for pageindex extension
+    RICHIE_MAINMENUENTRY_MENU_ALLOWED_LEVEL = 0
+
+    # Whether you want to show the video iframe directly or prefer to lazy load it
+    RICHIE_VIDEO_PLUGIN_LAZY_LOADING = values.Value(
+        False,
+        environ_name="RICHIE_VIDEO_PLUGIN_LAZY_LOADING",
+        environ_prefix=None,
+    )
 
     # Add richie search query analyzer elasticsearch the Portuguese language
     RICHIE_QUERY_ANALYZERS = {"en": "english", "pt": "portuguese"}
