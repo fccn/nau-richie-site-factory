@@ -1,6 +1,6 @@
 {
   "name": "nau",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Richie NAU site on https://www.nau.edu.pt",
   "scripts": {
     "build-sass": "sass scss/_main.scss ../backend/base/static/richie/css/main.css --load-path=node_modules",
