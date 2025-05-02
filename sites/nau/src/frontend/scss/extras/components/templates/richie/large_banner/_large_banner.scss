@@ -16,6 +16,7 @@
   background-color: r-theme-val(large-banner, base-background-color);
 
   color: r-theme-val(large-banner, base-color);
+
   @if r-theme-val(large-banner, base-shadow) {
     text-shadow: 0 0 3px r-theme-val(large-banner, base-shadow);
   }
@@ -81,10 +82,6 @@
   background-color: r-color("firebrick6");
   background-size: cover;
 
-  @include media-breakpoint-down(lg) {
-    background-position: bottom right;
-  }
-
   &::after {
     background-image: none;
     width: 0;
@@ -95,11 +92,15 @@
 
     @include media-breakpoint-up(lg) {
       display: flex;
+      overflow: hidden;
+      position: relative;
 
       @if $r-topbar-height {
         padding: calc(2vw + 1rem) 0 calc(2vw + 1rem);
         min-height: ($r-topbar-height + 16.75rem);
-      } @else {
+      }
+
+      @else {
         padding: 1rem 0 calc(5vw + 1rem);
         min-height: 34.75rem;
       }
@@ -137,7 +138,13 @@
     @include font-size($h5-font-size);
     color: r-theme-val(hero-intro, content-color);
 
-    & > span {
+    p {
+      display: inline;
+      position: relative;
+      z-index: 1;
+    }
+
+    &>span {
       font-size: 3.8rem;
 
       @include media-breakpoint-down(sm) {
@@ -150,19 +157,19 @@
   &__search {
     display: flex;
     padding-top: 2rem;
-    flex-direction: column;
     align-items: flex-start;
 
-    @include media-breakpoint-down(md) {
-      flex-direction: unset;
+    @include media-breakpoint-up(lg) {
+      flex-direction: column;
+      flex-wrap: nowrap;
     }
 
     .richie-react--root-search-suggest-field {
-      @include sv-flex(1, 0, 100%);
+      //@include sv-flex(1, 0, 100%);
       position: relative;
 
       @include media-breakpoint-up(lg) {
-        @include sv-flex(initial, initial, 55%);
+        //@include sv-flex(initial, initial, 55%);
         width: 55%;
       }
 
@@ -201,33 +208,20 @@
 
   &__cta {
     @include sv-flex(0, 0, auto);
-    @include button-size(
-      $btn-padding-y,
-      $btn-padding-x,
-      $btn-font-size,
+    @include button-size($btn-padding-y,
+      1.5rem,
+      1.125rem,
       $btn-line-height,
-      $btn-border-radius
-    );
-    @include button-variant(
-      r-theme-val(hero-intro, cta-variant-from),
-      r-theme-val(hero-intro, cta-variant-to)
-    );
+      $btn-border-radius );
+    @include button-variant(r-theme-val(hero-intro, cta-variant-from),
+      r-theme-val(hero-intro, cta-variant-to));
     margin-left: 0 !important;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: 600;
+    margin-top: 0;
+    font-weight: $font-weight-regular;
     color: r-theme-val(hero-intro, cta-color);
     border-radius: $border-radius;
     border: none;
     box-shadow: 4px 2px 12px rgba(10, 31, 80, 0.45);
-
-    @include media-breakpoint-up(lg) {
-      margin-top: 0;
-    }
-
-    @include media-breakpoint-down(sm) {
-      margin: 0 auto !important;
-    }
 
     &:after {
       content: "→";
@@ -237,5 +231,21 @@
     &:hover {
       text-decoration: none;
     }
+  }
+
+  &__logo {
+    @include media-breakpoint-down(lg) {
+      right: -12rem;
+    }
+    
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+
+    display: block;
+    position: absolute;
+    top: 0;
+    right: $r-hero-intro-logo-right-position;
+    width: $r-hero-intro-logo-height;
   }
 }

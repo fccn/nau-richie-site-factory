@@ -1,4 +1,6 @@
-module.exports = {
+import { defaultTokens, DefaultTokens, Configuration } from "@openfun/cunningham-react";
+
+const config: Configuration = {
   themes: {
     default: {
       theme: {
@@ -13,7 +15,7 @@ module.exports = {
           'primary-500': '#693ae9',
           'primary-600': '#e81f2f',
           'primary-700': '#1f1a61',
-          'primary-800': '#0640bf',
+          'primary-800': '#4b19e6',
           'primary-900': '#bb0014',
           'secondary-100': '#eff8ff',
           'secondary-200': '#eaf3fd',
@@ -42,17 +44,20 @@ module.exports = {
           'darkish-blue': '#002d7f',
           'navy-blue': '#001f50',
           'lipstick': '#e51a2d',
-          'indianred3': '#df484b',
+          'indianred3': '#4b19e6',
           'mantis': '#76ce68',
         },
       },
       components: {
         button: {
-          'font-family': 'IBM Plex Sans',
-          'font-weight': '600',
-          'background-color': '#693ae9',
+          "border-radius": "0.25rem",
+          "border-radius--active": "0.25rem",
+          "background-color--active": "ref(theme.colors.indianred3)",
+          "font-family": "ref(theme.font.families.base)",
         },
       },
     },
   },
 };
+
+export default config;
