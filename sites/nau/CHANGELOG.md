@@ -8,6 +8,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛(nau) fix large banner breakpoints
+- 🩹(nau) tweak styles on course detail page
+- 🩹(nau) tweak styles on program detail page
+
+### Changed
+
+- ♻(cunningham) refactor cunningham configuration file
+
 ## [2.0.0] - 2025-04-29
 
 ### Added

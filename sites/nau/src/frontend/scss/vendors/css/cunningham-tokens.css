@@ -36,7 +36,7 @@
 	--c--theme--colors--primary-500: #693ae9;
 	--c--theme--colors--primary-600: #e81f2f;
 	--c--theme--colors--primary-700: #1f1a61;
-	--c--theme--colors--primary-800: #0640bf;
+	--c--theme--colors--primary-800: #4b19e6;
 	--c--theme--colors--primary-900: #bb0014;
 	--c--theme--colors--success-100: #EFFCD3;
 	--c--theme--colors--success-200: #DBFAA9;
@@ -87,7 +87,7 @@
 	--c--theme--colors--darkish-blue: #002d7f;
 	--c--theme--colors--navy-blue: #001f50;
 	--c--theme--colors--lipstick: #e51a2d;
-	--c--theme--colors--indianred3: #df484b;
+	--c--theme--colors--indianred3: #4b19e6;
 	--c--theme--colors--mantis: #76ce68;
 	--c--theme--font--sizes--h1: 1.75rem;
 	--c--theme--font--sizes--h2: 1.375rem;
@@ -132,9 +132,10 @@
 	--c--theme--breakpoints--lg: 992px;
 	--c--theme--breakpoints--xl: 1200px;
 	--c--theme--breakpoints--xxl: 1400px;
-	--c--components--button--font-family: IBM Plex Sans;
-	--c--components--button--font-weight: 600;
-	--c--components--button--background-color: #693ae9;
+	--c--components--button--border-radius: 0.25rem;
+	--c--components--button--border-radius--active: 0.25rem;
+	--c--components--button--background-color--active: var(--c--theme--colors--indianred3);
+	--c--components--button--font-family: var(--c--theme--font--families--base);
 }
 .cunningham-theme--dark{
 	--c--theme--colors--greyscale-100: #182536;

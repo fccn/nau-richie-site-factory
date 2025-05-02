@@ -15,6 +15,12 @@ $organization-detail-class: ".organization-detail";
       text-decoration: underline;
     }
 
+    .category-tag-list {
+      a {
+        text-decoration: none;
+      }
+    }
+
     .person-glimpse-list {
       a {
         text-decoration: none;
