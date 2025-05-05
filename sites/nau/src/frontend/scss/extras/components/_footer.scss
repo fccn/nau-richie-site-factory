@@ -194,10 +194,9 @@ $footer-logo-size-lg: 18.125rem;
     border-bottom: r-theme-val("body-footer", "footer-stroke");
     flex-wrap: wrap;
 
-    & img {
+    & a:has(img), & img {
       padding-right: 2.5rem;
       border-right: r-theme-val("body-footer", "footer-stroke");
-
 
       @include media-breakpoint-down(sm) {
         border: none;
