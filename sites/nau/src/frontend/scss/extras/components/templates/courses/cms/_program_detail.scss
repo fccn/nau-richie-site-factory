@@ -1,5 +1,8 @@
 .program-detail {
   &__row {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
     a:not(h3 a) {
       text-decoration: underline;
     }
@@ -11,6 +14,11 @@
     padding-left: 1rem;
   }
 
+  &__body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   &__main {
 
     .subheader__teaser {
@@ -20,6 +28,10 @@
     .category-badge-list__container {
       padding-left: 1rem;
       padding-right: 1rem;
+    }
+
+    .characteristics {
+      padding: 1rem 1rem 0;
     }
   }
 
