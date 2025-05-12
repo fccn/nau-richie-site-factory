@@ -12,6 +12,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - 🐛(nau) fix footer logos vertical separation styles
 - 🐛(nau) fix program detail page padding
+- 🩹(nau) tweak side padding on mobile devices
 
 ## [2.1.0] - 2025-05-02
 

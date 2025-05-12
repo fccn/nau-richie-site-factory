@@ -1,8 +1,10 @@
 .program-detail {
-  &__row {
-    padding-left: 1rem;
-    padding-right: 1rem;
 
+  @include media-breakpoint-down(sm) {
+    padding: 0 1rem;
+  }
+
+  &__row {
     a:not(h3 a) {
       text-decoration: underline;
     }

@@ -1,6 +1,11 @@
 $course-details-class: ".course-detail";
 
 #{$course-details-class} {
+
+  @include media-breakpoint-down(sm) {
+    padding: 0 1rem;
+  }
+
   &__row {
     margin-top: 2rem;
     text-align: left;
