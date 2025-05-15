@@ -33,6 +33,14 @@ $r-theme: recursive-map-merge(
       base-color: r-color("firebrick6"),
       base-color-light: r-color("white"),
     ),
+    slider-plugin: (
+      arrows-fill-color: r-color("white"),
+      arrows-stroke-color: r-color("black"),
+      arrows-stroke-width: 0.5px,
+      index-color: r-color("black"),
+      index-hover-color: r-color("indianred3"),
+      index-active-color: r-color("firebrick6"),
+    ),
     subheader: (
       search-border: 1px solid r-color("light-stroke"),
       search-border-outline: 0 0 0 0.2rem r-color("firebrick6-hover-shadow"),
