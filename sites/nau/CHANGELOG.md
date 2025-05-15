@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(nau) add slider plugin
+
 ### Fixed
 
 - 🐛(nau) fix footer logos vertical separation styles
