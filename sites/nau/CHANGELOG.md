@@ -18,6 +18,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🐛(nau) fix program detail page padding
 - 🩹(nau) tweak side padding on mobile devices
 
+### Changed
+
+- ⬆️(nau) upgrade richie to v3.1.0
+
 ## [2.1.0] - 2025-05-02
 
 ### Fixed
