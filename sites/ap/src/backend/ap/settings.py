@@ -180,15 +180,15 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 environ_name="DB_ENGINE",
                 environ_prefix=None,
             ),
-            "NAME": values.Value("richie", environ_name="DB_NAME", environ_prefix=None),
+            "NAME": values.Value("richie_ap", environ_name="DB_NAME", environ_prefix=None),
             "USER": values.Value(
-                "richie_user", environ_name="DB_USER", environ_prefix=None
+                "root", environ_name="DB_USER", environ_prefix=None
             ),
             "PASSWORD": values.Value(
                 "pass", environ_name="DB_PASSWORD", environ_prefix=None
             ),
             "HOST": values.Value(
-                "localhost", environ_name="DB_HOST", environ_prefix=None
+                "127.0.0.1", environ_name="DB_HOST", environ_prefix=None
             ),
             "PORT": values.Value(3306, environ_name="DB_PORT", environ_prefix=None),
             # "OPTIONS": {
@@ -244,40 +244,16 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
 
     SOCIAL_AUTH_USER_MODEL = "auth.User"
 
-    SOCIAL_AUTH_EDX_KEY = values.Value(
-        "",
-        environ_name="SOCIAL_AUTH_EDX_KEY",
-        environ_prefix=None,
-    )
-    SOCIAL_AUTH_EDX_SECRET = values.Value(
-        "",
-        environ_name="SOCIAL_AUTH_EDX_SECRET",
-        environ_prefix=None,
-    )
+    SOCIAL_AUTH_EDX_KEY = "SZ5jEfsrfxjmw0BsSwoK"
+    SOCIAL_AUTH_EDX_SECRET = "W88DTB0L4gMwQjugQRFE"
 
-    SOCIAL_AUTH_EDX_AUTHORIZATION_URL = values.Value(
-        "",
-        environ_name="SOCIAL_AUTH_EDX_AUTHORIZATION_URL",
-        environ_prefix=None,
-    )
-    SOCIAL_AUTH_EDX_ACCESS_TOKEN_URL = values.Value(
-        "",
-        environ_name="SOCIAL_AUTH_EDX_ACCESS_TOKEN_URL",
-        environ_prefix=None,
-    )
-    SOCIAL_AUTH_EDX_USER_DATA_URL = values.Value(
-        "",
-        environ_name="SOCIAL_AUTH_EDX_USER_DATA_URL",
-        environ_prefix=None,
-    )
+    SOCIAL_AUTH_EDX_AUTHORIZATION_URL = "http://lms.local.nau.fccn.pt/oauth2/authorize"
+    SOCIAL_AUTH_EDX_ACCESS_TOKEN_URL = "http://lms.local.nau.fccn.pt/oauth2/access_token"
+    SOCIAL_AUTH_EDX_USER_DATA_URL = "http://lms.local.nau.fccn.pt/api/user/v1/"
     SOCIAL_AUTH_EDX_SCOPE = values.ListValue(
         ["user_id"], environ_name="SOCIAL_AUTH_EDX_SCOPE", environ_prefix=None
     )
-    SOCIAL_AUTH_EDX_REDIRECT_URI = values.Value(
-        "http://localhost:8000/complete/edx/",
-        environ_name="SOCIAL_AUTH_EDX_REDIRECT_URI",
-        environ_prefix=None,
-    )
+    SOCIAL_AUTH_EDX_REDIRECT_URI = "http://193.136.44.172:8000/complete/edx/"
 
     LOGIN_REDIRECT_URL = "/"
 
@@ -285,14 +261,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
 
     # AUTHENTICATION DELEGATION
     RICHIE_AUTHENTICATION_DELEGATION = {
-        "BASE_URL": values.Value(
-            "", environ_name="AUTHENTICATION_BASE_URL", environ_prefix=None
-        ),
-        "BACKEND": values.Value(
-            "openedx-hawthorn",
-            environ_name="AUTHENTICATION_BACKEND",
-            environ_prefix=None,
-        ),
+        "BASE_URL": "http://lms.local.nau.fccn.pt",
+        "BACKEND": "openedx-hawthorn",
         # PROFILE_URLS are custom links to access to Auth profile views
         # from Richie. Link order will reflect the order of display in frontend.
         # (i) Info - {base_url} is AUTHENTICATION_DELEGATION.BASE_URL
@@ -321,17 +291,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # LMS
     RICHIE_LMS_BACKENDS = [
         {
-            "BASE_URL": values.Value(environ_name="EDX_BASE_URL", environ_prefix=None),
-            "BACKEND": values.Value(
-                "richie.apps.courses.lms.edx.EdXLMSBackend",
-                environ_name="EDX_BACKEND",
-                environ_prefix=None,
-            ),
-            "JS_BACKEND": values.Value(
-                "openedx-hawthorn",
-                environ_name="EDX_JS_BACKEND",
-                environ_prefix=None,
-            ),
+            "BASE_URL": "http://lms.local.nau.fccn.pt",
+            "BACKEND": "richie.apps.courses.lms.edx.EdXLMSBackend",
+            "JS_BACKEND": "openedx-hawthorn",
             "COURSE_REGEX": values.Value(
                 r"^.*/courses/(?P<course_id>.*)/course/?$",
                 environ_name="EDX_COURSE_REGEX",
