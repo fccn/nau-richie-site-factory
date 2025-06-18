@@ -1,5 +1,5 @@
 {% extends "richie/base.html" %}
-{% load cms_tags static i18n full_static_tags %}
+{% load i18n cms_tags menu_tags rfc_5646_locale static sekizai_tags full_static_tags %}
 
 {% block meta_favicons %}
 <link rel="apple-touch-icon" sizes="180x180" href="{% static 'richie/favicon/apple-touch-icon.png' %}">
@@ -20,28 +20,68 @@
 	<meta property="og:image:height" content="630"/>
 {% endblock meta_rdfa_context %}
 
-{% block branding_topbar %}
-    <img src="{% static "richie/images/ap_logo.svg" %}" class="topbar__logo" alt="{{ SITE.name }}">
-{% endblock branding_topbar %}
-
 {% block body_header %}
-    {% include "richie/additional_icons.html" %}
-    <div id="cookie-information"></div>
-    {{ block.super }}
+
+{% include "richie/additional_icons.html" %}
+<div id="cookie-information"></div>
+
+<div id="site-header">
+    <div class="topbar {% block topbar_classes %}{% endblock topbar_classes %}" id="main-menu">
+        <div class="topbar__container">
+            <header class="topbar__header topbar__header--spacing">
+                <div class="topbar__brand">
+                    {% if current_page.is_home %}
+                    <h1>
+                    {% else %}
+                    <a href="/" title="{% trans " Go to homepage" %}" rel="home" accesskey="h">
+                    {% endif %}
+
+                        {% block branding_topbar %}
+                        <img src="{% static 'richie/images/ap_logo.svg' %}" class="topbar__logo" alt="{{ SITE.name }}">
+                        {% endblock branding_topbar %}
+
+                    {% if current_page.is_home %}
+                    </h1>
+                    {% else %}
+                    </a>
+                    {% endif %}
+
+                    <button class="topbar__hamburger" data-target="main-menu" aria-label="{% trans " Menu" %}"
+                        aria-expanded="false">&#8801;</button>
+                </div>
+                <div class="topbar__menu topbar__menu--aside">
+                    {% block topbar_searchbar %}
+                    <div class="topbar__search richie-react richie-react--root-search-suggest-field" data-props='{"courseSearchPageUrl": "{% page_url 'courses-search' %}"}'></div>
+                    {% endblock topbar_searchbar %}
+                    <ul class="topbar__list topbar__list--controls">
+                        {% block userlogin %}
+                        {% if AUTHENTICATION %}
+                        <li class="topbar__item topbar__item--login richie-react richie-react--user-login"
+                            data-props='{"profileUrls": {{ AUTHENTICATION.profile_urls }}}'></li>
+                        {% endif %}
+                        {% endblock userlogin %}
+                        {% block topbar_contact %}
+                        {% if HELP_DESK_URL %}
+                        <li class="topbar__item topbar__item--cta">
+                            <a href="{{HELP_DESK_URL | safe}}" target="_blank">{% trans "Help" %}</a>
+                        </li>
+                        {% endif %}
+                        {% endblock topbar_contact %}
+                    </ul>
+                </div>
+            </header>
+        </div>
+
+        <nav class="topbar__menu topbar__menu--stroke">
+            <div class="topbar__container">
+                <ul class="topbar__list">
+                    {% show_menu 0 100 100 100 "menu/header_menu.html" %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
 {% endblock body_header %}
-
-{% block topbar_searchbar %}
-<div class="topbar__search richie-react richie-react--root-search-suggest-field"
-    data-props='{"courseSearchPageUrl": "{% page_url 'courses' %}"}'></div>
-{% endblock topbar_searchbar %}
-
-{% block topbar_contact %}
-    {% if HELP_DESK_URL %}
-    <li class="topbar__item topbar__item--cta">
-        <a href="{{HELP_DESK_URL | safe}}" target="_blank">{% trans "Help" %}</a>
-    </li>
-    {% endif %}
-{% endblock topbar_contact %}
 
 {% block body_footer %}
     {% include "ap/_footer.html" %}
