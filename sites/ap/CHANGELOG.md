@@ -15,6 +15,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔧(ap) update settings w/ site cookiecutter
 - ⚰️(maintenance) remove maintenance functionality
 
+### Fixed
+
+- 🐛(ap) added homepage logo link to the header
+
 ## [1.2.1] - 2025-04-16
 
 ### Fixed

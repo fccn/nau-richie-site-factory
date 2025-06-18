@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-07 19:27+0100\n"
+"POT-Creation-Date: 2025-06-18 15:31+0100\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -201,7 +201,15 @@ msgctxt "course_detail__title"
 msgid "What you will learn"
 msgstr ""
 
-#: templates/richie/base.html:41
+#: templates/richie/base.html:36
+msgid " Go to homepage"
+msgstr ""
+
+#: templates/richie/base.html:49
+msgid " Menu"
+msgstr ""
+
+#: templates/richie/base.html:66
 msgid "Help"
 msgstr ""
 
