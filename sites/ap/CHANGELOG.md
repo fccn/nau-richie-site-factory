@@ -14,6 +14,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - ⬆️(ap) upgrade dependencies
 - 🔧(ap) update settings w/ site cookiecutter
 - ⚰️(maintenance) remove maintenance functionality
+- ⬆️(ap) upgrade richie to v3.1.2
 
 ## [1.2.1] - 2025-04-16
 
