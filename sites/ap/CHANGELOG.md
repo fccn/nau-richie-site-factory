@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(ap) created sso between richie and lms
+
 ### Changed
 
 - 🔥(video) remove lazy load video player

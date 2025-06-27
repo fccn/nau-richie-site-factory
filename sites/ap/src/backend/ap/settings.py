@@ -199,6 +199,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             # },
         }
     }
+
     MIGRATION_MODULES = {}
 
     # Static files (CSS, JavaScript, Images)
@@ -223,7 +224,65 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # the filename, that is calculated from the file content, so that browsers always
     # get the updated version of each file.
 
-    AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+    AUTHENTICATION_BACKENDS = (
+        "django.contrib.auth.backends.ModelBackend",
+        "oauth.open_edx_oauth2_backend.OpenEdxOAuth2Backend",
+    )
+
+    SOCIAL_AUTH_PIPELINE = (
+        "social_core.pipeline.social_auth.social_details",
+        "social_core.pipeline.social_auth.social_uid",
+        "social_core.pipeline.social_auth.auth_allowed",
+        "social_core.pipeline.social_auth.social_user",
+        "social_core.pipeline.user.get_username",
+        "social_core.pipeline.user.create_user",
+        "social_core.pipeline.social_auth.associate_user",
+        "social_core.pipeline.social_auth.load_extra_data",
+        "social_core.pipeline.user.user_details",
+        # AP implementation
+        "oauth.pipeline.save_profile",
+    )
+
+    SOCIAL_AUTH_USER_MODEL = "auth.User"
+
+    SOCIAL_AUTH_OPEN_EDX_KEY = values.Value(
+        "",
+        environ_name="SOCIAL_AUTH_OPEN_EDX_KEY",
+        environ_prefix=None,
+    )
+    SOCIAL_AUTH_OPEN_EDX_SECRET = values.Value(
+        "",
+        environ_name="SOCIAL_AUTH_OPEN_EDX_SECRET",
+        environ_prefix=None,
+    )
+
+    SOCIAL_AUTH_OPEN_EDX_AUTHORIZATION_URL = values.Value(
+        "",
+        environ_name="SOCIAL_AUTH_OPEN_EDX_AUTHORIZATION_URL",
+        environ_prefix=None,
+    )
+    SOCIAL_AUTH_OPEN_EDX_ACCESS_TOKEN_URL = values.Value(
+        "",
+        environ_name="SOCIAL_AUTH_OPEN_EDX_ACCESS_TOKEN_URL",
+        environ_prefix=None,
+    )
+    SOCIAL_AUTH_OPEN_EDX_USER_DATA_URL = values.Value(
+        "",
+        environ_name="SOCIAL_AUTH_OPEN_EDX_USER_DATA_URL",
+        environ_prefix=None,
+    )
+    SOCIAL_AUTH_OPEN_EDX_SCOPE = values.ListValue(
+        ["user_id"], environ_name="SOCIAL_AUTH_OPEN_EDX_SCOPE", environ_prefix=None
+    )
+    SOCIAL_AUTH_OPEN_EDX_REDIRECT_URI = values.Value(
+        "http://localhost:8000/complete/edx/",
+        environ_name="SOCIAL_AUTH_OPEN_EDX_REDIRECT_URI",
+        environ_prefix=None,
+    )
+
+    LOGIN_REDIRECT_URL = "/"
+
+    OAUTH_CONFIGS = [{"backend": "open_edx", "presentation_name": "edx.Org"}]
 
     # AUTHENTICATION DELEGATION
     RICHIE_AUTHENTICATION_DELEGATION = {
@@ -335,6 +394,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "cms.context_processors.cms_settings",
                     "richie.apps.core.context_processors.site_metas",
                     "ap.help_desk.context_processors.help_desk_url_setting",
+                    "ap.maintenance.context_processors.maintenance_header_message_setting",
+                    "social_django.context_processors.backends",
+                    "social_django.context_processors.login_redirect",
                 ],
                 "loaders": [
                     "django.template.loaders.filesystem.Loader",
@@ -399,6 +461,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "parler",
         "rest_framework",
         "storages",
+        "social_django",
         # Django-cms
         "djangocms_admin_style",
         "djangocms_googlemap",
@@ -426,6 +489,8 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "django.contrib.staticfiles",
         "django.contrib.messages",
         "django.contrib.humanize",
+        # AP suff
+        "oauth",
     )
 
     RFC_5646_LOCALES = ["pt-PT"]
