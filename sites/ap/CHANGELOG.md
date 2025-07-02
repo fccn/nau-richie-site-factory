@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.3.0] - 2025-07-02
+
 ### Changed
 
 - 🔥(video) remove lazy load video player
