@@ -394,7 +394,6 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     "cms.context_processors.cms_settings",
                     "richie.apps.core.context_processors.site_metas",
                     "ap.help_desk.context_processors.help_desk_url_setting",
-                    "ap.maintenance.context_processors.maintenance_header_message_setting",
                     "social_django.context_processors.backends",
                     "social_django.context_processors.login_redirect",
                 ],
