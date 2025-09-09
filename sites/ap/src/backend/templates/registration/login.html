@@ -1,0 +1,36 @@
+{% extends "richie/base.html" %}
+{% load oauth_tags %}
+
+{% block content %}
+  <h2 class="font-bold text-center">Login</h2>
+  <div style="margin-top: 40px; display: flex; justify-content: center; padding: 20px;">
+    <div style="text-align: center;">
+      <form method="post" class="space-y-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <input type="submit" class="btn btn-primary" style="width: 150px; margin-top: 10px;" value="Login" />
+      </form>
+      
+      {% get_all_available_auth_providers as auth_providers %}
+      {% if auth_providers %}
+        <div style="margin-top: 40px;">Or login with</div>
+
+        {% for provider in auth_providers %}
+          <form method="get" action="{% url 'social:begin' provider.backend %}" style="margin-bottom: 10px;">
+            <input type="submit" style="width: 150px; margin-top: 10px;" value="{{ provider.presentation_name }}" />
+          </form>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <style>
+    .body-content::after {
+      content: none !important;
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      background: none !important;
+    }
+  </style>
+{% endblock %}
