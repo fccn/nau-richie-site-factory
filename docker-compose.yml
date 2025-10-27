@@ -18,10 +18,12 @@ services:
       - "3306:3306"
 
   elasticsearch:
-    image: "${ELASTICSEARCH_IMAGE:-elasticsearch:7.17.0}"
+    image: "${ELASTICSEARCH_IMAGE:-elasticsearch:8.15.0}"
     environment:
       - discovery.type=single-node
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "xpack.security.enabled=false"
+      - "xpack.security.http.ssl.enabled=false"
     ports:
       - "9200:9200"
 
