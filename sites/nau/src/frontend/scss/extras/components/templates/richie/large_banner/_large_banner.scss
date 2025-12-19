@@ -92,7 +92,6 @@
 
     @include media-breakpoint-up(lg) {
       display: flex;
-      overflow: hidden;
       position: relative;
 
       @if $r-topbar-height {
