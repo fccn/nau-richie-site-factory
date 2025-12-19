@@ -26,6 +26,12 @@ $course-details-class: ".course-detail";
         text-decoration: none;
       }
     }
+
+    .section {
+      &__title {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   &__primary-group &__title {
