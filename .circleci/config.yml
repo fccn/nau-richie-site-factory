@@ -309,11 +309,11 @@ jobs:
             - environment:
                 ALLOW_EMPTY_PASSWORD: "yes"
                 REDIS_REPLICATION_MODE: master
-              image: docker.io/bitnami/redis:6.0-debian-10
+              image: docker.io/fundocker/redis:6.2.9-debian-11-r0
               name: redis-primary
             - environment:
                 REDIS_MASTER_HOST: redis-primary
-              image: docker.io/bitnami/redis-sentinel:6.0-debian-10
+              image: docker.io/fundocker/redis-sentinel:6.2.9-debian-11-r0
               name: redis-sentinel
         parameters:
             site:
@@ -351,11 +351,66 @@ workflows:
                 name: no-change-ap
     nau:
         jobs:
-            - no-change:
+            - check-changelog:
+                filters:
+                    branches:
+                        ignore: master
+                name: check-changelog-nau
+                site: nau
+            - lint-changelog:
+                filters:
+                    branches:
+                        ignore: master
+                    tags:
+                        only: /nau-.*/
+                name: lint-changelog-nau
+                site: nau
+            - build-front-production:
                 filters:
                     tags:
-                        only: /.*/
-                name: no-change-nau
+                        only: /nau-.*/
+                name: build-front-production-nau
+                site: nau
+            - lint-front:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: lint-front-nau
+                requires:
+                    - build-front-production-nau
+                site: nau
+            - build-back:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: build-back-nau
+                site: nau
+            - lint-back:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: lint-back-nau
+                requires:
+                    - build-back-nau
+                site: nau
+            - test-back:
+                filters:
+                    tags:
+                        only: /nau-.*/
+                name: test-back-nau
+                requires:
+                    - build-back-nau
+                site: nau
+            - hub:
+                filters:
+                    tags:
+                        only: /^nau-.*/
+                image_name: nau
+                name: hub-nau
+                requires:
+                    - lint-front-nau
+                    - lint-back-nau
+                site: nau
     site-factory:
         jobs:
             - lint-git:
