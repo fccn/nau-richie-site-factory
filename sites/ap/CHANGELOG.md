@@ -8,11 +8,19 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-01-08
+
+### Added
+
+-💄(ap) changed how the course availability is displayed
+
+### Fixed
+
+- 💚(circleci) check-changes job fix and redis image update 
+    - Fix CI pipeline by correcting branch reference to origin/master
+    - Updated the redis images from bitnami to fundocker
+
 ## [1.3.0] - 2025-07-02
-
-## Added
-
--💄(nau) changed how the course availability is displayed
 
 ### Changed
 
@@ -25,9 +33,6 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🐛(ap) added homepage logo link to the header
-- 💚(circleci) check-changes job fix and redis image update 
-    - Fix CI pipeline by correcting branch reference to origin/master
-    - Updated the redis images from bitnami to fundocker
 
 ## [1.2.1] - 2025-04-16
 
