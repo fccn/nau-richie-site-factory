@@ -35,7 +35,7 @@ TF_VAR_aws_region=eu-west-1
 ## Project settings
 
 You need to configure domain names for the CDN in a setting file specific to
-your project: `sites/{{ your_site }}/aws/configtfvars`:
+your project: `sites/{site}/aws/configtfvars`:
 
 ```
 site = "demo"
@@ -66,7 +66,7 @@ typing the following commands in your terminal:
 
 ```
 $ bin/state init
-$ bin/state workspace new {{ your_site }}
+$ bin/state workspace new {site}
 $ bin/state apply
 ```
 
@@ -83,9 +83,9 @@ $ bin/terraform init
 ```
 
 Now that your terraform project is initialized, you will be able to create S3
-buckets for static and media files in various environments (see the [project's
-settings](../src/backend/nau/settings.py)). To achieve this, we will use
-Terraform workspaces with the following paradigm:
+buckets for static and media files in various environments (see the project's
+settings). To achieve this, we will use Terraform workspaces with the
+following paradigm:
 
 _One workspace should be dedicated to one environment_.
 
