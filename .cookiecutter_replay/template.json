@@ -1,1 +1,1 @@
-{"cookiecutter": {"domain": "ap.nau.edu.pt", "_organization": "nau", "site": "ap_nau"}}
+{"cookiecutter": {"domain": "ap.nau.edu.pt", "_nginx_image_tag": "1.24.0", "_organization": "nau", "site": "ap", "_nginx_image_name": "fundocker/openshift-nginx", "second_lang_code": "pt-PT", "_elasticsearch_image_name": "elasticsearch:7.17.0", "_org_dockerhub": "nauedu", "second_lang_name": "Portuguese"}}

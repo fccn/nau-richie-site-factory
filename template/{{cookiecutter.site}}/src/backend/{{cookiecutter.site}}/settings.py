@@ -2,6 +2,7 @@
 Django settings for the richie {{cookiecutter.site}} project.
 """
 
+import ast
 import json
 import os
 
@@ -9,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 
 # pylint: disable=ungrouped-imports
 import sentry_sdk
-from base.utils import merge_dict
+from richie.apps.core.utils import merge_dict
 from configurations import Configuration, values
 from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -181,7 +182,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             "HOST": values.Value(
                 "localhost", environ_name="DB_HOST", environ_prefix=None
             ),
-            "PORT": values.Value(5432, environ_name="DB_PORT", environ_prefix=None),
+            "PORT": values.Value(3306, environ_name="DB_PORT", environ_prefix=None),
         }
     }
     DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
@@ -201,7 +202,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             "BACKEND": "django.core.files.storage.FileSystemStorage",
         },
         "staticfiles": {
-            "BACKEND": "base.storage.CDNManifestStaticFilesStorage",
+            "BACKEND": "richie.apps.core.storage.CDNManifestStaticFilesStorage",
         },
     }
 
@@ -329,6 +330,13 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     RICHIE_MINIMUM_COURSE_RUNS_ENROLLMENT_COUNT = values.Value(
         0,
         environ_name="RICHIE_MINIMUM_COURSE_RUNS_ENROLLMENT_COUNT",
+        environ_prefix=None,
+    )
+
+    # Course run price currency value that would be shown on course detail page
+    RICHIE_DEFAULT_COURSE_RUN_PRICE_CURRENCY = values.Value(
+        "EUR",
+        environ_name="RICHIE_DEFAULT_COURSE_RUN_PRICE_CURRENCY",
         environ_prefix=None,
     )
 
@@ -462,6 +470,19 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         "django.contrib.humanize",
     )
 
+    RFC_5646_LOCALES = [
+        "en-US",
+        "es-ES",
+        "pt-PT",
+        "pt-BR",
+        "fr-FR",
+        "fr-CA",
+        "ru-RU",
+        "vi-VN",
+        "ar-SA",
+        "ko-KR",
+    ]
+
     # Languages
     # - Django
     LANGUAGE_CODE = "en"
@@ -470,7 +491,23 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     # fallback/default languages throughout the app.
     # Use "en" as default as it is the language that is most likely to be spoken by any visitor
     # when their preferred language, whatever it is, is unavailable
-    LANGUAGES = (("en", _("English")), ("fr", _("French")))
+    LANGUAGES = os.getenv("LANGUAGES") or [
+        ("en", _("English")),
+        ("{{cookiecutter.second_lang_code}}", _("{{cookiecutter.second_lang_name}}")),
+    ]
+
+    if isinstance(LANGUAGES, str):
+        try:
+            LANGUAGES = ast.literal_eval(LANGUAGES)
+            LANGUAGES = [(code, _(name)) for code, name in LANGUAGES]
+        except:
+            LANGUAGES = [
+                ("en", _("English")),
+                (
+                    "{{cookiecutter.second_lang_code}}",
+                    _("{{cookiecutter.second_lang_name}}"),
+                ),
+            ]
 
     # - Django CMS
     CMS_LANGUAGES = {
@@ -483,20 +520,13 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         1: [
             {
                 "public": True,
-                "code": "en",
+                "code": code,
                 "hide_untranslated": False,
-                "name": _("English"),
-                "fallbacks": ["fr"],
-                "redirect_on_fallback": False,
-            },
-            {
-                "public": True,
-                "code": "fr",
-                "hide_untranslated": False,
-                "name": _("French"),
+                "name": _(name),
                 "fallbacks": ["en"],
                 "redirect_on_fallback": False,
-            },
+            }
+            for code, name in LANGUAGES
         ],
     }
 
@@ -538,7 +568,12 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 "level": "ERROR",
                 "handlers": ["console"],
                 "propagate": False,
-            }
+            },
+            "richie": {
+                "level": values.Value("ERROR", environ_name="RICHIE_LOGGING_LEVEL"),
+                "handlers": ["console"],
+                "propagate": False,
+            },
         },
     }
 
@@ -594,7 +629,7 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         {
             "default": {
                 "BACKEND": values.Value(
-                    "base.cache.RedisCacheWithFallback",
+                    "richie.apps.core.cache.RedisCacheWithFallback",
                     environ_name="CACHE_DEFAULT_BACKEND",
                     environ_prefix=None,
                 ),
@@ -665,6 +700,13 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
 
     # Define which node level can be processed to search for pageindex extension
     RICHIE_MAINMENUENTRY_MENU_ALLOWED_LEVEL = 0
+
+    # Whether you want to show the video iframe directly or prefer to lazy load it
+    RICHIE_VIDEO_PLUGIN_LAZY_LOADING = values.Value(
+        False,
+        environ_name="RICHIE_VIDEO_PLUGIN_LAZY_LOADING",
+        environ_prefix=None,
+    )
 
     # pylint: disable=invalid-name
     @property
@@ -767,14 +809,32 @@ class Production(Base):
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
 
-    STORAGES = {
-        "default": {
-            "BACKEND": "base.storage.MediaStorage",
+    STORAGES = values.DictValue(
+        {
+            "default": {
+                "BACKEND": values.Value(
+                    "richie.apps.core.storage.MediaStorage",
+                    environ_name="STORAGES_DEFAULT_BACKEND",
+                ),
+                "OPTIONS": values.DictValue(
+                    {},
+                    environ_name="STORAGES_DEFAULT_OPTIONS",
+                ),
+            },
+            "staticfiles": {
+                "BACKEND": values.Value(
+                    "richie.apps.core.storage.CDNManifestStaticFilesStorage",
+                    environ_name="STORAGES_STATICFILES_BACKEND",
+                ),
+                "OPTIONS": values.DictValue(
+                    {},
+                    environ_name="STORAGES_STATICFILES_OPTIONS",
+                ),
+            },
         },
-        "staticfiles": {
-            "BACKEND": "base.storage.CDNManifestStaticFilesStorage",
-        },
-    }
+        environ_name="STORAGES",
+    )
+
     AWS_DEFAULT_ACL = None
     AWS_LOCATION = "media"
 

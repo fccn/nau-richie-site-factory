@@ -1,2 +1,6 @@
 default_context:
     _organization: nau
+    _org_dockerhub: nauedu
+    _nginx_image_name: fundocker/openshift-nginx
+    _nginx_image_tag: 1.24.0
+    _elasticsearch_image_name: elasticsearch:7.17.0
