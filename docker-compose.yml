@@ -1,54 +1,46 @@
-version: "3.5"
-
+include:
+  - docker-compose-${ACTIVATED_DB:-postgresql}.yml
 services:
-  db:
-    #image: mysql:5.7.34
-    image: mysql:8.0.25
-    env_file:
-      - env.d/development
-    # use legacy authentication plugin to fix: 
-      # django.db.utils.OperationalError: (2059, "Authentication plugin 'caching_sha2_password' 
-      # cannot be loaded: /usr/lib/x86_64-linux-gnu/mariadb18/plugin/caching_sha2_password.so: 
-      # cannot open shared object file: No such file or directory
-    command: --default-authentication-plugin=mysql_native_password
-    volumes:
-      - ./data/db/${RICHIE_SITE:-nau}:/var/lib/mysql
-    # expose database to be connected from host
-    ports:
-      - "3306:3306"
-
   elasticsearch:
-    image: "${ELASTICSEARCH_IMAGE:-elasticsearch:7.17.0}"
+    image: elasticsearch:7.17.0
     environment:
       - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    env_file:
+      - "env.d/development"
+      - "env.d/${ACTIVATED_DB:-postgresql}"
     ports:
-      - "9200:9200"
-
+      - "9220:9200"
+    healthcheck:
+      test: ["CMD", "echo", "''", ">", "/dev/tcp/127.0.0.1/9200", "||", "exit", "1"]
+      interval: 1s
+      timeout: 2s
+      retries: 300
   app-dev:
     build:
       context: .
       target: development
       args:
         DOCKER_USER: ${DOCKER_USER:-1000}
-        SITE: ${RICHIE_SITE:-nau}
-    image: "${RICHIE_SITE:-nau}:development"
+        SITE: ${RICHIE_SITE:?}
+    image: "${RICHIE_SITE:?}:development"
     environment:
-      - DJANGO_SETTINGS_MODULE=${RICHIE_SITE:-nau}.settings
+      - DJANGO_SETTINGS_MODULE=${RICHIE_SITE:?}.settings
       - DJANGO_CONFIGURATION=Development
-      - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:-nau}
+      - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:?}
     env_file:
+      - ".env"
       - "env.d/development"
+      - "env.d/${ACTIVATED_DB:-postgresql}"
     networks:
       - default
       - lms_outside
     ports:
       - "8070:8000"
     volumes:
-      - "./sites/${RICHIE_SITE:-nau}/src/backend:/app"
-      - "./data/media/${RICHIE_SITE:-nau}:/data/media"
+      - "./sites/${RICHIE_SITE:?}/src/backend:/app"
+      - "./data/media/${RICHIE_SITE:?}:/data/media"
     depends_on:
-      - "db"
+      - "${ACTIVATED_DB:-postgresql}"
       - "elasticsearch"
       - "redis-sentinel"
     user: ${DOCKER_USER:-1000}
@@ -59,23 +51,25 @@ services:
       target: production
       args:
         DOCKER_USER: ${DOCKER_USER:-1000}
-        SITE: ${RICHIE_SITE:-nau}
+        SITE: ${RICHIE_SITE:?}
     # We tag our images with the current commit sha1 in the CI to make them
     # unique and avoid collisions in parallel builds.
-    image: "${RICHIE_SITE:-nau}:production"
+    image: "${RICHIE_SITE:?}:production"
     environment:
-      - DJANGO_SETTINGS_MODULE=${RICHIE_SITE:-nau}.settings
+      - DJANGO_SETTINGS_MODULE=${RICHIE_SITE:?}.settings
       - DJANGO_CONFIGURATION=ContinuousIntegration
-      - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:-nau}
+      - RICHIE_ES_INDICES_PREFIX=richie_${RICHIE_SITE:?}
     env_file:
+      - ".env"
       - "env.d/development"
+      - "env.d/${ACTIVATED_DB:-postgresql}"
     networks:
       - default
       - lms_outside
     volumes:
-      - ./data/media/${RICHIE_SITE:-nau}:/data/media
+      - ./data/media/${RICHIE_SITE:?}:/data/media
     depends_on:
-      - "db"
+      - "${ACTIVATED_DB:-postgresql}"
       - "elasticsearch"
       - "redis-sentinel"
     user: ${DOCKER_USER:-1000}
@@ -86,15 +80,15 @@ services:
       target: nginx
       args:
         DOCKER_USER: ${DOCKER_USER:-1000}
-        NGINX_IMAGE_NAME: ${NGINX_IMAGE_NAME:-nginx}
-        NGINX_IMAGE_TAG: ${NGINX_IMAGE_TAG:-1.13}
-        SITE: ${RICHIE_SITE:-nau}
-    image: "${RICHIE_SITE:-nau}-nginx:production"
+        NGINX_IMAGE_NAME: ${NGINX_IMAGE_NAME:-fundocker/openshift-nginx}
+        NGINX_IMAGE_TAG: ${NGINX_IMAGE_TAG:-1.24.0}
+        SITE: ${RICHIE_SITE:?}
+    image: "${RICHIE_SITE:?}-nginx:production"
     ports:
       - "8081:8081"
     volumes:
       - ./docker/files/etc/nginx/conf.d:/etc/nginx/conf.d:ro
-      - ./data/media/${RICHIE_SITE:-nau}:/data/media:ro
+      - ./data/media/${RICHIE_SITE:?}:/data/media:ro
     depends_on:
       - app
 
@@ -102,31 +96,31 @@ services:
     image: jwilder/dockerize
 
   node:
-    image: node:20.13
+    image: node:20.11
     working_dir: /app/src/frontend
-    user: "${DOCKER_USER:-1000}"
+    user: ${DOCKER_USER:-1000}
     volumes:
-      - ./sites/${RICHIE_SITE:-nau}:/app
+      - ./sites/${RICHIE_SITE:?}:/app
 
   terraform-state:
     image: hashicorp/terraform:latest
     env_file: env.d/aws
-    user: "${DOCKER_USER:-1000}"
+    user: ${DOCKER_USER:-1000}
     working_dir: /app
     volumes:
       - ./aws/create_state_bucket:/app
 
   terraform:
-    image: hashicorp/terraform:0.12.29
+    image: hashicorp/terraform:0.12.31
     environment:
-      - TF_VAR_SITE=${RICHIE_SITE:-nau}
+      - TF_VAR_SITE=${RICHIE_SITE:?}
       - TF_DATA_DIR=/config
     env_file: env.d/aws
-    user: "${DOCKER_USER:-1000}"
+    user: ${DOCKER_USER:-1000}
     working_dir: /app
     volumes:
       - ./aws:/app
-      - ./sites/${RICHIE_SITE:-nau}/aws:/config
+      - ./sites/${RICHIE_SITE:?}/aws:/config
 
   redis-sentinel:
     image: docker.io/fundocker/redis-sentinel:6.2.9-debian-11-r0
