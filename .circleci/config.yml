@@ -2,7 +2,6 @@ commands:
     generate-version-file:
         parameters:
             site:
-                default: nau
                 type: string
         steps:
             - run:
@@ -43,7 +42,7 @@ jobs:
         working_directory: ~/fun/sites/<< parameters.site >>
     build-front-production:
         docker:
-            - image: cimg/node:20.13
+            - image: cimg/node:20.11
         parameters:
             site:
                 type: string
@@ -52,8 +51,8 @@ jobs:
                 path: ~/fun
             - restore_cache:
                 keys:
-                    - v2-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-                    - v2-front-dependencies-<< parameters.site >>-
+                    - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
+                    - v1-front-dependencies-<< parameters.site >>-
             - run:
                 command: yarn install --frozen-lockfile
                 name: Install frontend dependencies (with locked dependencies)
@@ -64,7 +63,7 @@ jobs:
                 command: yarn build-ts-production
                 name: Build application js (production mode)
             - save_cache:
-                key: v2-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
+                key: v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
                 paths:
                     - ./node_modules
         working_directory: ~/fun/sites/<< parameters.site >>/src/frontend/
@@ -178,7 +177,7 @@ jobs:
                             fi
                         name: Publish app image
                     - run:
-                        command: |
+                        command: |-
                             docker push nauedu/<< parameters.image_name >>-nginx:${DOCKER_TAG}
                             if [[ -n "$CIRCLE_TAG" ]]; then
                               docker push nauedu/<< parameters.image_name >>-nginx:latest
@@ -241,7 +240,7 @@ jobs:
         working_directory: ~/fun
     lint-front:
         docker:
-            - image: cimg/node:20.13
+            - image: cimg/node:20.11
         parameters:
             site:
                 type: string
@@ -250,8 +249,8 @@ jobs:
                 path: ~/fun
             - restore_cache:
                 keys:
-                    - v2-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-                    - v2-front-dependencies-<< parameters.site >>-
+                    - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
+                    - v1-front-dependencies-<< parameters.site >>-
             - run:
                 command: yarn lint
                 name: Lint frontend code with prettier & eslint
@@ -333,7 +332,7 @@ jobs:
                 command: python manage.py compilemessages || true
                 name: Compile translations
             - run:
-                command: |
+                command: |-
                     dockerize \
                       -wait tcp://localhost:3306 \
                       -timeout 60s \
@@ -344,66 +343,11 @@ version: 2.1
 workflows:
     ap:
         jobs:
-            - check-changelog:
-                filters:
-                    branches:
-                        ignore: master
-                name: check-changelog-ap
-                site: ap
-            - lint-changelog:
-                filters:
-                    branches:
-                        ignore: master
-                    tags:
-                        only: /ap-.*/
-                name: lint-changelog-ap
-                site: ap
-            - build-front-production:
+            - no-change:
                 filters:
                     tags:
-                        only: /ap-.*/
-                name: build-front-production-ap
-                site: ap
-            - lint-front:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: lint-front-ap
-                requires:
-                    - build-front-production-ap
-                site: ap
-            - build-back:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: build-back-ap
-                site: ap
-            - lint-back:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: lint-back-ap
-                requires:
-                    - build-back-ap
-                site: ap
-            - test-back:
-                filters:
-                    tags:
-                        only: /ap-.*/
-                name: test-back-ap
-                requires:
-                    - build-back-ap
-                site: ap
-            - hub:
-                filters:
-                    tags:
-                        only: /^ap-.*/
-                image_name: ap
-                name: hub-ap
-                requires:
-                    - lint-front-ap
-                    - lint-back-ap
-                site: ap
+                        only: /.*/
+                name: no-change-ap
     nau:
         jobs:
             - no-change:
