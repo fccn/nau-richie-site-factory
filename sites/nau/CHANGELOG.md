@@ -8,6 +8,13 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- 💥(nau) upgrade nau site with latest version
+  - Upgrade the nau site with the coockiecutter
+    latest upstream version. All the packages
+    including richie version.
+
 ### Added
 
 - ✨(nau) add slider plugin
