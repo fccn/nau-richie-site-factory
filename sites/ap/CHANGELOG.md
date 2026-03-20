@@ -17,6 +17,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 💥(ap) revert to use official NGINX image
   Revert to use again the official NGINX docker image.
   Also upgrade to latest stable release.
+- 🔨(deps) add missing pbr dev dependency for bandit
 
 ## [1.4.0] - 2026-01-08
 
