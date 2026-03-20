@@ -61,3 +61,6 @@ yarn-error.log
 
 # CircleCI
 .circleci/src/workflows/@*.yml
+
+# Backups
+*.sql.gz

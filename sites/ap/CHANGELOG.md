@@ -11,9 +11,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - 💥(ap) upgrade ap site with latest version
-  - Upgrade the ap site with the coockiecutter
-    latest upstream version. All the packages
-    including richie version.
+  Upgrade the ap site with the coockiecutter
+  latest upstream version. All the packages
+  including richie version.
+- 💥(ap) revert to use official NGINX image
+  Revert to use again the official NGINX docker image.
+  Also upgrade to latest stable release.
 
 ## [1.4.0] - 2026-01-08
 

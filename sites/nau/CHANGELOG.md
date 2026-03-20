@@ -11,9 +11,12 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - 💥(nau) upgrade nau site with latest version
-  - Upgrade the nau site with the coockiecutter
-    latest upstream version. All the packages
-    including richie version.
+  Upgrade the nau site with the coockiecutter
+  latest upstream version. All the packages
+  including richie version.
+- 💥(nau) revert to use official NGINX image
+  Revert to use again the official NGINX docker image.
+  Also upgrade to latest stable release.
 
 ### Added
 
