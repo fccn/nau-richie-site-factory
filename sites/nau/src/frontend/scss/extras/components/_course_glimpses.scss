@@ -84,7 +84,7 @@ $glimpse-selector: ".course-glimpse";
   }
 
   &__metadata {
-    font-size: .9rem;
+    font-size: 0.9rem;
 
     .title {
       max-height: 2.4em;
@@ -116,7 +116,7 @@ $glimpse-selector: ".course-glimpse";
   background: r-color("white");
   padding: 0.5rem 0.7rem;
   font-weight: 600;
-  font-size: .815rem;
+  font-size: 0.815rem;
   text-transform: uppercase;
 
   &:after {

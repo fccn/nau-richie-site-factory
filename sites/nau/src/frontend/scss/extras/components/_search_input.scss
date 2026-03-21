@@ -7,8 +7,8 @@
     border: r-color("light-stroke") 1px solid;
     border-radius: $border-radius;
 
-
-    &:focus, &.focus {
+    &:focus,
+    &.focus {
       border: inherit;
       box-shadow: r-theme-val(subheader, search-border-outline);
     }

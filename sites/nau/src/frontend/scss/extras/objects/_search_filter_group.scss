@@ -13,14 +13,13 @@
     @include m-o-list-group__container;
 
     .search-filter-value-leaf {
-
       &--disabled {
         font-style: normal;
       }
     }
   }
 
-  &+.search-filter-group {
+  & + .search-filter-group {
     margin-top: 1rem;
   }
 }

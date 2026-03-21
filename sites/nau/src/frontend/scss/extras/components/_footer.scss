@@ -12,7 +12,7 @@ $footer-logo-size-lg: 18.125rem;
     order: 0;
     flex-wrap: nowrap;
 
-    &>a {
+    & > a {
       display: inline-block;
       width: $footer-logo-size-lg;
 
@@ -75,12 +75,11 @@ $footer-logo-size-lg: 18.125rem;
   }
 
   &__items {
-
     //
     // Default variant acts like a simple horizontal menu
     //
-    &>.nested-item--list.nested-item--0 {
-      &>.nested-item__content {
+    & > .nested-item--list.nested-item--0 {
+      & > .nested-item__content {
         font-size: 1.25rem;
         font-weight: $font-weight-semibold;
 
@@ -90,8 +89,8 @@ $footer-logo-size-lg: 18.125rem;
       }
     }
 
-    &>.nested-item--list,
-    &>a {
+    & > .nested-item--list,
+    & > a {
       flex-grow: 1;
       flex-shrink: 1;
 
@@ -119,7 +118,7 @@ $footer-logo-size-lg: 18.125rem;
   &__insert {
     order: 0;
 
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       flex-grow: 0;
       flex-shrink: 0;
       flex-basis: auto;
@@ -135,7 +134,7 @@ $footer-logo-size-lg: 18.125rem;
       min-width: 55%;
     }
 
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       flex-grow: 0;
       flex-shrink: 0;
       flex-basis: auto;
@@ -194,7 +193,8 @@ $footer-logo-size-lg: 18.125rem;
     border-bottom: r-theme-val("body-footer", "footer-stroke");
     flex-wrap: wrap;
 
-    & a:has(img), & img {
+    & a:has(img),
+    & img {
       padding-right: 2.5rem;
       border-right: r-theme-val("body-footer", "footer-stroke");
 

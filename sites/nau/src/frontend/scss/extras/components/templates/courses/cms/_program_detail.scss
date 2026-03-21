@@ -1,5 +1,4 @@
 .program-detail {
-
   @include media-breakpoint-down(sm) {
     padding: 0 1rem;
   }
@@ -8,7 +7,7 @@
     a:not(h3 a) {
       text-decoration: underline;
     }
-    
+
     @include external-link-icon(r-color("black"));
   }
 
@@ -22,7 +21,6 @@
   }
 
   &__main {
-
     .subheader__teaser {
       margin: 2rem 0 1rem 1rem;
     }

@@ -13,8 +13,10 @@
   font-weight: 400;
   font-style: italic;
   src:
-    url("/static/richie/fonts/ibmplex/IBMPlexSans-MediumItalic.woff2") format("woff2"),
-    url("/static/richie/fonts/ibmplex/IBMPlexSans-MediumItalic.woff") format("woff");
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-MediumItalic.woff2")
+      format("woff2"),
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-MediumItalic.woff")
+      format("woff");
 }
 
 @font-face {
@@ -22,7 +24,8 @@
   font-display: swap;
   font-weight: 300, 400, 500;
   src:
-    url("/static/richie/fonts/ibmplex/IBMPlexSans-Regular.woff2") format("woff2"),
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-Regular.woff2")
+      format("woff2"),
     url("/static/richie/fonts/ibmplex/IBMPlexSans-Regular.woff") format("woff");
 }
 
@@ -31,7 +34,8 @@
   font-display: swap;
   font-weight: 600;
   src:
-    url("/static/richie/fonts/ibmplex/IBMPlexSans-SemiBold.woff2") format("woff2"),
+    url("/static/richie/fonts/ibmplex/IBMPlexSans-SemiBold.woff2")
+      format("woff2"),
     url("/static/richie/fonts/ibmplex/IBMPlexSans-SemiBold.woff") format("woff");
 }
 

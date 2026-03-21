@@ -1,7 +1,6 @@
 $course-details-class: ".course-detail";
 
 #{$course-details-class} {
-
   @include media-breakpoint-down(sm) {
     padding: 0 1rem;
   }
@@ -53,8 +52,10 @@ $course-details-class: ".course-detail";
             content: "";
             display: inline-block;
             background-repeat: no-repeat;
-            background-color: r-theme-val(course-detail,
-                run-catalog-visibility-logo-color);
+            background-color: r-theme-val(
+              course-detail,
+              run-catalog-visibility-logo-color
+            );
             -webkit-mask: r-theme-val(course-detail, checkmark-list-decoration);
             mask: r-theme-val(course-detail, checkmark-list-decoration);
             -webkit-mask-size: cover;
@@ -87,7 +88,7 @@ $course-details-class: ".course-detail";
     border-bottom: r-theme-val(course-detail, aside-title-border);
   }
 
-  &__relations  > div {
+  &__relations > div {
     border-top: r-theme-val(course-detail, aside-title-border);
   }
 

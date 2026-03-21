@@ -145,6 +145,11 @@ lint-front-prettier: .env ## run prettier linter over ts(x) & scss files
 	@$(YARN) prettier
 .PHONY: lint-front-prettier
 
+lint-front-fix: ## fix lint js/jsx/json/ts/tsx files -- beware! overwrites files
+	@$(YARN) lint --fix
+	@$(YARN) prettier-write
+.PHONY: lint-front-fix
+
 lint-front-prettier-write: .env ## run prettier over ts(x) & scss files -- beware! overwrites files
 	@$(YARN) prettier-write
 .PHONY: lint-front-prettier-write

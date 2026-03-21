@@ -18,6 +18,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
   Revert to use again the official NGINX docker image.
   Also upgrade to latest stable release.
 - 🔨(deps) add missing pbr dev dependency for bandit
+- 🐛(deps) upgrade raincoat to 1.2.4 for Python 3.11 compatibility
 
 ## [1.4.0] - 2026-01-08
 
