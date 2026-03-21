@@ -2,7 +2,7 @@ $blogpost-glimpse-class: ".blogpost-glimpse";
 
 #{$blogpost-glimpse-class} {
   border: r-theme-val(blogpost-glimpse, glimpse-border);
-  padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
 
   &__title {
     margin: 0.4rem 0 0.6rem;
@@ -55,18 +55,18 @@ $blogpost-glimpse-class: ".blogpost-glimpse";
     // override categories to avoid showing the category list on related news aside
     display: none;
     padding-left: 0;
-    
+
     &::before {
       content: none;
     }
-    
+
     .category-tag {
       background: none;
-      
+
       &:first-of-type {
         padding-left: 0;
       }
-      
+
       .category-tag__title {
         color: r-color("firebrick6");
       }

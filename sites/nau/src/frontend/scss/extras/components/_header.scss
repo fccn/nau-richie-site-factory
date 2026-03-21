@@ -25,12 +25,12 @@
   &__brand {
     justify-content: space-between;
 
-    &>h1 {
+    & > h1 {
       margin: 0;
     }
 
     // Clickable logo
-    &>a {
+    & > a {
       align-self: center;
     }
   }
@@ -42,7 +42,7 @@
   }
 
   &__logo {
-      width: 6.75rem;
+    width: 6.75rem;
   }
 
   // Main menu for pages
@@ -60,20 +60,19 @@
         border-block-end: 1px solid r-theme-val(topbar, menu-border-color);
       }
     }
-
   }
 
   &__list {
     @include media-breakpoint-up($r-topbar-breakpoint) {
       gap: 1.5rem;
-      margin-inline-start: .5rem;
-      margin-inline-end: .5rem;
+      margin-inline-start: 0.5rem;
+      margin-inline-end: 0.5rem;
     }
   }
 
   // Menu item element
   &__item {
-    &>a {
+    & > a {
       flex-grow: inherit;
       flex-basis: auto;
       display: flex;
@@ -83,7 +82,8 @@
       font-weight: 600;
       font-size: 1.125rem;
 
-      @include media-breakpoint-up($r-topbar-breakpoint) {}
+      @include media-breakpoint-up($r-topbar-breakpoint) {
+      }
 
       &:hover {
         text-decoration: none;
@@ -108,7 +108,7 @@
     // Current page item or current ancestor
     &--selected,
     &--ancestor {
-      &>a {
+      & > a {
         @if r-theme-val(topbar, item-active-color) {
           color: r-theme-val(topbar, item-active-color);
 
@@ -204,5 +204,4 @@
       order: 2;
     }
   }
-
 }

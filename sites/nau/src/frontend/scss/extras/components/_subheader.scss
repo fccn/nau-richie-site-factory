@@ -64,12 +64,13 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
       font-size: 2.5rem;
     }
 
-    .richie-react--search-suggest-field 
-    .react-autosuggest__container 
-    .react-autosuggest__input {
+    .richie-react--search-suggest-field
+      .react-autosuggest__container
+      .react-autosuggest__input {
       border: r-theme-val(subheader, search-border);
 
-      &:focus, &.focus {
+      &:focus,
+      &.focus {
         box-shadow: r-theme-val(subheader, search-border-outline);
       }
     }

@@ -76,7 +76,7 @@
 .hero-intro {
   position: relative;
   padding: 0;
-  background-image: url('../../richie/images/nau-background-gradient.svg');
+  background-image: url("../../richie/images/nau-background-gradient.svg");
   background-repeat: no-repeat;
   background-position: top right;
   background-color: r-color("firebrick6");
@@ -98,9 +98,7 @@
       @if $r-topbar-height {
         padding: calc(2vw + 1rem) 0 calc(2vw + 1rem);
         min-height: ($r-topbar-height + 16.75rem);
-      }
-
-      @else {
+      } @else {
         padding: 1rem 0 calc(5vw + 1rem);
         min-height: 34.75rem;
       }
@@ -144,7 +142,7 @@
       z-index: 1;
     }
 
-    &>span {
+    & > span {
       font-size: 3.8rem;
 
       @include media-breakpoint-down(sm) {
@@ -208,13 +206,17 @@
 
   &__cta {
     @include sv-flex(0, 0, auto);
-    @include button-size($btn-padding-y,
+    @include button-size(
+      $btn-padding-y,
       1.5rem,
       1.125rem,
       $btn-line-height,
-      $btn-border-radius );
-    @include button-variant(r-theme-val(hero-intro, cta-variant-from),
-      r-theme-val(hero-intro, cta-variant-to));
+      $btn-border-radius
+    );
+    @include button-variant(
+      r-theme-val(hero-intro, cta-variant-from),
+      r-theme-val(hero-intro, cta-variant-to)
+    );
     margin-left: 0 !important;
     margin-top: 0;
     font-weight: $font-weight-regular;
@@ -237,7 +239,7 @@
     @include media-breakpoint-down(lg) {
       right: -12rem;
     }
-    
+
     @include media-breakpoint-down(md) {
       display: none;
     }

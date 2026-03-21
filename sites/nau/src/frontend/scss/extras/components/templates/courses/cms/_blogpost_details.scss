@@ -7,7 +7,6 @@
     }
 
     @include external-link-icon(r-color("black"));
-
   }
 
   &__grid-aside {
@@ -39,7 +38,6 @@
   }
 
   &__body {
-
     h2,
     h3 {
       margin-block-start: 2.5rem;
@@ -74,7 +72,7 @@
     &::before {
       content: none;
       width: 0;
-      
+
       @include media-breakpoint-up(lg) {
         width: 0;
         padding-left: 0;
