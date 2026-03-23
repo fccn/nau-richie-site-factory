@@ -1,58 +1,53 @@
-import { defineMessages, FormattedMessage, useIntl } from "react-intl";
-import React from "react";
-import { PacedCourse, CourseRun, Priority } from "types";
-import { CourseRunHelper } from "utils/CourseRunHelper";
-import { SyllabusSimpleCourseRunsList } from "widgets/SyllabusCourseRunsList/components/SyllabusSimpleCourseRunsList";
-import { SyllabusCourseRun } from "widgets/SyllabusCourseRunsList/components/SyllabusCourseRun";
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
+import React from 'react';
+import { PacedCourse, CourseRun, Priority } from 'types';
+import { CourseRunHelper } from 'utils/CourseRunHelper';
+import { SyllabusSimpleCourseRunsList } from 'widgets/SyllabusCourseRunsList/components/SyllabusSimpleCourseRunsList';
+import { SyllabusCourseRun } from 'widgets/SyllabusCourseRunsList/components/SyllabusCourseRun';
 
 const messages = defineMessages({
   otherCourseRuns: {
-    id: "components.SyllabusAsideList.otherCourseRuns",
+    id: 'components.SyllabusAsideList.otherCourseRuns',
     description:
-      "Message displayed on the top of course runs list on syllabus when there is only one course run opened",
-    defaultMessage: "Other course runs",
+      'Message displayed on the top of course runs list on syllabus when there is only one course run opened',
+    defaultMessage: 'Other course runs',
   },
   courseRunsTitle: {
-    id: "components.SyllabusAsideList.courseRunsTitle",
+    id: 'components.SyllabusAsideList.courseRunsTitle',
     description:
-      "Message displayed on the top of course runs list on syllabus when there is 0 or multiple course runs opened",
-    defaultMessage: "Course runs",
+      'Message displayed on the top of course runs list on syllabus when there is 0 or multiple course runs opened',
+    defaultMessage: 'Course runs',
   },
   noCourseRuns: {
-    id: "components.SyllabusAsideList.noCourseRuns",
-    description:
-      "Message displayed on syllabus when there are no course runs to show",
-    defaultMessage: "No course runs",
+    id: 'components.SyllabusAsideList.noCourseRuns',
+    description: 'Message displayed on syllabus when there are no course runs to show',
+    defaultMessage: 'No course runs',
   },
   noOtherCourseRuns: {
-    id: "components.SyllabusAsideList.noOtherCourseRuns",
+    id: 'components.SyllabusAsideList.noOtherCourseRuns',
     description:
-      "Message displayed on syllabus when there are no other course runs to show than the only one opened",
-    defaultMessage: "No other course runs",
+      'Message displayed on syllabus when there are no other course runs to show than the only one opened',
+    defaultMessage: 'No other course runs',
   },
   toBeScheduled: {
-    id: "components.SyllabusAsideList.toBeScheduled",
-    description:
-      "Message displayed on syllabus when there are course runs to be scheduled",
-    defaultMessage: "To be scheduled",
+    id: 'components.SyllabusAsideList.toBeScheduled',
+    description: 'Message displayed on syllabus when there are course runs to be scheduled',
+    defaultMessage: 'To be scheduled',
   },
   upcoming: {
-    id: "components.SyllabusAsideList.upcoming",
-    description:
-      "Message displayed on syllabus when there are upcoming course runs",
-    defaultMessage: "Upcoming",
+    id: 'components.SyllabusAsideList.upcoming',
+    description: 'Message displayed on syllabus when there are upcoming course runs',
+    defaultMessage: 'Upcoming',
   },
   ongoing: {
-    id: "components.SyllabusAsideList.ongoing",
-    description:
-      "Message displayed on syllabus when there are ongoing course runs",
-    defaultMessage: "Ongoing",
+    id: 'components.SyllabusAsideList.ongoing',
+    description: 'Message displayed on syllabus when there are ongoing course runs',
+    defaultMessage: 'Ongoing',
   },
   archived: {
-    id: "components.SyllabusAsideList.archived",
-    description:
-      "Message displayed on syllabus when there are archived course runs",
-    defaultMessage: "Archived",
+    id: 'components.SyllabusAsideList.archived',
+    description: 'Message displayed on syllabus when there are archived course runs',
+    defaultMessage: 'Archived',
   },
 });
 
@@ -66,15 +61,13 @@ export const SyllabusAsideList = ({
   maxArchivedCourseRuns: number;
 }) => {
   const intl = useIntl();
-  const locale = intl.locale.split("-")[0];
+  const locale = intl.locale.split('-')[0];
 
   const openedRuns = courseRuns
     .filter((run) =>
-      [
-        Priority.ONGOING_OPEN,
-        Priority.FUTURE_OPEN,
-        Priority.ARCHIVED_OPEN,
-      ].includes(run.state.priority),
+      [Priority.ONGOING_OPEN, Priority.FUTURE_OPEN, Priority.ARCHIVED_OPEN].includes(
+        run.state.priority,
+      ),
     )
     .sort((a, b) => {
       // Sort the runs with the same locale as the user above.
@@ -106,17 +99,14 @@ export const SyllabusAsideList = ({
   );
 
   const ongoingRuns = otherRuns.filter((run) =>
-    [Priority.FUTURE_CLOSED, Priority.ONGOING_CLOSED].includes(
-      run.state.priority,
-    ),
+    [Priority.FUTURE_CLOSED, Priority.ONGOING_CLOSED].includes(run.state.priority),
   );
 
   const archivedRuns = otherRuns.filter((run) =>
     [Priority.ARCHIVED_CLOSED].includes(run.state.priority),
   );
 
-  const showLanguages =
-    CourseRunHelper.IsAllCourseRunsWithSameLanguages(courseRuns);
+  const showLanguages = CourseRunHelper.IsAllCourseRunsWithSameLanguages(courseRuns);
 
   // If there are no runs to display at all, don't render anything
   if (openedRuns.length <= 1 && otherRuns.length === 0) {
@@ -168,10 +158,7 @@ export const SyllabusAsideList = ({
           <h3 className="course-detail__title">
             <FormattedMessage {...messages.ongoing} />
           </h3>
-          <SyllabusSimpleCourseRunsList
-            courseRuns={ongoingRuns}
-            checkEnrollment
-          />
+          <SyllabusSimpleCourseRunsList courseRuns={ongoingRuns} checkEnrollment />
         </div>
       )}
       {archivedRuns.length > 0 && (
