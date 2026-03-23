@@ -20,7 +20,12 @@ hub:
     - setup_remote_docker
     - run:
         name: Build docker images
-        command: make env.d/aws && make build
+        command: |
+          echo "" > .env
+          echo "RICHIE_SITE=<< parameters.site >>" >> .env
+          echo "ACTIVATED_DB=mysql" >> .env
+          echo "DB_PORT=3306" >> .env
+          make env.d/aws && make build
     - run:
         name: Check built image availability
         command: |
