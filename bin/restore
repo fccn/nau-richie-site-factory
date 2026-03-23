@@ -115,12 +115,15 @@ zcat "$ROOT_DIR/$BACKUP_FILE" | sed -n "/^-- Current Database: \`$DB_FROM\`/,/^-
 # Replace occurrences of FROM_ENV with TO_ENV in the SQL file
 sed -i "s/${FROM_ENV}/${TO_ENV}/g" temp.sql
 
+# Add COMMIT at the end for better performance
+echo "COMMIT;" >> temp.sql
+
 CAT_EXEC="cat"
 # if pv is installed, use it to show progress
 if command -v pv &> /dev/null; then
     CAT_EXEC="pv"
 fi
-$CAT_EXEC temp.sql | MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u "$DB_USER" --host "$MYSQL_HOST" --port "$MYSQL_PORT"
+$CAT_EXEC temp.sql | MYSQL_PWD="$MYSQL_ROOT_PASSWORD" /usr/bin/mysql -u "$DB_USER" --host "$MYSQL_HOST" --port "$MYSQL_PORT" --init-command="SET SESSION FOREIGN_KEY_CHECKS=0; SET SESSION UNIQUE_CHECKS=0; SET SESSION SQL_LOG_BIN=0; SET AUTOCOMMIT=0;" --database="$DB_TO"
 
 echo "Cleaning up temporary files..."
 rm -f temp.sql
