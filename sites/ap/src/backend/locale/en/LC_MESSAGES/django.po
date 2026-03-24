@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-18 15:31+0100\n"
+"POT-Creation-Date: 2026-03-24 17:46+0000\n"
 "PO-Revision-Date: 2021-07-14 16:32+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "{!s} settings"
 msgstr ""
 
-#: ap/force_translations.py:10 ap/settings.py:755
+#: ap/force_translations.py:10 ap/settings.py:802
 msgid "First session"
 msgstr "First edition"
 
@@ -52,43 +52,35 @@ msgstr "%(title)s"
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
 
-#: ap/settings.py:246
+#: ap/settings.py:245
 msgid "Dashboard"
 msgstr ""
 
-#: ap/settings.py:247
-msgid "{base_url:s}/dashboard"
+#: ap/settings.py:253
+msgid "Performance"
 msgstr ""
 
-#: ap/settings.py:250
+#: ap/settings.py:266
+msgid "Leaderboard"
+msgstr ""
+
+#: ap/settings.py:279
 msgid "Profile"
 msgstr ""
 
-#: ap/settings.py:251
-msgid "{base_url:s}/u/(username)"
-msgstr ""
-
-#: ap/settings.py:254
+#: ap/settings.py:287
 msgid "Account"
 msgstr ""
 
-#: ap/settings.py:255
-msgid "{base_url:s}/account/settings"
-msgstr ""
-
-#: ap/settings.py:258
+#: ap/settings.py:295
 msgid "Order History"
 msgstr ""
 
-#: ap/settings.py:259
-msgid "{base_url:s}/orders/orders"
-msgstr ""
-
-#: ap/settings.py:350
+#: ap/settings.py:388
 msgid "Teaser"
 msgstr ""
 
-#: ap/settings.py:441 ap/settings.py:456 ap/tests/test_cache_ttl.py:71
+#: ap/settings.py:479 ap/settings.py:494 ap/tests/test_cache_ttl.py:71
 #: ap/tests/test_cache_ttl.py:92 ap/tests/test_cache_ttl.py:129
 #: ap/tests/test_cache_ttl.py:150 ap/tests/test_cache_ttl.py:193
 #: ap/tests/test_cache_ttl.py:214 ap/tests/test_cache_ttl.py:242
@@ -115,47 +107,47 @@ msgstr ""
 msgid "Portuguese Lang"
 msgstr "Português"
 
-#: ap/settings.py:752
+#: ap/settings.py:799
 msgid "New courses"
 msgstr ""
 
-#: ap/settings.py:765
+#: ap/settings.py:812
 msgid "Availability"
 msgstr ""
 
-#: ap/settings.py:777
+#: ap/settings.py:824
 msgid "Competence ReCAP"
 msgstr ""
 
-#: ap/settings.py:788
+#: ap/settings.py:835
 msgid "Career"
 msgstr ""
 
-#: ap/settings.py:799
+#: ap/settings.py:846
 msgid "Subjects"
 msgstr ""
 
-#: ap/settings.py:810
+#: ap/settings.py:857
 msgid "Organizations"
 msgstr ""
 
-#: ap/settings.py:828
+#: ap/settings.py:875
 msgid "Weekly pace"
 msgstr ""
 
-#: ap/settings.py:832
+#: ap/settings.py:879
 msgid "Self-paced"
 msgstr ""
 
-#: ap/settings.py:833
+#: ap/settings.py:880
 msgid "Less than one hour"
 msgstr ""
 
-#: ap/settings.py:834
+#: ap/settings.py:881
 msgid "One to two hours"
 msgstr ""
 
-#: ap/settings.py:835
+#: ap/settings.py:882
 msgid "More than two hours"
 msgstr ""
 

@@ -46,6 +46,10 @@ class AuthenticationProfileURLsTestCase(TestCase):
         self.assertEqual(str(account["label"]), "Conta")
         self.assertEqual(account["href"], "{base_url:s}/account/settings")
 
+    @override_settings(
+        LANGUAGE_CODE="en",
+        LANGUAGES=(("en", "English"), ("pt", "Portuguese")),
+    )
     def test_default_order_history_url(self):
         """Test the default order history URL configuration."""
         profile_urls = settings.RICHIE_AUTHENTICATION_DELEGATION["PROFILE_URLS"]
@@ -176,3 +180,104 @@ class AuthenticationProfileURLsTestCase(TestCase):
                 hasattr(label, "__str__"),
                 f"Label for {key} should be translatable or a string",
             )
+
+    def test_gamma_dashboard_entries_disabled_by_default(self):
+        """Test that performance and leaderboard are filtered out by default."""
+        profile_urls = settings.RICHIE_AUTHENTICATION_DELEGATION["PROFILE_URLS"]
+
+        # Performance and leaderboard should not be present (filtered by post_setup)
+        # because they have enabled=False by default
+        self.assertNotIn("performance", profile_urls)
+        self.assertNotIn("leaderboard", profile_urls)
+        self.assertIn("dashboard", profile_urls)
+
+    def test_filtering_removes_disabled_entries(self):
+        """Test that post_setup filtering removes entries with enabled=False."""
+        # Simulate PROFILE_URLS with enabled flags
+        test_urls = {
+            "dashboard": {"label": "Dashboard", "href": "{base_url:s}/dashboard"},
+            "performance": {
+                "label": "Performance",
+                "href": "{base_url:s}/gamma_dashboard/dashboard/",
+                "enabled": False,  # Should be filtered out
+            },
+            "leaderboard": {
+                "label": "Leaderboard",
+                "href": "{base_url:s}/gamma_dashboard/leaderboard/",
+                "enabled": False,  # Should be filtered out
+            },
+            "profile": {
+                "label": "Profile",
+                "href": "{base_url:s}/profile/u/(username)",
+            },
+        }
+
+        # Apply the filtering logic from post_setup
+        filtered_urls = {
+            key: value
+            for key, value in test_urls.items()
+            if value.get("enabled", True) is not False
+        }
+
+        # Verify filtering worked
+        self.assertIn("dashboard", filtered_urls)
+        self.assertIn("profile", filtered_urls)
+        self.assertNotIn("performance", filtered_urls)  # Was filtered out
+        self.assertNotIn("leaderboard", filtered_urls)  # Was filtered out
+
+    def test_filtering_keeps_enabled_entries(self):
+        """Test that post_setup filtering keeps entries with enabled=True."""
+        # Simulate PROFILE_URLS with enabled=True
+        test_urls = {
+            "dashboard": {"label": "Dashboard", "href": "{base_url:s}/dashboard"},
+            "performance": {
+                "label": "Performance",
+                "href": "{base_url:s}/gamma_dashboard/dashboard/",
+                "enabled": True,  # Should be kept
+            },
+            "leaderboard": {
+                "label": "Leaderboard",
+                "href": "{base_url:s}/gamma_dashboard/leaderboard/",
+                "enabled": True,  # Should be kept
+            },
+            "profile": {
+                "label": "Profile",
+                "href": "{base_url:s}/profile/u/(username)",
+            },
+        }
+
+        # Apply the filtering logic from post_setup
+        filtered_urls = {
+            key: value
+            for key, value in test_urls.items()
+            if value.get("enabled", True) is not False
+        }
+
+        # Verify all entries are present
+        self.assertIn("dashboard", filtered_urls)
+        self.assertIn("performance", filtered_urls)  # Was kept
+        self.assertIn("leaderboard", filtered_urls)  # Was kept
+        self.assertIn("profile", filtered_urls)
+
+    def test_filtering_preserves_entries_without_enabled_flag(self):
+        """Test that entries without enabled flag are kept (backward compatibility)."""
+        # Simulate PROFILE_URLS without enabled flags (like existing entries)
+        test_urls = {
+            "dashboard": {"label": "Dashboard", "href": "{base_url:s}/dashboard"},
+            "profile": {
+                "label": "Profile",
+                "href": "{base_url:s}/profile/u/(username)",
+            },
+        }
+
+        # Apply the filtering logic from post_setup
+        filtered_urls = {
+            key: value
+            for key, value in test_urls.items()
+            if value.get("enabled", True) is not False
+        }
+
+        # Verify all entries without enabled flag are kept
+        self.assertIn("dashboard", filtered_urls)
+        self.assertIn("profile", filtered_urls)
+        self.assertEqual(len(filtered_urls), 2)

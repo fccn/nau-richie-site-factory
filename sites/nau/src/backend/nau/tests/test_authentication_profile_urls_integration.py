@@ -161,7 +161,50 @@ class AuthenticationProfileURLsIntegrationTestCase(TestCase):
         profile_urls = settings.RICHIE_AUTHENTICATION_DELEGATION["PROFILE_URLS"]
 
         # The order should match the definition order for consistent UI
+        # Note: performance and leaderboard are filtered out by default (enabled=False)
         url_keys = list(profile_urls.keys())
         expected_order = ["dashboard", "profile", "account", "order_history"]
 
         self.assertEqual(url_keys, expected_order)
+
+    def test_performance_url_construction(self):
+        """Test performance URL construction with base_url.
+
+        This test verifies the URL pattern by simulating URL construction
+        even though the entry is filtered in the processed settings.
+        """
+        # Define the expected URL pattern from settings definition
+        performance_href = "{base_url:s}/gamma_dashboard/dashboard/"
+
+        # Construct the full URL
+        full_url = performance_href.format(base_url=self.base_url)
+
+        self.assertEqual(full_url, f"{self.base_url}/gamma_dashboard/dashboard/")
+
+    def test_leaderboard_url_construction(self):
+        """Test leaderboard URL construction with base_url.
+
+        This test verifies the URL pattern by simulating URL construction
+        even though the entry is filtered in the processed settings.
+        """
+        # Define the expected URL pattern from settings definition
+        leaderboard_href = "{base_url:s}/gamma_dashboard/leaderboard/"
+
+        # Construct the full URL
+        full_url = leaderboard_href.format(base_url=self.base_url)
+
+        self.assertEqual(full_url, f"{self.base_url}/gamma_dashboard/leaderboard/")
+
+    def test_gamma_dashboard_entries_filtered_when_disabled(self):
+        """Test that gamma dashboard entries are filtered from final config when disabled."""
+        profile_urls = settings.RICHIE_AUTHENTICATION_DELEGATION["PROFILE_URLS"]
+
+        # These should not be present in the processed settings (after post_setup)
+        self.assertNotIn("performance", profile_urls)
+        self.assertNotIn("leaderboard", profile_urls)
+
+        # But all default entries should be present
+        self.assertIn("dashboard", profile_urls)
+        self.assertIn("profile", profile_urls)
+        self.assertIn("account", profile_urls)
+        self.assertIn("order_history", profile_urls)

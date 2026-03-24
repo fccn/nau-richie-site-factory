@@ -20,6 +20,14 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔨(deps) add missing pbr dev dependency for bandit
 - 🐛(deps) upgrade raincoat to 1.2.4 for Python 3.11 compatibility
 
+### Added
+
+- ✨(profile) add optional gamma dashboard menu items
+  Add Performance and Leaderboard menu items to user profile dropdown.
+  Both are disabled by default and can be enabled via environment variables
+  AUTHENTICATION_PROFILE_URL_PERFORMANCE_ENABLED and
+  AUTHENTICATION_PROFILE_URL_LEADERBOARD_ENABLED respectively.
+
 ## [1.4.0] - 2026-01-08
 
 ### Added
