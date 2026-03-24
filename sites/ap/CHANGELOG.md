@@ -24,6 +24,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - 🐛(ap) fix course page rendering
+- 💄(ap) fix social network logo
+  Replace the image that is shown by default when sharing
+  the homepage of AP site to a social network.
 
 ### Added
 
