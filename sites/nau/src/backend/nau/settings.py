@@ -248,6 +248,32 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                     environ_prefix=None,
                 ),
             },
+            "performance": {
+                "label": _("Performance"),
+                "href": values.Value(
+                    default="{base_url:s}/gamma_dashboard/dashboard/",
+                    environ_name="AUTHENTICATION_PROFILE_URL_PERFORMANCE",
+                    environ_prefix=None,
+                ),
+                "enabled": values.BooleanValue(
+                    False,
+                    environ_name="AUTHENTICATION_PROFILE_URL_PERFORMANCE_ENABLED",
+                    environ_prefix=None,
+                ),
+            },
+            "leaderboard": {
+                "label": _("Leaderboard"),
+                "href": values.Value(
+                    default="{base_url:s}/gamma_dashboard/leaderboard/",
+                    environ_name="AUTHENTICATION_PROFILE_URL_LEADERBOARD",
+                    environ_prefix=None,
+                ),
+                "enabled": values.BooleanValue(
+                    False,
+                    environ_name="AUTHENTICATION_PROFILE_URL_LEADERBOARD_ENABLED",
+                    environ_prefix=None,
+                ),
+            },
             "profile": {
                 "label": _("Profile"),
                 "href": values.Value(
@@ -761,6 +787,15 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         cls.CMS_PLACEHOLDER_CONF = merge_dict(
             cls.CMS_PLACEHOLDER_CONF, cls.CMS_PLACEHOLDER_CONF_OVERRIDES
         )
+
+        # Filter out disabled profile URLs
+        cls.RICHIE_AUTHENTICATION_DELEGATION["PROFILE_URLS"] = {
+            key: value
+            for key, value in cls.RICHIE_AUTHENTICATION_DELEGATION[
+                "PROFILE_URLS"
+            ].items()
+            if value.get("enabled", True) is not False
+        }
 
 
 class Development(Base):

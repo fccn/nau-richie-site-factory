@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-29 11:24+0100\n"
+"POT-Creation-Date: 2026-03-24 19:28+0000\n"
 "PO-Revision-Date: 2023-09-29 15:46+0100\n"
 "Last-Translator: Ivo Branco <ivo.branco@fccn.pt>\n"
 "Language-Team: \n"
@@ -52,47 +52,39 @@ msgstr "%(title)s"
 msgid "Richie news: %(title)s %(url)s"
 msgstr "%(title)s %(url)s"
 
-#: nau/settings.py:245
+#: nau/settings.py:244
 msgid "Dashboard"
 msgstr "Painel de Cursos"
 
-#: nau/settings.py:246
-msgid "{base_url:s}/dashboard"
-msgstr ""
+#: nau/settings.py:252
+msgid "Performance"
+msgstr "Desempenho"
 
-#: nau/settings.py:249
+#: nau/settings.py:265
+msgid "Leaderboard"
+msgstr "Classificação"
+
+#: nau/settings.py:278
 msgid "Profile"
 msgstr "Perfil"
 
-#: nau/settings.py:250
-msgid "{base_url:s}/u/(username)"
-msgstr ""
-
-#: nau/settings.py:253
+#: nau/settings.py:286
 msgid "Account"
 msgstr "Conta"
 
-#: nau/settings.py:254
-msgid "{base_url:s}/account/settings"
-msgstr ""
-
-#: nau/settings.py:257
+#: nau/settings.py:294
 msgid "Order History"
-msgstr "Histórico de compras"
+msgstr "Histórico de Compras"
 
-#: nau/settings.py:258
-msgid "{base_url:s}/orders/orders"
-msgstr ""
-
-#: nau/settings.py:349
+#: nau/settings.py:387
 msgid "Teaser"
-msgstr ""
+msgstr "Antevisão"
 
-#: nau/settings.py:438 nau/settings.py:453
+#: nau/settings.py:477 nau/settings.py:492
 msgid "English Lang"
 msgstr "English"
 
-#: nau/settings.py:438 nau/settings.py:461
+#: nau/settings.py:477 nau/settings.py:500
 msgid "Portuguese Lang"
 msgstr "Português"
 

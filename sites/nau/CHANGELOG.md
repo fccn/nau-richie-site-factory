@@ -23,6 +23,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - ✨(nau) add slider plugin
+- ✨(profile) add optional gamma dashboard menu items
+  Add Performance and Leaderboard menu items to user profile dropdown.
+  Both are disabled by default and can be enabled via environment variables
+  AUTHENTICATION_PROFILE_URL_PERFORMANCE_ENABLED and
+  AUTHENTICATION_PROFILE_URL_LEADERBOARD_ENABLED respectively.
 
 ### Fixed
 
