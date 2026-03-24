@@ -41,6 +41,12 @@
 
   &__organizations &__title {
     color: inherit !important;
-    @include font-size($h2-font-size);
+    font-size: 2rem;
+  }
+
+  &__information {
+    h2.section__title {
+      font-size: 2rem;
+    }
   }
 }
