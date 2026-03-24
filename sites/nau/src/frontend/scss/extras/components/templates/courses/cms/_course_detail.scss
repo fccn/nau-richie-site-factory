@@ -87,7 +87,7 @@ $course-details-class: ".course-detail";
 
   &__organizations &__title {
     color: inherit !important;
-    @include font-size($h2-font-size);
+    font-size: 2rem;
   }
 
   &__aside &__title {
@@ -106,5 +106,11 @@ $course-details-class: ".course-detail";
   &__empty {
     font-weight: $font-weight-regular;
     font-style: normal;
+  }
+
+  &__information {
+    h2.section__title {
+      font-size: 2rem;
+    }
   }
 }
