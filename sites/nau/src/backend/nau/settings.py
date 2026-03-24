@@ -239,28 +239,40 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
         # (i) Info - {base_url} is AUTHENTICATION_DELEGATION.BASE_URL
         # (i) If you need to bind user data into href url, wrap the property between ()
         # e.g: for user.username = johndoe, /u/(username) will be /u/johndoe
-        "PROFILE_URLS": values.DictValue(
-            {
-                "dashboard": {
-                    "label": _("Dashboard"),
-                    "href": _("{base_url:s}/dashboard"),
-                },
-                "profile": {
-                    "label": _("Profile"),
-                    "href": _("{base_url:s}/u/(username)"),
-                },
-                "account": {
-                    "label": _("Account"),
-                    "href": _("{base_url:s}/account/settings"),
-                },
-                "order_history": {
-                    "label": _("Order History"),
-                    "href": _("{base_url:s}/orders/orders"),
-                },
+        "PROFILE_URLS": {
+            "dashboard": {
+                "label": _("Dashboard"),
+                "href": values.Value(
+                    default="{base_url:s}/dashboard",
+                    environ_name="AUTHENTICATION_PROFILE_URL_DASHBOARD",
+                    environ_prefix=None,
+                ),
             },
-            environ_name="AUTHENTICATION_PROFILE_URLS",
-            environ_prefix=None,
-        ),
+            "profile": {
+                "label": _("Profile"),
+                "href": values.Value(
+                    default="{base_url:s}/profile/u/(username)",
+                    environ_name="AUTHENTICATION_PROFILE_URL_PROFILE",
+                    environ_prefix=None,
+                ),
+            },
+            "account": {
+                "label": _("Account"),
+                "href": values.Value(
+                    default="{base_url:s}/account/settings",
+                    environ_name="AUTHENTICATION_PROFILE_URL_ACCOUNT",
+                    environ_prefix=None,
+                ),
+            },
+            "order_history": {
+                "label": _("Order History"),
+                "href": values.Value(
+                    default="{base_url:s}/orders/orders",
+                    environ_name="AUTHENTICATION_PROFILE_URL_ORDER_HISTORY",
+                    environ_prefix=None,
+                ),
+            },
+        },
     }
 
     # LMS
