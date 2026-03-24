@@ -168,6 +168,10 @@ test-back: .env ## run back-end tests: `make test-back ARGS="--reuse-db"` or a s
 	DB_PORT=$(DB_PORT) bin/pytest $(ARGS)
 .PHONY: test-back
 
+test-front: ## run front-end tests
+       @$(YARN) test --runInBand
+.PHONY: test-front
+
 watch-sass: .env ## watch changes in Sass files
 	@$(YARN) watch-sass
 .PHONY: watch-sass
