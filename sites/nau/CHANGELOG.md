@@ -20,6 +20,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - 🔨(deps) add missing pbr dev dependency for bandit
 - 🐛(deps) upgrade raincoat to 1.2.4 for Python 3.11 compatibility
 - 💄(course) change heading font size on course page
+- 💄(social) change social networks share logo
 
 ### Added
 
