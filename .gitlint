@@ -68,7 +68,7 @@ words=wip
 # Allow empty body & wrong title pattern only when bots (pyup/greenkeeper)
 # upgrade dependencies
 regex=^(⬆️.*|Update (.*) from (.*) to (.*)|(chore|fix)\(package\): update .*)$
-ignore=B6,UC1
+ignore=B1,B6,UC1
 
 # [ignore-by-body]
 # Ignore certain rules for commits of which the body has a line that matches a regex
