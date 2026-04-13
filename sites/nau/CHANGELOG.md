@@ -10,7 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- 💥(nau) upgrade nau site to Richie v3.3.1
+- 💥(nau) upgrade nau site to Richie v3.4.0
   Upgrade the nau site with the cookiecutter
   latest upstream version. All the packages
   including richie version.
