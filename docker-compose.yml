@@ -5,6 +5,7 @@ services:
     image: elasticsearch:7.17.0
     environment:
       - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     env_file:
       - "env.d/development"
       - "env.d/${ACTIVATED_DB:-postgresql}"
