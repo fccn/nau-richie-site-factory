@@ -1,6 +1,13 @@
-import { defaultTokens, DefaultTokens, Configuration } from "@openfun/cunningham-react";
+/* Custom Cunningham Tokens for Richie
 
-const config: Configuration = {
+   In a child project, you can override those tokens by creating a token file like this one,
+   merge your custom tokens with default Richie ones then by using cunningham cli to generate
+   sass and ts tokens files (take a look to the `build-theme` command within package.json
+   see it in action).
+
+*/
+
+module.exports = {
   themes: {
     default: {
       theme: {
@@ -56,8 +63,36 @@ const config: Configuration = {
           "font-family": "ref(theme.font.families.base)",
         },
       },
+      contextuals: {
+        content: {
+          semantic: {
+             brand: { 'on-brand': 'ref(globals.colors.gray-000)', tertiary: 'ref(globals.colors.gray-600)' },
+          },
+        },
+      },
+      globals: {
+        colors: {
+          'brand-050': '#faf8ff',  // Lightest purple
+          'brand-100': '#f4f0fe',
+          'brand-150': '#ede6fe',
+          'brand-200': '#d8c7fd',
+          'brand-250': '#cbb3fd',
+          'brand-300': '#bc9ffc',
+          'brand-350': '#ae8bfc',
+          'brand-400': '#a077fb',
+          'brand-450': '#8558f5',
+          'brand-500': '#693ae9',  // Your base purple
+          'brand-550': '#6d38e9',
+          'brand-600': '#7236e8',
+          'brand-650': '#6630d5',
+          'brand-700': '#5b2ac3',
+          'brand-750': '#5125b0',
+          'brand-800': '#47219d',
+          'brand-850': '#3d1d85',
+          'brand-900': '#341878',
+          'brand-950': '#28125a',  // Darkest purple
+        },
+      },
     },
   },
 };
-
-export default config;
