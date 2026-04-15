@@ -18,7 +18,7 @@
   }
 
   &__hamburger {
-    color: r-color("firebrick6");
+    color: r-color('firebrick6');
   }
 
   // Brand part with hamburger and clickable logo
@@ -85,7 +85,7 @@
     &--ancestor {
       & > a {
         @if r-theme-val(topbar, item-active-color) {
-          color: r-color("firebrick6");
+          color: r-color('firebrick6');
 
           &::before {
             position: relative;
@@ -118,13 +118,13 @@
         &__btn {
           &--log-in {
             order: 1;
-            color: r-color("firebrick6");
+            color: r-color('firebrick6');
             background: transparent;
             border-color: transparent;
             text-transform: uppercase;
 
             &:hover {
-              color: r-color("firebrick6") !important;
+              color: r-color('firebrick6') !important;
             }
 
             .icon {
@@ -134,11 +134,11 @@
 
           &--sign-up {
             order: 2;
-            background: r-color("firebrick6");
-            color: r-color("white");
+            background: r-color('firebrick6');
+            color: r-color('white');
 
             &:hover {
-              color: r-color("white") !important;
+              color: r-color('white') !important;
             }
           }
         }
@@ -152,7 +152,7 @@
         background: none;
         border: none;
         text-transform: uppercase;
-        color: r-color("firebrick6");
+        color: r-color('firebrick6');
       }
     }
   }
