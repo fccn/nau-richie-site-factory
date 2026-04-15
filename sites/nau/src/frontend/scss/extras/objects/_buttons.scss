@@ -3,3 +3,15 @@
     font-size: 1rem;
   }
 }
+
+// Force white text on Cunningham brand buttons (override anchor default color)
+a.c__button--brand,
+a.c__button--brand-primary {
+  color: var(--c--theme--colors--white);
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--c--theme--colors--white);
+    background-color: var(--c--components--button--background-color--active);
+  }
+}

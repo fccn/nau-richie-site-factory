@@ -1,7 +1,7 @@
 // Main body footer
 .body-footer {
   padding: 2rem 0;
-  background: r-color("firebrick6");
+  background: r-color('firebrick6');
 
   &__brand {
     & > a {
@@ -33,7 +33,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      fill: r-color("white");
+      fill: r-color('white');
       transition: fill 0.2s ease;
     }
 
@@ -41,7 +41,7 @@
       background: none;
 
       svg {
-        fill: r-color("greenteal");
+        fill: r-color('greenteal');
       }
     }
   }
@@ -52,7 +52,7 @@
     //
     & > .nested-item--list,
     & > a {
-      $nesteditem-base-selector: ".nested-item";
+      $nesteditem-base-selector: '.nested-item';
 
       #{$nesteditem-base-selector}__items {
         li {
@@ -65,7 +65,7 @@
   &__menu {
     a {
       &:hover {
-        color: r-color("greenteal");
+        color: r-color('greenteal');
         text-decoration: none;
         transition: color 0.2s ease;
       }

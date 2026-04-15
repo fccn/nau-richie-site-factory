@@ -1,0 +1,14 @@
+// Force white text on Cunningham brand buttons (override anchor default color)
+a.c__button--brand,
+a.c__button--brand-primary {
+  color: var(--c--theme--colors--primary-text);
+  background-color: var(--c--components--button--background-color);
+  border-color: currentColor;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--c--theme--colors--greyscale-000);
+    color: var(--c--theme--colors--primary-800);
+  }
+}

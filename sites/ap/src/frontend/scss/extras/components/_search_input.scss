@@ -4,17 +4,17 @@
 
 .search-input {
   & > input {
-    background-color: r-color("light-blue");
+    background-color: r-color('light-blue');
     border: none;
 
     &::placeholder {
-      color: r-color("firebrick6");
+      color: r-color('firebrick6');
     }
   }
 
   &__btn__icon {
     width: 1.4rem;
     height: 1.4rem;
-    fill: r-color("firebrick6");
+    fill: r-color('firebrick6');
   }
 }

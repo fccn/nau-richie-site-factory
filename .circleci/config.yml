@@ -42,7 +42,7 @@ jobs:
         working_directory: ~/fun/sites/<< parameters.site >>
     build-front-production:
         docker:
-            - image: cimg/node:20.11
+            - image: cimg/node:20.19
         parameters:
             site:
                 type: string
@@ -51,8 +51,7 @@ jobs:
                 path: ~/fun
             - restore_cache:
                 keys:
-                    - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-                    - v1-front-dependencies-<< parameters.site >>-
+                    - v2-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
             - run:
                 command: yarn install --frozen-lockfile
                 name: Install frontend dependencies (with locked dependencies)
@@ -63,7 +62,7 @@ jobs:
                 command: yarn build-ts-production
                 name: Build application js (production mode)
             - save_cache:
-                key: v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
+                key: v2-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
                 paths:
                     - ./node_modules
         working_directory: ~/fun/sites/<< parameters.site >>/src/frontend/
@@ -245,7 +244,7 @@ jobs:
         working_directory: ~/fun
     lint-front:
         docker:
-            - image: cimg/node:20.11
+            - image: cimg/node:20.19
         parameters:
             site:
                 type: string
@@ -254,8 +253,7 @@ jobs:
                 path: ~/fun
             - restore_cache:
                 keys:
-                    - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-                    - v1-front-dependencies-<< parameters.site >>-
+                    - v2-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
             - run:
                 command: yarn lint
                 name: Lint frontend code with prettier & eslint

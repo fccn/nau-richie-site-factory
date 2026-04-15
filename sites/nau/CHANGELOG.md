@@ -10,7 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- 💥(nau) upgrade nau site to Richie v3.3.1
+- 💥(nau) upgrade nau site to Richie v3.4.0
   Upgrade the nau site with the cookiecutter
   latest upstream version. All the packages
   including richie version.
@@ -33,6 +33,9 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+- 📌(deps) pin front dependencies
+  Add yarn resolution to force lru-cache to version 6.0.0 to fix
+  Babel build errors in CircleCI caused by incompatible lru-cache v7+ API.
 - 🐛(nau) fix footer logos vertical separation styles
 - 🐛(nau) fix program detail page padding
 - 🩹(nau) tweak side padding on mobile devices

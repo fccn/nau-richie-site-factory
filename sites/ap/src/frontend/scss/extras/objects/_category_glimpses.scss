@@ -19,10 +19,7 @@
 // Badge variant
 //
 .category-badge {
-  @include r-button-colors(
-    r-theme-val(category-badges, primary-item),
-    $apply-border: true
-  );
+  @include r-button-colors(r-theme-val(category-badges, primary-item), $apply-border: true);
 }
 
 //
@@ -30,15 +27,12 @@
 //
 .category-badge-list {
   .category-badge {
-    @include r-button-colors(
-      r-theme-val(category-badges, primary-item),
-      $apply-border: true
-    );
+    @include r-button-colors(r-theme-val(category-badges, primary-item), $apply-border: true);
 
     &:hover,
     &:focus {
-      background-color: r-color("midnightblue");
-      color: r-color("white");
+      background-color: r-color('midnightblue');
+      color: r-color('white');
     }
   }
 }
@@ -48,8 +42,8 @@
 .person-glimpse {
   &__categories {
     .category-tag:hover {
-      color: r-color("white");
-      background-color: r-color("midnightblue");
+      color: r-color('white');
+      background-color: r-color('midnightblue');
     }
   }
 }

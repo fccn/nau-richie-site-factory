@@ -1,3 +1,15 @@
+///
+/// Color palette and schemes
+///
+
+// Named colors
+// Do not add any color here, add or override color in cunningham.cjs instead.
+// ---------
+
+@use "../../vendors/cunningham-tokens" as tokens;
+
+$palette: recursive-map-merge($palette, map-get(tokens.$themes, "default", "globals", "colors"));
+
 // Custom NAU palette overwrites
 $palette: recursive-map-merge(
   $palette,
@@ -14,5 +26,15 @@ $palette: recursive-map-merge(
     "white-stroke": rgba(255, 255, 255, 0.25),
     "firebrick6-light-shadow": hsla(256, 80%, 57%, 0.25),
     "firebrick6-hover-shadow": hsla(256, 80%, 57%, 0.45),
+    "primary-100": #f4f0fe,  // Very light purple (95% lightness)
+    "primary-200": #d8c7fd,  // Light purple (85% lightness)
+    "primary-300": #bc9ffc,  // Medium-light purple (75% lightness)
+    "primary-400": #a077fb,  // Lighter than base (65% lightness)
+    "primary-500": #693ae9,  // Base purple (57% lightness) - your target color
+    "primary-600": #7236e8,  // Darker than base (50% lightness)
+    "primary-700": #5b2ac3,  // Medium-dark purple (43% lightness)
+    "primary-800": #47219d,  // Dark purple (35% lightness)
+    "primary-900": #341878,  // Very dark purple (28% lightness)
   )
 );
+
