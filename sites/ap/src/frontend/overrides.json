@@ -1,7 +1,5 @@
 {
   "overrides": {
-    "js/api/lms/openedx-hawthorn.ts" : "../../../../../js/api/lms/custom-openedx-hawthorn.ts",
-    "widgets/SyllabusCourseRunsList/components/SyllabusAsideList": "../../../../../js/widgets/SyllabusCourseRunsList/components/SyllabusAsideList/index.tsx",
-    "widgets/SyllabusCourseRunsList/components/SyllabusCourseRunCompacted": "../../../../../js/widgets/SyllabusCourseRunsList/components/SyllabusCourseRunCompacted/index.tsx"
+    "js/api/lms/openedx-hawthorn.ts" : "../../../../../js/api/lms/custom-openedx-hawthorn.ts"
   }
 }
