@@ -60,12 +60,12 @@ $r-subheader-search-title-width: 19rem !default; // aligned on computed search r
   }
 
   .breadcrumbs {
-    background: r-color("firebrick6");
-    color: r-color("white");
+    background: r-color('firebrick6');
+    color: r-color('white');
 
     &__item {
       a:hover {
-        color: r-color("light-teal");
+        color: r-color('light-teal');
       }
     }
   }

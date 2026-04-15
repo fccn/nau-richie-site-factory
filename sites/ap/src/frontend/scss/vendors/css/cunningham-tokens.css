@@ -135,12 +135,8 @@
   --c--components--button--font-family: Rubik;
   --c--components--button--font-weight: bold;
   --c--components--button--background-color: #09122c;
-  --c--contextuals--content--semantic--brand--on-brand: var(
-    --c--globals--colors--gray-000
-  );
-  --c--contextuals--content--semantic--brand--tertiary: var(
-    --c--globals--colors--gray-600
-  );
+  --c--contextuals--content--semantic--brand--on-brand: var(--c--globals--colors--gray-000);
+  --c--contextuals--content--semantic--brand--tertiary: var(--c--globals--colors--gray-600);
   --c--globals--colors--brand-050: #fef5f6;
   --c--globals--colors--brand-100: #fde8eb;
   --c--globals--colors--brand-150: #fbdade;
