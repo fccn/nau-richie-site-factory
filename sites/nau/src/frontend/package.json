@@ -35,7 +35,7 @@
   "homepage": "https://github.com/fccn/nau-richie-site-factory#readme",
   "dependencies": {
     "richie-education": "3.4.0",
-    "source-map-loader": "4.0.1",
+    "source-map-loader": "5.0.0",
     "yarn": "^1.22.22"
   },
   "devDependencies": {
@@ -47,7 +47,7 @@
     "nodemon": "3.0.1",
     "prettier": "3.0.2",
     "sass": "1.65.1",
-    "source-map-loader": "4.0.1",
+    "source-map-loader": "5.0.0",
     "typescript": "5.4.5",
     "webpack": "5.88.2",
     "webpack-cli": "5.1.4"
