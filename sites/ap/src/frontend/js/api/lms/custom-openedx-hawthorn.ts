@@ -1,14 +1,14 @@
-import Cookies from 'js-cookie';
-import { merge } from 'lodash-es';
-import { AuthenticationBackend, LMSBackend } from 'types/commonDataProps';
-import { Maybe, Nullable } from 'types/utils';
-import { User } from 'types/User';
-import { APILms, APIOptions } from 'types/api';
-import { location } from 'utils/indirection/window';
-import { handle } from 'utils/errors/handle';
-import { EDX_CSRF_TOKEN_COOKIE_NAME } from 'settings';
-import { UnknownEnrollment, OpenEdXEnrollment } from 'types';
-import { HttpError, HttpStatusCode } from 'utils/errors/HttpError';
+import Cookies from "js-cookie";
+import { merge } from "lodash-es";
+import { AuthenticationBackend, LMSBackend } from "types/commonDataProps";
+import { Maybe, Nullable } from "types/utils";
+import { User } from "types/User";
+import { APILms, APIOptions } from "types/api";
+import { location } from "utils/indirection/window";
+import { handle } from "utils/errors/handle";
+import { EDX_CSRF_TOKEN_COOKIE_NAME } from "settings";
+import { UnknownEnrollment, OpenEdXEnrollment } from "types";
+import { HttpError, HttpStatusCode } from "utils/errors/HttpError";
 
 /**
  *
@@ -19,7 +19,10 @@ import { HttpError, HttpStatusCode } from 'utils/errors/HttpError';
  *
  */
 
-const API = (APIConf: AuthenticationBackend | LMSBackend, options?: APIOptions): APILms => {
+const API = (
+  APIConf: AuthenticationBackend | LMSBackend,
+  options?: APIOptions,
+): APILms => {
   const extractCourseIdFromUrl = (url: string): Maybe<Nullable<string>> => {
     const matches = url.match((APIConf as LMSBackend).course_regexp);
     return matches && matches[1] ? matches[1] : null;
@@ -45,10 +48,14 @@ const API = (APIConf: AuthenticationBackend | LMSBackend, options?: APIOptions):
   return {
     user: {
       me: async () => {
-        return fetch(ROUTES.user.me, { credentials: 'include' })
+        return fetch(ROUTES.user.me, { credentials: "include" })
           .then((res) => {
             if (res.ok) return res.json();
-            if ([HttpStatusCode.FORBIDDEN, HttpStatusCode.UNAUTHORIZED].includes(res.status))
+            if (
+              [HttpStatusCode.FORBIDDEN, HttpStatusCode.UNAUTHORIZED].includes(
+                res.status,
+              )
+            )
               return null;
             throw new Error(`[SESSION OpenEdX API] > Cannot retrieve user`);
           })
@@ -61,12 +68,18 @@ const API = (APIConf: AuthenticationBackend | LMSBackend, options?: APIOptions):
         / ! \ Prefix next param with richie.
         In this way, OpenEdX Nginx conf knows that we want to go back to richie app after login/redirect
       */
-      login: () => location.assign(`${ROUTES.user.login}?next=richie-ap${location.pathname}`),
-      register: () => location.assign(`${ROUTES.user.register}?next=richie-ap${location.pathname}`),
+      login: () =>
+        location.assign(
+          `${ROUTES.user.login}?next=richie-ap${location.pathname}`,
+        ),
+      register: () =>
+        location.assign(
+          `${ROUTES.user.register}?next=richie-ap${location.pathname}`,
+        ),
       logout: async () => {
         await fetch(ROUTES.user.logout, {
-          mode: 'no-cors',
-          credentials: 'include',
+          mode: "no-cors",
+          credentials: "include",
         });
       },
     },
@@ -75,21 +88,27 @@ const API = (APIConf: AuthenticationBackend | LMSBackend, options?: APIOptions):
         const courseId = extractCourseIdFromUrl(url);
         const params = user ? `${user.username},${courseId}` : courseId;
         return fetch(`${ROUTES.enrollment.get}/${params}`, {
-          credentials: 'include',
+          credentials: "include",
         }).then((response) => {
           if (response.ok) {
-            return response.headers.get('Content-Type') === 'application/json'
+            return response.headers.get("Content-Type") === "application/json"
               ? response.json()
               : null;
           }
           if (response.status >= HttpStatusCode.INTERNAL_SERVER_ERROR) {
-            handle(new Error(`[GET - Enrollment] > ${response.status} - ${response.statusText}`));
+            handle(
+              new Error(
+                `[GET - Enrollment] > ${response.status} - ${response.statusText}`,
+              ),
+            );
           }
           throw new HttpError(response.status, response.statusText);
         });
       },
       isEnrolled: async (enrollment: Maybe<Nullable<UnknownEnrollment>>) => {
-        return new Promise((resolve) => resolve(!!(enrollment as OpenEdXEnrollment)?.is_active));
+        return new Promise((resolve) =>
+          resolve(!!(enrollment as OpenEdXEnrollment)?.is_active),
+        );
       },
       set: async (url: string, user: User): Promise<boolean> => {
         const courseId = extractCourseIdFromUrl(url);
@@ -97,14 +116,14 @@ const API = (APIConf: AuthenticationBackend | LMSBackend, options?: APIOptions):
             edx_csrf_token cookie is set through a SET_COOKIE header send from a previous request
             e.g: To be able to enroll user, you have to get the enrollment before
           */
-        const csrfToken = Cookies.get(EDX_CSRF_TOKEN_COOKIE_NAME) || '';
+        const csrfToken = Cookies.get(EDX_CSRF_TOKEN_COOKIE_NAME) || "";
 
         const isEnrolled = await fetch(ROUTES.enrollment.set, {
-          method: 'POST',
-          credentials: 'include',
+          method: "POST",
+          credentials: "include",
           headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFTOKEN': csrfToken,
+            "Content-Type": "application/json",
+            "X-CSRFTOKEN": csrfToken,
           },
           body: JSON.stringify({
             user: user.username,
@@ -119,14 +138,22 @@ const API = (APIConf: AuthenticationBackend | LMSBackend, options?: APIOptions):
               response.status === HttpStatusCode.BAD_REQUEST ||
               response.status === HttpStatusCode.FORBIDDEN
             ) {
-              if (response.headers.get('Content-Type') === 'application/json') {
+              if (response.headers.get("Content-Type") === "application/json") {
                 const { localizedMessage } = await response.json();
-                throw new HttpError(response.status, response.statusText, localizedMessage);
+                throw new HttpError(
+                  response.status,
+                  response.statusText,
+                  localizedMessage,
+                );
               }
             }
             if (response.status >= HttpStatusCode.INTERNAL_SERVER_ERROR) {
               // Send server errors to sentry
-              handle(new Error(`[SET - Enrollment] > ${response.status} - ${response.statusText}`));
+              handle(
+                new Error(
+                  `[SET - Enrollment] > ${response.status} - ${response.statusText}`,
+                ),
+              );
             }
             throw new HttpError(response.status, response.statusText);
           })
