@@ -23,6 +23,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+- 🐛(frontend) backport improve error handling for enrollment
 - 📌(deps) pin front dependencies
 - 🐛(ap) fix course page rendering
 - 💄(ap) fix social network logo
