@@ -10,7 +10,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- 💥(ap) upgrade ap site with Richie v3.3.1
+- 💥(ap) upgrade ap site with Richie v3.4.0
   Upgrade the ap site with the coockiecutter
   latest upstream version. All the packages
   including richie version.
