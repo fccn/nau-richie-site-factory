@@ -52,7 +52,6 @@ jobs:
             - restore_cache:
                 keys:
                     - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-                    - v1-front-dependencies-<< parameters.site >>-
             - run:
                 command: yarn install --frozen-lockfile
                 name: Install frontend dependencies (with locked dependencies)
@@ -255,7 +254,6 @@ jobs:
             - restore_cache:
                 keys:
                     - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-                    - v1-front-dependencies-<< parameters.site >>-
             - run:
                 command: yarn lint
                 name: Lint frontend code with prettier & eslint

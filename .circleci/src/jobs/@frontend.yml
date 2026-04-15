@@ -13,7 +13,6 @@ build-front-production:
     - restore_cache:
         keys:
           - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-          - v1-front-dependencies-<< parameters.site >>-
     - run:
         name: Install frontend dependencies (with locked dependencies)
         command: yarn install --frozen-lockfile
@@ -41,7 +40,6 @@ lint-front:
     - restore_cache:
         keys:
           - v1-front-dependencies-<< parameters.site >>-{{ checksum "yarn.lock" }}
-          - v1-front-dependencies-<< parameters.site >>-
     - run:
         name: Lint frontend code with prettier & eslint
         command: yarn lint
