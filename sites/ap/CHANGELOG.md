@@ -23,6 +23,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+- 📌(deps) pin lru-cache to v6.0.0 for Babel compatibility
 - 🐛(ap) fix course page rendering
 - 💄(ap) fix social network logo
   Replace the image that is shown by default when sharing
