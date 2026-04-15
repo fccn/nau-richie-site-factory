@@ -33,7 +33,7 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-- 📌(deps) pin lru-cache to v6.0.0 for Babel compatibility
+- 📌(deps) pin front dependencies
   Add yarn resolution to force lru-cache to version 6.0.0 to fix
   Babel build errors in CircleCI caused by incompatible lru-cache v7+ API.
 - 🐛(nau) fix footer logos vertical separation styles
