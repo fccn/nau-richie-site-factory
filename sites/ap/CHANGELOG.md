@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-05-15
+
 ### Changed
 
 - 💥(ap) upgrade ap site with Richie v3.4.0
