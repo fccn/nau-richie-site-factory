@@ -12,7 +12,7 @@ COLOR_RESET   = \033[0m
 DOCKER_UID           = $(shell id -u)
 DOCKER_GID           = $(shell id -g)
 NGINX_IMAGE_NAME     = nginx
-NGINX_IMAGE_TAG      = 1.29.6
+NGINX_IMAGE_TAG      = 1.31.0
 
 COMPOSE              = \
   NGINX_IMAGE_NAME="$(NGINX_IMAGE_NAME)" \
