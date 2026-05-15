@@ -18,6 +18,11 @@ from sentry_sdk.integrations.logging import ignore_logger
 # pylint: disable=import-error
 from base.utils import merge_dict
 
+# AWS checksum validation configuration (required for boto3 >= 1.28.0)
+# Required to use compatible S3 storage backends like Ceph.
+os.environ["AWS_REQUEST_CHECKSUM_CALCULATION"] = "when_required"
+os.environ["AWS_RESPONSE_CHECKSUM_VALIDATION"] = "when_required"
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join("/", "data")
 

@@ -169,7 +169,7 @@ test-back: .env ## run back-end tests: `make test-back ARGS="--reuse-db"` or a s
 .PHONY: test-back
 
 test-front: ## run front-end tests
-       @$(YARN) test --runInBand
+	@$(YARN) jest --runInBand
 .PHONY: test-front
 
 watch-sass: .env ## watch changes in Sass files
