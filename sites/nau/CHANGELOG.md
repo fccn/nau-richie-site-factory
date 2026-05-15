@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-05-15
+
 ### Changed
 
 - 💥(nau) upgrade nau site to Richie v3.4.0
