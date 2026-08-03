@@ -802,6 +802,139 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
             if value.get("enabled", True) is not False
         }
 
+    RICHIE_FILTERS_CONFIGURATION = {
+        "new": {
+            "class": "richie.apps.search.filter_definitions.StaticChoicesFilterDefinition",
+            "params": {
+                "fragment_map": {"new": [{"term": {"is_new": True}}]},
+                "human_name": _("New courses"),
+                "min_doc_count": 0,
+                "sorting": "conf",
+                "values": {"new": _("First session")},
+            },
+        },
+        "course_runs": {
+            "class": "richie.apps.search.filter_definitions.NestingWrapper",
+            "params": {
+                "filters": {
+                    "availability": {
+                        "class": "richie.apps.search.filter_definitions.AvailabilityFilterDefinition",
+                        "params": {
+                            "human_name": _("Availability"),
+                            "is_drilldown": True,
+                            "min_doc_count": 0,
+                            "sorting": "conf",
+                        },
+                    },
+                    "languages": {
+                        "class": "richie.apps.search.filter_definitions.LanguagesFilterDefinition",
+                        "params": {
+                            "human_name": _("Languages"),
+                            "min_doc_count": 1,
+                        },
+                    },
+                }
+            },
+        },
+        "payment": {
+            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
+            "params": {
+                "human_name": _("Payment"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+                "reverse_id": "payment",
+                "term": "payment",
+            },
+        },
+        "subjects": {
+            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
+            "params": {
+                "human_name": _("Subjects"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+                "reverse_id": "subjects",
+                "term": "categories",
+            },
+        },
+        "levels": {
+            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
+            "params": {
+                "human_name": _("Levels"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+                "reverse_id": "levels",
+                "term": "categories",
+            },
+        },
+        "organizations": {
+            "class": "richie.apps.search.filter_definitions.IndexableHierarchicalFilterDefinition",
+            "params": {
+                "human_name": _("Organizations"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+                "reverse_id": "organizations",
+            },
+        },
+        "persons": {
+            "class": "richie.apps.search.filter_definitions.IndexableFilterDefinition",
+            "params": {
+                "human_name": _("Persons"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+                "reverse_id": "persons",
+            },
+        },
+        "licences": {
+            "class": "richie.apps.search.filter_definitions.IndexableFilterDefinition",
+            "params": {
+                "human_name": _("Licences"),
+                "is_autocompletable": True,
+                "is_searchable": True,
+                "min_doc_count": 0,
+            },
+        },
+        "pace": {
+            "class": "richie.apps.search.filter_definitions.StaticChoicesFilterDefinition",
+            "params": {
+                "fragment_map": {
+                    "self-paced": [
+                        {"bool": {"must_not": {"exists": {"field": "pace"}}}}
+                    ],
+                    "lt-1h": [{"range": {"pace": {"lt": 60}}}],
+                    "1h-2h": [{"range": {"pace": {"gte": 60, "lte": 120}}}],
+                    "gt-2h": [{"range": {"pace": {"gt": 120}}}],
+                },
+                "human_name": _("Weekly pace"),
+                "min_doc_count": 0,
+                "sorting": "conf",
+                "values": {
+                    "self-paced": _("Self-paced"),
+                    "lt-1h": _("Less than one hour"),
+                    "1h-2h": _("One to two hours"),
+                    "gt-2h": _("More than two hours"),
+                },
+            },
+        },
+    }
+
+    RICHIE_FILTERS_PRESENTATION = [
+        "new",
+        "availability",
+        "payment",
+        "subjects",
+        "levels",
+        "organizations",
+        "languages",
+        "persons",
+        "licences",
+        "pace",
+    ]
+
 
 class Development(Base):
     """
