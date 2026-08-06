@@ -8,6 +8,10 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- ✨(filters) add filter to retrieve courses based on payments
+
 ## [2.2.0] - 2026-05-15
 
 ### Changed
