@@ -8,6 +8,38 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛(nau) cache sitemap.xml response to avoid crawler timeouts
+  The sitemap.xml endpoint was rebuilt from the database on every request,
+  which was slow enough to make search engine crawlers time out. Wrap the
+  view with Django's cache_page (configurable via SITEMAP_CACHE_TIMEOUT,
+  defaults to 24h) so it is served instantly after the first request.
+- 🐛(nau) serve https:// URLs in sitemap.xml and robots.txt behind the proxy
+  The app sits behind a reverse proxy that terminates TLS and forwards plain
+  HTTP, so request.is_secure() always evaluated to False. Configure
+  SECURE_PROXY_SSL_HEADER so the sitemap's <loc> entries and the robots.txt
+  "Sitemap:" line correctly advertise https:// instead of http://.
+- 🐛(nau) disallow crawling of parameterized URLs in robots.txt
+  Query-string URLs (pagination on detail pages, client-side search filters,
+  tracking params...) are not unique indexable content; all real content
+  already lives at clean, path-based URLs covered by the sitemap. Add
+  `Disallow: *?*` to reduce crawl budget waste and duplicate content
+  discovery.
+- 🐛(nau) add self-referencing canonical tag to every indexable page
+  Pages had no canonical tag, risking duplicate-content signals across
+  paginated, filtered and query-string URL variants. Add a self-referencing
+  `<link rel="canonical">` (built from the same https-aware SITE.web_url used
+  by the sitemap/robots.txt fixes) pointing to the clean, absolute URL of the
+  current page, with query strings excluded so pagination/search-filter
+  variants consolidate onto the canonical page.
+- 🐛(nau) use region-qualified "pt-PT" hreflang value for Portuguese pages
+  Override richie's hreflang.html to emit `hreflang="pt-PT"` instead of the
+  bare "pt" for the Portuguese alternate-language link, matching the format
+  requested for search engines. Only the hreflang attribute value changes -
+  the URL itself still uses the existing "/pt/..." prefix, so no links break.
+  "en" is left unqualified as no region-specific requirement was given for it.
+
 ## [2.2.0] - 2026-05-15
 
 ### Changed
