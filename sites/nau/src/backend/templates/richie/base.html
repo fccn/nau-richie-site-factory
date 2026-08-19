@@ -13,6 +13,16 @@
 <meta name="theme-color" content="#ffffff">
 {% endblock meta_favicons %}
 
+{% block meta_hreflang %}
+{{ block.super }}
+{% if current_page %}
+{# Self-referencing canonical URL. Query strings (pagination, search filters) are #}
+{# intentionally excluded so paginated/filtered variants of a page canonicalize to #}
+{# the clean page-1 URL, per the platform's canonical URL strategy. #}
+<link rel="canonical" href="{{ SITE.web_url }}{{ current_page.get_absolute_url }}" />
+{% endif %}
+{% endblock meta_hreflang %}
+
 {% block meta_rdfa_context %}
 <meta property="og:type" content="website" />
 <meta property="og:image" content="{% static_absolute "richie/images/og_media_geral_fb_22a.png" %}" />

@@ -674,6 +674,13 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
     CMS_CACHE_DURATIONS = values.DictValue(
         {"menus": 3600, "content": 86400, "permissions": 86400}
     )
+
+    # Cache duration (in seconds) for the dynamically generated sitemap.xml view.
+    # Without caching, the sitemap is rebuilt from the database on every request,
+    # which is slow enough to make search engine crawlers time out. Defaults to 24h.
+    SITEMAP_CACHE_TIMEOUT = values.IntegerValue(
+        86400, environ_name="SITEMAP_CACHE_TIMEOUT", environ_prefix=None
+    )
     MAX_BROWSER_CACHE_TTL = 600
 
     # Sessions
@@ -805,6 +812,12 @@ class Production(Base):
     # Security
     SECRET_KEY = values.SecretValue()
     CSRF_COOKIE_SECURE = True
+    # The app sits behind an nginx-ingress (or similar reverse proxy) that terminates
+    # TLS and forwards requests over plain HTTP. Without this, request.is_secure()
+    # (and request.scheme) always evaluate to False/"http", which made the sitemap's
+    # <loc> entries and the robots.txt "Sitemap:" line advertise http:// URLs even
+    # though the site is only ever served over https in production.
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True

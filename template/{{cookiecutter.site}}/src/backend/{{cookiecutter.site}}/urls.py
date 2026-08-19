@@ -8,6 +8,7 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path, re_path
+from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
 from django.views.static import serve
 
@@ -30,7 +31,14 @@ admin.autodiscover()
 admin.site.enable_nav_sidebar = False
 
 urlpatterns = [
-    path(r"sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
+    # Cache the sitemap for 24h so crawlers get an immediate response instead of
+    # triggering a full dynamic sitemap generation (and its DB queries) on every
+    # request, which was causing crawler timeouts.
+    path(
+        r"sitemap.xml",
+        cache_page(settings.SITEMAP_CACHE_TIMEOUT)(sitemap),
+        {"sitemaps": {"cmspages": CMSSitemap}},
+    ),
     re_path(
         rf"api/{API_PREFIX:s}/",
         include([*courses_urlpatterns, *search_urlpatterns, *plugins_urlpatterns]),

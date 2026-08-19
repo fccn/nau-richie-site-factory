@@ -1,0 +1,14 @@
+{% load i18n menu_tags cms_tags %}
+{# Overrides richie's own hreflang.html to region-qualify the Portuguese hreflang #}
+{# value as "pt-PT" per fccn/nau-technical#994, without touching the URL itself #}
+{# (page_language_url still resolves the "pt" language/URL prefix as before - #}
+{# only the hreflang attribute value changes). "en" is intentionally left as-is. #}
+{% if languages|length > 1 %}
+    {% for code, name in languages %}
+        {% if code == "pt" %}
+        <link rel="alternate" href="{{ SITE.web_url }}{% page_language_url code %}" hreflang="pt-PT" />
+        {% else %}
+        <link rel="alternate" href="{{ SITE.web_url }}{% page_language_url code %}" hreflang="{{ code }}" />
+        {% endif %}
+    {% endfor %}
+{% endif %}
