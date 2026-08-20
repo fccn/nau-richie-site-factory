@@ -2,6 +2,7 @@
 Test suite for the cached sitemap.xml view.
 """
 
+import re
 from unittest import mock
 
 from django.conf import settings
@@ -75,3 +76,24 @@ class SitemapCacheTestCase(TestCase):
 
         self.assertContains(response, "<loc>https://")
         self.assertNotContains(response, "<loc>http://")
+
+    def test_sitemap_never_relies_on_query_string_urls(self):
+        """
+        robots.txt's "Disallow: *?*" rule (fccn/nau-technical#991) blocks crawling
+        of any query-string URL (pagination, search filters, UTM params). This is
+        only safe because every indexable page already has a clean, path-based URL
+        the sitemap can point crawlers to: no page in this site is reachable *only*
+        via a query-string URL. If that ever stopped being true, the sitemap itself
+        would be the first place it broke - a <loc> entry containing "?" would mean
+        real content is being both advertised for indexing and disallowed from
+        crawling at the same time.
+        """
+        response = self.client.get("/sitemap.xml")
+
+        for loc in re.findall(rb"<loc>([^<]+)</loc>", response.content):
+            self.assertNotIn(
+                b"?",
+                loc,
+                f"Sitemap entry {loc} contains a query string, which would make "
+                "it unreachable under robots.txt's Disallow: *?* rule",
+            )
