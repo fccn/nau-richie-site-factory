@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-08-20
+
 ### Fixed
 
 - 🐛(ap) cache sitemap.xml response to avoid crawler timeouts
