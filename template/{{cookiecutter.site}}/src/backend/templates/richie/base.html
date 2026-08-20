@@ -1,6 +1,6 @@
 {% extends "richie/base.html" %}
 
-{% block meta_hreflang %}
+{% block meta_html %}
 {{ block.super }}
 {% if current_page %}
 {# Self-referencing canonical URL. Query strings (pagination, search filters) are #}
@@ -8,4 +8,4 @@
 {# the clean page-1 URL, per the platform's canonical URL strategy. #}
 <link rel="canonical" href="{{ SITE.web_url }}{{ current_page.get_absolute_url }}" />
 {% endif %}
-{% endblock meta_hreflang %}
+{% endblock meta_html %}

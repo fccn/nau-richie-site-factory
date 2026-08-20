@@ -3,9 +3,12 @@ Test suite for the self-referencing canonical URL tag.
 """
 
 from django.conf import settings
+from django.contrib.auth.models import AnonymousUser
 from django.test import TestCase
+from django.test.client import RequestFactory
 
 from cms.api import create_page
+from richie.apps.core.views import error
 
 from . import create_published_course_page, get_with_https_proxy_header
 
@@ -73,3 +76,18 @@ class CanonicalUrlTestCase(TestCase):
         response = get_with_https_proxy_header(self.client, page.get_absolute_url())
 
         self.assertContains(response, 'rel="canonical" href="https://')
+
+    def test_no_canonical_tag_on_error_pages(self):
+        """
+        Richie's 404/error handler renders richie/error.html with no current_page
+        in its request/context - there's no single "correct" URL to canonicalize
+        an error response onto, so the guard in base.html's meta_html block must
+        suppress the canonical tag entirely rather than render a broken/empty href.
+        """
+        request = RequestFactory().get("/this-page-does-not-exist/")
+        request.user = AnonymousUser()
+        request.current_page = None
+
+        response = error.error_404_view_handler(request, Exception)
+
+        self.assertNotContains(response, 'rel="canonical"', status_code=404)
