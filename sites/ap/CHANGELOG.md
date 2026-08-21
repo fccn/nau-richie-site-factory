@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.5.2] - 2026-08-21
+
 ### Fixed
 
 - 📌(ap) pin Django and djangocms-link versions
