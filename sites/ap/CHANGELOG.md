@@ -8,6 +8,16 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 📌(ap) pin Django and djangocms-link versions
+  richie leaves Django and djangocms-link as unpinned transitive
+  dependencies, so a fresh image build can silently resolve a newer
+  djangocms-link with a breaking DB migration (5.2.0 renamed the
+  Link.target column to link_target). Pin both to the versions
+  currently deployed and already migrated (Django 4.2.30,
+  djangocms-link 5.1.1) to prevent future drift on rebuild.
+
 ## [1.5.1] - 2026-08-20
 
 ### Fixed
