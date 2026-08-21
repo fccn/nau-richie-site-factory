@@ -4,7 +4,9 @@ richie==3.4.0
 # Pin transitive deps of richie that are otherwise left unpinned, so a
 # fresh image build doesn't silently drift to a newer version with a
 # breaking DB migration (djangocms-link 5.2.0 renamed a DB column and
-# caused a dev outage when nau:2.2.1/ap:1.5.1 were rebuilt).
+# caused a dev outage when nau:2.2.1/ap:1.5.1 were rebuilt). These pins
+# are tied to richie==3.4.0 above: revisit them whenever richie is
+# upgraded, rather than assuming they can stay untouched forever.
 Django==4.2.30
 djangocms-link==5.1.1
 unidecode==1.3.6 # required by django-check-seo
