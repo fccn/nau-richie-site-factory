@@ -8,6 +8,18 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 📌(ap) pin django-formtools version
+  richie leaves django-formtools as an unpinned transitive dependency, so
+  a fresh image build can silently resolve a newer version with a breaking
+  regression (django-formtools 2.6.1 changed get_form_list() caching
+  behaviour, breaking the CMS wizard used to create blog posts and other
+  pages with TypeError: BaseForm.__init__() got an unexpected keyword
+  argument 'wizard_user'). Pin to the version already fixed upstream by
+  richie (django-formtools<2.6, see openfun/richie#9a84bc4) to prevent
+  future drift on rebuild.
+
 ## [1.5.2] - 2026-08-21
 
 ### Fixed
