@@ -28,10 +28,18 @@ class RobotsTxtTestCase(TestCase):
         via crawling+following the canonical tag as intended. The canonical tag
         alone already fully handles duplicate-content consolidation for these
         URLs, so no robots.txt block is needed on top of it.
+
+        Pin down the exact expected structure (rather than a bare "no Disallow"
+        check) so this test fails loudly - for the right reason - if a future,
+        unrelated Disallow rule (e.g. blocking an admin path) is ever added,
+        instead of silently accepting scope creep either way.
         """
         response = self.client.get("/robots.txt")
+        lines = response.content.decode().strip().splitlines()
 
-        self.assertNotContains(response, "Disallow")
+        self.assertEqual(lines[0], "User-Agent: *")
+        self.assertTrue(lines[1].startswith("Sitemap: "))
+        self.assertEqual(len(lines), 2, f"Unexpected robots.txt content: {lines!r}")
 
     def test_robots_txt_sitemap_reference_uses_https_behind_proxy(self):
         """
