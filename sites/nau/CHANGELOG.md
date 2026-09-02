@@ -19,7 +19,17 @@ Versioning](https://semver.org/spec/v2.0.0.html).
   argument 'wizard_user'). Pin to the version already fixed upstream by
   richie (django-formtools<2.6, see openfun/richie#9a84bc4) to prevent
   future drift on rebuild.
-
+- 🐛(nau) stop disallowing crawling of parameterized URLs in robots.txt
+  The `Disallow: *?*` rule added for fccn/nau-technical#991 conflicted with
+  the self-referencing canonical tag strategy added for
+  fccn/nau-technical#993: Google explicitly recommends against using
+  robots.txt for canonicalization, since a page can still get indexed (e.g.
+  via an external link, such as a social media post linking a paginated
+  URL) without ever being crawled to read its canonical tag - which
+  prevents consolidating that page's link signals onto the clean URL,
+  instead of achieving that consolidation as intended. The canonical tag
+  alone already fully handles duplicate-content consolidation for these
+  URLs, so revert the robots.txt rule and rely on canonical only.
 
 ## [2.2.2] - 2026-08-21
 

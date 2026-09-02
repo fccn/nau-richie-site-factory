@@ -79,14 +79,13 @@ class SitemapCacheTestCase(TestCase):
 
     def test_sitemap_never_relies_on_query_string_urls(self):
         """
-        robots.txt's "Disallow: *?*" rule (fccn/nau-technical#991) blocks crawling
-        of any query-string URL (pagination, search filters, UTM params). This is
-        only safe because every indexable page already has a clean, path-based URL
-        the sitemap can point crawlers to: no page in this site is reachable *only*
-        via a query-string URL. If that ever stopped being true, the sitemap itself
-        would be the first place it broke - a <loc> entry containing "?" would mean
-        real content is being both advertised for indexing and disallowed from
-        crawling at the same time.
+        Query-string URLs (pagination, search filters, UTM params) are not unique
+        indexable content - every indexable page already has a clean, path-based
+        URL the sitemap can point crawlers to. Listing a query-string URL in the
+        sitemap would advertise a non-canonical variant for indexing instead of
+        the clean URL the self-referencing canonical tag (fccn/nau-technical#993)
+        points to for that same content, working against the canonical strategy
+        rather than reinforcing it.
         """
         response = self.client.get("/sitemap.xml")
 
@@ -94,6 +93,7 @@ class SitemapCacheTestCase(TestCase):
             self.assertNotIn(
                 b"?",
                 loc,
-                f"Sitemap entry {loc} contains a query string, which would make "
-                "it unreachable under robots.txt's Disallow: *?* rule",
+                f"Sitemap entry {loc} contains a query string, which is a "
+                "non-canonical URL variant that should not be advertised for "
+                "indexing",
             )
