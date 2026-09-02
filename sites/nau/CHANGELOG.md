@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.2.3] - 2026-09-02
+
 ### Fixed
 
 - 📌(nau) pin django-formtools version
