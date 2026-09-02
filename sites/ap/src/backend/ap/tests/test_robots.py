@@ -15,16 +15,23 @@ class RobotsTxtTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response["Content-Type"], "text/plain")
 
-    def test_robots_txt_disallows_parameterized_urls(self):
+    def test_robots_txt_does_not_disallow_parameterized_urls(self):
         """
-        Query-string URLs (pagination on detail pages, client-side search filters,
-        UTM tracking params...) are not unique indexable content on this site - all
-        real content lives at clean, path-based URLs already listed in the sitemap.
-        Crawling them wastes crawl budget and can surface near-duplicate content.
+        A prior version of this file added "Disallow: *?*" to keep crawlers away
+        from query-string URLs (pagination, search filters, UTM params). This was
+        reverted (fccn/nau-technical#991) because it conflicts with the
+        self-referencing canonical tag strategy (fccn/nau-technical#993): Google
+        explicitly recommends against using robots.txt for canonicalization,
+        since a disallowed page can still get indexed (e.g. via an external link)
+        without Google ever crawling it to read its canonical tag, which prevents
+        link-signal consolidation onto the clean URL instead of just achieving it
+        via crawling+following the canonical tag as intended. The canonical tag
+        alone already fully handles duplicate-content consolidation for these
+        URLs, so no robots.txt block is needed on top of it.
         """
         response = self.client.get("/robots.txt")
 
-        self.assertContains(response, "Disallow: *?*")
+        self.assertNotContains(response, "Disallow")
 
     def test_robots_txt_sitemap_reference_uses_https_behind_proxy(self):
         """
