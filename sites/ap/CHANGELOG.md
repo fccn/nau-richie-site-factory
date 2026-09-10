@@ -8,6 +8,19 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- ⬆️(ap) upgrade richie to v3.5.1
+- ⬆️(ap) align webpack with richie 3.5.1 (5.109.2) to avoid a duplicated
+  webpack install breaking the frontend build
+- ♻️(ap) use upstream `JS_NEXT_URL` LMS backend setting (`EDX_JS_NEXT_URL`)
+  to send `next=richie-ap` on login/register instead of overriding the
+  `openedx-hawthorn` frontend API module
+
+### Removed
+
+- 🔥(ap) remove `custom-openedx-hawthorn.ts` frontend override
+
 ## [1.5.3] - 2026-09-02
 
 ### Fixed
