@@ -310,6 +310,13 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 environ_name="EDX_JS_BACKEND",
                 environ_prefix=None,
             ),
+            # Prefix of the `next` query param sent to the LMS on login/register,
+            # so the LMS ingress knows which Richie site to redirect back to.
+            "JS_NEXT_URL": values.Value(
+                "richie",
+                environ_name="EDX_JS_NEXT_URL",
+                environ_prefix=None,
+            ),
             "COURSE_REGEX": values.Value(
                 r"^.*/courses/(?P<course_id>.*)/course/?$",
                 environ_name="EDX_COURSE_REGEX",
