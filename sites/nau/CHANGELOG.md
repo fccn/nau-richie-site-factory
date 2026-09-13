@@ -8,6 +8,15 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- ⬆️(nau) upgrade richie to v3.5.1
+- ⬆️(nau) align webpack with richie 3.5.1 (5.109.2) to avoid a duplicated
+  webpack install breaking the frontend build
+- ✨(nau) add upstream `JS_NEXT_URL` LMS backend setting (`EDX_JS_NEXT_URL`),
+  defaulting to `richie-nau`, to make the login/register redirect multisite
+  aware
+
 ## [2.2.3] - 2026-09-02
 
 ### Fixed
