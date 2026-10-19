@@ -339,7 +339,9 @@ class Base(StyleguideMixin, DRFMixin, RichieCoursesConfigurationMixin, Configura
                 environ_prefix=None,
             ),
             # Course runs synchronization
-            "COURSE_RUN_SYNC_NO_UPDATE_FIELDS": [],
+            # The link only identifies the run: never rewrite it, as the LMS can send
+            # it with a different casing (and MySQL matches case-insensitively).
+            "COURSE_RUN_SYNC_NO_UPDATE_FIELDS": ["resource_link"],
             "DEFAULT_COURSE_RUN_SYNC_MODE": "sync_to_public",
         }
     ]

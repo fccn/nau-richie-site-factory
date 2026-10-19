@@ -8,6 +8,18 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛(nau) never overwrite a course run `resource_link` on sync
+  The Open edX sync builds the resource link from the course key as it
+  received it, whose casing can differ from the canonical one (e.g. a learner
+  enrolling through a link typed `+iBPC+` for the course `+IBPC+`). MySQL
+  matches the link case-insensitively, so the sync updated the existing run
+  and silently reverted any manual correction of the link to the wrong
+  casing. Add `resource_link` to `COURSE_RUN_SYNC_NO_UPDATE_FIELDS` so the
+  link, which is only the key to find the run, is never rewritten.
+  Related to: fccn/nau-technical#1090
+
 ## [2.3.0] - 2026-09-20
 
 ### Changed
