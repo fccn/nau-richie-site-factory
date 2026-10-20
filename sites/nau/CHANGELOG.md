@@ -8,6 +8,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [2.3.1] - 2026-10-20
+
 ### Fixed
 
 - 🐛(nau) never overwrite a course run `resource_link` on sync
